@@ -303,7 +303,7 @@
   <header class="top">
     <div>
       <h1>📓 SJ's Dashboard</h1>
-      <div class="sub">볼트: <code>iCloud/obsidian/SJKim</code> · 기준일 2026-08-15 · 노트 16,277개</div>
+      <div class="sub">볼트: <code>iCloud/obsidian/SJKim</code> · 기준일 2026-08-16 · 노트 16,277개</div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
       <a class="theme-toggle" href="daily_note.html" style="text-decoration:none;">📝 오늘의 Daily Note 작성</a>
@@ -320,8 +320,8 @@
     </div>
     <div class="kpi">
       <div class="label">다음 설교까지</div>
-      <div class="value">내일</div>
-      <div class="delta">8/16 · 2Tim2 창립예배(Inaugural)</div>
+      <div class="value">오늘</div>
+      <div class="delta">2Tim2 창립예배(Inaugural) · 오후 2시 @ CFC</div>
     </div>
     <div class="kpi">
       <div class="label">열린 작업</div>
@@ -330,13 +330,13 @@
     </div>
     <div class="kpi">
       <div class="label">기도 응답</div>
-      <div class="value">2 / 5</div>
-      <div class="delta good">부분응답 1건 · 응답 대기 2건</div>
+      <div class="value">0건</div>
+      <div class="delta">이번 달 응답 없음 · 부분응답 1 · 대기 2건</div>
     </div>
     <div class="kpi">
       <div class="label">USD/KRW</div>
       <div class="value">₩1,411</div>
-      <div class="delta good">▼ 1개월 -5.6%</div>
+      <div class="delta good">▼ 1개월 -4.6%</div>
     </div>
     <div class="kpi">
       <div class="label">Des Moines 오늘 <span id="wxLiveDot" title="실시간(30분 자동 갱신)" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--text-muted);margin-left:3px;"></span></div>
@@ -352,15 +352,15 @@
       <p class="desc">Open-Meteo 실시간 예보 · 페이지를 열어둔 동안 30분마다 자동 갱신돼요</p>
       <div class="card">
         <div class="wx-row" id="wxRow"></div>
-        <div class="footnote" id="wxFootnote">⚠️ 폭풍우 경보(Severe Thunderstorm Watch) 및 홍수 주의보(Flood Watch) 발효 중</div>
+        <div class="footnote" id="wxFootnote">현재 발효 중인 기상특보는 없습니다 (NWS Des Moines 기준) · Mostly Cloudy, 71°F</div>
         <div class="footnote" id="wxUpdated" style="opacity:0.7;">불러오는 중…</div>
       </div>
     </section>
     <section>
       <h2>💱 환율 — USD/KRW (최근 1개월 추이)</h2>
-      <p class="desc">Frankfurter(ECB 기준) 일별 환율, 2026-07-15 ~ 08-14</p>
+      <p class="desc">Frankfurter(ECB 기준) 일별 환율, 2026-07-16 ~ 08-14</p>
       <div class="card">
-        <div class="fx-hero"><span class="num">1,411</span><span class="unit">원 / 1 USD</span><span class="footnote" style="margin:0 0 0 8px;color:var(--good);">▼ 1개월간 -81원 (-5.4%)</span></div>
+        <div class="fx-hero"><span class="num">1,411</span><span class="unit">원 / 1 USD</span><span class="footnote" style="margin:0 0 0 8px;color:var(--good);">▼ 1개월간 -68원 (-4.6%)</span></div>
         <svg id="fxChart" width="100%" height="120" viewBox="0 0 1080 120" preserveAspectRatio="none" style="margin-top:10px;"></svg>
         <div class="footnote">출처: Frankfurter API (ECB 기준 환율) · 실시간 변동은 <a href="https://www.wise.com/us/currency-converter/usd-to-krw-rate" target="_blank">Wise 환율 변환기</a>에서 확인하세요.</div>
       </div>
@@ -381,7 +381,7 @@
     <!-- GOOGLE CALENDAR -->
     <section>
       <h2>📆 구글 일정 트래커</h2>
-      <p class="desc">Google Calendar 연동 · 향후 2주 (8/15 ~ 8/29)</p>
+      <p class="desc">Google Calendar 연동 · 향후 2주 (8/16 ~ 8/29)</p>
       <div class="card">
         <ul class="task-list" id="calList"></ul>
       </div>
@@ -404,6 +404,7 @@
       <p class="desc">100. notes / 130. 기도 노트 폴더 — 응답된 기도는 이번 달(8월) 응답분만 표시</p>
       <div class="card">
         <div id="prayerList"></div>
+        <div class="footnote" style="margin-top:8px;">이번 달(8월) 응답된 기도는 아직 없어요. 가장 최근 응답은 6월(TCRC 후원금, 멤버쉽·크리덴셜 이전)에 있었습니다.</div>
       </div>
     </section>
   </div>
@@ -416,7 +417,7 @@
     <div class="source-grid">
       <div class="source-card">
         <div class="sname">구글 뉴스 코리아 (종합)</div>
-        <ul id="gnewsKrList"></ul>
+        <p style="font-size:12.5px;color:var(--text-secondary);line-height:1.5;">⚠️ 이번 새로고침에서 페이지 내용을 읽어오지 못했어요 (응답이 너무 길어 잘림). 사이트에서 직접 확인해 주세요.</p>
         <a class="more" href="https://news.google.com/home?hl=ko&gl=KR&ceid=KR:ko" target="_blank">사이트에서 보기 →</a>
       </div>
       <div class="source-card">
@@ -512,7 +513,7 @@
   </div>
 
   <div class="footnote" style="text-align:center;margin-top:10px;">
-    이 대시보드는 옵시디언 볼트 및 웹 스냅샷(2026-08-15 기준)으로 만들어졌습니다. 날씨는 실시간(자동 갱신)이고, 그 외 항목은 최신 상태를 보려면 다시 요청해 새로고침해 주세요.
+    이 대시보드는 옵시디언 볼트 및 웹 스냅샷(2026-08-16 기준)으로 만들어졌습니다. 날씨는 실시간(자동 갱신)이고, 그 외 항목은 최신 상태를 보려면 다시 요청해 새로고침해 주세요.
   </div>
 
 </div>
@@ -527,7 +528,7 @@ function toggleTheme(){
 
 // ---------- DATA ----------
 const sermons = [
- {date:"2026-08-16", title:"2Tim2 The Faithful People — 창립예배(Inaugural, 내일 2PM In-person @ CFC)", status:"준비완료", next:true, badge:"내일"},
+ {date:"2026-08-16", title:"2Tim2 The Faithful People — 창립예배(Inaugural, 오늘 오후 2시 In-person @ CFC)", status:"준비완료", next:true, badge:"오늘"},
  {date:"2026-08-23", title:"Eph5 Christian Family (가정 생활)", status:"준비중"},
  {date:"2026-08-30", title:"엡6 자녀 양육하기", status:"미시작"},
  {date:"2026-09-06", title:"교회 생활", status:"미시작"},
@@ -544,31 +545,21 @@ const prayers = [
  {title:"CBB 교회 모델 - Hub & Microchurch", type:"기도 노트", status:"부분응답", date:null},
  {title:"CP 후원금을 해결해 주소서", type:"기도응답", status:"응답 대기", date:null},
  {title:"구원받을 자와 동역자를 보내 주소서", type:"기도 노트", status:"응답 대기", date:null},
- {title:"고난을 이기게 하소서", type:"기도 노트", status:"응답됨", date:"2026-08"},
- {title:"크리덴셜과 멤버쉽 이전을 해결해 주소서", type:"기도응답", status:"응답됨", date:"2026-08"},
 ];
 
 const books = [
- "Professional Spiritual & Pastoral Care","Strengthening the Soul of Your Leadership",
+ "Center Church","Professional Spiritual & Pastoral Care","Strengthening the Soul of Your Leadership",
  "The Lost Art of Listening","Humility","The Rule of Benedict","Calvin",
- "The Worship Sourcebook","Seeking God's Face","No Easy Jesus","Jesus and Nonviolence"
+ "The Worship Sourcebook","Seeking God's Face","No Easy Jesus"
 ];
 
 const wxHourly = [
- ["10AM","73°","뇌우"],["11AM","75°","뇌우"],["12PM","76°","흐림"],["1PM","77°","흐림"],
- ["2PM","79°","흐림"],["3PM","80°","흐림"],["4PM","82°","흐림"],["5PM","82°","흐림"],
-];
-
-const gnewsKr = [
- {t:"빠른 '데드크로스' 맞은 이 대통령…2030 마음 되돌릴 수 있을까", src:"한겨레"},
- {t:"金 굳히기? 鄭 대역전극?…오늘 與수도권 경선서 판가름", src:"동아일보"},
- {t:"김민석 \"트럼프, 백악관 면담 때도 김정은 사진 보여줘…당대표 되면 내년 미·중·일 방문할 것\"", src:"경향신문"},
- {t:"이재명 한국 대통령, 6.25전쟁 종전 위한 당사자 논의 제안", src:"VOA 한국어"},
- {t:"내일 오전까지 전국은 '비요일'…최대 강수량 250㎜", src:"한겨레"},
+ ["10AM","71°","흐림"],["11AM","73°","흐림"],["12PM","76°","구름많음"],["1PM","78°","구름많음"],
+ ["2PM","80°","구름많음"],["3PM","81°","구름많음"],["4PM","81°","흐림"],["5PM","80°","흐림"],
 ];
 
 const fxRates = [
- ["07/15",1492.17],["07/16",1479.45],["07/17",1485.32],
+ ["07/16",1479.45],["07/17",1485.32],
  ["07/20",1481.18],["07/21",1478.40],["07/22",1480.35],["07/23",1472.72],["07/24",1461.00],
  ["07/27",1470.11],["07/28",1459.45],["07/29",1452.35],["07/30",1433.70],["07/31",1443.61],
  ["08/03",1427.05],["08/04",1427.11],["08/05",1423.72],["08/06",1423.57],["08/07",1415.95],
@@ -576,11 +567,11 @@ const fxRates = [
 ];
 
 const daumKr = [
- {t:"\"이란에 묶여버린 트럼프…'누가 감히 나를 막을 거냐'\"", src:"SBS"},
- {t:"트럼프·시진핑·김정은, 11월 회동하나..李, 정전체제 종식추진에 '촉각'", src:"파이낸셜뉴스"},
- {t:"'비거주 1주택자 전세대출 막힌다'더니…'반전' 있었다", src:"한국경제"},
- {t:"30대 직업군인 '연금 믿고 쓰다 보니 모은 돈 4100만원…노후 준비 어쩌죠'", src:"파이낸셜뉴스"},
- {t:"매장 붐빌때 알아봤어야 했는데…햄버거 대신 주식사라는 월가", src:"머니투데이"},
+ {t:"김민석, 서울·경기 신승...8.4%p 격차 전체 1위 수성", src:"YTN"},
+ {t:"경남 최대 125.5㎜ 장대비…가뭄 숨통 속 비 피해 잇따라", src:"연합뉴스"},
+ {t:"가습기살균제 피해자 광화문 농성 연다", src:"뉴스1"},
+ {t:"최태원, 재산분할 9440억 현금+주식 제안했지만…\"노소영 거절\"", src:"뉴스1"},
+ {t:"호남서 밀렸던 친청계, 서울·경기서 1·2·3위 '싹쓸이'", src:"코리아헤럴드"},
 ];
 
 const pbsWorld = [
@@ -594,6 +585,7 @@ const pbsWorld = [
 const kidok = [
  {t:"111총회 선출직 입후보자들 모두 '적격'", l:"https://www.kidok.com/news/articleView.html?idxno=508449"},
  {t:"\"베네수엘라에 그리스도 사랑을\" 총회, 구호금 전달", l:"https://www.kidok.com/news/articleView.html?idxno=508416"},
+ {t:"고동운 장로 모친 윤명식 권사 소천", l:"https://www.kidok.com/news/articleView.html?idxno=508447"},
  {t:"현지인 삶 변화 일으키며 진짜 친구되는 동반자 선교", l:"https://www.kidok.com/news/articleView.html?idxno=508314"},
 ];
 
@@ -605,17 +597,17 @@ const pck = [
 ];
 
 const amen = [
- {t:"\"넘어져도 다시 일어설 힘\"… 목원대 미주 동문 보스턴에 모였다", l:"http://www.usaamen.net/bbs/board.php?bo_table=data&wr_id=15311"},
- {t:"남침례교 침례 1/3은 30대 이상… 뉴욕서 시작된 '4/14 운동'은", l:"http://www.usaamen.net/bbs/board.php?bo_table=data&wr_id=15307"},
- {t:"2026 할렐루야대회 폐막… 세대 간 장막터 넓힌 풍성하고 강력한 메시지", l:"http://www.usaamen.net/bbs/board.php?bo_table=data&wr_id=15298"},
- {t:"'정관 몰래 변경' 논란… 댈러스 초대형 교회, UMC 교단과 법정으로", l:"https://www.usaamen.net/bbs/board.php?bo_table=mag&wr_id=1288"},
+ {t:"\"넘어져도 다시 일어설 힘\"… 목원대 미주 동문 보스턴에 모였다", l:"https://www.usaamen.net/bbs/board.php?bo_table=data&wr_id=15311"},
+ {t:"남침례교 침례 1/3은 30대 이상… 뉴욕서 시작된 '4/14 운동'은", l:"https://www.usaamen.net/bbs/board.php?bo_table=data&wr_id=15307"},
+ {t:"2026 할렐루야대회 폐막… 세대 간 장막터 넓힌 풍성하고 강력한 메시지", l:"https://www.usaamen.net/bbs/board.php?bo_table=data&wr_id=15298"},
+ {t:"\"고인은 좋은 곳에...\" 흔한 위로가 기독교 장례식을 망치는 이유", l:"https://usaamen.net/bbs/board.php?bo_table=mag&wr_id=1294"},
 ];
 
 const ct = [
- {t:"80,000 Migrants Came and Went. Ceuta Pastors Keep Serving.", l:"https://www.christianitytoday.com/"},
- {t:"India Halts Passage of Bill Targeting Christian Nonprofits", l:"https://www.christianitytoday.com/"},
- {t:"Canadian Military Chaplains Can't Mention God in Public", l:"https://www.christianitytoday.com/"},
- {t:"After Aid Cuts, US Announces $2 Billion for Christian Groups", l:"https://www.christianitytoday.com/"},
+ {t:"80,000 Migrants Came and Went. Ceuta Pastors Keep Serving.", l:"https://www.christianitytoday.com/2026/08/ceuta-migrant-spain-morocco-pastor-drug-rehab/"},
+ {t:"Complicated Men and the Search for God", l:"https://www.christianitytoday.com/2026/08/complicated-men-search-for-god-reviews/"},
+ {t:"India Halts Passage of Bill Targeting Christian Nonprofits", l:"https://www.christianitytoday.com/2026/08/india-government-halts-fcra-bill-amendment/"},
+ {t:"Body Surveillance Shames What God Calls Good", l:"https://www.christianitytoday.com/2026/08/body-surveillance-ariana-grande/"},
 ];
 
 const prayer24365 = [
@@ -627,7 +619,6 @@ const prayer24365 = [
 ];
 
 const calEvents = [
- {date:"08/15 (토)", time:"종일", title:"Liberation Day - Gwangbokjeol"},
  {date:"08/16 (일)", time:"오후 2:00–3:00", title:"CBB In-person Worship @ CFC (Crossroads Fellowship)"},
  {date:"08/17 (월)", time:"오후 1:00–3:00", title:"CRC 목회자를 위한 AI 강의 (중급반) — Zoom"},
  {date:"08/17–20", time:"종일", title:"YJ PTO (연차)"},
@@ -698,7 +689,7 @@ function wxRenderStatic(){
     wxRow.appendChild(cell);
   });
   const upd = document.getElementById('wxUpdated');
-  if (upd) upd.textContent = '⚠️ 실시간 데이터를 불러오지 못해 저장된 스냅샷을 보여주고 있어요 (2026-08-15 기준)';
+  if (upd) upd.textContent = '⚠️ 실시간 데이터를 불러오지 못해 저장된 스냅샷을 보여주고 있어요 (2026-08-16 기준)';
   const dot = document.getElementById('wxLiveDot');
   if (dot) dot.style.background = 'var(--warning)';
 }
@@ -791,7 +782,6 @@ function renderList(id, items){
     ul.appendChild(li);
   });
 }
-renderList('gnewsKrList', gnewsKr);
 renderList('daumList', daumKr);
 renderList('pbsList', pbsWorld);
 renderList('kidokList', kidok);
