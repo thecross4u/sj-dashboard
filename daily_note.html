@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SJ's Dashboard</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --surface-1:      #fcfcfb;
+    --page-plane:     #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --grid:           #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --series-1:       #2a78d6; /* blue */
+    --series-2:       #eb6834; /* orange */
+    --series-3:       #1baf7a; /* aqua */
+    --series-4:       #eda100; /* yellow */
+    --series-5:       #e87ba4; /* magenta */
+    --series-6:       #008300; /* green */
+    --series-7:       #4a3aa7; /* violet */
+    --series-8:       #e34948; /* red */
+    --good:           #0ca30c;
+    --warning:        #fab219;
+    --serious:        #ec835a;
+    --critical:       #d03b3b;
+    --success-text:   #006300;
+    --link:           #2a78d6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1:      #1a1a19;
+      --page-plane:     #0d0d0d;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --grid:           #2c2c2a;
+      --baseline:       #383835;
+      --border:         rgba(255,255,255,0.10);
+      --series-1:       #3987e5;
+      --series-2:       #d95926;
+      --series-3:       #199e70;
+      --series-4:       #c98500;
+      --series-5:       #d55181;
+      --series-6:       #008300;
+      --series-7:       #9085e9;
+      --series-8:       #e66767;
+      --good:           #0ca30c;
+      --warning:        #fab219;
+      --serious:        #ec835a;
+      --critical:       #e66767;
+      --success-text:   #0ca30c;
+      --link:           #3987e5;
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --surface-1:      #1a1a19;
+    --page-plane:     #0d0d0d;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --grid:           #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --series-1:       #3987e5;
+    --series-2:       #d95926;
+    --series-3:       #199e70;
+    --series-4:       #c98500;
+    --series-5:       #d55181;
+    --series-6:       #008300;
+    --series-7:       #9085e9;
+    --series-8:       #e66767;
+    --good:           #0ca30c;
+    --warning:        #fab219;
+    --serious:        #ec835a;
+    --critical:       #e66767;
+    --success-text:   #0ca30c;
+    --link:           #3987e5;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; }
+  body {
+    background: var(--page-plane);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--text-primary);
+  }
+  a { color: var(--link); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 20px 80px; }
+
+  header.top {
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap: wrap; gap:10px;
+    margin-bottom: 22px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  header.top h1 { font-size: 22px; margin:0 0 4px; }
+  header.top .sub { color: var(--text-secondary); font-size: 13px; }
+  .theme-toggle {
+    font-size: 12px; color: var(--text-secondary);
+    border: 1px solid var(--border); border-radius: 20px;
+    padding: 6px 12px; cursor: pointer; background: var(--surface-1);
+  }
+
+  /* KPI tiles */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+  @media (max-width: 980px) { .kpi-row { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 600px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } }
+  .kpi {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 14px 12px;
+  }
+  .kpi .label { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; }
+  .kpi .value { font-size: 22px; font-weight: 600; line-height:1.1; }
+  .kpi .delta { font-size: 11px; margin-top: 5px; color: var(--text-secondary); }
+  .kpi .delta.good { color: var(--success-text); }
+  .kpi .delta.warn { color: var(--serious); }
+
+  section { margin-bottom: 34px; }
+  section h2 {
+    font-size: 15px; margin: 0 0 3px;
+    display:flex; align-items:center; gap:8px;
+  }
+  section .desc { font-size: 12px; color: var(--text-secondary); margin: 0 0 14px; }
+
+  .card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+  }
+
+  /* Sermon tracker */
+  .sermon-list { display:flex; flex-direction:column; gap:0; }
+  .sermon-row {
+    display:grid;
+    grid-template-columns: 90px 1fr 100px;
+    gap: 12px;
+    align-items:center;
+    padding: 10px 4px;
+    border-bottom: 1px solid var(--grid);
+    font-size: 13px;
+  }
+  .sermon-row:last-child { border-bottom:none; }
+  .sermon-row.next { background: color-mix(in srgb, var(--series-1) 7%, transparent); border-radius: 8px; }
+  .sermon-date { color: var(--text-secondary); font-variant-numeric: tabular-nums; font-size:12px; }
+  .sermon-title { font-weight: 500; }
+  .sermon-title .badge-inline { font-size:10px; color: var(--series-1); font-weight:600; margin-left:6px;}
+  .status-badge {
+    justify-self: end;
+    font-size: 11px; font-weight: 600;
+    padding: 3px 10px; border-radius: 20px;
+    display:inline-flex; align-items:center; gap:5px;
+    white-space:nowrap;
+  }
+  .status-badge::before { content:""; width:6px; height:6px; border-radius:50%; display:inline-block; }
+  .status-done { color: var(--good); background: color-mix(in srgb, var(--good) 14%, transparent); }
+  .status-done::before { background: var(--good); }
+  .status-prog { color: #8a6400; background: color-mix(in srgb, var(--warning) 22%, transparent); }
+  .status-prog::before { background: var(--warning); }
+  .status-none { color: var(--text-muted); background: color-mix(in srgb, var(--text-muted) 14%, transparent); }
+  .status-none::before { background: var(--text-muted); }
+
+  /* layout grids */
+  .grid-2 { display:grid; grid-template-columns: 1.2fr 1fr; gap: 16px; }
+  @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+  .grid-3 { display:grid; grid-template-columns: 1fr 1fr 1fr; gap:16px; }
+  @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+
+  /* task list */
+  ul.task-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+  ul.task-list li {
+    display:flex; align-items:flex-start; gap:8px;
+    font-size:13px; padding:7px 0; border-bottom: 1px solid var(--grid);
+  }
+  ul.task-list li:last-child { border-bottom:none; }
+  .chk { width:14px;height:14px;border-radius:4px;border:1.5px solid var(--baseline); flex:none; margin-top:1px;}
+  .task-date { color: var(--text-muted); font-size:11px; min-width:44px; font-variant-numeric: tabular-nums;}
+
+  /* prayer list */
+  .prayer-item { padding: 9px 0; border-bottom:1px solid var(--grid); font-size:13px; }
+  .prayer-item:last-child{border-bottom:none;}
+  .prayer-item .ptitle { font-weight:500; margin-bottom:2px; }
+  .prayer-item .pmeta { font-size:11px; color: var(--text-muted); }
+
+  /* bar chart (folder distribution) */
+  .barchart { display:flex; flex-direction:column; gap:10px; }
+  .bar-row { display:grid; grid-template-columns: 120px 1fr 48px; align-items:center; gap:10px; }
+  .bar-label { font-size:12px; color: var(--text-secondary); text-align:right; }
+  .bar-track { background: var(--grid); border-radius:4px; height:14px; position:relative; overflow:hidden;}
+  .bar-fill { height:100%; border-radius:4px 0 0 4px; }
+  .bar-val { font-size:12px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+
+  table.simple { width:100%; border-collapse: collapse; font-size:12px; }
+  table.simple th { text-align:left; color:var(--text-muted); font-weight:500; padding: 4px 8px; border-bottom:1px solid var(--grid); }
+  table.simple td { padding: 6px 8px; border-bottom:1px solid var(--grid); }
+
+  /* news source card */
+  .source-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:14px; }
+  @media (max-width: 900px) { .source-grid { grid-template-columns: 1fr; } }
+  .source-card {
+    background: var(--surface-1); border:1px solid var(--border); border-radius:12px; padding:14px 16px;
+  }
+  .source-card .sname { font-size:12px; font-weight:700; color:var(--text-secondary); margin-bottom:8px; text-transform:uppercase; letter-spacing:.03em;}
+  .source-card ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
+  .source-card li { font-size:12.5px; line-height:1.4; padding-bottom:6px; border-bottom:1px solid var(--grid); }
+  .source-card li:last-child { border-bottom:none; padding-bottom:0; }
+  .source-card .sdate { color: var(--text-muted); font-size:10.5px; margin-left:4px; }
+  .source-card .more { font-size:11px; margin-top:8px; display:inline-block; }
+  .cat-label { font-size:12px; font-weight:600; color:var(--text-muted); margin: 18px 0 8px; }
+  .cat-label:first-child { margin-top:0; }
+
+  /* weather / fx tiles */
+  .wx-row { display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; }
+  .wx-cell { flex:none; width:78px; text-align:center; padding:10px 6px; border-radius:10px; background: var(--page-plane); border:1px solid var(--border); }
+  .wx-cell .t { font-size:11px; color:var(--text-muted); }
+  .wx-cell .v { font-size:16px; font-weight:600; margin:4px 0 2px; }
+  .wx-cell .c { font-size:10.5px; color:var(--text-secondary); }
+  .fx-hero { display:flex; align-items:baseline; gap:10px; }
+  .fx-hero .num { font-size:32px; font-weight:700; }
+  .fx-hero .unit { font-size:13px; color:var(--text-secondary); }
+
+  /* future / connector card */
+  .future-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; }
+  @media (max-width: 900px) { .future-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .future-grid { grid-template-columns: 1fr; } }
+  .future-card {
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    font-size:12px;
+    color: var(--text-secondary);
+  }
+  .future-card .ftitle { font-size:13px; font-weight:600; color: var(--text-primary); margin-bottom:4px; }
+  .future-card .fneed { margin-top:8px; font-size:11px; color: var(--text-muted); }
+
+  .footnote { font-size:11px; color: var(--text-muted); margin-top:6px; }
+
+  /* daily note writer */
+  .dn-toolbar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; }
+  .dn-btn {
+    font-size:12.5px; font-weight:600; cursor:pointer; border-radius:8px; padding:8px 14px;
+    border:1px solid var(--border); background: var(--page-plane); color:var(--text-primary);
+  }
+  .dn-btn.primary { background: var(--series-1); border-color: var(--series-1); color:#fff; }
+  .dn-btn:disabled { opacity:.45; cursor:not-allowed; }
+  .dn-status { font-size:12px; color:var(--text-secondary); display:flex; align-items:center; gap:6px; }
+  .dn-status .dot { width:8px;height:8px;border-radius:50%; background:var(--text-muted); display:inline-block; }
+  .dn-status.ok .dot { background: var(--good); }
+  .dn-grid { display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+  @media (max-width: 900px) { .dn-grid { grid-template-columns: 1fr; } }
+  .dn-field { margin-bottom:16px; }
+  .dn-field label { display:block; font-size:12.5px; font-weight:600; margin-bottom:6px; color:var(--text-primary); }
+  .dn-field .hint { font-size:10.5px; color:var(--text-muted); font-weight:400; margin-left:4px; }
+  .dn-field textarea, .dn-field input[type=text] {
+    width:100%; font: inherit; font-size:13px; padding:9px 10px; border-radius:8px;
+    border:1px solid var(--border); background: var(--page-plane); color:var(--text-primary); resize:vertical;
+  }
+  .dn-field textarea { min-height:56px; }
+  .dn-habits { display:grid; grid-template-columns: 1fr 1fr; gap:8px; }
+  .dn-habit-chk { display:flex; align-items:center; gap:7px; font-size:12.5px; padding:6px 8px; border-radius:7px; background:var(--page-plane); border:1px solid var(--border); cursor:pointer; }
+  .dn-habit-chk input { accent-color: var(--series-1); }
+  .dn-priorities { display:flex; flex-direction:column; gap:6px; }
+  .dn-priority-row { display:flex; align-items:center; gap:8px; }
+  .dn-priority-row input[type=checkbox] { accent-color: var(--series-1); flex-shrink:0; width:15px; height:15px; }
+  .dn-priority-row input[type=text] {
+    flex:1; font: inherit; font-size:13px; padding:8px 10px; border-radius:8px;
+    border:1px solid var(--border); background: var(--page-plane); color:var(--text-primary);
+  }
+  .dn-priority-row input[type=text]:disabled { text-decoration: line-through; opacity:.55; }
+  .dn-result { font-size:12.5px; margin-top:8px; padding:9px 12px; border-radius:8px; display:none; }
+  .dn-result.show { display:block; }
+  .dn-result.success { background: color-mix(in srgb, var(--good) 14%, transparent); color: var(--success-text); }
+  .dn-result.error { background: color-mix(in srgb, var(--critical) 14%, transparent); color: var(--critical); }
+  .dn-note { font-size:11.5px; color:var(--text-muted); line-height:1.5; background:var(--page-plane); border:1px dashed var(--border); border-radius:8px; padding:10px 12px; margin-bottom:16px;}
+</style>
+</head>
+<body>
+<div id="lockScreen" style="position:fixed;inset:0;background:#0d0d0d;color:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;z-index:9999;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;">
+  <div style="font-size:28px;">🔒</div>
+  <div style="font-size:14px;color:#c3c2b7;">SJ's Dashboard — Daily Note</div>
+  <input id="lockInput" type="password" inputmode="numeric" placeholder="암호" style="font-size:16px;padding:10px 14px;border-radius:8px;border:1px solid #383835;background:#1a1a19;color:#fff;text-align:center;width:160px;">
+  <button id="lockBtn" style="font-size:13px;font-weight:600;padding:9px 20px;border-radius:20px;border:none;background:#2a78d6;color:#fff;cursor:pointer;">열기</button>
+  <div id="lockError" style="font-size:12px;color:#e66767;display:none;">암호가 틀렸어요</div>
+</div>
+<div class="viz-root" id="mainContent" style="display:none;">
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <h1>📝 오늘의 Daily Note 작성</h1>
+      <div class="sub"><a href="index.html" onclick="if(window.history.length>1){history.back();return false;}" style="color:var(--link);text-decoration:none;">← 대시보드로 돌아가기</a> · 볼트: <code>iCloud/obsidian/SJKim</code></div>
+    </div>
+    <div class="theme-toggle" onclick="toggleTheme()">🌓 라이트/다크 전환</div>
+  </header>
+
+  <!-- DAILY NOTE WRITER -->
+  <section>
+    <h2>📝 오늘의 Daily Note 작성</h2>
+    <p class="desc">여기에 입력하고 저장하면 옵시디언 볼트의 <code>110. Daily notes</code> 폴더 안 오늘 날짜 노트에 그대로 추가돼요.</p>
+    <div class="card">
+      <div class="dn-note">
+        ⚠️ 이 기능은 <b>크롬(Chrome)·엣지(Edge) 브라우저</b>에서 파일을 직접 열었을 때만 동작해요. 사이드바 미리보기에서는 저장이 안 될 수 있어요 — 안 되면 다운로드한 html 파일을 더블클릭해서 크롬으로 열어주세요. 아래 "폴더 연결"을 처음 한 번만 눌러서 옵시디언 볼트의 <code>100. notes / 110. Daily notes</code> 폴더를 선택해주시면, <b>이 브라우저에 폴더 연결이 기억돼요</b> — 다음에 같은 파일을 다시 열면 자동으로 재연결되거나(대부분), 아니면 버튼 한 번(재확인, 폴더 다시 찾을 필요 없음)만 눌러주면 돼요. 단, 브라우저 방문기록/사이트데이터를 지우면 다시 처음부터 연결해야 해요. 폴더를 연결하면 오늘 날짜 노트에 이미 저장된 내용이 있을 경우 자동으로 불러와서 보여드려요.<br>
+        💾 새로 받은 파일을 저장할 땐 예전 <code>sjkim_dashboard.html</code> / <code>sjkim_daily_note.html</code> 옆에 (1), (2)로 따로 쌓아두지 말고 <b>같은 이름으로 덮어써(교체) 주세요</b> — 그래야 대시보드↔Daily Note 링크가 항상 최신 파일을 열어요.
+      </div>
+      <div class="dn-toolbar">
+        <button class="dn-btn primary" id="dnConnectBtn" onclick="dnConnectFolder()">📁 Daily Notes 폴더 연결</button>
+        <div class="dn-status" id="dnStatus"><span class="dot"></span><span id="dnStatusText">폴더가 연결되지 않았어요</span></div>
+      </div>
+
+      <div class="dn-grid">
+        <div>
+          <div class="dn-field">
+            <label>🎯 오늘의 우선순위 <span class="hint">완료한 항목은 체크하세요</span></label>
+            <div class="dn-priorities" id="dnPriorities"></div>
+          </div>
+          <div class="dn-field">
+            <label>🌅 오늘 아침 묵상</label>
+            <textarea id="dnMorning" placeholder="말씀/묵상 링크 또는 내용"></textarea>
+          </div>
+          <div class="dn-field">
+            <label>✅ 일상 루틴 완료 체크</label>
+            <div class="dn-habits" id="dnHabits"></div>
+          </div>
+          <div class="dn-field">
+            <label>🙏 기도 제목 <span class="hint">한 줄에 하나씩</span></label>
+            <textarea id="dnPrayer" placeholder=""></textarea>
+          </div>
+          <div class="dn-field">
+            <label>🙏 감사 <span class="hint">한 줄에 하나씩</span></label>
+            <textarea id="dnThanks" placeholder=""></textarea>
+          </div>
+          <div class="dn-field">
+            <label>📝 설교 준비 자료 <span class="hint">한 줄에 하나씩</span></label>
+            <textarea id="dnSermonPrep" placeholder=""></textarea>
+          </div>
+        </div>
+        <div>
+          <div class="dn-field">
+            <label>💭 떠오른 생각 <span class="hint">한 줄에 하나씩</span></label>
+            <textarea id="dnThoughts" placeholder=""></textarea>
+          </div>
+          <div class="dn-field">
+            <label>📝 배운 것 <span class="hint">한 줄에 하나씩</span></label>
+            <textarea id="dnLearned" placeholder=""></textarea>
+          </div>
+          <div class="dn-field">
+            <label>📌 내일을 위한 메모 <span class="hint">한 줄에 하나씩</span></label>
+            <textarea id="dnTomorrow" placeholder=""></textarea>
+          </div>
+          <div class="dn-field">
+            <label>📝 New Quote <span class="hint">한 줄에 하나씩</span></label>
+            <textarea id="dnQuote" placeholder=""></textarea>
+          </div>
+          <div class="dn-field">
+            <label>📝 Bible story for Pastoral counseling <span class="hint">한 줄에 하나씩</span></label>
+            <textarea id="dnBibleStory" placeholder=""></textarea>
+          </div>
+        </div>
+      </div>
+
+      <button class="dn-btn primary" id="dnSaveBtn" onclick="dnSaveToDailyNote()" disabled>💾 오늘 Daily Note에 저장</button>
+      <div class="dn-result" id="dnResult"></div>
+    </div>
+  </section>
+
+  <div class="footnote" style="text-align:center;margin-top:10px;">
+    <a href="index.html" onclick="if(window.history.length>1){history.back();return false;}" style="color:var(--link);text-decoration:none;">← 대시보드로 돌아가기</a>
+  </div>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const root = document.documentElement;
+  const cur = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+}
+
+// ============================================================
+// DAILY NOTE WRITER (File System Access API — Chrome/Edge only)
+// ============================================================
+const DN_HABITS = [
+  "🙏 아침 QT 기도", "🙏 Meditation", "📚 Psalm Devotion by Tim Keller",
+  "📚 90 day Healing devotion", "✍️ 글쓰기", "📖 Ministry of Word",
+  "✍️ Church Ministry", "💪 운동하기"
+];
+
+let dnDirHandle = null;
+
+function dnPad(n){ return String(n).padStart(2,'0'); }
+function dnTodayParts(){
+  const d = new Date();
+  return { y: d.getFullYear(), m: dnPad(d.getMonth()+1), day: dnPad(d.getDate()), hh: dnPad(d.getHours()), mm: dnPad(d.getMinutes()) };
+}
+function dnDateStr(offsetDays){
+  const d = new Date();
+  d.setDate(d.getDate() + offsetDays);
+  return `${d.getFullYear()}-${dnPad(d.getMonth()+1)}-${dnPad(d.getDate())}`;
+}
+
+// render habit checkboxes
+(function(){
+  const wrap = document.getElementById('dnHabits');
+  DN_HABITS.forEach((h,i)=>{
+    const label = document.createElement('label');
+    label.className = 'dn-habit-chk';
+    label.innerHTML = `<input type="checkbox" id="dnHabit${i}"><span>${h}</span>`;
+    wrap.appendChild(label);
+  });
+})();
+
+// render today's priority rows — checkbox + text, matching the template's "- [ ]" bullets.
+// 4 rows to match the template's default of four bullets under 오늘의 우선순위.
+const DN_PRIORITY_COUNT = 4;
+(function(){
+  const wrap = document.getElementById('dnPriorities');
+  for (let i=0;i<DN_PRIORITY_COUNT;i++){
+    const row = document.createElement('div');
+    row.className = 'dn-priority-row';
+    row.innerHTML = `<input type="checkbox" id="dnPriorityDone${i}"><input type="text" id="dnPriorityText${i}" placeholder="우선순위 ${i+1}">`;
+    const chk = row.querySelector('input[type=checkbox]');
+    const txt = row.querySelector('input[type=text]');
+    chk.addEventListener('change', () => { txt.disabled = chk.checked; });
+    wrap.appendChild(row);
+  }
+})();
+
+// read the priority rows into [{text, done}], skipping blanks
+function dnPriorityItems(){
+  const items = [];
+  for (let i=0;i<DN_PRIORITY_COUNT;i++){
+    const txt = document.getElementById('dnPriorityText'+i);
+    if (!txt) continue;
+    const text = txt.value.trim();
+    if (!text) continue;
+    const done = document.getElementById('dnPriorityDone'+i).checked;
+    items.push({text, done});
+  }
+  return items;
+}
+
+// ---- persist the folder handle across page loads via IndexedDB ----
+function dnOpenDb(){
+  return new Promise((resolve,reject)=>{
+    const req = indexedDB.open('dn-dashboard-db', 1);
+    req.onupgradeneeded = () => req.result.createObjectStore('handles');
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+async function dnSaveHandle(handle){
+  try {
+    const db = await dnOpenDb();
+    await new Promise((res,rej)=>{
+      const tx = db.transaction('handles','readwrite');
+      tx.objectStore('handles').put(handle, 'dailyNotesDir');
+      tx.oncomplete = res; tx.onerror = rej;
+    });
+  } catch(e) { /* ignore — worst case, re-pick next time */ }
+}
+async function dnLoadHandle(){
+  try {
+    const db = await dnOpenDb();
+    return await new Promise((res,rej)=>{
+      const tx = db.transaction('handles','readonly');
+      const req = tx.objectStore('handles').get('dailyNotesDir');
+      req.onsuccess = () => res(req.result || null);
+      req.onerror = () => res(null);
+    });
+  } catch(e) { return null; }
+}
+
+function dnSetConnected(handle){
+  dnDirHandle = handle;
+  const statusEl = document.getElementById('dnStatus');
+  const statusText = document.getElementById('dnStatusText');
+  statusEl.classList.add('ok');
+  statusText.textContent = `연결됨: "${handle.name}" 폴더 (다음에 열 때도 기억해요)`;
+  document.getElementById('dnConnectBtn').textContent = '📁 다른 폴더로 변경';
+  document.getElementById('dnSaveBtn').disabled = false;
+  dnLoadTodayNote().catch(()=>{});
+}
+
+// ---- pull today's note back into the form, if it already exists ----
+// Without this, reopening the page always shows blank fields even when
+// today's note already has real content saved (from an earlier save this
+// same day, or written directly in Obsidian) — looks like the form
+// "didn't update" even though the vault file is current.
+function dnSectionBody(content, headerRegex){
+  const lines = content.split('\n');
+  let headerIdx = -1;
+  for (let i=0;i<lines.length;i++){
+    if (headerRegex.test(lines[i])) { headerIdx = i; break; }
+  }
+  if (headerIdx === -1) return [];
+  let endIdx = lines.length;
+  for (let i=headerIdx+1;i<lines.length;i++){
+    const l = lines[i];
+    if (/^#{2,4}\s/.test(l) || l.trim() === '---') { endIdx = i; break; }
+  }
+  return lines.slice(headerIdx+1, endIdx);
+}
+
+function dnParsePriorities(content, headerRegex){
+  const body = dnSectionBody(content, headerRegex);
+  const items = [];
+  body.forEach(l=>{
+    const m = /^-\s*\[( |x|X)\]\s*(.*)$/.exec(l.trim());
+    if (m && m[2].trim()) items.push({text: m[2].trim(), done: m[1].toLowerCase()==='x'});
+  });
+  return items;
+}
+
+function dnParseHabitChecks(content){
+  const body = dnSectionBody(content, /일상\s*루틴/);
+  const checked = new Set();
+  DN_HABITS.forEach(h=>{
+    body.forEach(l=>{ if (l.includes(h) && /\[x\]/i.test(l)) checked.add(h); });
+  });
+  return checked;
+}
+
+function dnFillTextarea(id, content, headerRegex){
+  const body = dnSectionBody(content, headerRegex);
+  const vals = [];
+  body.forEach(l=>{
+    const t = l.trim();
+    if (t.startsWith('-')) {
+      const v = t.replace(/^-\s*/, '').trim();
+      if (v) vals.push(v);
+    }
+  });
+  const el = document.getElementById(id);
+  if (el && vals.length) el.value = vals.join('\n');
+}
+
+async function dnLoadTodayNote(){
+  if (!dnDirHandle) return;
+  const t = dnTodayParts();
+  const filename = `${t.y}-${t.m}-${t.day}.md`;
+  let content;
+  try {
+    const fileHandle = await dnDirHandle.getFileHandle(filename);
+    const file = await fileHandle.getFile();
+    content = await file.text();
+  } catch(e) {
+    return; // no file yet for today — leave the form blank, ready for a fresh note
+  }
+
+  const priItems = dnParsePriorities(content, /우선순위/);
+  priItems.forEach((it,i)=>{
+    if (i>=DN_PRIORITY_COUNT) return;
+    const txt = document.getElementById('dnPriorityText'+i);
+    const chk = document.getElementById('dnPriorityDone'+i);
+    if (!txt || !chk) return;
+    txt.value = it.text;
+    chk.checked = it.done;
+    txt.disabled = it.done;
+  });
+
+  const checkedHabits = dnParseHabitChecks(content);
+  DN_HABITS.forEach((h,i)=>{
+    const el = document.getElementById('dnHabit'+i);
+    if (el) el.checked = checkedHabits.has(h);
+  });
+
+  dnFillTextarea('dnMorning', content, /오늘\s*아침\s*묵상/);
+  dnFillTextarea('dnPrayer', content, /🙏\s*기도\s*제목/);
+  dnFillTextarea('dnThanks', content, /🙏\s*감사/);
+  dnFillTextarea('dnSermonPrep', content, /설교\s*준비/);
+  dnFillTextarea('dnThoughts', content, /떠오른\s*생각/);
+  dnFillTextarea('dnLearned', content, /배운\s*것/);
+  dnFillTextarea('dnTomorrow', content, /내일을\s*위한\s*메모/);
+  dnFillTextarea('dnQuote', content, /New\s*Quote/);
+  dnFillTextarea('dnBibleStory', content, /Bible\s*story\s*for\s*Pastoral\s*counseling/);
+
+  const resultEl = document.getElementById('dnResult');
+  resultEl.className = 'dn-result show success';
+  resultEl.textContent = `📄 오늘(${filename})에 이미 저장된 내용을 불러왔어요 — 이어서 작성하고 저장하면 합쳐져요.`;
+}
+
+// on page load: try to silently reuse the previously granted folder
+(async function dnTryAutoReconnect(){
+  if (!window.indexedDB || !window.showDirectoryPicker) return;
+  const handle = await dnLoadHandle();
+  if (!handle) return;
+  try {
+    const perm = await handle.queryPermission({ mode: 'readwrite' });
+    if (perm === 'granted') {
+      dnSetConnected(handle);
+    } else {
+      // permission needs a click to re-confirm, but no folder browsing needed
+      const statusText = document.getElementById('dnStatusText');
+      statusText.textContent = `이전에 연결한 "${handle.name}" 폴더 — 버튼을 눌러 권한만 재확인하면 돼요`;
+      document.getElementById('dnConnectBtn').textContent = '🔓 권한 재확인 (같은 폴더)';
+      document.getElementById('dnConnectBtn').onclick = async () => {
+        try {
+          const p2 = await handle.requestPermission({ mode: 'readwrite' });
+          if (p2 === 'granted') { dnSetConnected(handle); document.getElementById('dnConnectBtn').onclick = null; document.getElementById('dnConnectBtn').setAttribute('onclick','dnConnectFolder()'); }
+        } catch(e) {}
+      };
+    }
+  } catch(e) { /* stored handle no longer valid — user will need to reconnect once */ }
+})();
+
+async function dnConnectFolder(){
+  const statusEl = document.getElementById('dnStatus');
+  const statusText = document.getElementById('dnStatusText');
+  if (!window.showDirectoryPicker) {
+    statusText.textContent = '이 브라우저는 폴더 연결을 지원하지 않아요 (크롬/엣지에서 열어주세요)';
+    return;
+  }
+  try {
+    const handle = await window.showDirectoryPicker({ id: 'obsidianDailyNotes', mode: 'readwrite' });
+    await dnSaveHandle(handle);
+    dnSetConnected(handle);
+  } catch(e) {
+    statusText.textContent = '연결이 취소됐어요';
+  }
+}
+
+function dnLines(id){
+  return document.getElementById(id).value.split('\n').map(s=>s.trim()).filter(Boolean);
+}
+
+// insert `newLines` into the section that starts at `headerRegex`.
+// Section ends at the next line that is a heading (##/####) or a line that is exactly '---'.
+// Empty template bullets ("- " or "- [ ] ") are filled first; leftover new lines are appended before the boundary.
+function dnInsertIntoSection(content, headerRegex, newLines, bulletPrefix){
+  if (!newLines.length) return content;
+  const lines = content.split('\n');
+  let headerIdx = -1;
+  for (let i=0;i<lines.length;i++){
+    if (headerRegex.test(lines[i])) { headerIdx = i; break; }
+  }
+  if (headerIdx === -1) return content; // header not found — leave content untouched
+
+  // find section end
+  let endIdx = lines.length;
+  for (let i=headerIdx+1;i<lines.length;i++){
+    const l = lines[i];
+    if (/^#{2,4}\s/.test(l) || l.trim() === '---') { endIdx = i; break; }
+  }
+
+  // find empty bullet slots within [headerIdx+1, endIdx)
+  const emptyBulletRe = bulletPrefix === '- [ ] ' ? /^-\s\[\s\]\s*$/ : /^-\s*$/;
+  let queue = newLines.slice();
+  const out = [];
+  for (let i=headerIdx+1;i<endIdx;i++){
+    if (queue.length && emptyBulletRe.test(lines[i])) {
+      out.push(bulletPrefix + queue.shift());
+    } else {
+      out.push(lines[i]);
+    }
+  }
+  // any leftover lines get appended right before the boundary
+  queue.forEach(t => out.push(bulletPrefix + t));
+
+  return [...lines.slice(0, headerIdx+1), ...out, ...lines.slice(endIdx)].join('\n');
+}
+
+// like dnInsertIntoSection, but each item carries its own [ ]/[x] state instead of a shared bulletPrefix —
+// used for 오늘의 우선순위, where the user checks off items that are already done.
+function dnInsertPrioritiesSection(content, headerRegex, items){
+  if (!items.length) return content;
+  const lines = content.split('\n');
+  let headerIdx = -1;
+  for (let i=0;i<lines.length;i++){
+    if (headerRegex.test(lines[i])) { headerIdx = i; break; }
+  }
+  if (headerIdx === -1) return content;
+
+  let endIdx = lines.length;
+  for (let i=headerIdx+1;i<lines.length;i++){
+    const l = lines[i];
+    if (/^#{2,4}\s/.test(l) || l.trim() === '---') { endIdx = i; break; }
+  }
+
+  const emptyBulletRe = /^-\s\[\s?\]\s*$/;
+  let queue = items.slice();
+  const out = [];
+  for (let i=headerIdx+1;i<endIdx;i++){
+    if (queue.length && emptyBulletRe.test(lines[i])) {
+      const it = queue.shift();
+      out.push(`- [${it.done ? 'x' : ' '}] ${it.text}`);
+    } else {
+      out.push(lines[i]);
+    }
+  }
+  queue.forEach(it => out.push(`- [${it.done ? 'x' : ' '}] ${it.text}`));
+
+  return [...lines.slice(0, headerIdx+1), ...out, ...lines.slice(endIdx)].join('\n');
+}
+
+function dnSetHabitChecks(content, checkedSet){
+  const lines = content.split('\n');
+  let inSection = false;
+  for (let i=0;i<lines.length;i++){
+    if (/^##\s.*일상\s*루틴/.test(lines[i])) { inSection = true; continue; }
+    if (inSection && (/^#{2,4}\s/.test(lines[i]) || lines[i].trim() === '---')) { inSection = false; continue; }
+    if (inSection) {
+      DN_HABITS.forEach(h=>{
+        if (lines[i].includes(h)) {
+          lines[i] = checkedSet.has(h) ? lines[i].replace(/\[\s?\]/, '[x]') : lines[i].replace(/\[x\]/, '[ ]');
+        }
+      });
+    }
+  }
+  return lines.join('\n');
+}
+
+function dnBuildTemplate(){
+  const t = dnTodayParts();
+  const today = `${t.y}-${t.m}-${t.day}`;
+  const yesterday = dnDateStr(-1), tomorrow = dnDateStr(1);
+  return `---
+created: ${today} ${t.hh}:${t.mm}
+author:
+outcome:
+tags:
+---
+## 📅 ${today}
+#### [[${yesterday} |⬅️ 어제]] | [[${tomorrow} |내일 ➡️]]
+
+## 🎯 오늘의 우선순위
+
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+---
+#### 🌅 오늘 아침 묵상
+
+-
+---
+-
+---
+
+## ✅ 일상 루틴
+
+- [ ] 🙏 아침 QT 기도
+- [ ] 🙏 Meditation
+- [ ] 📚 Psalm Devotion by Tim Keller
+- [ ] 📚 90 day Healing devotion
+- [ ] ✍️ 글쓰기
+- [ ] 📖 Ministry of Word
+- [ ] ✍️ Church Ministry
+- [ ] 💪 운동하기
+---
+## 💡 메모 & 아이디어
+
+#### 🙏 기도 제목
+
+-
+-
+-
+
+#### 🙏 감사
+
+-
+-
+-
+
+#### 📝 설교 준비 자료
+
+-
+-
+-
+
+#### 💭 떠오른 생각
+
+-
+-
+-
+
+#### 📝 배운 것
+
+-
+-
+-
+
+#### 📌 내일을 위한 메모
+
+-
+-
+-
+
+#### 📝 New Quote
+
+-
+-
+-
+
+#### 📝 Bible story for Pastoral counseling
+
+-
+-
+-
+
+---
+`;
+}
+
+async function dnSaveToDailyNote(){
+  const resultEl = document.getElementById('dnResult');
+  resultEl.className = 'dn-result show';
+  if (!dnDirHandle) {
+    resultEl.classList.add('error');
+    resultEl.textContent = '먼저 "📁 Daily Notes 폴더 연결"을 눌러주세요.';
+    return;
+  }
+  try {
+    const t = dnTodayParts();
+    const filename = `${t.y}-${t.m}-${t.day}.md`;
+
+    let content;
+    let created = false;
+    let fileHandle;
+    try {
+      fileHandle = await dnDirHandle.getFileHandle(filename);
+      const file = await fileHandle.getFile();
+      content = await file.text();
+    } catch(e) {
+      fileHandle = await dnDirHandle.getFileHandle(filename, { create: true });
+      content = dnBuildTemplate();
+      created = true;
+    }
+
+    // priorities (checkbox rows — each carries its own done/not-done state)
+    content = dnInsertPrioritiesSection(content, /우선순위/, dnPriorityItems());
+    // morning devotion
+    content = dnInsertIntoSection(content, /오늘\s*아침\s*묵상/, dnLines('dnMorning'), '- ');
+    // habits
+    const checked = new Set();
+    DN_HABITS.forEach((h,i)=>{ if (document.getElementById('dnHabit'+i).checked) checked.add(h); });
+    content = dnSetHabitChecks(content, checked);
+    // free-text sections
+    content = dnInsertIntoSection(content, /🙏\s*기도\s*제목/, dnLines('dnPrayer'), '- ');
+    content = dnInsertIntoSection(content, /🙏\s*감사/, dnLines('dnThanks'), '- ');
+    content = dnInsertIntoSection(content, /설교\s*준비\s*자료/, dnLines('dnSermonPrep'), '- ');
+    content = dnInsertIntoSection(content, /떠오른\s*생각/, dnLines('dnThoughts'), '- ');
+    content = dnInsertIntoSection(content, /배운\s*것/, dnLines('dnLearned'), '- ');
+    content = dnInsertIntoSection(content, /내일을\s*위한\s*메모/, dnLines('dnTomorrow'), '- ');
+    content = dnInsertIntoSection(content, /New\s*Quote/, dnLines('dnQuote'), '- ');
+    content = dnInsertIntoSection(content, /Bible\s*story\s*for\s*Pastoral\s*counseling/, dnLines('dnBibleStory'), '- ');
+
+    const writable = await fileHandle.createWritable();
+    await writable.write(content);
+    await writable.close();
+
+    resultEl.classList.remove('error');
+    resultEl.classList.add('success');
+    resultEl.textContent = created
+      ? `✅ ${filename} 파일을 새로 만들고 저장했어요.`
+      : `✅ ${filename}에 이어서 저장했어요.`;
+  } catch(e) {
+    resultEl.classList.add('error');
+    resultEl.textContent = '저장 중 오류가 발생했어요: ' + e.message;
+  }
+}
+
+</script>
+<script>
+(function(){
+  const CORRECT = "1108";
+  const lock = document.getElementById('lockScreen');
+  const main = document.getElementById('mainContent');
+  const input = document.getElementById('lockInput');
+  const btn = document.getElementById('lockBtn');
+  const err = document.getElementById('lockError');
+  function unlock(){
+    lock.style.display = 'none';
+    main.style.display = '';
+    try { sessionStorage.setItem('sjdash_unlocked','1'); } catch(e){}
+  }
+  function tryUnlock(){
+    if (input.value === CORRECT) {
+      unlock();
+    } else {
+      err.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+  }
+  let already = false;
+  try { already = sessionStorage.getItem('sjdash_unlocked') === '1'; } catch(e){}
+  if (already) { unlock(); }
+  else {
+    btn.addEventListener('click', tryUnlock);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
+    setTimeout(()=>input.focus(), 100);
+  }
+})();
+</script>
+</body>
+</html>
