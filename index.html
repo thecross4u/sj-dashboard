@@ -303,7 +303,7 @@
   <header class="top">
     <div>
       <h1>📓 SJ's Dashboard</h1>
-      <div class="sub">볼트: <code>iCloud/obsidian/SJKim</code> · 기준일 2026-08-16 · 노트 16,277개</div>
+      <div class="sub">볼트: <code>iCloud/obsidian/SJKim</code> · 기준일 2026-08-16 · 노트 16,279개</div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
       <a class="theme-toggle" href="daily_note.html" style="text-decoration:none;">📝 오늘의 Daily Note 작성</a>
@@ -316,7 +316,7 @@
   <div class="kpi-row">
     <div class="kpi">
       <div class="label">전체 노트</div>
-      <div class="value">16,277</div>
+      <div class="value">16,279</div>
       <div class="delta good">▲ 성경 노트 7,959개 (170. 성경)</div>
     </div>
     <div class="kpi">
@@ -550,9 +550,9 @@ const prayers = [
 ];
 
 const books = [
- "Professional Spiritual & Pastoral Care","Strengthening the Soul of Your Leadership",
+ "Center Church","Professional Spiritual & Pastoral Care","Strengthening the Soul of Your Leadership",
  "The Lost Art of Listening","Humility","The Rule of Benedict","Calvin",
- "The Worship Sourcebook","Seeking God's Face","No Easy Jesus","Jesus and Nonviolence"
+ "The Worship Sourcebook","Seeking God's Face","No Easy Jesus"
 ];
 
 const wxHourly = [
@@ -560,13 +560,7 @@ const wxHourly = [
  ["2PM","79°","흐림"],["3PM","80°","흐림"],["4PM","82°","흐림"],["5PM","82°","흐림"],
 ];
 
-const gnewsKr = [
- {t:"김민석, 호남 경선서 과반 득표로 1위 확정", src:"MBC 뉴스"},
- {t:"친일반민족행위자 재산조사위원회, 16년 만에 재가동", src:"연합뉴스TV"},
- {t:"이 대통령, 불법 축재 재산 환수 의지 재천명", src:"한경닷컴"},
- {t:"美 억만장자 에스더 여 유언장 공개 파장", src:"세계일보"},
- {t:"배우 마도식, 82세로 별세", src:"한국일보"},
-];
+const gnewsKr = [];
 
 const fxRates = [
  ["07/13",1494.09],["07/14",1495.49],["07/15",1492.17],["07/16",1479.45],["07/17",1485.32],
@@ -585,20 +579,15 @@ const daumKr = [
 ];
 
 const pbsWorld = [
+ {t:"인도네시아 강진 사망자 53명으로 증가", l:"https://www.pbs.org/newshour/world/rescuers-in-indonesia-recover-more-bodies-in-earthquake-aftermath-raising-death-toll-to-53"},
+ {t:"우크라이나, 러시아 상대로 대규모 공중 공습 감행 — 최소 6명 사망", l:"https://www.pbs.org/newshour/world/ukraine-launches-one-of-its-largest-aerial-attacks-of-the-war-killing-at-least-6-people-in-russia"},
  {t:"케임브리지 최연소 흑인 교수 Jason Arday, 사퇴 후 41세로 사망", l:"https://www.pbs.org/newshour/world/jason-arday-youngest-black-professor-at-cambridge-found-dead-at-41-after-resignation"},
- {t:"美 신형 항공모함, 중동으로 파견 — 링컨함서 문제 발생 보고 이후", l:"https://www.pbs.org/newshour/world/new-aircraft-carrier-en-route-to-middle-east-after-issues-reported-aboard-uss-abraham-lincoln"},
- {t:"유럽, 기록적 폭염 강타", l:"https://www.pbs.org/newshour/show/news-wrap-record-breaking-heat-wave-grips-europe"},
- {t:"서안지구 쿠스라 마을, 정착민의 주택 점거 우려 속 포위 상태", l:"https://www.pbs.org/newshour/world/palestinians-besieged-in-west-bank-village-of-qusra-fear-israeli-settlers-will-seize-their-homes"},
- {t:"로마 티베르강 물 부족 심화 속 '네로의 다리' 옛 유적 드러나", l:"https://www.pbs.org/newshour/world/ancient-neros-bridge-reemerges-from-tiber-river-as-rome-faces-water-crisis"},
+ {t:"탈레반 집권 5년… UN, 인권 위기 경고", l:"https://www.pbs.org/newshour/world/while-taliban-leaders-mark-5-years-in-power-in-afghanistan-a-un-official-warns-of-a-rights-crisis"},
+ {t:"美, 아시아 주둔 마지막 항공모함 중동으로 재배치", l:"https://www.pbs.org/newshour/world/u-s-pulls-last-aircraft-carrier-in-asia-as-trump-focuses-on-iran-and-the-western-hemisphere"},
+ {t:"레바논 남부 이스라엘 공습, 11명 사망", l:"https://www.pbs.org/newshour/world/israeli-airstrikes-on-southern-lebanon-kill-11-people-health-ministry-says"},
 ];
 
-const cnn = [
- {t:"Nancy Guthrie 실종 사건 — 자택서 무장한 복면 인물 포착된 새 CCTV 공개", l:"https://www.cnn.com/"},
- {t:"캐나다 브리티시컬럼비아 총격 — 학교·주택서 최소 9명 사망, 수십명 부상", l:"https://www.cnn.com/"},
- {t:"엡스타인 파일 — 법무부, 이름 추가 비공개 해제…트럼프 행정부와 '광범위한' 연관 보도", l:"https://www.cnn.com/"},
- {t:"트럼프, 디트로이트-윈저 연결 신규 교량(Gordie Howe) 개통 저지 위협", l:"https://www.cnn.com/"},
- {t:"군인들에 '불법 명령 거부' 촉구한 민주당 의원들, 대배심 기소 불발", l:"https://www.cnn.com/"},
-];
+const cnn = [];
 
 const kidok = [
  {t:"111총회 선출직 입후보자들 모두 '적격'", l:"https://www.kidok.com/news/articleView.html?idxno=508449"},
@@ -607,13 +596,15 @@ const kidok = [
 ];
 
 const pck = [
- {t:"제111회 총회 공천안 확정…쟁점 인사는 재조정", l:"https://www.pckworld.com/article.php?aid=11186422891"},
- {t:"과천시, 신천지 종교시설 용도변경 막아냈다", l:"https://www.pckworld.com/article.php?aid=11185187789"},
- {t:"전국교회, 제81주년 광복절 맞아 감사예배", l:"https://www.pckworld.com/article.php?aid=11180541024"},
+ {t:"주님은 바람처럼 날 다시 날게 해", d:"08-17", l:"http://www.pckworld.com/article.php?aid=11176299596"},
+ {t:"전도자 빌립", d:"08-15", l:"http://www.pckworld.com/article.php?aid=11165113223"},
+ {t:"'밥상'으로 꿈꾸는 남북 평화… '제11회 밥 피스메이커 운동'", d:"08-14", l:"http://www.pckworld.com/article.php?aid=11187291214"},
 ];
 
 const kcmusa = [
- {t:"행복한 목회자 5가지"}, {t:"번아웃 (KCMUSA 방송 시리즈)"}, {t:"노년에 필요한 10친구"},
+ {t:"\"주님, 제가 아버지입니다\"… 제1기 북가주 목회자 아버지학교"},
+ {t:"러시아 억류 한국인 박태연 선교사 재판 이번 주 재개"},
+ {t:"광복 81주년 교계 메시지, \"분단·갈등 넘어 화해·평화로\""},
 ];
 
 const amen = [
@@ -623,9 +614,9 @@ const amen = [
 ];
 
 const ct = [
- {t:"Quashing Political Violence Requires We Tame Our Tongues", l:"https://www.christianitytoday.com/"},
- {t:"You Don't Graduate from Discernment", l:"https://www.christianitytoday.com/"},
- {t:"Will the Church Enter the Guys' Group Chat?", l:"https://www.christianitytoday.com/"},
+ {t:"80,000 Migrants Came and Went. Ceuta Pastors Keep Serving", l:"https://www.christianitytoday.com/2026/08/ceuta-migrant-spain-morocco-pastor-drug-rehab/"},
+ {t:"After Aid Cuts, US Announces $2 Billion for Christian Groups", l:"https://www.christianitytoday.com/2026/08/world-vision-usaid-cuts-christian-ngos-trump-hiv/"},
+ {t:"Canadian Military Chaplains Can't Mention God in Public", l:"https://www.christianitytoday.com/2026/08/canada-chaplains-ban-god-religion-military/"},
 ];
 
 const prayer24365 = [
@@ -633,7 +624,7 @@ const prayer24365 = [
  {t:"[긴급기도] 일본 지바현 — 기록적 폭우로 최소 8명 사망, 40만명 대피", l:"https://prayer24365.org"},
  {t:"[긴급기도] 짐바브웨 카리바호 — 여객선 전복, 최소 44명 사망", l:"https://prayer24365.org"},
  {t:"[긴급기도] 캐나다 — 군 공식 행사에서 '하나님' 언급 금지 조치, 신앙계 반발", l:"https://prayer24365.org"},
- {t:"[긴급기도] 북한 — 노동 인력 1만명 중국 입국, 5만명 이상 추가 계약… 인도적 처우 위해 중보", l:"https://prayer24365.org"},
+ {t:"[주간기도] 북한 — 노동자 1만명 중국행, 신규 인력 파견 급물살… 인도적 처우 위해 중보", l:"https://prayer24365.org"},
 ];
 
 const calEvents = [
@@ -649,14 +640,14 @@ const calEvents = [
 ];
 
 const clips = [
+ {date:"08-16", text:"전도자 빌립"},
  {date:"08-15", text:"(3) 미 대형교회의 새 트렌드, 교회를 쪼개고 건물을 나눈다 — 아멘 매거진"},
  {date:"08-15", text:"대형교회보다 동네교회! 미국인들이 신뢰하는 교회의 조건 — 아멘넷 뉴스"},
  {date:"08-15", text:"청년은 떠나도 '성경' 중심 교회는 흔들리지 않았다 — 2026 교회 건강 지표"},
- {date:"08-15", text:"Positive and negative aspects of the COVID-19 pandemic (US adults 설문조사 분석)"},
- {date:"08-15", text:"코로나19 환경에 긍정적일까, 부정적일까"},
- {date:"08-15", text:"5·18 민주화운동 유공자 명단 공개해라 — 이진숙 '작심 발언'"},
+ {date:"08-14", text:"Positive and negative aspects of the COVID-19 pandemic (US adults 설문조사 분석)"},
+ {date:"08-14", text:"코로나19 환경에 긍정적일까, 부정적일까"},
+ {date:"08-14", text:"5·18 민주화운동 유공자 명단 공개해라 — 이진숙 '작심 발언'"},
  {date:"08-11", text:"다음세대를 준비하는 교회 - 이민교회 차세대 목회에 대한 소고"},
- {date:"08-11", text:"다음세대를 위한 제언 - '한국 교회 트렌드 2025'로 본 교회와 부모의 사명"},
 ];
 
 // ---------- RENDER: sermons ----------
@@ -790,8 +781,15 @@ books.forEach((b,i)=>{
 });
 
 // ---------- RENDER: news/ministry lists ----------
-function renderList(id, items){
+function renderList(id, items, failMsg){
   const ul = document.getElementById(id);
+  if (items.length === 0 && failMsg) {
+    const li = document.createElement('li');
+    li.style.color = 'var(--text-muted)';
+    li.innerHTML = failMsg;
+    ul.appendChild(li);
+    return;
+  }
   items.forEach(it=>{
     const li = document.createElement('li');
     const dateSpan = it.d ? `<span class="sdate">${it.d}</span>` : '';
@@ -800,10 +798,10 @@ function renderList(id, items){
     ul.appendChild(li);
   });
 }
-renderList('gnewsKrList', gnewsKr);
+renderList('gnewsKrList', gnewsKr, '⚠️ 이번 새로고침에서 페이지 내용이 너무 길어 요약하지 못했어요. 사이트에서 직접 확인해 주세요.');
 renderList('daumList', daumKr);
 renderList('pbsList', pbsWorld);
-renderList('cnnList', cnn);
+renderList('cnnList', cnn, '⚠️ 이번 새로고침에서 CNN 접속이 차단됐어요 (HTTP 451 Unavailable For Legal Reasons). 사이트에서 직접 확인해 주세요.');
 renderList('kidokList', kidok);
 renderList('pckList', pck);
 renderList('kcmusaList', kcmusa);
