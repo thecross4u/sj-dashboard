@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SJ's Dashboard — Daily Devotion</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --surface-1:      #fcfcfb;
+    --page-plane:     #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --grid:           #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --series-1:       #2a78d6; /* blue */
+    --series-2:       #eb6834; /* orange */
+    --series-3:       #1baf7a; /* aqua */
+    --series-4:       #eda100; /* yellow */
+    --series-5:       #e87ba4; /* magenta */
+    --series-6:       #008300; /* green */
+    --series-7:       #4a3aa7; /* violet */
+    --series-8:       #e34948; /* red */
+    --good:           #0ca30c;
+    --warning:        #fab219;
+    --serious:        #ec835a;
+    --critical:       #d03b3b;
+    --success-text:   #006300;
+    --link:           #2a78d6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1:      #1a1a19;
+      --page-plane:     #0d0d0d;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --grid:           #2c2c2a;
+      --baseline:       #383835;
+      --border:         rgba(255,255,255,0.10);
+      --series-1:       #3987e5;
+      --series-2:       #d95926;
+      --series-3:       #199e70;
+      --series-4:       #c98500;
+      --series-5:       #d55181;
+      --series-6:       #008300;
+      --series-7:       #9085e9;
+      --series-8:       #e66767;
+      --good:           #0ca30c;
+      --warning:        #fab219;
+      --serious:        #ec835a;
+      --critical:       #e66767;
+      --success-text:   #0ca30c;
+      --link:           #3987e5;
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --surface-1:      #1a1a19;
+    --page-plane:     #0d0d0d;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --grid:           #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --series-1:       #3987e5;
+    --series-2:       #d95926;
+    --series-3:       #199e70;
+    --series-4:       #c98500;
+    --series-5:       #d55181;
+    --series-6:       #008300;
+    --series-7:       #9085e9;
+    --series-8:       #e66767;
+    --good:           #0ca30c;
+    --warning:        #fab219;
+    --serious:        #ec835a;
+    --critical:       #e66767;
+    --success-text:   #0ca30c;
+    --link:           #3987e5;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; }
+  body {
+    background: var(--page-plane);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--text-primary);
+  }
+  a { color: var(--link); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 20px 80px; }
+
+  header.top {
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap: wrap; gap:10px;
+    margin-bottom: 22px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  header.top h1 { font-size: 22px; margin:0 0 4px; }
+  header.top .sub { color: var(--text-secondary); font-size: 13px; }
+  .theme-toggle {
+    font-size: 12px; color: var(--text-secondary);
+    border: 1px solid var(--border); border-radius: 20px;
+    padding: 6px 12px; cursor: pointer; background: var(--surface-1);
+  }
+
+  section { margin-bottom: 34px; }
+  section h2 {
+    font-size: 15px; margin: 0 0 3px;
+    display:flex; align-items:center; gap:8px;
+  }
+  section .desc { font-size: 12px; color: var(--text-secondary); margin: 0 0 14px; }
+
+  .card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+  }
+
+  .footnote { font-size:11px; color: var(--text-muted); margin-top:6px; }
+
+  /* devotion reading cards */
+  .rd-list { display:flex; flex-direction:column; gap:0; }
+  .rd-row {
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+    padding: 13px 4px; border-bottom: 1px solid var(--grid);
+  }
+  .rd-row:last-child { border-bottom:none; }
+  .rd-left { display:flex; flex-direction:column; gap:2px; }
+  .rd-kind { font-size:11px; color:var(--text-muted); }
+  .rd-ref { font-size:14px; font-weight:600; }
+  .rd-links { display:flex; gap:8px; flex:none; }
+  .rd-link {
+    font-size:12px; font-weight:600; padding:7px 14px; border-radius:20px;
+    border:1px solid var(--border); background: var(--page-plane); color: var(--text-primary);
+    white-space:nowrap;
+  }
+  .rd-link:hover { text-decoration:none; background: color-mix(in srgb, var(--series-1) 10%, var(--page-plane)); border-color: var(--series-1); }
+  .rd-link.kr { color: var(--series-1); }
+  .rd-link.en { color: var(--series-2); }
+</style>
+</head>
+<body>
+<div id="lockScreen" style="position:fixed;inset:0;background:#0d0d0d;color:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;z-index:9999;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;">
+  <div style="font-size:28px;">🔒</div>
+  <div style="font-size:14px;color:#c3c2b7;">SJ's Dashboard — Daily Devotion</div>
+  <input id="lockInput" type="password" inputmode="numeric" placeholder="암호" style="font-size:16px;padding:10px 14px;border-radius:8px;border:1px solid #383835;background:#1a1a19;color:#fff;text-align:center;width:160px;">
+  <button id="lockBtn" style="font-size:13px;font-weight:600;padding:9px 20px;border-radius:20px;border:none;background:#2a78d6;color:#fff;cursor:pointer;">열기</button>
+  <div id="lockError" style="font-size:12px;color:#e66767;display:none;">암호가 틀렸어요</div>
+</div>
+<div class="viz-root" id="mainContent" style="display:none;">
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <h1>📖 Daily Devotion</h1>
+      <div class="sub"><a href="index.html" onclick="if(window.history.length>1){history.back();return false;}" style="color:var(--link);text-decoration:none;">← 대시보드로 돌아가기</a> · 2026-08-16 기준</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div class="theme-toggle" onclick="toggleTheme()">🌓 라이트/다크 전환</div>
+    </div>
+  </header>
+
+  <section>
+    <h2>🕊️ 개혁교회 성구집 (Revised Common Lectionary) — Proper 15</h2>
+    <p class="desc">Vanderbilt Revised Common Lectionary 기준. 각 구절을 누르면 새 탭에서 개역개정(한글) 또는 ESV(영어) 본문이 열려요.</p>
+    <div class="card">
+      <div class="rd-list" id="rclList"></div>
+      <div class="footnote">출처: <a href="https://lectionary.library.vanderbilt.edu/2026/08/august-16-2026-proper-15-20/" target="_blank" rel="noopener">Vanderbilt Revised Common Lectionary</a></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>✝️ 가톨릭 오늘의 미사 독서 (USCCB)</h2>
+    <p class="desc">연중 제20주일. United States Conference of Catholic Bishops 데일리 리딩 기준.</p>
+    <div class="card">
+      <div class="rd-list" id="usccbList"></div>
+      <div class="footnote">출처: <a href="https://bible.usccb.org/bible/readings/081626.cfm" target="_blank" rel="noopener">USCCB Daily Readings</a></div>
+    </div>
+  </section>
+
+  <div class="footnote" style="text-align:center;margin-top:10px;">
+    <a href="index.html" onclick="if(window.history.length>1){history.back();return false;}" style="color:var(--link);text-decoration:none;">← 대시보드로 돌아가기</a>
+  </div>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const root = document.documentElement;
+  const cur = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+}
+
+// ---------- reading data (2026-08-16) ----------
+// 개역개정: 대한성서공회 공식 리더 (책 이름 뒤 시작 절부터 이어서 보여줌)
+// ESV: Bible Gateway (정확한 절 범위로 검색)
+function krLink(book, chap, startVerse){
+  return `https://www.bskorea.or.kr/bible/korbibReadpage.php?version=GAE&book=${book}&chap=${chap}&sec=${startVerse}&cVersion=SAENEW%5E&fontSize=15px&fontWeight=normal`;
+}
+function esvLink(query){
+  return `https://www.biblegateway.com/passage/?search=${encodeURIComponent(query)}&version=ESV`;
+}
+
+const rclReadings = [
+ {kind:"Track 1 · 구약", ref:"창세기 45:1-15", kr:krLink("gen",45,1), esv:esvLink("Genesis 45:1-15")},
+ {kind:"Track 1 · 시편", ref:"시편 133편", kr:krLink("psa",133,1), esv:esvLink("Psalm 133")},
+ {kind:"Track 2 · 구약", ref:"이사야 56:1, 6-8", kr:krLink("isa",56,1), esv:esvLink("Isaiah 56:1,6-8")},
+ {kind:"Track 2 · 시편", ref:"시편 67편", kr:krLink("psa",67,1), esv:esvLink("Psalm 67")},
+ {kind:"서신서", ref:"로마서 11:1-2a, 29-32", kr:krLink("rom",11,1), esv:esvLink("Romans 11:1-2,29-32")},
+ {kind:"복음서", ref:"마태복음 15:(10-20), 21-28", kr:krLink("mat",15,10), esv:esvLink("Matthew 15:10-28")},
+];
+
+const usccbReadings = [
+ {kind:"제1독서", ref:"이사야 56:1, 6-7", kr:krLink("isa",56,1), esv:esvLink("Isaiah 56:1,6-7")},
+ {kind:"화답송", ref:"시편 67:2-3, 5, 6, 8", kr:krLink("psa",67,2), esv:esvLink("Psalm 67:2-3,5,6,8")},
+ {kind:"제2독서", ref:"로마서 11:13-15, 29-32", kr:krLink("rom",11,13), esv:esvLink("Romans 11:13-15,29-32")},
+ {kind:"복음", ref:"마태복음 15:21-28", kr:krLink("mat",15,21), esv:esvLink("Matthew 15:21-28")},
+];
+
+function renderReadings(containerId, items){
+  const el = document.getElementById(containerId);
+  items.forEach(r=>{
+    const row = document.createElement('div');
+    row.className = 'rd-row';
+    row.innerHTML = `
+      <div class="rd-left">
+        <div class="rd-kind">${r.kind}</div>
+        <div class="rd-ref">${r.ref}</div>
+      </div>
+      <div class="rd-links">
+        <a class="rd-link kr" href="${r.kr}" target="_blank" rel="noopener">개역개정</a>
+        <a class="rd-link en" href="${r.esv}" target="_blank" rel="noopener">ESV</a>
+      </div>`;
+    el.appendChild(row);
+  });
+}
+renderReadings('rclList', rclReadings);
+renderReadings('usccbList', usccbReadings);
+</script>
+<script>
+(function(){
+  const CORRECT = "1108";
+  const lock = document.getElementById('lockScreen');
+  const main = document.getElementById('mainContent');
+  const input = document.getElementById('lockInput');
+  const btn = document.getElementById('lockBtn');
+  const err = document.getElementById('lockError');
+  function unlock(){
+    lock.style.display = 'none';
+    main.style.display = '';
+    try { sessionStorage.setItem('sjdash_unlocked','1'); } catch(e){}
+  }
+  function tryUnlock(){
+    if (input.value === CORRECT) {
+      unlock();
+    } else {
+      err.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+  }
+  let already = false;
+  try { already = sessionStorage.getItem('sjdash_unlocked') === '1'; } catch(e){}
+  if (already) { unlock(); }
+  else {
+    btn.addEventListener('click', tryUnlock);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
+    setTimeout(()=>input.focus(), 100);
+  }
+})();
+</script>
+</body>
+</html>
