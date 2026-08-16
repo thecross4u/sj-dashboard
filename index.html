@@ -303,7 +303,7 @@
   <header class="top">
     <div>
       <h1>📓 SJ's Dashboard</h1>
-      <div class="sub">볼트: <code>iCloud/obsidian/SJKim</code> · 기준일 2026-08-16 · 노트 16,277개</div>
+      <div class="sub">볼트: <code>iCloud/obsidian/SJKim</code> · 기준일 2026-08-15 · 노트 16,277개</div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
       <a class="theme-toggle" href="daily_note.html" style="text-decoration:none;">📝 오늘의 Daily Note 작성</a>
@@ -320,7 +320,7 @@
     </div>
     <div class="kpi">
       <div class="label">다음 설교까지</div>
-      <div class="value">오늘</div>
+      <div class="value">내일</div>
       <div class="delta">8/16 · 2Tim2 창립예배(Inaugural)</div>
     </div>
     <div class="kpi">
@@ -340,7 +340,7 @@
     </div>
     <div class="kpi">
       <div class="label">Des Moines 오늘 <span id="wxLiveDot" title="실시간(30분 자동 갱신)" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--text-muted);margin-left:3px;"></span></div>
-      <div class="value" id="wxKpiValue">82°F</div>
+      <div class="value" id="wxKpiValue">--°F</div>
       <div class="delta warn" id="wxKpiDelta">뇌우 · 호우 특보</div>
     </div>
   </div>
@@ -358,9 +358,9 @@
     </section>
     <section>
       <h2>💱 환율 — USD/KRW (최근 1개월 추이)</h2>
-      <p class="desc">Frankfurter(ECB 기준) 일별 환율, 2026-07-13 ~ 08-14</p>
+      <p class="desc">Frankfurter(ECB 기준) 일별 환율, 2026-07-15 ~ 08-14</p>
       <div class="card">
-        <div class="fx-hero"><span class="num">1,420</span><span class="unit">원 / 1 USD</span><span class="footnote" style="margin:0 0 0 8px;color:var(--good);">▼ 1개월간 -75원 (-5.0%)</span></div>
+        <div class="fx-hero"><span class="num">1,411</span><span class="unit">원 / 1 USD</span><span class="footnote" style="margin:0 0 0 8px;color:var(--good);">▼ 1개월간 -81원 (-5.4%)</span></div>
         <svg id="fxChart" width="100%" height="120" viewBox="0 0 1080 120" preserveAspectRatio="none" style="margin-top:10px;"></svg>
         <div class="footnote">출처: Frankfurter API (ECB 기준 환율) · 실시간 변동은 <a href="https://www.wise.com/us/currency-converter/usd-to-krw-rate" target="_blank">Wise 환율 변환기</a>에서 확인하세요.</div>
       </div>
@@ -371,7 +371,7 @@
     <!-- TASK TRACKER -->
     <section>
       <h2>✅ 할 일 트래커</h2>
-      <p class="desc">Daily notes의 '오늘의 우선순위' 항목 기준 (2026-06-22 ~ 08-11)</p>
+      <p class="desc">Daily notes의 '오늘의 우선순위' 항목 기준 (2026-06-22 ~ 08-17)</p>
       <div class="card">
         <div style="font-size:12px;color:var(--text-secondary);margin-bottom:10px;">최근 미완료 작업 10건</div>
         <ul class="task-list" id="taskList"></ul>
@@ -381,7 +381,7 @@
     <!-- GOOGLE CALENDAR -->
     <section>
       <h2>📆 구글 일정 트래커</h2>
-      <p class="desc">Google Calendar 연동 · 향후 2주 (8/16 ~ 8/30)</p>
+      <p class="desc">Google Calendar 연동 · 향후 2주 (8/15 ~ 8/29)</p>
       <div class="card">
         <ul class="task-list" id="calList"></ul>
       </div>
@@ -434,7 +434,7 @@
       </div>
       <div class="source-card">
         <div class="sname">CNN</div>
-        <ul id="cnnList"></ul>
+        <p style="font-size:12.5px;color:var(--text-secondary);line-height:1.5;">⚠️ 이번 새로고침에서 CNN 접속이 막혔어요 (HTTP 451 Unavailable For Legal Reasons). 사이트에서 직접 확인해 주세요.</p>
         <a class="more" href="https://www.cnn.com/" target="_blank">사이트에서 보기 →</a>
       </div>
     </div>
@@ -463,7 +463,7 @@
     <div class="source-grid">
       <div class="source-card">
         <div class="sname">KCMUSA</div>
-        <ul id="kcmusaList"></ul>
+        <p style="font-size:12.5px;color:var(--text-secondary);line-height:1.5;">⚠️ 이번 새로고침에서 KCMUSA 사이트에 연결하지 못했어요 (DNS 오류). 사이트에서 직접 확인해 주세요.</p>
         <a class="more" href="https://www.kcmusa.org/" target="_blank">사이트에서 보기 →</a>
       </div>
       <div class="source-card">
@@ -512,7 +512,7 @@
   </div>
 
   <div class="footnote" style="text-align:center;margin-top:10px;">
-    이 대시보드는 옵시디언 볼트 및 웹 스냅샷(2026-08-16 기준)으로 만들어졌습니다. 날씨는 실시간(자동 갱신)이고, 그 외 항목은 최신 상태를 보려면 다시 요청해 새로고침해 주세요.
+    이 대시보드는 옵시디언 볼트 및 웹 스냅샷(2026-08-15 기준)으로 만들어졌습니다. 날씨는 실시간(자동 갱신)이고, 그 외 항목은 최신 상태를 보려면 다시 요청해 새로고침해 주세요.
   </div>
 
 </div>
@@ -527,7 +527,7 @@ function toggleTheme(){
 
 // ---------- DATA ----------
 const sermons = [
- {date:"2026-08-16", title:"2Tim2 The Faithful People — 창립예배(Inaugural, 오늘 2PM In-person @ CFC)", status:"준비완료", next:true},
+ {date:"2026-08-16", title:"2Tim2 The Faithful People — 창립예배(Inaugural, 내일 2PM In-person @ CFC)", status:"준비완료", next:true, badge:"내일"},
  {date:"2026-08-23", title:"Eph5 Christian Family (가정 생활)", status:"준비중"},
  {date:"2026-08-30", title:"엡6 자녀 양육하기", status:"미시작"},
  {date:"2026-09-06", title:"교회 생활", status:"미시작"},
@@ -560,15 +560,15 @@ const wxHourly = [
 ];
 
 const gnewsKr = [
- {t:"김민석, 호남 경선서 과반 득표로 1위 확정", src:"MBC 뉴스"},
- {t:"친일반민족행위자 재산조사위원회, 16년 만에 재가동", src:"연합뉴스TV"},
- {t:"이 대통령, 불법 축재 재산 환수 의지 재천명", src:"한경닷컴"},
- {t:"美 억만장자 에스더 여 유언장 공개 파장", src:"세계일보"},
- {t:"배우 마도식, 82세로 별세", src:"한국일보"},
+ {t:"빠른 '데드크로스' 맞은 이 대통령…2030 마음 되돌릴 수 있을까", src:"한겨레"},
+ {t:"金 굳히기? 鄭 대역전극?…오늘 與수도권 경선서 판가름", src:"동아일보"},
+ {t:"김민석 \"트럼프, 백악관 면담 때도 김정은 사진 보여줘…당대표 되면 내년 미·중·일 방문할 것\"", src:"경향신문"},
+ {t:"이재명 한국 대통령, 6.25전쟁 종전 위한 당사자 논의 제안", src:"VOA 한국어"},
+ {t:"내일 오전까지 전국은 '비요일'…최대 강수량 250㎜", src:"한겨레"},
 ];
 
 const fxRates = [
- ["07/13",1494.09],["07/14",1495.49],["07/15",1492.17],["07/16",1479.45],["07/17",1485.32],
+ ["07/15",1492.17],["07/16",1479.45],["07/17",1485.32],
  ["07/20",1481.18],["07/21",1478.40],["07/22",1480.35],["07/23",1472.72],["07/24",1461.00],
  ["07/27",1470.11],["07/28",1459.45],["07/29",1452.35],["07/30",1433.70],["07/31",1443.61],
  ["08/03",1427.05],["08/04",1427.11],["08/05",1423.72],["08/06",1423.57],["08/07",1415.95],
@@ -576,27 +576,19 @@ const fxRates = [
 ];
 
 const daumKr = [
- {t:"임금근로자 4개월 연속 줄었다…'저채용 사회' 경고음", src:"한경비즈니스"},
- {t:"정부 '용산공원에 집짓자'에 서울시 이어 용산구 '강력 반대'", src:"국민일보"},
- {t:"'거짓' 티셔츠 입고 전쟁기념관 찾는 시민들… \"베트남전 실체 보여줘야\"", src:"한국일보"},
- {t:"다시 대법 올라간 '세기의 이혼'...재상고 실익 있을까", src:"YTN"},
- {t:"미국, 한국 포함 35개국에 '중국 주도 AI 협력체 불참' 요구 방침", src:"한겨레"},
+ {t:"\"이란에 묶여버린 트럼프…'누가 감히 나를 막을 거냐'\"", src:"SBS"},
+ {t:"트럼프·시진핑·김정은, 11월 회동하나..李, 정전체제 종식추진에 '촉각'", src:"파이낸셜뉴스"},
+ {t:"'비거주 1주택자 전세대출 막힌다'더니…'반전' 있었다", src:"한국경제"},
+ {t:"30대 직업군인 '연금 믿고 쓰다 보니 모은 돈 4100만원…노후 준비 어쩌죠'", src:"파이낸셜뉴스"},
+ {t:"매장 붐빌때 알아봤어야 했는데…햄버거 대신 주식사라는 월가", src:"머니투데이"},
 ];
 
 const pbsWorld = [
- {t:"케임브리지 최연소 흑인 교수 Jason Arday, 사퇴 후 41세로 사망", l:"https://www.pbs.org/newshour/world/jason-arday-youngest-black-professor-at-cambridge-found-dead-at-41-after-resignation"},
- {t:"美 신형 항공모함, 중동으로 파견 — 링컨함서 문제 발생 보고 이후", l:"https://www.pbs.org/newshour/world/new-aircraft-carrier-en-route-to-middle-east-after-issues-reported-aboard-uss-abraham-lincoln"},
- {t:"유럽, 기록적 폭염 강타", l:"https://www.pbs.org/newshour/show/news-wrap-record-breaking-heat-wave-grips-europe"},
- {t:"서안지구 쿠스라 마을, 정착민의 주택 점거 우려 속 포위 상태", l:"https://www.pbs.org/newshour/world/palestinians-besieged-in-west-bank-village-of-qusra-fear-israeli-settlers-will-seize-their-homes"},
- {t:"로마 티베르강 물 부족 심화 속 '네로의 다리' 옛 유적 드러나", l:"https://www.pbs.org/newshour/world/ancient-neros-bridge-reemerges-from-tiber-river-as-rome-faces-water-crisis"},
-];
-
-const cnn = [
- {t:"Nancy Guthrie 실종 사건 — 자택서 무장한 복면 인물 포착된 새 CCTV 공개", l:"https://www.cnn.com/"},
- {t:"캐나다 브리티시컬럼비아 총격 — 학교·주택서 최소 9명 사망, 수십명 부상", l:"https://www.cnn.com/"},
- {t:"엡스타인 파일 — 법무부, 이름 추가 비공개 해제…트럼프 행정부와 '광범위한' 연관 보도", l:"https://www.cnn.com/"},
- {t:"트럼프, 디트로이트-윈저 연결 신규 교량(Gordie Howe) 개통 저지 위협", l:"https://www.cnn.com/"},
- {t:"군인들에 '불법 명령 거부' 촉구한 민주당 의원들, 대배심 기소 불발", l:"https://www.cnn.com/"},
+ {t:"영국 총리, 케임브리지 교수 사망 이후 '성찰' 촉구", l:"https://www.pbs.org/newshour/world/uks-leader-calls-for-reflection-after-the-death-of-former-cambridge-professor-accused-of-plagiarism"},
+ {t:"탈레반 집권 5주년…UN, 인권 위기 경고", l:"https://www.pbs.org/newshour/world/while-taliban-leaders-mark-5-years-in-power-in-afghanistan-a-un-official-warns-of-a-rights-crisis"},
+ {t:"美, 아시아 마지막 항공모함 철수 — 이란·서반구 집중 위해", l:"https://www.pbs.org/newshour/world/u-s-pulls-last-aircraft-carrier-in-asia-as-trump-focuses-on-iran-and-the-western-hemisphere"},
+ {t:"이스라엘, 레바논 남부 공습 — 정전 합의 흔들려, 11명 사망", l:"https://www.pbs.org/newshour/world/israeli-airstrikes-on-southern-lebanon-kill-11-people-health-ministry-says"},
+ {t:"인도네시아 해역 규모 7.7 강진…최소 47명 사망", l:"https://www.pbs.org/newshour/world/magnitude-7-7-earthquake-strikes-off-indonesias-coast-killing-at-least-47-and-toppling-buildings"},
 ];
 
 const kidok = [
@@ -606,25 +598,24 @@ const kidok = [
 ];
 
 const pck = [
- {t:"제111회 총회 공천안 확정…쟁점 인사는 재조정", l:"https://www.pckworld.com/article.php?aid=11186422891"},
- {t:"과천시, 신천지 종교시설 용도변경 막아냈다", l:"https://www.pckworld.com/article.php?aid=11185187789"},
- {t:"전국교회, 제81주년 광복절 맞아 감사예배", l:"https://www.pckworld.com/article.php?aid=11180541024"},
-];
-
-const kcmusa = [
- {t:"행복한 목회자 5가지"}, {t:"번아웃 (KCMUSA 방송 시리즈)"}, {t:"노년에 필요한 10친구"},
+ {t:"전도자 빌립", l:"http://www.pckworld.com/article.php?aid=11165113223", d:"08-15"},
+ {t:"'밥상'으로 꿈꾸는 남북 평화…제11회 밥 피스메이커 운동", l:"http://www.pckworld.com/article.php?aid=11187291214", d:"08-14"},
+ {t:"'용서받고 사랑하자'", l:"http://www.pckworld.com/article.php?aid=11187195083", d:"08-14"},
+ {t:"함해노회, 러시아에 100주년 기념교회 세워", l:"http://www.pckworld.com/article.php?aid=11186959838", d:"08-14"},
 ];
 
 const amen = [
- {t:"\"넘어져도 다시 일어설 힘\"… 목원대 미주 동문 보스턴에 모였다", l:"https://usaamen.net/"},
- {t:"남침례교 침례자 1/3은 30대 이상… 뉴욕서 시작된 '4/14 운동'", l:"https://usaamen.net/"},
- {t:"2026 할렐루야대회 폐막… 세대 간 장막터 넓힌 풍성하고 강력한 메시지", l:"https://usaamen.net/"},
+ {t:"\"넘어져도 다시 일어설 힘\"… 목원대 미주 동문 보스턴에 모였다", l:"http://www.usaamen.net/bbs/board.php?bo_table=data&wr_id=15311"},
+ {t:"남침례교 침례 1/3은 30대 이상… 뉴욕서 시작된 '4/14 운동'은", l:"http://www.usaamen.net/bbs/board.php?bo_table=data&wr_id=15307"},
+ {t:"2026 할렐루야대회 폐막… 세대 간 장막터 넓힌 풍성하고 강력한 메시지", l:"http://www.usaamen.net/bbs/board.php?bo_table=data&wr_id=15298"},
+ {t:"'정관 몰래 변경' 논란… 댈러스 초대형 교회, UMC 교단과 법정으로", l:"https://www.usaamen.net/bbs/board.php?bo_table=mag&wr_id=1288"},
 ];
 
 const ct = [
- {t:"Quashing Political Violence Requires We Tame Our Tongues", l:"https://www.christianitytoday.com/"},
- {t:"You Don't Graduate from Discernment", l:"https://www.christianitytoday.com/"},
- {t:"Will the Church Enter the Guys' Group Chat?", l:"https://www.christianitytoday.com/"},
+ {t:"80,000 Migrants Came and Went. Ceuta Pastors Keep Serving.", l:"https://www.christianitytoday.com/"},
+ {t:"India Halts Passage of Bill Targeting Christian Nonprofits", l:"https://www.christianitytoday.com/"},
+ {t:"Canadian Military Chaplains Can't Mention God in Public", l:"https://www.christianitytoday.com/"},
+ {t:"After Aid Cuts, US Announces $2 Billion for Christian Groups", l:"https://www.christianitytoday.com/"},
 ];
 
 const prayer24365 = [
@@ -632,10 +623,11 @@ const prayer24365 = [
  {t:"[긴급기도] 일본 지바현 — 기록적 폭우로 최소 8명 사망, 40만명 대피", l:"https://prayer24365.org"},
  {t:"[긴급기도] 짐바브웨 카리바호 — 여객선 전복, 최소 44명 사망", l:"https://prayer24365.org"},
  {t:"[긴급기도] 캐나다 — 군 공식 행사에서 '하나님' 언급 금지 조치, 신앙계 반발", l:"https://prayer24365.org"},
- {t:"[긴급기도] 북한 — 노동 인력 1만명 중국 입국, 5만명 이상 추가 계약… 인도적 처우 위해 중보", l:"https://prayer24365.org"},
+ {t:"[긴급기도] 우크라이나 — 유럽 각지 피난민, 지속적인 인도적·영적 돌봄 필요", l:"https://prayer24365.org"},
 ];
 
 const calEvents = [
+ {date:"08/15 (토)", time:"종일", title:"Liberation Day - Gwangbokjeol"},
  {date:"08/16 (일)", time:"오후 2:00–3:00", title:"CBB In-person Worship @ CFC (Crossroads Fellowship)"},
  {date:"08/17 (월)", time:"오후 1:00–3:00", title:"CRC 목회자를 위한 AI 강의 (중급반) — Zoom"},
  {date:"08/17–20", time:"종일", title:"YJ PTO (연차)"},
@@ -666,7 +658,7 @@ sermons.forEach(s=>{
   const badgeClass = (s.status === "완료" || s.status === "준비완료") ? "status-done" : (s.status === "준비중" ? "status-prog" : "status-none");
   row.innerHTML = `
     <div class="sermon-date">${s.date}</div>
-    <div class="sermon-title">${s.title}${s.next ? '<span class="badge-inline">오늘</span>' : ''}</div>
+    <div class="sermon-title">${s.title}${s.next ? `<span class="badge-inline">${s.badge}</span>` : ''}</div>
     <div class="status-badge ${badgeClass}">${s.status}</div>`;
   sermonList.appendChild(row);
 });
@@ -802,10 +794,8 @@ function renderList(id, items){
 renderList('gnewsKrList', gnewsKr);
 renderList('daumList', daumKr);
 renderList('pbsList', pbsWorld);
-renderList('cnnList', cnn);
 renderList('kidokList', kidok);
 renderList('pckList', pck);
-renderList('kcmusaList', kcmusa);
 renderList('amenList', amen);
 renderList('ctList', ct);
 renderList('prayer24365List', prayer24365);
