@@ -152,6 +152,14 @@
   .rd-text { font-size:13.5px; line-height:1.75; color:var(--text-primary); }
   .rd-text p { margin:0 0 8px; }
   .rd-text .vnum { font-size:10px; font-weight:700; color:var(--text-muted); margin-right:4px; vertical-align:super; }
+  .rd-text .vgap { color:var(--text-muted); font-style:italic; font-size:12px; text-align:center; margin:4px 0; }
+
+  .week-toggle {
+    font-size:12px; font-weight:700; color:#fff;
+    border:1px solid var(--border); border-radius:20px;
+    padding:6px 14px; cursor:pointer; background: var(--series-2); white-space:nowrap;
+  }
+  .week-toggle:hover { opacity:0.88; }
 </style>
 </head>
 <body>
@@ -168,16 +176,17 @@
   <header class="top">
     <div>
       <h1>📖 Daily Devotion</h1>
-      <div class="sub"><a href="index.html" onclick="if(window.history.length>1){history.back();return false;}" style="color:var(--link);text-decoration:none;">← 대시보드로 돌아가기</a> · 2026-08-17 기준</div>
+      <div class="sub"><a href="index.html" onclick="if(window.history.length>1){history.back();return false;}" style="color:var(--link);text-decoration:none;">← 대시보드로 돌아가기</a> · <span id="subDateText">2026-08-17 기준</span></div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
+      <div class="week-toggle" id="weekToggleBtn" onclick="toggleWeek()">📅 다음 주 월요일(8/24) 보기 →</div>
       <div class="theme-toggle" onclick="toggleTheme()">🌓 라이트/다크 전환</div>
     </div>
   </header>
 
   <section>
     <h2>🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 월요일 데일리</h2>
-    <p class="desc">Vanderbilt Revised Common Lectionary 기준(연속/보완 트랙). 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
+    <p class="desc" id="rclDesc">Vanderbilt Revised Common Lectionary 기준(연속/보완 트랙). 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
     <div class="card">
       <div class="rd-list" id="rclList"></div>
       <div class="footnote">출처: <a href="https://lectionary.library.vanderbilt.edu/daily-readings/" target="_blank" rel="noopener">Vanderbilt Revised Common Lectionary</a></div>
@@ -186,10 +195,10 @@
 
   <section>
     <h2>✝️ 가톨릭 오늘의 미사 독서 (USCCB)</h2>
-    <p class="desc">연중 제20주간 월요일. United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
+    <p class="desc" id="usccbDesc">연중 제20주간 월요일. United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
     <div class="card">
       <div class="rd-list" id="usccbList"></div>
-      <div class="footnote">출처: <a href="https://bible.usccb.org/bible/readings/081726.cfm" target="_blank" rel="noopener">USCCB Daily Readings</a></div>
+      <div class="footnote">출처: <a href="https://bible.usccb.org/bible/readings/081726.cfm" target="_blank" rel="noopener" id="usccbSrcLink">USCCB Daily Readings</a></div>
     </div>
   </section>
 
@@ -466,8 +475,220 @@ const usccbReadings = [
  },
 ];
 
+// ---------- reading data: 다음 주 월요일 (2026-08-24, Proper 16 주간 / 성 바돌로매 사도 축일) ----------
+const rclReadingsNext = [
+ {
+  kind:"연속 트랙 · 시편", ref:"시편 8편",
+  krSrc:krLink("psa",8,1), enSrc:esvLink("Psalm 8"), logos:logosLink("Ps",8,1,9),
+  kr:[[1,"여호와 우리 주여 주의 이름이 온 땅에 어찌 그리 아름다운지요 주의 영광이 하늘을 덮었나이다"],
+      [2,"주의 대적으로 말미암아 어린 아이들과 젖먹이들의 입으로 권능을 세우심이여 이는 원수들과 보복자들을 잠잠하게 하려 하심이니이다"],
+      [3,"주의 손가락으로 만드신 주의 하늘과 주께서 베풀어 두신 달과 별들을 내가 보오니"],
+      [4,"사람이 무엇이기에 주께서 그를 생각하시며 인자가 무엇이기에 주께서 그를 돌보시나이까"],
+      [5,"그를 하나님보다 조금 못하게 하시고 영화와 존귀로 관을 씌우셨나이다"],
+      [6,"주의 손으로 만드신 것을 다스리게 하시고 만물을 그의 발 아래 두셨으니"],
+      [7,"곧 모든 소와 양과 들짐승이며"],
+      [8,"공중의 새와 바다의 물고기와 바닷길에 다니는 것이니이다"],
+      [9,"여호와 우리 주여 주의 이름이 온 땅에 어찌 그리 아름다운지요"]],
+  en:[[1,"O Lord, our Lord, how majestic is your name in all the earth! You have set your glory above the heavens."],
+      [2,"Out of the mouth of babies and infants, you have established strength because of your foes, to still the enemy and the avenger."],
+      [3,"When I look at your heavens, the work of your fingers, the moon and the stars, which you have set in place,"],
+      [4,"what is man that you are mindful of him, and the son of man that you care for him?"],
+      [5,"Yet you have made him a little lower than the heavenly beings and crowned him with glory and honor."],
+      [6,"You have given him dominion over the works of your hands; you have put all things under his feet,"],
+      [7,"all sheep and oxen, and also the beasts of the field,"],
+      [8,"the birds of the heavens, and the fish of the sea, whatever passes along the paths of the seas."],
+      [9,"O Lord, our Lord, how majestic is your name in all the earth!"]]
+ },
+ {
+  kind:"연속 트랙 · 구약", ref:"출애굽기 1:1-7",
+  krSrc:krLink("exo",1,1), enSrc:esvLink("Exodus 1:1-7"), logos:logosLink("Ex",1,1,7),
+  kr:[[1,"야곱과 함께 각각 자기 가족을 데리고 애굽에 이른 이스라엘 아들들의 이름은 이러하니"],
+      [2,"르우벤과 시므온과 레위와 유다와"],
+      [3,"잇사갈과 스불론과 베냐민과"],
+      [4,"단과 납달리와 갓과 아셀이요"],
+      [5,"야곱의 허리에서 나온 사람이 모두 칠십이요 요셉은 애굽에 있었더라"],
+      [6,"요셉과 그의 모든 형제와 그 시대의 사람은 다 죽었고"],
+      [7,"이스라엘 자손은 생육하고 불어나 번성하고 매우 강하여 온 땅에 가득하게 되었더라"]],
+  en:[[1,"These are the names of the sons of Israel who came to Egypt with Jacob, each with his household:"],
+      [2,"Reuben, Simeon, Levi, and Judah,"],
+      [3,"Issachar, Zebulun, and Benjamin,"],
+      [4,"Dan and Naphtali, Gad and Asher."],
+      [5,"All the descendants of Jacob were seventy persons; Joseph was already in Egypt."],
+      [6,"Then Joseph died, and all his brothers and all that generation."],
+      [7,"But the people of Israel were fruitful and increased greatly; they multiplied and grew exceedingly strong, so that the land was filled with them."]]
+ },
+ {
+  kind:"보완 트랙 · 시편", ref:"시편 18:1-3, 20-32",
+  krSrc:krLink("psa",18,1), enSrc:esvLink("Psalm 18:1-3,20-32"), logos:logosLink("Ps",18,1,32),
+  kr:[[1,"나의 힘이신 여호와여 내가 주를 사랑하나이다"],
+      [2,"여호와는 나의 반석이시요 나의 요새시요 나를 건지시는 이시요 나의 하나님이시요 내가 그 안에 피할 나의 바위시요 나의 방패시요 나의 구원의 뿔이시요 나의 산성이시로다"],
+      [3,"내가 찬송 받으실 여호와께 아뢰리니 내 원수들에게서 구원을 얻으리로다"],
+      ["gap","4~19절 생략"],
+      [20,"여호와께서 내 의를 따라 상 주시며 내 손의 깨끗함을 따라 내게 갚으셨으니"],
+      [21,"이는 내가 여호와의 도를 지키고 악하게 내 하나님을 떠나지 아니하였으며"],
+      [22,"그의 모든 규례가 내 앞에 있고 내게서 그의 율례를 버리지 아니하였음이로다"],
+      [23,"또한 나는 그의 앞에 완전하여 나의 죄악에서 스스로 자신을 지켰나니"],
+      [24,"그러므로 여호와께서 내 의를 따라 갚으시되 그의 목전에서 내 손이 깨끗한 만큼 내게 갚으셨도다"],
+      [25,"자비로운 자에게는 주의 자비로우심을 나타내시며 완전한 자에게는 주의 완전하심을 보이시며"],
+      [26,"깨끗한 자에게는 주의 깨끗하심을 보이시며 사악한 자에게는 주의 거스르심을 보이시리니"],
+      [27,"주께서 곤고한 백성은 구원하시고 교만한 눈은 낮추시리이다"],
+      [28,"주께서 나의 등불을 켜심이여 여호와 내 하나님이 내 흑암을 밝히시리이다"],
+      [29,"내가 주를 의뢰하고 적군을 향해 달리며 내 하나님을 의지하고 담을 뛰어넘나이다"],
+      [30,"하나님의 도는 완전하고 여호와의 말씀은 순수하니 그는 자기에게 피하는 모든 자의 방패시로다"],
+      [31,"여호와 외에 누가 하나님이며 우리 하나님 외에 누가 반석이냐"],
+      [32,"이 하나님이 힘으로 내게 띠 띠우시며 내 길을 완전하게 하시며"]],
+  en:[[1,"I love you, O Lord, my strength."],
+      [2,"The Lord is my rock and my fortress and my deliverer, my God, my rock, in whom I take refuge, my shield, and the horn of my salvation, my stronghold."],
+      [3,"I call upon the Lord, who is worthy to be praised, and I am saved from my enemies."],
+      ["gap","vv.4-19 omitted"],
+      [20,"The Lord dealt with me according to my righteousness; according to the cleanness of my hands he rewarded me."],
+      [21,"For I have kept the ways of the Lord, and have not wickedly departed from my God."],
+      [22,"For all his rules were before me, and his statutes I did not put away from me."],
+      [23,"I was blameless before him, and I kept myself from my guilt."],
+      [24,"So the Lord has rewarded me according to my righteousness, according to the cleanness of my hands in his sight."],
+      [25,"With the merciful you show yourself merciful; with the blameless man you show yourself blameless;"],
+      [26,"with the purified you show yourself pure; and with the crooked you make yourself seem tortuous."],
+      [27,"For you save a humble people, but the haughty eyes you bring down."],
+      [28,"For it is you who light my lamp; the Lord my God lightens my darkness."],
+      [29,"For by you I can run against a troop, and by my God I can leap over a wall."],
+      [30,"This God—his way is perfect; the word of the Lord proves true; he is a shield for all those who take refuge in him."],
+      [31,"For who is God, but the Lord? And who is a rock, except our God?—"],
+      [32,"the God who equipped me with strength and made my way blameless."]]
+ },
+ {
+  kind:"보완 트랙 · 구약", ref:"사무엘상 7:3-13",
+  krSrc:krLink("1sa",7,3), enSrc:esvLink("1 Samuel 7:3-13"), logos:logosLink("1Sa",7,3,13),
+  kr:[[3,"사무엘이 이스라엘 온 족속에게 말하여 이르되 만일 너희가 전심으로 여호와께 돌아오려거든 이방 신들과 아스다롯을 너희 중에서 제거하고"],
+      [4,"이에 이스라엘 자손이 바알들과 아스다롯을 제거하고 여호와만 섬기니라"],
+      [5,"사무엘이 이르되 온 이스라엘은 미스바로 모이라 내가 너희를 위하여 여호와께 기도하리라 하매"],
+      [6,"그들이 미스바에 모여 물을 길어 여호와 앞에 붓고 그 날 종일 금식하고 거기에서 이르되 우리가 여호와께 범죄하였나이다 하니라"],
+      [7,"이스라엘 자손이 미스바에 모였다 함을 블레셋 사람들이 듣고 그들의 방백들이 이스라엘을 치러 올라온지라"],
+      [8,"이스라엘 자손이 사무엘에게 이르되 당신은 우리를 위하여 우리 하나님 여호와께 쉬지 말고 부르짖어 우리를 블레셋 사람들의 손에서 구원하시게 하소서 하니"],
+      [9,"사무엘이 젖 먹는 어린 양 하나를 가져다가 온전한 번제를 여호와께 드리고 이스라엘을 위하여 여호와께 부르짖으매 여호와께서 응답하셨더라"],
+      [10,"사무엘이 번제를 드릴 때에 블레셋 사람이 이스라엘과 싸우려고 가까이 오매 그 날에 여호와께서 블레셋 사람에게 큰 우레를 발하여"],
+      [11,"이스라엘 사람들이 미스바에서 나가서 블레셋 사람들을 추격하여 벧갈 아래에 이르기까지 쳤더라"],
+      [12,"사무엘이 돌을 취하여 미스바와 센 사이에 세워 이르되 여호와께서 여기까지 우리를 도우셨다 하고 그 이름을 에벤에셀이라 하니라"],
+      [13,"이에 블레셋 사람들이 굴복하여 다시는 이스라엘 지역 안에 들어오지 못하였으며 여호와의 손이 사무엘이 사는 날 동안에 블레셋 사람을 막으시매"]],
+  en:[[3,"And Samuel said to all the house of Israel, 'If you are returning to the Lord with all your heart, then put away the foreign gods and the Ashtaroth from among you and direct your heart to the Lord and serve him only, and he will deliver you out of the hand of the Philistines.'"],
+      [4,"So the people of Israel put away the Baals and the Ashtaroth, and they served the Lord only."],
+      [5,"Then Samuel said, 'Gather all Israel at Mizpah, and I will pray to the Lord for you.'"],
+      [6,"So they gathered at Mizpah and drew water and poured it out before the Lord and fasted on that day and said there, 'We have sinned against the Lord.' And Samuel judged the people of Israel at Mizpah."],
+      [7,"Now when the Philistines heard that the people of Israel had gathered at Mizpah, the lords of the Philistines went up against Israel."],
+      [8,"And the people of Israel said to Samuel, 'Do not cease to cry out to the Lord our God for us, that he may save us from the hand of the Philistines.'"],
+      [9,"So Samuel took a nursing lamb and offered it as a whole burnt offering to the Lord. And Samuel cried out to the Lord for Israel, and the Lord answered him."],
+      [10,"As Samuel was offering up the burnt offering, the Philistines drew near to attack Israel. But the Lord thundered with a mighty sound that day against the Philistines and threw them into confusion, and they were defeated before Israel."],
+      [11,"And the men of Israel went out from Mizpah and pursued the Philistines and struck them, as far as below Beth-car."],
+      [12,"Then Samuel took a stone and set it up between Mizpah and Shen and called its name Ebenezer; for he said, 'Till now the Lord has helped us.'"],
+      [13,"So the Philistines were subdued and did not again enter the territory of Israel. And the hand of the Lord was against the Philistines all the days of Samuel."]]
+ },
+ {
+  kind:"신약", ref:"로마서 2:1-11",
+  krSrc:krLink("rom",2,1), enSrc:esvLink("Romans 2:1-11"), logos:logosLink("Rom",2,1,11),
+  kr:[[1,"그러므로 남을 판단하는 사람아, 누구를 막론하고 네가 핑계하지 못할 것은 남을 판단하는 것으로 네가 너를 정죄함이니"],
+      [2,"이런 일을 행하는 자에게 하나님의 심판이 진리대로 되는 줄 우리가 아노라"],
+      [3,"이런 일을 행하는 자를 판단하고도 같은 일을 행하는 사람아, 네가 하나님의 심판을 피할 줄로 생각하느냐"],
+      [4,"혹 네가 하나님의 인자하심이 너를 인도하여 회개하게 하심을 알지 못하여 그의 인자하심과 용납하심과 길이 참으심이 풍성함을 멸시하느냐"],
+      [5,"다만 네 고집과 회개하지 아니한 마음을 따라 진노의 날 곧 하나님의 의로우신 심판이 나타나는 그 날에 임할 진노를 네게 쌓는도다"],
+      [6,"하나님께서 각 사람에게 그 행한 대로 보응하시되"],
+      [7,"참고 선을 행하여 영광과 존귀와 썩지 아니함을 구하는 자에게는 영생으로 하시고"],
+      [8,"오직 당을 지어 진리를 따르지 아니하고 불의를 따르는 자에게는 진노와 분노로 하시리라"],
+      [9,"악을 행하는 각 사람의 영에는 환난과 곤고가 있으리니 먼저는 유대인에게요 그리고 헬라인에게며"],
+      [10,"선을 행하는 각 사람에게는 영광과 존귀와 평강이 있으리니 먼저는 유대인에게요 그리고 헬라인에게라"],
+      [11,"이는 하나님께서 외모로 사람을 취하지 아니하심이라"]],
+  en:[[1,"Therefore you have no excuse, O man, every one of you who judges. For in passing judgment on another you condemn yourself, because you, the judge, practice the very same things."],
+      [2,"We know that the judgment of God rightly falls on those who practice such things."],
+      [3,"Do you suppose, O man—you who judge those who practice such things and yet do them yourself—that you will escape the judgment of God?"],
+      [4,"Or do you presume on the riches of his kindness and forbearance and patience, not knowing that God's kindness is meant to lead you to repentance?"],
+      [5,"But because of your hard and impenitent heart you are storing up wrath for yourself on the day of wrath when God's righteous judgment will be revealed."],
+      [6,"He will render to each one according to his works:"],
+      [7,"to those who by patience in well-doing seek for glory and honor and immortality, he will give eternal life;"],
+      [8,"but for those who are self-seeking and do not obey the truth, but obey unrighteousness, there will be wrath and fury."],
+      [9,"There will be tribulation and distress for every human being who does evil, the Jew first and also the Greek,"],
+      [10,"but glory and honor and peace for everyone who does good, the Jew first and also the Greek."],
+      [11,"For God shows no partiality."]]
+ },
+];
+
+const usccbReadingsNext = [
+ {
+  kind:"제1독서", ref:"요한계시록 21:9-14",
+  krSrc:krLink("rev",21,9), enSrc:esvLink("Revelation 21:9-14"), logos:logosLink("Rv",21,9,14),
+  kr:[[9,"일곱 대접을 가지고 마지막 일곱 재앙을 담은 일곱 천사 중 하나가 나아와서 내게 말하여 이르되"],
+      [10,"성령으로 나를 데리고 크고 높은 산으로 올라가 하나님께로부터 하늘에서 내려오는 거룩한 성 예루살렘을 보이니"],
+      [11,"하나님의 영광이 있어 그 성의 빛이 지극히 귀한 보석 같고 벽옥과 수정 같이 맑더라"],
+      [12,"크고 높은 성곽이 있고 열두 문이 있는데 문에 열두 천사가 있고 그 문들 위에 이름을 썼으니"],
+      [13,"동쪽에 세 문, 북쪽에 세 문, 남쪽에 세 문, 서쪽에 세 문이니"],
+      [14,"그 성의 성곽에는 열두 기초석이 있고 그 위에는 어린 양의 열두 사도의 열두 이름이 있더라"]],
+  en:[[9,"Then came one of the seven angels who had the seven bowls full of the seven last plagues and spoke to me, saying, 'Come, I will show you the Bride, the wife of the Lamb.'"],
+      [10,"And he carried me away in the Spirit to a great, high mountain, and showed me the holy city Jerusalem coming down out of heaven from God,"],
+      [11,"having the glory of God, its radiance like a most rare jewel, like a jasper, clear as crystal."],
+      [12,"It had a great, high wall, with twelve gates, and at the gates twelve angels, and on the gates the names of the twelve tribes of the sons of Israel were inscribed—"],
+      [13,"on the east three gates, on the north three gates, on the south three gates, and on the west three gates."],
+      [14,"And the wall of the city had twelve foundations, and on them were the twelve names of the twelve apostles of the Lamb."]]
+ },
+ {
+  kind:"화답송", ref:"시편 145:10-11, 12-13, 17-18",
+  krSrc:krLink("psa",145,10), enSrc:esvLink("Psalm 145:10-13,17-18"), logos:logosLink("Ps",145,10,18),
+  kr:[[10,"여호와여 주께서 지으신 모든 것들이 주께 감사하며 주의 성도들이 주를 송축하리이다"],
+      [11,"그들이 주의 나라의 영광을 말하며 주의 업적을 일러서"],
+      [12,"주의 업적과 주의 나라의 위엄 있는 영광을 인생들에게 알게 하리이다"],
+      [13,"주의 나라는 영원한 나라이니 주의 통치는 대대에 이르리이다"],
+      ["gap","14~16절 생략"],
+      [17,"여호와께서는 그 모든 행위에 의로우시며 그 모든 일에 은혜로우시도다"],
+      [18,"여호와께서는 자기에게 간구하는 모든 자 곧 진실하게 간구하는 모든 자에게 가까이 하시는도다"]],
+  en:[[10,"All your works shall give thanks to you, O Lord, and all your saints shall bless you!"],
+      [11,"They shall speak of the glory of your kingdom and tell of your power,"],
+      [12,"to make known to the children of man your mighty deeds, and the glorious splendor of your kingdom."],
+      [13,"Your kingdom is an everlasting kingdom, and your dominion endures throughout all generations."],
+      ["gap","vv.14-16 omitted"],
+      [17,"The Lord is righteous in all his ways and kind in all his works."],
+      [18,"The Lord is near to all who call on him, to all who call on him in truth."]]
+ },
+ {
+  kind:"복음", ref:"요한복음 1:45-51",
+  krSrc:krLink("jhn",1,45), enSrc:esvLink("John 1:45-51"), logos:logosLink("Jn",1,45,51),
+  kr:[[45,"빌립이 나다나엘을 찾아 이르되 모세가 율법에 기록하였고 여러 선지자가 기록한 그이를 우리가 만났으니 요셉의 아들 나사렛 예수니라"],
+      [46,"나다나엘이 이르되 나사렛에서 무슨 선한 것이 날 수 있느냐 빌립이 이르되 와서 보라 하니라"],
+      [47,"예수께서 나다나엘이 자기에게 오는 것을 보시고 그를 가리켜 이르시되 보라 이는 참으로 이스라엘 사람이라 그 속에 간사한 것이 없도다"],
+      [48,"나다나엘이 이르되 어떻게 나를 아시나이까 예수께서 대답하여 이르시되 빌립이 너를 부르기 전에 네가 무화과나무 아래에 있을 때에 보았노라"],
+      [49,"나다나엘이 대답하되 랍비여 당신은 하나님의 아들이시요 당신은 이스라엘의 임금이로소이다"],
+      [50,"예수께서 대답하여 이르시되 내가 너를 무화과나무 아래에서 보았다 하므로 믿느냐 이보다 더 큰 일을 보리라"],
+      [51,"또 이르시되 진실로 진실로 너희에게 이르노니 하늘이 열리고 하나님의 사자들이 인자 위에 오르락 내리락 하는 것을 보리라 하시니라"]],
+  en:[[45,"Philip found Nathanael and said to him, 'We have found him of whom Moses in the Law and also the prophets wrote, Jesus of Nazareth, the son of Joseph.'"],
+      [46,"Nathanael said to him, 'Can anything good come out of Nazareth?' Philip said to him, 'Come and see.'"],
+      [47,"Jesus saw Nathanael coming toward him and said of him, 'Behold, an Israelite indeed, in whom there is no deceit!'"],
+      [48,"Nathanael said to him, 'How do you know me?' Jesus answered him, 'Before Philip called you, when you were under the fig tree, I saw you.'"],
+      [49,"Nathanael answered him, 'Rabbi, you are the Son of God! You are the King of Israel!'"],
+      [50,"Jesus answered him, 'Because I said to you, I saw you under the fig tree, do you believe? You will see greater things than these.'"],
+      [51,"And he said to him, 'Truly, truly, I say to you, you will see heaven opened, and the angels of God ascending and descending on the Son of Man.'"]]
+ },
+];
+
+const readingSets = {
+  current: {
+    dateLabel: "2026-08-17 기준",
+    rclDesc: "Vanderbilt Revised Common Lectionary 기준(연속/보완 트랙). 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
+    usccbDesc: "연중 제20주간 월요일. United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
+    usccbSrc: "https://bible.usccb.org/bible/readings/081726.cfm",
+    rcl: rclReadings, usccb: usccbReadings,
+    toggleLabel: "📅 다음 주 월요일(8/24) 보기 →"
+  },
+  nextMonday: {
+    dateLabel: "2026-08-24 기준 · 다음 주 월요일 미리보기",
+    rclDesc: "Vanderbilt Revised Common Lectionary 기준(연속/보완 트랙), Proper 16 주간. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
+    usccbDesc: "성 바돌로매 사도 축일 (Feast of St. Bartholomew, Apostle). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
+    usccbSrc: "https://bible.usccb.org/bible/readings/082426.cfm",
+    rcl: rclReadingsNext, usccb: usccbReadingsNext,
+    toggleLabel: "← 오늘(8/17)로 돌아가기"
+  }
+};
+let currentReadingSetKey = 'current';
+
 function versesHtml(list){
-  return list.map(v => `<p><span class="vnum">${v[0]}</span>${v[1]}</p>`).join('');
+  return list.map(v => v[0] === 'gap'
+    ? `<p class="vgap">— ${v[1]} —</p>`
+    : `<p><span class="vnum">${v[0]}</span>${v[1]}</p>`
+  ).join('');
 }
 
 function renderReadings(containerId, items){
@@ -496,8 +717,23 @@ function renderReadings(containerId, items){
     el.appendChild(card);
   });
 }
-renderReadings('rclList', rclReadings);
-renderReadings('usccbList', usccbReadings);
+function applyReadingSet(key){
+  const d = readingSets[key];
+  document.getElementById('subDateText').textContent = d.dateLabel;
+  document.getElementById('rclDesc').textContent = d.rclDesc;
+  document.getElementById('usccbDesc').textContent = d.usccbDesc;
+  document.getElementById('usccbSrcLink').href = d.usccbSrc;
+  document.getElementById('rclList').innerHTML = '';
+  document.getElementById('usccbList').innerHTML = '';
+  renderReadings('rclList', d.rcl);
+  renderReadings('usccbList', d.usccb);
+  document.getElementById('weekToggleBtn').textContent = d.toggleLabel;
+  currentReadingSetKey = key;
+}
+function toggleWeek(){
+  applyReadingSet(currentReadingSetKey === 'current' ? 'nextMonday' : 'current');
+}
+applyReadingSet('current');
 </script>
 <script>
 (function(){
