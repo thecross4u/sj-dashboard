@@ -303,7 +303,7 @@
   <header class="top">
     <div>
       <h1>📓 SJ's Dashboard</h1>
-      <div class="sub">볼트: <code>iCloud/obsidian/SJKim</code> · 기준일 2026-08-16 · 노트 16,279개</div>
+      <div class="sub">볼트: <code>iCloud/obsidian/SJKim</code> · 기준일 2026-08-17 · 노트 16,279개</div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
       <a class="theme-toggle" href="daily_note.html" style="text-decoration:none;">📝 오늘의 Daily Note 작성</a>
@@ -321,8 +321,8 @@
     </div>
     <div class="kpi">
       <div class="label">다음 설교까지</div>
-      <div class="value">오늘</div>
-      <div class="delta">8/16 · 2Tim2 창립예배(Inaugural)</div>
+      <div class="value">D-6</div>
+      <div class="delta">8/23 · Eph5 Christian Family (준비중)</div>
     </div>
     <div class="kpi">
       <div class="label">열린 작업</div>
@@ -372,7 +372,7 @@
     <!-- TASK TRACKER -->
     <section>
       <h2>✅ 할 일 트래커</h2>
-      <p class="desc">Daily notes의 '오늘의 우선순위' 항목 기준 (2026-06-22 ~ 08-11)</p>
+      <p class="desc">Daily notes의 '오늘의 우선순위' 항목 기준 (2026-06-22 ~ 08-17)</p>
       <div class="card">
         <div style="font-size:12px;color:var(--text-secondary);margin-bottom:10px;">최근 미완료 작업 10건</div>
         <ul class="task-list" id="taskList"></ul>
@@ -382,7 +382,7 @@
     <!-- GOOGLE CALENDAR -->
     <section>
       <h2>📆 구글 일정 트래커</h2>
-      <p class="desc">Google Calendar 연동 · 향후 2주 (8/16 ~ 8/30)</p>
+      <p class="desc">Google Calendar 연동 · 향후 2주 (8/17 ~ 8/31)</p>
       <div class="card">
         <ul class="task-list" id="calList"></ul>
       </div>
@@ -513,7 +513,7 @@
   </div>
 
   <div class="footnote" style="text-align:center;margin-top:10px;">
-    이 대시보드는 옵시디언 볼트 및 웹 스냅샷(2026-08-16 기준)으로 만들어졌습니다. 날씨는 실시간(자동 갱신)이고, 그 외 항목은 최신 상태를 보려면 다시 요청해 새로고침해 주세요.
+    이 대시보드는 옵시디언 볼트 및 웹 스냅샷(2026-08-17 기준)으로 만들어졌습니다. 날씨는 실시간(자동 갱신)이고, 그 외 항목은 최신 상태를 보려면 다시 요청해 새로고침해 주세요.
   </div>
 
 </div>
@@ -528,11 +528,11 @@ function toggleTheme(){
 
 // ---------- DATA ----------
 const sermons = [
- {date:"2026-08-16", title:"2Tim2 The Faithful People — 창립예배(Inaugural, 오늘 2PM In-person @ CFC)", status:"준비완료", next:true},
  {date:"2026-08-23", title:"Eph5 Christian Family (가정 생활)", status:"준비중"},
  {date:"2026-08-30", title:"엡6 자녀 양육하기", status:"미시작"},
  {date:"2026-09-06", title:"교회 생활", status:"미시작"},
  {date:"2026-09-13", title:"교회 하나님의 충만함", status:"준비중"},
+ {date:"2026-09-20", title:"주일 성수", status:"미시작"},
 ];
 
 const openTasks = [
@@ -571,18 +571,18 @@ const fxRates = [
 ];
 
 const daumKr = [
- {t:"거제 시간당 116.8mm...곳곳 재난성 긴급문자", src:"YTN"},
- {t:"삼전닉스, 반년 새 현금 곳간 117조원↑…설비투자 대비 실탄 확보", src:"매일경제"},
- {t:"연명의료부터 AI 의료정보까지…생명윤리 기준 다시 세운다", src:"쿠키뉴스"},
- {t:"엔비디아·AMD 손잡은 美 추론 반도체…K-NPU 운명은?", src:"머니투데이"},
- {t:"7.3만 가구 부지 새달 윤곽… 모두 서울 그린벨트서 공급", src:"서울신문"},
+ {t:"김민석 더불어민주당 신임 당대표 선출", src:"YTN"},
+ {t:"거제 이틀간 912mm '물폭탄'… 기록적 폭우에 마을 쑥대밭", src:"SBS"},
+ {t:"침수 도로·전통시장 초토화… 복구 총력전", src:"MBC"},
+ {t:"거제 수해에 3차 비상소집령… 복구 지원 차량 투입", src:"뉴시스"},
+ {t:"특검, 김건희·조성혁 등 20여 명 기소 방침", src:"연합뉴스"},
 ];
 
 const pbsWorld = [
  {t:"벨기에·그리스 대형 산불에 소방당국 총력 진화… 아테네 인근 섬에서 2명 사망", l:"https://www.pbs.org/newshour/world/firefighters-battle-massive-wildfires-in-belgium-and-greece-as-2-die-on-an-island-near-athens"},
- {t:"쿠슈너, 하마스 지도자와 이례적 회동…가자 로드맵 논의, 다음은 네타냐후 면담", l:"https://www.pbs.org/newshour/world/kushner-has-rare-meeting-with-hamas-leader-on-gaza-road-map-a-meeting-with-netanyahu-is-next"},
  {t:"콜롬비아 대통령, 지진 복구 위해 트럼프에 관세 유예 요청", l:"https://www.pbs.org/newshour/world/colombian-president-asks-trump-to-suspend-tariffs-to-help-earthquake-recovery"},
  {t:"모로코 보안당국, 스페인령 세우타行 이주민 약 300명 체포", l:"https://www.pbs.org/newshour/world/moroccan-security-forces-arrest-nearly-300-migrants-trying-to-reach-spains-ceuta"},
+ {t:"쿠슈너, 하마스 지도자와 이례적 회동…가자 로드맵 논의, 다음은 네타냐후 면담", l:"https://www.pbs.org/newshour/world/kushner-has-rare-meeting-with-hamas-leader-on-gaza-road-map-a-meeting-with-netanyahu-is-next"},
  {t:"인도네시아 지진 사망자 53명으로 증가… 구조대 추가 시신 수습", l:"https://www.pbs.org/newshour/world/rescuers-in-indonesia-recover-more-bodies-in-earthquake-aftermath-raising-death-toll-to-53"},
  {t:"우크라이나, 전쟁 중 최대 규모 공습 감행… 러시아서 최소 6명 사망", l:"https://www.pbs.org/newshour/world/ukraine-launches-one-of-its-largest-aerial-attacks-of-the-war-killing-at-least-6-people-in-russia"},
 ];
@@ -591,42 +591,41 @@ const cnn = [];
 
 const kidok = [
  {t:"111총회 선출직 입후보자들 모두 '적격'", d:"08-14", l:"https://www.kidok.com/news/articleView.html?idxno=508449"},
- {t:"고동운 장로 모친 윤명식 권사 소천", d:"08-14", l:"https://www.kidok.com/news/articleView.html?idxno=508447"},
  {t:"\"베네수엘라에 그리스도 사랑을\" 총회, 구호금 전달", d:"08-14", l:"https://www.kidok.com/news/articleView.html?idxno=508416"},
+ {t:"고동운 장로 모친 윤명식 권사 소천", d:"08-14", l:"https://www.kidok.com/news/articleView.html?idxno=508447"},
  {t:"전국섬김의봉사단 양성교회 리모델링 완수", d:"08-12", l:"https://www.kidok.com/news/articleView.html?idxno=508381"},
 ];
 
 const pck = [
+ {t:"천국 새마을 운동을 시작합시다", d:"08-17", l:"http://www.pckworld.com/article.php?aid=11182597970"},
  {t:"주님은 바람처럼 날 다시 날게 해", d:"08-17", l:"http://www.pckworld.com/article.php?aid=11176299596"},
  {t:"전도자 빌립", d:"08-15", l:"http://www.pckworld.com/article.php?aid=11165113223"},
  {t:"'밥상'으로 꿈꾸는 남북 평화… '제11회 밥 피스메이커 운동'", d:"08-14", l:"http://www.pckworld.com/article.php?aid=11187291214"},
- {t:"함해노회, 러시아에 100주년 기념교회 세워", d:"08-14", l:"http://www.pckworld.com/article.php?aid=11186959838"},
 ];
 
 const kcmusa = [];
 
 const amen = [
+ {t:"2027 민족복음화대성회, 뉴욕서 첫 점화… 회개와 성령으로 한민족 깨운다", l:"https://usaamen.net/"},
  {t:"\"넘어져도 다시 일어설 힘\"… 목원대 미주 동문 보스턴에 모였다", l:"https://usaamen.net/"},
- {t:"남침례교 침례자 1/3은 30대 이상… 뉴욕서 시작된 '4/14 운동'", l:"https://usaamen.net/"},
  {t:"2026 할렐루야대회 폐막… 세대 간 장막터 넓힌 풍성하고 강력한 메시지", l:"https://usaamen.net/"},
 ];
 
 const ct = [
- {t:"80,000 Migrants Came and Went. Ceuta Pastors Keep Serving", l:"https://www.christianitytoday.com/2026/08/ceuta-migrant-spain-morocco-pastor-drug-rehab/"},
- {t:"India Halts Passage of Bill Targeting Christian Nonprofits", l:"https://www.christianitytoday.com/2026/08/india-government-halts-fcra-bill-amendment/"},
- {t:"Canadian Military Chaplains Can't Mention God in Public", l:"https://www.christianitytoday.com/2026/08/canada-chaplains-ban-god-religion-military/"},
+ {t:"How The Passion Translation's Problems Hid in Plain Sight", l:"https://www.christianitytoday.com/2026/08/how-the-passion-translations-problems-hid-in-plain-sight/"},
+ {t:"Welcome Back to School! Does Your Kid Have a Teacher?", l:"https://www.christianitytoday.com/2026/08/back-to-school-does-your-kid-have-a-teacher-shortages-texas/"},
+ {t:"Why the Black Pastors I Meet Want School Choice", l:"https://www.christianitytoday.com/2026/08/why-the-black-pastors-i-meet-want-school-choice/"},
 ];
 
 const prayer24365 = [
+ {t:"[긴급기도] 콜롬비아 — 규모 7.4 강진으로 최소 265명 사망·3,700명 이상 부상, 무장세력이 구호활동 장애", l:"https://prayer24365.org"},
  {t:"[긴급기도] 인도네시아 — 플로레스섬 규모 7.7 강진, 최소 51명 사망·113명 부상", l:"https://prayer24365.org"},
  {t:"[긴급기도] 니제르 — 9개월간 억류된 미국인 선교사 케빈 라이드아웃, 건강한 모습으로 석방", l:"https://prayer24365.org"},
  {t:"[긴급기도] 스리랑카 — 기독 학생들, 신앙 이유로 학교 내 괴롭힘·차별 겪어", l:"https://prayer24365.org"},
- {t:"[긴급기도] 일본 지바현 — 기록적 폭우로 최소 8명 사망, 40만명 대피", l:"https://prayer24365.org"},
  {t:"[주간기도] 한국교회 — 1인 가구 824만 시대, 교회의 돌봄 방안 모색", l:"https://prayer24365.org"},
 ];
 
 const calEvents = [
- {date:"08/16 (일)", time:"오후 2:00–3:00", title:"CBB In-person Worship @ CFC (Crossroads Fellowship)"},
  {date:"08/17 (월)", time:"오후 1:00–3:00", title:"CRC 목회자를 위한 AI 강의 (중급반) — Zoom"},
  {date:"08/17–20", time:"종일", title:"YJ PTO (연차)"},
  {date:"08/19 (수)", time:"오후 3:00", title:"Paul Kleinwolterink"},
