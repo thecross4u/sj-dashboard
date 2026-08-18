@@ -303,7 +303,7 @@
   <header class="top">
     <div>
       <h1>📓 SJ's Dashboard</h1>
-      <div class="sub">볼트: <code>iCloud/obsidian/SJKim</code> · 기준일 2026-08-17 · 노트 16,279개</div>
+      <div class="sub">볼트: <code>iCloud/obsidian/SJKim</code> · 기준일 2026-08-18 · 노트 16,678개</div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
       <a class="theme-toggle" href="daily_note.html" style="text-decoration:none;">📝 오늘의 Daily Note 작성</a>
@@ -316,18 +316,18 @@
   <div class="kpi-row">
     <div class="kpi">
       <div class="label">전체 노트</div>
-      <div class="value">16,279</div>
-      <div class="delta good">▲ 성경 노트 7,959개 (170. 성경)</div>
+      <div class="value">16,678</div>
+      <div class="delta good">▲ 성경 노트 8,280개 (170. 성경)</div>
     </div>
     <div class="kpi">
       <div class="label">다음 설교까지</div>
-      <div class="value">D-6</div>
+      <div class="value">D-5</div>
       <div class="delta">8/23 · Eph5 Christian Family (준비중)</div>
     </div>
     <div class="kpi">
       <div class="label">열린 작업</div>
-      <div class="value">3건</div>
-      <div class="delta good">완료율 94% (48/51, 6/22~)</div>
+      <div class="value">5건</div>
+      <div class="delta good">완료율 90.6% (48/53, 6/22~8/17)</div>
     </div>
     <div class="kpi">
       <div class="label">기도 응답</div>
@@ -374,7 +374,7 @@
       <h2>✅ 할 일 트래커</h2>
       <p class="desc">Daily notes의 '오늘의 우선순위' 항목 기준 (2026-06-22 ~ 08-17)</p>
       <div class="card">
-        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:10px;">최근 미완료 작업 10건</div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:10px;">최근 미완료 작업 5건</div>
         <ul class="task-list" id="taskList"></ul>
       </div>
     </section>
@@ -382,7 +382,7 @@
     <!-- GOOGLE CALENDAR -->
     <section>
       <h2>📆 구글 일정 트래커</h2>
-      <p class="desc">Google Calendar 연동 · 향후 2주 (8/17 ~ 8/31)</p>
+      <p class="desc">Google Calendar 연동 · 향후 2주 (8/18 ~ 9/1)</p>
       <div class="card">
         <ul class="task-list" id="calList"></ul>
       </div>
@@ -513,7 +513,7 @@
   </div>
 
   <div class="footnote" style="text-align:center;margin-top:10px;">
-    이 대시보드는 옵시디언 볼트 및 웹 스냅샷(2026-08-17 기준)으로 만들어졌습니다. 날씨는 실시간(자동 갱신)이고, 그 외 항목은 최신 상태를 보려면 다시 요청해 새로고침해 주세요.
+    이 대시보드는 옵시디언 볼트 및 웹 스냅샷(2026-08-18 기준)으로 만들어졌습니다. 날씨는 실시간(자동 갱신)이고, 그 외 항목은 최신 상태를 보려면 다시 요청해 새로고침해 주세요.
   </div>
 
 </div>
@@ -537,7 +537,9 @@ const sermons = [
 
 const openTasks = [
  {date:"08-17", text:"CBB News Letter - In-person Worship Service"},
- {date:"08-14", text:"[[Business Plan]] update"},
+ {date:"08-17", text:"9월 Classis Meeting 보고자료 작성 (PPT/Word)"},
+ {date:"08-17", text:"Key Ministry 정리"},
+ {date:"08-14", text:"[[CBB Business Plan]] update"},
  {date:"08-14", text:"[[Financial Support Request Note]] update"},
 ];
 
@@ -560,13 +562,7 @@ const wxHourly = [
  ["2PM","79°","흐림"],["3PM","80°","흐림"],["4PM","82°","흐림"],["5PM","82°","흐림"],
 ];
 
-const gnewsKr = [
- {t:"[속보] 김민석, 민주당 신임 당대표 선출 '득표율 54.08%'", src:"경향신문"},
- {t:"거제 200년에 한번인 폭우…'시간당 100㎜' 극한호우 뉴노멀 됐다", src:"한겨레"},
- {t:"李대통령, 남부 폭우에 \"피해 최소화에 모든 역량 집중\"", src:"연합뉴스"},
- {t:"김정관 \"대미투자, 이달내 발표 목표\"", src:"한국경제"},
- {t:"김밥 한 줄 평균 4000원?… 무섭게 오르는 쌀·계란값", src:"조선일보"},
-];
+const gnewsKr = [];
 
 const fxRates = [
  ["07/13",1494.09],["07/14",1495.49],["07/15",1492.17],["07/16",1479.45],["07/17",1485.32],
@@ -577,81 +573,68 @@ const fxRates = [
 ];
 
 const daumKr = [
- {t:"김민석 더불어민주당 신임 당대표 선출", src:"YTN"},
- {t:"거제 이틀간 912mm '물폭탄'… 기록적 폭우에 마을 쑥대밭", src:"SBS"},
- {t:"침수 도로·전통시장 초토화… 복구 총력전", src:"MBC"},
- {t:"거제 수해에 3차 비상소집령… 복구 지원 차량 투입", src:"뉴시스"},
- {t:"특검, 김건희·조성혁 등 20여 명 기소 방침", src:"연합뉴스"},
+ {t:"대미 투자 1호 아직도… 반도체 미국 투자해라 요구가 변수?", src:"MBC"},
+ {t:"李대통령실, 후임 인선 전까지 직무대행 체제 유지 지시", src:"뉴시스"},
+ {t:"돌연 '훈련 축소'에 연일 \"김정은\"… 트럼프의 조급증 왜?", src:"MBC"},
+ {t:"한미 연합훈련 일부 조정… 일부 훈련 분리 시행", src:"채널A"},
+ {t:"日 지바현 350mm 폭우, 거제 이틀 뒤 650mm… 원인 조사 중", src:"KBS"},
 ];
 
 const pbsWorld = [
- {t:"벨기에·그리스 대형 산불에 소방당국 총력 진화… 아테네 인근 섬에서 2명 사망", l:"https://www.pbs.org/newshour/world/firefighters-battle-massive-wildfires-in-belgium-and-greece-as-2-die-on-an-island-near-athens"},
- {t:"콜롬비아 대통령, 지진 복구 위해 트럼프에 관세 유예 요청", l:"https://www.pbs.org/newshour/world/colombian-president-asks-trump-to-suspend-tariffs-to-help-earthquake-recovery"},
- {t:"모로코 보안당국, 스페인령 세우타行 이주민 약 300명 체포", l:"https://www.pbs.org/newshour/world/moroccan-security-forces-arrest-nearly-300-migrants-trying-to-reach-spains-ceuta"},
- {t:"쿠슈너, 하마스 지도자와 이례적 회동…가자 로드맵 논의, 다음은 네타냐후 면담", l:"https://www.pbs.org/newshour/world/kushner-has-rare-meeting-with-hamas-leader-on-gaza-road-map-a-meeting-with-netanyahu-is-next"},
- {t:"인도네시아 지진 사망자 53명으로 증가… 구조대 추가 시신 수습", l:"https://www.pbs.org/newshour/world/rescuers-in-indonesia-recover-more-bodies-in-earthquake-aftermath-raising-death-toll-to-53"},
- {t:"우크라이나, 전쟁 중 최대 규모 공습 감행… 러시아서 최소 6명 사망", l:"https://www.pbs.org/newshour/world/ukraine-launches-one-of-its-largest-aerial-attacks-of-the-war-killing-at-least-6-people-in-russia"},
+ {t:"이란과의 평화협상 60일 시한 만료… 이란 전쟁 현황 정리", l:"https://www.pbs.org/newshour/show/war-with-iran"},
+ {t:"트럼프, 이란 전쟁 불참 한국 겨냥 비판… 한미 훈련은 일부 조정 시행", l:"https://www.pbs.org/newshour/show/trump-lashes-out-at-south-korea-over-its-refusal-to-join-iran-war"},
+ {t:"인도네시아 지진 사망 68명… 14일간 비상사태 선포, 구호 접근 난항", l:"https://www.pbs.org/newshour/world/thousands-await-aid-in-indonesia-after-powerful-earthquake-that-killed-at-least-68"},
+ {t:"러시아, 전쟁 비판 야권 정치인에 11년형 선고… 총선 앞두고 단속 강화", l:"https://www.pbs.org/newshour/world/russian-court-jails-kremlin-opposition-politician-for-opposing-war-in-ukraine"},
+ {t:"러시아, 일주일간 13차례 공습… 우크라이나 에너지 시설 심각한 피해", l:"https://www.pbs.org/newshour/world/ukraines-state-energy-company-says-its-facilities-seriously-damaged-after-13-russian-strikes-in-a-week"},
+ {t:"쿠슈너, 하마스 면담 하루 만에 네타냐후와 회동… 가자 휴전안 논의", l:"https://www.pbs.org/newshour/world/kushner-meets-with-netanyahu-on-gaza-a-day-after-talking-with-hamas"},
 ];
 
-const cnn = [
- {t:"우크라이나, 패트리엇 미사일 발사대 고갈…CNN에 드러난 '아킬레스건'", l:"https://www.cnn.com/2026/08/17/europe/ukraine-patriot-missile-launchers-run-dry-intl"},
- {t:"미-이란 합의 시한 만료…트럼프, 오만 폭격 위협", l:"https://www.cnn.com/2026/08/17/world/live-news/iran-war-trump"},
- {t:"트럼프, 한미 연합군사훈련 축소 방침 발표", l:"https://www.cnn.com/2026/08/16/middleeast/trump-south-korea-military-exercises"},
- {t:"대법원, 트럼프의 캐럴에 560만 달러 배상 회피 시도 기각", l:"https://www.cnn.com/2026/08/17/politics/supreme-court-trump-e-jean-carroll"},
- {t:"열대폭풍 랄라로 수만 가구 정전", l:"https://www.cnn.com/2026/08/16/weather/tropical-storm-lala-hawaii-damage-climate"},
-];
+const cnn = [];
 
 const kidok = [
- {t:"111총회 선출직 입후보자들 모두 '적격'", d:"08-14", l:"https://www.kidok.com/news/articleView.html?idxno=508449"},
- {t:"\"베네수엘라에 그리스도 사랑을\" 총회, 구호금 전달", d:"08-14", l:"https://www.kidok.com/news/articleView.html?idxno=508416"},
- {t:"고동운 장로 모친 윤명식 권사 소천", d:"08-14", l:"https://www.kidok.com/news/articleView.html?idxno=508447"},
- {t:"전국섬김의봉사단 양성교회 리모델링 완수", d:"08-12", l:"https://www.kidok.com/news/articleView.html?idxno=508381"},
+ {t:"만나워십, 은혜 가득한 음악으로 '교회 중심 예배' 세운다", d:"08-18", l:"https://www.kidok.com/news/articleView.html?idxno=508461"},
+ {t:"총회교회자립개발원 이사장 박윤성 목사 연임", d:"08-18", l:"https://www.kidok.com/news/articleView.html?idxno=508460"},
+ {t:"퀴어축제 반대 여론, 5년 만에 과반 깨져", d:"08-18", l:"https://www.kidok.com/news/articleView.html?idxno=508421"},
+ {t:"6개 신학대, 대안교육 위해 뭉쳤다", d:"08-18", l:"https://www.kidok.com/news/articleView.html?idxno=508413"},
 ];
 
 const pck = [
- {t:"천국 새마을 운동을 시작합시다", d:"08-17", l:"http://www.pckworld.com/article.php?aid=11182597970"},
- {t:"주님은 바람처럼 날 다시 날게 해", d:"08-17", l:"http://www.pckworld.com/article.php?aid=11176299596"},
- {t:"전도자 빌립", d:"08-15", l:"http://www.pckworld.com/article.php?aid=11165113223"},
- {t:"'밥상'으로 꿈꾸는 남북 평화… '제11회 밥 피스메이커 운동'", d:"08-14", l:"http://www.pckworld.com/article.php?aid=11187291214"},
+ {t:"부총회장 선거 갈등 속 선관위원장 사임서 제출", d:"08-18", l:"http://www.pckworld.com/article.php?aid=11189969842"},
+ {t:"순교·순직자 자녀손 기억하는 교회 돼야", d:"08-18", l:"http://www.pckworld.com/article.php?aid=11189311815"},
+ {t:"총회 앞두고 준법을 촉구한다", d:"08-18", l:"http://www.pckworld.com/article.php?aid=11189412277"},
+ {t:"총회 개혁 위한 목회자·평신도들의 기도회·서명 확산", d:"08-18", l:"http://www.pckworld.com/article.php?aid=11189834535"},
 ];
 
-const kcmusa = [
- {t:"[CA] '주님, 제가 아버지입니다'… 제1기 북가주 목회자 아버지학교", l:"https://www.kcmusa.org/"},
- {t:"러시아 억류 한국인 박태연 선교사 재판 이번 주 재개", l:"https://www.kcmusa.org/"},
- {t:"미국인 선교사 서아프리카 니제르에서 납치 9개월 만에 석방", l:"https://www.kcmusa.org/"},
- {t:"광복 81주년 교계 메시지, '분단·갈등 넘어 화해·평화로'", l:"https://www.kcmusa.org/"},
- {t:"[KY] 미국 부흥운동의 발상지 '케인 리지 부흥 운동' 225주년", l:"https://www.kcmusa.org/"},
-];
+const kcmusa = [];
 
 const amen = [
- {t:"2027 민족복음화대성회, 뉴욕서 첫 점화… 회개와 성령으로 한민족 깨운다", l:"https://usaamen.net/"},
- {t:"\"넘어져도 다시 일어설 힘\"… 목원대 미주 동문 보스턴에 모였다", l:"https://usaamen.net/"},
- {t:"2026 할렐루야대회 폐막… 세대 간 장막터 넓힌 풍성하고 강력한 메시지", l:"https://usaamen.net/"},
+ {t:"\"아침 해보다 저녁노을이 더 찬란하다\" 김재열 목사가 전한 시니어의 사명", l:"https://usaamen.net/bbs/board.php?bo_table=data&wr_id=15317"},
+ {t:"백세사역 (2) 내가 팔십오 세로되, 아직 강건합니다", l:"https://usaamen.net/bbs/board.php?bo_table=data&wr_id=15320"},
+ {t:"2027 민족복음화대성회, 뉴욕서 첫 점화… 회개와 성령으로 한민족 깨운다", l:"https://usaamen.net/bbs/board.php?bo_table=data&wr_id=15316"},
 ];
 
 const ct = [
+ {t:"As Buildings Fell, Colombia's Churches Stood Up", l:"https://www.christianitytoday.com/2026/08/colombia-earthquake-relief-church-pereira-christian/"},
+ {t:"Should My Attachment Style Affect My Relationship with God?", l:"https://www.christianitytoday.com/2026/08/does-attachment-style-affect-relationship-with-god-faith/"},
  {t:"How The Passion Translation's Problems Hid in Plain Sight", l:"https://www.christianitytoday.com/2026/08/how-the-passion-translations-problems-hid-in-plain-sight/"},
- {t:"Welcome Back to School! Does Your Kid Have a Teacher?", l:"https://www.christianitytoday.com/2026/08/back-to-school-does-your-kid-have-a-teacher-shortages-texas/"},
- {t:"Why the Black Pastors I Meet Want School Choice", l:"https://www.christianitytoday.com/2026/08/why-the-black-pastors-i-meet-want-school-choice/"},
 ];
 
 const prayer24365 = [
- {t:"[긴급기도] 콜롬비아 — 규모 7.4 강진으로 최소 265명 사망·3,700명 이상 부상, 무장세력이 구호활동 장애", l:"https://prayer24365.org"},
- {t:"[긴급기도] 인도네시아 — 플로레스섬 규모 7.7 강진, 최소 51명 사망·113명 부상", l:"https://prayer24365.org"},
- {t:"[긴급기도] 니제르 — 9개월간 억류된 미국인 선교사 케빈 라이드아웃, 건강한 모습으로 석방", l:"https://prayer24365.org"},
- {t:"[긴급기도] 스리랑카 — 기독 학생들, 신앙 이유로 학교 내 괴롭힘·차별 겪어", l:"https://prayer24365.org"},
- {t:"[주간기도] 한국교회 — 1인 가구 824만 시대, 교회의 돌봄 방안 모색", l:"https://prayer24365.org"},
+ {t:"[긴급기도] 콜롬비아 — 규모 7.4 강진 사망 265명·부상 3,700명 이상, 교회와 기독 단체가 무장세력 장애 속 구호 활동", l:"https://prayer24365.org"},
+ {t:"[긴급기도] 이란 — 반정부 시위 참가자 처형에 32개국 국제사회 규탄", l:"https://prayer24365.org"},
+ {t:"[긴급기도] 캐나다 — 83세 성도의 조력사, 가족은 판단 능력에 의문 제기", l:"https://prayer24365.org"},
+ {t:"[긴급기도] 프랑스 — 말기 환자 조력사 허용 법안 헌법 승인", l:"https://prayer24365.org"},
+ {t:"[주간기도] 한국교회 — 기도원 14년간 쇠퇴, 여름 기도회 참여 감소·시설 폐쇄 이어져", l:"https://prayer24365.org"},
 ];
 
 const calEvents = [
- {date:"08/17 (월)", time:"오후 1:00–3:00", title:"CRC 목회자를 위한 AI 강의 (중급반) — Zoom"},
- {date:"08/17–20", time:"종일", title:"YJ PTO (연차)"},
- {date:"08/19 (수)", time:"오후 3:00", title:"Paul Kleinwolterink"},
+ {date:"08/18–20", time:"종일", title:"YJ PTO (연차)"},
+ {date:"08/19 (수)", time:"오후 3:00–4:00", title:"Paul Kleinwolterink"},
  {date:"08/21 (금)", time:"종일", title:"Approval"},
  {date:"08/22 (토)", time:"종일", title:"M20-6 (Fr Ignatius)"},
  {date:"08/27 (목)", time:"종일", title:"M1730-6"},
- {date:"08/28 (금)", time:"종일", title:"Pay"},
  {date:"08/28 (금)", time:"종일", title:"M18-6 (Ignatius)"},
+ {date:"08/28 (금)", time:"종일", title:"Pay"},
 ];
 
 const clips = [
