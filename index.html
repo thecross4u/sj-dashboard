@@ -434,9 +434,9 @@
         <a class="more" href="https://www.pbs.org/newshour/world" target="_blank">사이트에서 보기 →</a>
       </div>
       <div class="source-card">
-        <div class="sname">CNN</div>
-        <ul id="cnnList"></ul>
-        <a class="more" href="https://www.cnn.com/" target="_blank">사이트에서 보기 →</a>
+        <div class="sname">Fox News</div>
+        <ul id="foxList"></ul>
+        <a class="more" href="https://www.foxnews.com/" target="_blank">사이트에서 보기 →</a>
       </div>
     </div>
   </section>
@@ -595,7 +595,13 @@ const pbsWorld = [
  {t:"이스라엘군, 힌드 라잡·구호대원 사망 사건 형사수사 착수", l:"https://www.pbs.org/newshour/world/israeli-military-launches-criminal-probes-into-killings-of-hind-rajab-and-palestinian-paramedics"},
 ];
 
-const cnn = [];
+const foxNews = [
+ {t:"Battleground Democrats face \"phony\" working-class narrative criticism", l:"https://www.foxnews.com/"},
+ {t:"Trump issues threat to Iran, warning other nations against supporting regime", l:"https://www.foxnews.com/"},
+ {t:"Judge delivers major redistricting victory for Trump and GOP before midterms", l:"https://www.foxnews.com/"},
+ {t:"Third body discovered in Minneapolis within three days", l:"https://www.foxnews.com/"},
+ {t:"WNBA coaches criticize \"Save Women's Sports\" movement amid trans controversy", l:"https://www.foxnews.com/"},
+];
 
 const kidok = [
  {t:"선출직 후보 기호추첨…전승덕 1번ㆍ송기섭 2번", d:"08-19", l:"https://www.kidok.com/news/articleView.html?idxno=508467"},
@@ -812,7 +818,7 @@ function renderList(id, items, failMsg){
 renderList('gnewsKrList', gnewsKr, '⚠️ 이번 새로고침에서 페이지 내용이 너무 길어 요약하지 못했어요. 사이트에서 직접 확인해 주세요.');
 renderList('daumList', daumKr);
 renderList('pbsList', pbsWorld);
-renderList('cnnList', cnn, '⚠️ 이번 새로고침에서 CNN 접속이 차단됐어요 (HTTP 451 Unavailable For Legal Reasons). 사이트에서 직접 확인해 주세요.');
+renderList('foxList', foxNews);
 renderList('kidokList', kidok);
 renderList('pckList', pck);
 renderList('kcmusaList', kcmusa, '⚠️ 이번 새로고침에서 KCMUSA 사이트에 연결할 수 없었어요 (DNS 조회 실패 — 사이트 자체가 일시적으로 다운된 것으로 보여요). 사이트에서 직접 확인해 주세요.');
