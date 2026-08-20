@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SJ's Dashboard — Sermon Review</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --surface-1:      #fcfcfb;
+    --page-plane:     #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --grid:           #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --series-1:       #2a78d6; /* blue */
+    --series-2:       #eb6834; /* orange */
+    --series-3:       #1baf7a; /* aqua */
+    --series-4:       #eda100; /* yellow */
+    --series-5:       #e87ba4; /* magenta */
+    --series-6:       #008300; /* green */
+    --series-7:       #4a3aa7; /* violet */
+    --series-8:       #e34948; /* red */
+    --good:           #0ca30c;
+    --warning:        #fab219;
+    --serious:        #ec835a;
+    --critical:       #d03b3b;
+    --success-text:   #006300;
+    --link:           #2a78d6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1:      #1a1a19;
+      --page-plane:     #0d0d0d;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --grid:           #2c2c2a;
+      --baseline:       #383835;
+      --border:         rgba(255,255,255,0.10);
+      --series-1:       #3987e5;
+      --series-2:       #d95926;
+      --series-3:       #199e70;
+      --series-4:       #c98500;
+      --series-5:       #d55181;
+      --series-6:       #008300;
+      --series-7:       #9085e9;
+      --series-8:       #e66767;
+      --good:           #0ca30c;
+      --warning:        #fab219;
+      --serious:        #ec835a;
+      --critical:       #e66767;
+      --success-text:   #0ca30c;
+      --link:           #3987e5;
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --surface-1:      #1a1a19;
+    --page-plane:     #0d0d0d;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --grid:           #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --series-1:       #3987e5;
+    --series-2:       #d95926;
+    --series-3:       #199e70;
+    --series-4:       #c98500;
+    --series-5:       #d55181;
+    --series-6:       #008300;
+    --series-7:       #9085e9;
+    --series-8:       #e66767;
+    --good:           #0ca30c;
+    --warning:        #fab219;
+    --serious:        #ec835a;
+    --critical:       #e66767;
+    --success-text:   #0ca30c;
+    --link:           #3987e5;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; }
+  body {
+    background: var(--page-plane);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--text-primary);
+  }
+  a { color: var(--link); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 20px 80px; }
+
+  header.top {
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap: wrap; gap:10px;
+    margin-bottom: 22px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  header.top h1 { font-size: 22px; margin:0 0 4px; }
+  header.top .sub { color: var(--text-secondary); font-size: 13px; }
+  .theme-toggle {
+    font-size: 12px; color: var(--text-secondary);
+    border: 1px solid var(--border); border-radius: 20px;
+    padding: 6px 12px; cursor: pointer; background: var(--surface-1);
+  }
+
+  section { margin-bottom: 34px; }
+  section h2 { font-size: 15px; margin: 0 0 3px; display:flex; align-items:center; gap:8px; }
+  section .desc { font-size: 12px; color: var(--text-secondary); margin: 0 0 14px; }
+
+  .card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+
+  /* connect / status (mirrors daily_note.html's dn-* pattern) */
+  .sr-toolbar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; }
+  .sr-btn {
+    font-size:12.5px; font-weight:600; cursor:pointer; border-radius:8px; padding:8px 14px;
+    border:1px solid var(--border); background: var(--page-plane); color:var(--text-primary);
+  }
+  .sr-btn.primary { background: var(--series-1); border-color: var(--series-1); color:#fff; }
+  .sr-btn:disabled { opacity:.45; cursor:not-allowed; }
+  .sr-status { font-size:12px; color:var(--text-secondary); display:flex; align-items:center; gap:6px; }
+  .sr-status .dot { width:8px;height:8px;border-radius:50%; background:var(--text-muted); display:inline-block; }
+  .sr-status.ok .dot { background: var(--good); }
+  .sr-note { font-size:11.5px; color:var(--text-muted); line-height:1.5; background:var(--page-plane); border:1px dashed var(--border); border-radius:8px; padding:10px 12px; margin-bottom:16px;}
+
+  /* nav bar of 6 material buttons */
+  .sr-nav { display:grid; grid-template-columns: repeat(6, 1fr); gap:8px; margin-bottom:16px; }
+  @media (max-width: 900px) { .sr-nav { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 560px) { .sr-nav { grid-template-columns: repeat(2, 1fr); } }
+  .sr-nav-btn {
+    font-size:12.5px; font-weight:600; text-align:center; cursor:pointer; border-radius:9px; padding:10px 8px;
+    border:1px solid var(--border); background: var(--page-plane); color:var(--text-primary);
+  }
+  .sr-nav-btn.active { background: var(--series-1); border-color: var(--series-1); color:#fff; }
+  .sr-nav-btn:disabled { opacity:.35; cursor:not-allowed; }
+
+  .sr-folder-label { font-size:12.5px; color: var(--text-secondary); margin-bottom:14px; }
+  .sr-folder-label code { background: var(--page-plane); border:1px solid var(--border); border-radius:5px; padding:1px 6px; }
+
+  .sr-viewer { min-height: 200px; }
+  .sr-empty { font-size:13px; color: var(--text-muted); padding: 30px 10px; text-align:center; }
+  .sr-fallback-note { font-size:12.5px; background: color-mix(in srgb, var(--warning) 16%, transparent); color:#8a6400; border-radius:8px; padding:10px 12px; margin-bottom:14px; }
+
+  .sr-doc { background: var(--surface-1); border:1px solid var(--border); border-radius:10px; padding: 22px 26px; font-size:14px; line-height:1.75; }
+  .sr-doc h3 { font-size:16px; margin: 18px 0 8px; color: var(--series-1); }
+  .sr-doc h3:first-child { margin-top:0; }
+  .sr-doc p { margin: 0 0 10px; }
+  .sr-doc-actions { display:flex; gap:8px; margin-bottom:14px; }
+
+  .sr-iframe-wrap { border:1px solid var(--border); border-radius:10px; overflow:hidden; background:#fff; }
+  .sr-iframe-wrap iframe { width:100%; height: 78vh; border:none; display:block; background:#fff; }
+  .sr-iframe-actions { display:flex; gap:8px; margin-bottom:10px; }
+
+  .sr-err { font-size:13px; color: var(--critical); background: color-mix(in srgb, var(--critical) 12%, transparent); border-radius:8px; padding:12px 14px; }
+</style>
+</head>
+<body>
+<div id="lockScreen" style="position:fixed;inset:0;background:#0d0d0d;color:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;z-index:9999;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;">
+  <div style="font-size:28px;">🔒</div>
+  <div style="font-size:14px;color:#c3c2b7;">SJ's Dashboard — Sermon Review</div>
+  <input id="lockInput" type="password" inputmode="numeric" placeholder="암호" style="font-size:16px;padding:10px 14px;border-radius:8px;border:1px solid #383835;background:#1a1a19;color:#fff;text-align:center;width:160px;">
+  <button id="lockBtn" style="font-size:13px;font-weight:600;padding:9px 20px;border-radius:20px;border:none;background:#2a78d6;color:#fff;cursor:pointer;">열기</button>
+  <div id="lockError" style="font-size:12px;color:#e66767;display:none;">암호가 틀렸어요</div>
+</div>
+<div class="viz-root" id="mainContent" style="display:none;">
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <h1>🎤 Sermon Review</h1>
+      <div class="sub"><a href="index.html" onclick="if(window.history.length>1){history.back();return false;}">← 대시보드로 돌아가기</a> · 볼트: <code>iCloud/obsidian/SJKim</code></div>
+    </div>
+    <div class="theme-toggle" onclick="toggleTheme()">🌓 라이트/다크 전환</div>
+  </header>
+
+  <section>
+    <h2>🎤 이번 주 설교 자료</h2>
+    <p class="desc">설교 요약 · 복습 · 5일 묵상을 한글/영어로 바로 확인해요. 파일명이 매주 조금씩 달라서 이 페이지는 <strong>빌드 시점 스냅샷이 아니라 열 때마다 옵시디언 볼트를 직접 읽어요</strong> (Daily Note 작성 폼과 같은 방식).</p>
+
+    <div class="card">
+      <div class="sr-toolbar">
+        <button class="sr-btn primary" id="srConnectBtn" onclick="srConnectFolder()">📁 설교 폴더 연결하기</button>
+        <div class="sr-status" id="srStatus"><span class="dot"></span><span id="srStatusText">아직 연결되지 않았어요</span></div>
+      </div>
+      <div class="sr-note" id="srPlatformNote" style="display:none;">
+        이 기능은 <strong>Chrome / Edge 데스크톱</strong>에서만 동작해요 (File System Access API — Safari/Firefox 미지원, iPad/iPhone 사용 불가). 다른 브라우저에서는 대시보드로 돌아가 주세요.
+      </div>
+
+      <div id="srBody" style="display:none;">
+        <div class="sr-folder-label" id="srFolderLabel"></div>
+        <div class="sr-nav" id="srNav"></div>
+        <div class="sr-viewer" id="srViewer">
+          <div class="sr-empty">폴더를 연결하면 이번 주 설교 자료가 여기 표시돼요.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footnote" style="text-align:center;margin-top:10px;">
+    <a href="index.html" onclick="if(window.history.length>1){history.back();return false;}">← 대시보드로 돌아가기</a>
+  </div>
+
+</div>
+</div>
+
+<script>
+function toggleTheme(){
+  const root = document.documentElement;
+  const cur = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+}
+
+// ============================================================
+// SERMON REVIEW (File System Access API — Chrome/Edge only)
+// Genuinely live: reads the vault on every page load, not a build-time bake.
+// ============================================================
+const SR_TARGET_PATH = ['200. CBB Ministry', '210. Ministry of the Word', '2026 기본'];
+const SR_SLOTS = [
+  { key: 'summaryK', label: '설교 요약 🇰🇷', match: n => /(summary|요약)/i.test(n) && /\.docx?$/i.test(n), lang: 'K' },
+  { key: 'summaryE', label: '설교 요약 🇺🇸', match: n => /(summary|요약)/i.test(n) && /\.docx?$/i.test(n), lang: 'E' },
+  { key: 'reviewK',  label: '복습 🇰🇷',      match: n => /(review|복습)/i.test(n) && /\.html?$/i.test(n), lang: 'K' },
+  { key: 'reviewE',  label: '복습 🇺🇸',      match: n => /(review|복습)/i.test(n) && /\.html?$/i.test(n), lang: 'E' },
+  { key: 'devotionK',label: '5일 묵상 🇰🇷',  match: n => /(devotion|5\s*day|5일\s*묵상)/i.test(n) && /\.html?$/i.test(n), lang: 'K' },
+  { key: 'devotionE',label: '5일 묵상 🇺🇸',  match: n => /(devotion|5\s*day|5일\s*묵상)/i.test(n) && /\.html?$/i.test(n), lang: 'E' },
+];
+const SR_DEFAULT_PRIORITY = ['summaryK', 'summaryE', 'reviewK', 'reviewE', 'devotionK', 'devotionE'];
+
+let srDirHandle = null;   // handle on the "2026 기본" folder itself
+let srFiles = {};         // key -> {handle, name}
+let srCurrentKey = null;
+
+function srPad(n){ return String(n).padStart(2,'0'); }
+function srFmtDate(d){ return `${d.getFullYear()}-${srPad(d.getMonth()+1)}-${srPad(d.getDate())}`; }
+
+function srLangOf(name){
+  if (/(?:^|[-_])E(?=[-_.]|$)/.test(name)) return 'E';
+  if (/(?:^|[-_])K(?=[-_.]|$)/.test(name)) return 'K';
+  if (/영어|english/i.test(name)) return 'E';
+  if (/한글|korean/i.test(name)) return 'K';
+  return null;
+}
+
+// ---- persist the folder handle across page loads via IndexedDB (own store, independent of Daily Note) ----
+function srOpenDb(){
+  return new Promise((resolve,reject)=>{
+    const req = indexedDB.open('sr-dashboard-db', 1);
+    req.onupgradeneeded = () => req.result.createObjectStore('handles');
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+async function srSaveHandle(handle){
+  try {
+    const db = await srOpenDb();
+    await new Promise((res,rej)=>{
+      const tx = db.transaction('handles','readwrite');
+      tx.objectStore('handles').put(handle, 'sermonFolder');
+      tx.oncomplete = res; tx.onerror = rej;
+    });
+  } catch(e) {}
+}
+async function srLoadHandle(){
+  try {
+    const db = await srOpenDb();
+    return await new Promise((res)=>{
+      const tx = db.transaction('handles','readonly');
+      const req = tx.objectStore('handles').get('sermonFolder');
+      req.onsuccess = () => res(req.result || null);
+      req.onerror = () => res(null);
+    });
+  } catch(e) { return null; }
+}
+
+async function srConnectFolder(){
+  const statusText = document.getElementById('srStatusText');
+  if (!window.showDirectoryPicker) {
+    document.getElementById('srPlatformNote').style.display = 'block';
+    statusText.textContent = '이 브라우저는 폴더 연결을 지원하지 않아요 (크롬/엣지에서 열어주세요)';
+    return;
+  }
+  try {
+    // The user picks the "2026 기본" folder directly (same pattern as Daily Note's folder picker).
+    const handle = await window.showDirectoryPicker({ id: 'obsidianSermonFolder', mode: 'read' });
+    await srSaveHandle(handle);
+    await srSetConnected(handle);
+  } catch(e) {
+    statusText.textContent = '연결이 취소됐어요';
+  }
+}
+
+async function srSetConnected(handle){
+  srDirHandle = handle;
+  const statusEl = document.getElementById('srStatus');
+  const statusText = document.getElementById('srStatusText');
+  statusEl.classList.add('ok');
+  statusText.textContent = `연결됨: "${handle.name}" 폴더`;
+  document.getElementById('srConnectBtn').textContent = '📁 다른 폴더로 변경';
+  document.getElementById('srBody').style.display = '';
+  await srLoadWeek();
+}
+
+(async function srTryAutoReconnect(){
+  if (!window.indexedDB || !window.showDirectoryPicker) {
+    document.getElementById('srPlatformNote').style.display = 'block';
+    return;
+  }
+  const handle = await srLoadHandle();
+  if (!handle) return;
+  try {
+    const perm = await handle.queryPermission({ mode: 'read' });
+    if (perm === 'granted') {
+      await srSetConnected(handle);
+    } else {
+      const statusText = document.getElementById('srStatusText');
+      statusText.textContent = `이전에 연결한 "${handle.name}" 폴더 — 버튼을 눌러 권한만 재확인하면 돼요`;
+      document.getElementById('srConnectBtn').textContent = '🔓 권한 재확인 (같은 폴더)';
+      document.getElementById('srConnectBtn').onclick = async () => {
+        try {
+          const p2 = await handle.requestPermission({ mode: 'read' });
+          if (p2 === 'granted') {
+            document.getElementById('srConnectBtn').onclick = null;
+            document.getElementById('srConnectBtn').setAttribute('onclick', 'srConnectFolder()');
+            await srSetConnected(handle);
+          }
+        } catch(e) {}
+      };
+    }
+  } catch(e) { /* stored handle no longer valid — user will need to reconnect once */ }
+})();
+
+// find this week's target subfolder inside the connected "2026 기본" folder.
+// Non-Saturday: most recent folder dated <= today ("지난 주"). Saturday: soonest folder dated > today (tomorrow's Sunday).
+async function srFindTargetFolder(root){
+  const folders = [];
+  for await (const [name, handle] of root.entries()){
+    if (handle.kind !== 'directory') continue;
+    const m = name.match(/^(\d{4})-(\d{2})-(\d{2})[ _]/);
+    if (!m) continue;
+    folders.push({ name, handle, date: `${m[1]}-${m[2]}-${m[3]}` });
+  }
+  folders.sort((a,b)=> a.date.localeCompare(b.date));
+  const todayStr = srFmtDate(new Date());
+  const isSaturday = new Date().getDay() === 6;
+  if (isSaturday) {
+    return folders.find(f => f.date > todayStr) || folders[folders.length-1] || null;
+  }
+  for (let i=folders.length-1; i>=0; i--){
+    if (folders[i].date <= todayStr) return folders[i];
+  }
+  return folders[0] || null;
+}
+
+async function srClassify(folderHandle){
+  const files = {};
+  for await (const [name, handle] of folderHandle.entries()){
+    if (handle.kind !== 'file') continue;
+    if (/^(prayer|invitation)/i.test(name)) continue; // boilerplate, not sermon materials
+    const lang = srLangOf(name);
+    if (!lang) continue;
+    for (const slot of SR_SLOTS){
+      if (slot.lang !== lang) continue;
+      if (files[slot.key]) continue; // first match wins
+      if (slot.match(name)) files[slot.key] = { handle, name };
+    }
+  }
+  return files;
+}
+
+async function srLoadWeek(){
+  const viewer = document.getElementById('srViewer');
+  const nav = document.getElementById('srNav');
+  const folderLabel = document.getElementById('srFolderLabel');
+  viewer.innerHTML = '<div class="sr-empty">불러오는 중…</div>';
+  try {
+    const target = await srFindTargetFolder(srDirHandle);
+    if (!target) {
+      folderLabel.textContent = '';
+      nav.innerHTML = '';
+      viewer.innerHTML = '<div class="sr-empty">날짜 형식(YYYY-MM-DD_제목) 폴더를 찾지 못했어요. "2026 기본" 폴더를 연결했는지 확인해 주세요.</div>';
+      return;
+    }
+    folderLabel.innerHTML = `이번 대상 폴더: <code>${target.name}</code>`;
+    srFiles = await srClassify(target.handle);
+
+    nav.innerHTML = '';
+    SR_SLOTS.forEach(slot => {
+      const btn = document.createElement('div');
+      const has = !!srFiles[slot.key];
+      btn.className = 'sr-nav-btn' + (has ? '' : '');
+      btn.textContent = slot.label;
+      if (!has) {
+        btn.setAttribute('disabled', 'disabled');
+        btn.title = '이 주에는 없는 파일이에요';
+      } else {
+        btn.title = srFiles[slot.key].name;
+        btn.onclick = () => srSelect(slot.key);
+      }
+      btn.id = 'srNavBtn_' + slot.key;
+      nav.appendChild(btn);
+    });
+
+    const firstAvailable = SR_DEFAULT_PRIORITY.find(k => srFiles[k]);
+    if (firstAvailable) {
+      const isPreferred = firstAvailable === 'summaryK';
+      await srSelect(firstAvailable, isPreferred ? null :
+        '이 주는 한글 설교 요약이 없어서 다음 순위 자료를 대신 보여드려요 (요약→복습→5일묵상, 한글→영어 순).');
+    } else {
+      viewer.innerHTML = '<div class="sr-empty">이 주 폴더에 표시할 설교 자료가 없어요.</div>';
+    }
+  } catch(e) {
+    viewer.innerHTML = `<div class="sr-err">폴더를 읽는 중 오류가 발생했어요: ${e.message}</div>`;
+  }
+}
+
+async function srSelect(key, note){
+  srCurrentKey = key;
+  document.querySelectorAll('.sr-nav-btn').forEach(b => b.classList.remove('active'));
+  const activeBtn = document.getElementById('srNavBtn_' + key);
+  if (activeBtn) activeBtn.classList.add('active');
+
+  const viewer = document.getElementById('srViewer');
+  const entry = srFiles[key];
+  if (!entry) { viewer.innerHTML = '<div class="sr-empty">이 항목은 이번 주에 없어요.</div>'; return; }
+
+  viewer.innerHTML = '<div class="sr-empty">불러오는 중…</div>';
+  const noteHtml = note ? `<div class="sr-fallback-note">${note}</div>` : '';
+
+  try {
+    const file = await entry.handle.getFile();
+    if (/\.docx?$/i.test(entry.name)) {
+      await srRenderDocx(file, entry.name, viewer, noteHtml);
+    } else {
+      await srRenderHtml(file, entry.name, viewer, noteHtml);
+    }
+  } catch(e) {
+    viewer.innerHTML = noteHtml + `<div class="sr-err">파일을 여는 중 오류가 발생했어요: ${e.message}</div>`;
+  }
+}
+
+// ---- .docx: dependency-free in-browser reader. Walks the ZIP local file
+// headers to find word/document.xml, inflates with the native
+// DecompressionStream('deflate-raw'), then regex-extracts <w:p>/<w:t> text.
+// Not full Word fidelity (no bold/italic/tables) — just readable text, with
+// a download button alongside for anyone who wants the real file.
+async function srDocxToParagraphs(arrayBuffer){
+  const view = new DataView(arrayBuffer);
+  const bytes = new Uint8Array(arrayBuffer);
+  let offset = 0;
+  let xmlBytes = null;
+  while (offset < bytes.length - 4) {
+    const sig = view.getUint32(offset, true);
+    if (sig !== 0x04034b50) break; // not a local file header — reached central directory
+    const method = view.getUint16(offset + 8, true);
+    const compSize = view.getUint32(offset + 18, true);
+    const nameLen = view.getUint16(offset + 26, true);
+    const extraLen = view.getUint16(offset + 28, true);
+    const nameStart = offset + 30;
+    const name = new TextDecoder().decode(bytes.slice(nameStart, nameStart + nameLen));
+    const dataStart = nameStart + nameLen + extraLen;
+    const dataEnd = dataStart + compSize;
+    if (name === 'word/document.xml') {
+      const raw = bytes.slice(dataStart, dataEnd);
+      if (method === 0) {
+        xmlBytes = raw;
+      } else {
+        const stream = new Blob([raw]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
+        xmlBytes = new Uint8Array(await new Response(stream).arrayBuffer());
+      }
+      break;
+    }
+    offset = dataEnd;
+  }
+  if (!xmlBytes) throw new Error('word/document.xml을 찾지 못했어요 (지원하지 않는 압축 방식일 수 있어요)');
+  const xml = new TextDecoder('utf-8').decode(xmlBytes);
+  const paraRegex = /<w:p[ >][\s\S]*?<\/w:p>/g;
+  const paragraphs = [];
+  let m;
+  while ((m = paraRegex.exec(xml))) {
+    const pXml = m[0];
+    const isHeading = /<w:pStyle[^>]*w:val="(Heading|Title)/i.test(pXml);
+    const texts = [...pXml.matchAll(/<w:t[^>]*>([\s\S]*?)<\/w:t>/g)].map(t => t[1]);
+    const text = texts.join('')
+      .replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>')
+      .replace(/&quot;/g,'"').replace(/&apos;/g,"'");
+    if (text.trim()) paragraphs.push({ heading: isHeading, text });
+  }
+  return paragraphs;
+}
+
+async function srRenderDocx(file, filename, viewer, noteHtml){
+  const buf = await file.arrayBuffer();
+  const dlUrl = URL.createObjectURL(file);
+  const dlBtn = `<a class="sr-btn" href="${dlUrl}" download="${filename}">⬇️ 원본 Word 파일 다운로드</a>`;
+  try {
+    const paragraphs = await srDocxToParagraphs(buf);
+    if (!paragraphs.length) throw new Error('본문을 추출하지 못했어요');
+    const body = paragraphs.map(p => p.heading ? `<h3>${srEsc(p.text)}</h3>` : `<p>${srEsc(p.text)}</p>`).join('');
+    viewer.innerHTML = noteHtml + `<div class="sr-doc-actions">${dlBtn}</div><div class="sr-doc">${body}</div>`;
+  } catch(e) {
+    viewer.innerHTML = noteHtml +
+      `<div class="sr-fallback-note">이 문서는 화면 미리보기를 만들지 못했어요 (${srEsc(e.message)}) — 아래 버튼으로 원본을 내려받아 확인해 주세요.</div>
+       <div class="sr-doc-actions">${dlBtn}</div>`;
+  }
+}
+
+function srEsc(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ---- .html (복습/5일묵상): render inline via an iframe. srcdoc is assigned
+// as a DOM property (iframe.srcdoc = text), NOT as an HTML attribute string —
+// these pages are full of double quotes (CSS/JS/prose) which broke attribute
+// escaping in an earlier version. Also offers a "new tab" button via a blob URL.
+async function srRenderHtml(file, filename, viewer, noteHtml){
+  const text = await file.text();
+  viewer.innerHTML = noteHtml + `
+    <div class="sr-iframe-actions">
+      <button class="sr-btn" id="srNewTabBtn">↗️ 새 탭에서 열기</button>
+    </div>
+    <div class="sr-iframe-wrap"><iframe id="srFrame" title="${srEsc(filename)}"></iframe></div>
+  `;
+  const iframe = document.getElementById('srFrame');
+  iframe.srcdoc = text; // DOM property — no attribute-escaping needed
+
+  const blob = new Blob([text], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+  document.getElementById('srNewTabBtn').addEventListener('click', () => window.open(url, '_blank'));
+}
+</script>
+<script>
+(function(){
+  const CORRECT = "1108";
+  const lock = document.getElementById('lockScreen');
+  const main = document.getElementById('mainContent');
+  const input = document.getElementById('lockInput');
+  const btn = document.getElementById('lockBtn');
+  const err = document.getElementById('lockError');
+  function unlock(){
+    lock.style.display = 'none';
+    main.style.display = '';
+    try { sessionStorage.setItem('sjdash_unlocked','1'); } catch(e){}
+  }
+  function tryUnlock(){
+    if (input.value === CORRECT) {
+      unlock();
+    } else {
+      err.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+  }
+  let already = false;
+  try { already = sessionStorage.getItem('sjdash_unlocked') === '1'; } catch(e){}
+  if (already) { unlock(); }
+  else {
+    btn.addEventListener('click', tryUnlock);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
+    setTimeout(()=>input.focus(), 100);
+  }
+})();
+</script>
+</body></html>
