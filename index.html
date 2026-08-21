@@ -563,7 +563,16 @@ const wxHourly = [
  ["2PM","79°","흐림"],["3PM","80°","흐림"],["4PM","82°","흐림"],["5PM","82°","흐림"],
 ];
 
-const gnewsKr = [];
+const gnewsKr = [
+ {t:"민주당 친청계 최고위원들, 지명직 최고위원 의결에 불참", l:"https://news.google.com/rss/articles/CBMiWkFVX3lxTE4wX2IydGlVaHp1aDlYVUljNi15ZExUUm84VklwdGxRYWhERjVQaHVxdDg0UVlKbjNLcFRnSmlzakJoYlRLTEdkNTgyQVNDX0tEc0VrcUtoRUhyQdIBX0FVX3lxTE1XZzY1Yml1dFdnMERsT09lU1V0RFIteG1tWWZzUF9taVZqLW9YV0NmSkVwcElfcE9BZFhpeTBHdHBuRE94Mzk0M2pPdDBWU21tT3dzQU4za2NxSzl0OFVZ?oc=5"},
+ {t:"노태우 비자금 수사, 노소영·최태원 재산분할에 영향", l:"https://news.google.com/rss/articles/CBMickFVX3lxTE5WQUtmMnpuZEloc3pnMVQ0bzZicmpiR0ZOT2FyOEtEZDRSeGpUUy1MTGVPMEpOQnFEOE9GTG5zLUFjdVZueHBPUGg5UDRadFVSTnZ4VWY1Szdpc1c3eVVCYTVSQVdHYXl0RTZxZXZKOWVRZw?oc=5"},
+ {t:"200조 미래대응기금, 3대메가프로젝트·AI에 투자", l:"https://news.google.com/rss/articles/CBMiWkFVX3lxTFBuMkh5R0dnVHVGOEVteXllbmtXZEZ4VnlYalVDajVNYVBpVDBVcEZHRnJuQlFVc1pUOTNfYW5pMDh5UUc2OElmZnJISlpqdWR6bjlteEZScGRUUQ?oc=5"},
+ {t:"거제·통영 호우 피해 특별재난지역 선포", l:"https://news.google.com/rss/articles/CBMieEFVX3lxTE5rTVlKRXdSQ2ZnZ3VLbXRkMHpoamZmSHMyM2ltdEwzWVRpUlV1UUU4dUk5SEdBY1d3VHpCMXNTVmtWa1U0bHBRaWVVaXp4OTV1WVdVS1lPeEF0MjZZNUFUN0RhV2Q1YWJCQTBGU0k4bHl2LTlua1Utc9IBeEFVX3lxTE5Pc0NXTThoVThGTURIVFJBVTlwTEF1eExiWkNiMk8wZkc4WTJkTlVtQVdQcXJxYWgzbG1rbkd2Q1haYTZpemRjdWlYWFBGYWxkVUNkWkJ3UjBybHYzQzZRLXNYdXdBd3ZYUHZmSFh6bDhOQzdqR3haSQ?oc=5"},
+ {t:"삼성전자 올해 최대 110조 원 주주환원", l:"https://news.google.com/rss/articles/CBMidEFVX3lxTFA0cVY5UXBOVVFUYjhxZnVlS092blYtXzJ1YjVmcGZGVWJ0a3pDVUJpbGVSRXJXVnFSLTBNYkxiSlBKWGRoVk5lM01Bc2R5WWs4MkwwcmVBS0dlcFhxQ3FBQ0lvb0RGQ1V0RGRNdHRMU09nSldM0gF0QVVfeXFMTUFvSk9tbTFEUExMdzVvRDdURVN3WGwyR2c0ZXZUOGhHNmlFcFBVcnRWOFo0d293UlVBR3VFcUtZRGdXUmpWTkpnZUxka1ZGcmpiSFlJd1Nxd01HeGM3OVVXSGd4V0poYWVwZHZDaHFNUlhoVi0?oc=5"},
+ {t:"카카오 인적분할 결정, 카카오 AI와 카카오X로 분리", l:"https://news.google.com/rss/articles/CBMickFVX3lxTE5xZl8yOFlaZm1iUXhDX2tHd0x6OHlpN2pCMHB4WVZQU1hPWEswck52bUFxM2d6LTE1Z1FpQnpWWDFHbWwxc2xkbV92aGxXNHVFcThaWklLZzl4V0lXR1RfTl9DUktEekRHM2VCWkpWOExJdw?oc=5"},
+ {t:"현대차 노조 10년만에 전면파업 단행", l:"https://news.google.com/rss/articles/CBMidkFVX3lxTFB4YXZtd0ZQRkQ5RzJCSHAzcF9taDhFdHhyX0RGX016TkQ0LURabnRrUXlmd2xxcjR5YlFXTkUyTjB0UTNIei1pZlhPeWZtdW10aUd6Unpza2hXZGpZclB0OWx5WnYzbXh5MGNELTNyQW5lN0dfMlHSAWZBVV95cUxQcXdvZ0lFUGtBT3JLM19ublE4SENMOWpRVkFjRzFwNE41RnNkQ3pBOXBmQUZQWGI1MGN3OGJMNXg3ZENjZ3F2eTFDeXVLSGUyblFQSXJLLU42RFhydGZvXzlWVl9iTmc?oc=5"},
+ {t:"영화 '오디세이' 600만 관객 돌파", l:"https://news.google.com/rss/articles/CBMiW0FVX3lxTE9nbndNWmNHd0FzdVZOLUM2NWtTaHl2V2hndWh5Tm52ellseFFvRlBrTnE4Z1NTcDlJaW9hLWtnM0taR0lsN1RxVUlyZV9ybTlfUEJhMWR1MmhWTmM?oc=5"},
+];
 
 const fxRates = [
  ["07/22",1480.35],["07/23",1472.72],["07/24",1461.00],
@@ -818,7 +827,7 @@ function renderList(id, items, failMsg){
     ul.appendChild(li);
   });
 }
-renderList('gnewsKrList', gnewsKr, '⚠️ 이번 새로고침에서 페이지 내용이 너무 길어 요약하지 못했어요. 사이트에서 직접 확인해 주세요.');
+renderList('gnewsKrList', gnewsKr);
 renderList('daumList', daumKr);
 renderList('pbsList', pbsWorld);
 renderList('foxList', foxNews);
