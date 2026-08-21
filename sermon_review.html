@@ -185,6 +185,7 @@
     <div class="card">
       <div class="sr-toolbar">
         <button class="sr-btn primary" id="srConnectBtn" onclick="srConnectFolder()">📁 설교 폴더 연결하기</button>
+        <button class="sr-btn" id="srRefreshBtn" onclick="srLoadWeek()" style="display:none;">🔄 새로고침 (방금 넣은 파일 다시 확인)</button>
         <div class="sr-status" id="srStatus"><span class="dot"></span><span id="srStatusText">아직 연결되지 않았어요</span></div>
       </div>
       <div class="sr-note" id="srPlatformNote" style="display:none;">
@@ -300,6 +301,7 @@ async function srSetConnected(handle){
   statusEl.classList.add('ok');
   statusText.textContent = `연결됨: "${handle.name}" 폴더`;
   document.getElementById('srConnectBtn').textContent = '📁 다른 폴더로 변경';
+  document.getElementById('srRefreshBtn').style.display = '';
   document.getElementById('srBody').style.display = '';
   await srLoadWeek();
 }
@@ -337,7 +339,9 @@ async function srSetConnected(handle){
 // Non-Saturday: most recent folder dated <= today ("지난 주"). Saturday: soonest folder dated > today (tomorrow's Sunday).
 async function srFindTargetFolder(root){
   const folders = [];
+  const allEntries = [];
   for await (const [name, handle] of root.entries()){
+    allEntries.push({ name, kind: handle.kind });
     if (handle.kind !== 'directory') continue;
     const m = name.match(/^(\d{4})-(\d{2})-(\d{2})[ _]/);
     if (!m) continue;
@@ -346,29 +350,60 @@ async function srFindTargetFolder(root){
   folders.sort((a,b)=> a.date.localeCompare(b.date));
   const todayStr = srFmtDate(new Date());
   const isSaturday = new Date().getDay() === 6;
+  let picked = null;
   if (isSaturday) {
-    return folders.find(f => f.date > todayStr) || folders[folders.length-1] || null;
+    picked = folders.find(f => f.date > todayStr) || folders[folders.length-1] || null;
+  } else {
+    for (let i=folders.length-1; i>=0; i--){
+      if (folders[i].date <= todayStr) { picked = folders[i]; break; }
+    }
+    if (!picked) picked = folders[0] || null;
   }
-  for (let i=folders.length-1; i>=0; i--){
-    if (folders[i].date <= todayStr) return folders[i];
-  }
-  return folders[0] || null;
+  return { picked, folders, allEntries, todayStr, isSaturday, connectedFolderName: root.name };
 }
 
 async function srClassify(folderHandle){
   const files = {};
+  const debugList = [];
   for await (const [name, handle] of folderHandle.entries()){
-    if (handle.kind !== 'file') continue;
-    if (/^(prayer|invitation)/i.test(name)) continue; // boilerplate, not sermon materials
+    if (handle.kind !== 'file') { debugList.push({name, note: '(하위 폴더 — 건너뜀)'}); continue; }
+    if (/^(prayer|invitation)/i.test(name)) { debugList.push({name, note: '제외됨 (prayer/invitation 파일)'}); continue; }
     const lang = srLangOf(name);
-    if (!lang) continue;
+    if (!lang) { debugList.push({name, note: '❌ 한글/영어(K/E) 인식 실패 — 파일명에 -K, -E, _K, _E 표시가 있는지 확인'}); continue; }
+    let matchedSlot = null;
     for (const slot of SR_SLOTS){
       if (slot.lang !== lang) continue;
-      if (files[slot.key]) continue; // first match wins
-      if (slot.match(name)) files[slot.key] = { handle, name };
+      if (slot.match(name)) { matchedSlot = slot.key; break; }
+    }
+    if (matchedSlot) {
+      const already = !!files[matchedSlot];
+      if (!already) files[matchedSlot] = { handle, name };
+      debugList.push({name, note: `✅ 언어=${lang}, 분류=${matchedSlot}` + (already ? ' (같은 항목의 다른 파일이 이미 있어 이 파일은 무시됨)' : '')});
+    } else {
+      debugList.push({name, note: `❌ 언어=${lang}까지는 인식했지만 요약/복습/5일묵상 키워드를 찾지 못함`});
     }
   }
-  return files;
+  return { files, debugList };
+}
+
+function srRenderDebug(container, info){
+  const det = document.createElement('details');
+  det.style.cssText = 'margin-top:14px;';
+  const todayLine = `오늘: ${info.todayStr} (${info.isSaturday ? '토요일' : '토요일 아님'})`;
+  const connLine = `연결한 폴더: <code>${srEsc(info.connectedFolderName)}</code>`;
+  let body = `${todayLine}<br>${connLine}<br>`;
+  if (info.folders) {
+    body += `날짜 형식(YYYY-MM-DD_제목) 하위 폴더 ${info.folders.length}개 발견: ` +
+      (info.folders.length ? info.folders.map(f=>`<code>${srEsc(f.name)}</code>`).join(', ') : '(없음)') + '<br>';
+  }
+  if (info.pickedName) body += `→ 이번 주로 선택된 폴더: <code>${srEsc(info.pickedName)}</code><br>`;
+  if (info.debugList) {
+    body += '<br>이 폴더 안 파일 분류 결과:<br>' +
+      info.debugList.map(d => `• <code>${srEsc(d.name)}</code> — ${d.note}`).join('<br>');
+  }
+  det.innerHTML = `<summary style="cursor:pointer;font-size:12px;color:var(--text-muted);">🔍 진단 정보 (파일이 안 보일 때 이 내용을 펼쳐서 캡처해 보내주세요)</summary>
+    <div style="font-size:11.5px;color:var(--text-secondary);margin-top:8px;line-height:1.7;">${body}</div>`;
+  container.appendChild(det);
 }
 
 async function srLoadWeek(){
@@ -377,15 +412,18 @@ async function srLoadWeek(){
   const folderLabel = document.getElementById('srFolderLabel');
   viewer.innerHTML = '<div class="sr-empty">불러오는 중…</div>';
   try {
-    const target = await srFindTargetFolder(srDirHandle);
+    const info = await srFindTargetFolder(srDirHandle);
+    const target = info.picked;
     if (!target) {
       folderLabel.textContent = '';
       nav.innerHTML = '';
-      viewer.innerHTML = '<div class="sr-empty">날짜 형식(YYYY-MM-DD_제목) 폴더를 찾지 못했어요. "2026 기본" 폴더를 연결했는지 확인해 주세요.</div>';
+      viewer.innerHTML = '<div class="sr-empty">날짜 형식(YYYY-MM-DD_제목) 폴더를 찾지 못했어요. "2026 기본" 폴더 자체를 연결했는지 확인해 주세요 (그 안의 특정 주 폴더가 아니라).</div>';
+      srRenderDebug(viewer, info);
       return;
     }
     folderLabel.innerHTML = `이번 대상 폴더: <code>${target.name}</code>`;
-    srFiles = await srClassify(target.handle);
+    const classified = await srClassify(target.handle);
+    srFiles = classified.files;
 
     nav.innerHTML = '';
     SR_SLOTS.forEach(slot => {
@@ -412,6 +450,9 @@ async function srLoadWeek(){
     } else {
       viewer.innerHTML = '<div class="sr-empty">이 주 폴더에 표시할 설교 자료가 없어요.</div>';
     }
+    info.pickedName = target.name;
+    info.debugList = classified.debugList;
+    srRenderDebug(viewer, info);
   } catch(e) {
     viewer.innerHTML = `<div class="sr-err">폴더를 읽는 중 오류가 발생했어요: ${e.message}</div>`;
   }
