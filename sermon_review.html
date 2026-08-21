@@ -365,7 +365,13 @@ async function srFindTargetFolder(root){
 async function srClassify(folderHandle){
   const files = {};
   const debugList = [];
-  for await (const [name, handle] of folderHandle.entries()){
+  for await (const [rawName, handle] of folderHandle.entries()){
+    // Normalize Hangul to NFC first: macOS/Finder/iCloud sometimes stores filenames
+    // with decomposed (NFD) Korean characters that render identically on screen but
+    // don't match a regex written with normal (NFC) Korean text — found 2026-08-21,
+    // a "-E_5일묵상.html" file added via Finder silently failed to match this way
+    // while an identically-named "-K_5일묵상.html" file (added differently) matched fine.
+    const name = typeof rawName.normalize === 'function' ? rawName.normalize('NFC') : rawName;
     if (handle.kind !== 'file') { debugList.push({name, note: '(하위 폴더 — 건너뜀)'}); continue; }
     if (/^(prayer|invitation)/i.test(name)) { debugList.push({name, note: '제외됨 (prayer/invitation 파일)'}); continue; }
     const lang = srLangOf(name);
@@ -427,12 +433,17 @@ async function srLoadWeek(){
 
     nav.innerHTML = '';
     SR_SLOTS.forEach(slot => {
-      const btn = document.createElement('div');
+      // Use a real <button>, not a <div> — the CSS :disabled selector (which drives the
+      // grayed-out look) only ever matches actual form controls. A <div> with a
+      // "disabled" attribute is inert but renders identically to an enabled one,
+      // which is why unavailable items looked exactly like available ones (found 2026-08-21).
+      const btn = document.createElement('button');
+      btn.type = 'button';
       const has = !!srFiles[slot.key];
-      btn.className = 'sr-nav-btn' + (has ? '' : '');
+      btn.className = 'sr-nav-btn';
       btn.textContent = slot.label;
       if (!has) {
-        btn.setAttribute('disabled', 'disabled');
+        btn.disabled = true;
         btn.title = '이 주에는 없는 파일이에요';
       } else {
         btn.title = srFiles[slot.key].name;
