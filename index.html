@@ -303,7 +303,7 @@
   <header class="top">
     <div>
       <h1>📓 SJ's Dashboard</h1>
-      <div class="sub">볼트: <code>iCloud/obsidian/SJKim</code> · 기준일 2026-08-20 · 노트 16,882개</div>
+      <div class="sub">볼트: <code>iCloud/obsidian/SJKim</code> · 기준일 2026-08-21 · 노트 16,890개</div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
       <a class="theme-toggle" href="daily_note.html" style="text-decoration:none;">📝 오늘의 Daily Note 작성</a>
@@ -317,18 +317,18 @@
   <div class="kpi-row">
     <div class="kpi">
       <div class="label">전체 노트</div>
-      <div class="value">16,882</div>
-      <div class="delta good">▲ 성경 노트 8,280개 (170. 성경)</div>
+      <div class="value">16,890</div>
+      <div class="delta good">▲ 100. notes 폴더 15,934개</div>
     </div>
     <div class="kpi">
       <div class="label">다음 설교까지</div>
-      <div class="value">D-3</div>
-      <div class="delta">8/23 · Eph5 Christian Family (준비중)</div>
+      <div class="value">D-2</div>
+      <div class="delta good">8/23 · Eph5 Christian Family (준비완료)</div>
     </div>
     <div class="kpi">
       <div class="label">열린 작업</div>
       <div class="value">5건</div>
-      <div class="delta good">완료율 90.6% (48/53, 6/22~8/20)</div>
+      <div class="delta good">완료율 90.6% (48/53, 6/22~8/17)</div>
     </div>
     <div class="kpi">
       <div class="label">기도 응답</div>
@@ -337,8 +337,8 @@
     </div>
     <div class="kpi">
       <div class="label">USD/KRW</div>
-      <div class="value">₩1,391</div>
-      <div class="delta good">▼ 1개월 -6.1%</div>
+      <div class="value">₩1,396</div>
+      <div class="delta good">▼ 1개월 -5.7%</div>
     </div>
     <div class="kpi">
       <div class="label">Des Moines 오늘 <span id="wxLiveDot" title="실시간(30분 자동 갱신)" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--text-muted);margin-left:3px;"></span></div>
@@ -360,9 +360,9 @@
     </section>
     <section>
       <h2>💱 환율 — USD/KRW (최근 1개월 추이)</h2>
-      <p class="desc">Frankfurter(ECB 기준) 일별 환율, 2026-07-13 ~ 08-14</p>
+      <p class="desc">Frankfurter(ECB 기준) 일별 환율, 2026-07-22 ~ 08-20</p>
       <div class="card">
-        <div class="fx-hero"><span class="num">1,420</span><span class="unit">원 / 1 USD</span><span class="footnote" style="margin:0 0 0 8px;color:var(--good);">▼ 1개월간 -75원 (-5.0%)</span></div>
+        <div class="fx-hero"><span class="num">1,396</span><span class="unit">원 / 1 USD</span><span class="footnote" style="margin:0 0 0 8px;color:var(--good);">▼ 1개월간 -84원 (-5.7%)</span></div>
         <svg id="fxChart" width="100%" height="120" viewBox="0 0 1080 120" preserveAspectRatio="none" style="margin-top:10px;"></svg>
         <div class="footnote">출처: Frankfurter API (ECB 기준 환율) · 실시간 변동은 <a href="https://www.wise.com/us/currency-converter/usd-to-krw-rate" target="_blank">Wise 환율 변환기</a>에서 확인하세요.</div>
       </div>
@@ -373,7 +373,7 @@
     <!-- TASK TRACKER -->
     <section>
       <h2>✅ 할 일 트래커</h2>
-      <p class="desc">Daily notes의 '오늘의 우선순위' 항목 기준 (2026-06-22 ~ 08-20)</p>
+      <p class="desc">Daily notes의 '오늘의 우선순위' 항목 기준 (2026-06-22 ~ 08-17)</p>
       <div class="card">
         <div style="font-size:12px;color:var(--text-secondary);margin-bottom:10px;">최근 미완료 작업 5건</div>
         <ul class="task-list" id="taskList"></ul>
@@ -383,7 +383,7 @@
     <!-- GOOGLE CALENDAR -->
     <section>
       <h2>📆 구글 일정 트래커</h2>
-      <p class="desc">Google Calendar 연동 · 향후 2주 (8/20 ~ 9/3)</p>
+      <p class="desc">Google Calendar 연동 · 향후 2주 (8/21 ~ 9/4)</p>
       <div class="card">
         <ul class="task-list" id="calList"></ul>
       </div>
@@ -514,7 +514,7 @@
   </div>
 
   <div class="footnote" style="text-align:center;margin-top:10px;">
-    이 대시보드는 옵시디언 볼트 및 웹 스냅샷(2026-08-18 기준)으로 만들어졌습니다. 날씨는 실시간(자동 갱신)이고, 그 외 항목은 최신 상태를 보려면 다시 요청해 새로고침해 주세요.
+    이 대시보드는 옵시디언 볼트 및 웹 스냅샷(2026-08-21 기준)으로 만들어졌습니다. 날씨는 실시간(자동 갱신)이고, 그 외 항목은 최신 상태를 보려면 다시 요청해 새로고침해 주세요.
   </div>
 
 </div>
@@ -529,7 +529,7 @@ function toggleTheme(){
 
 // ---------- DATA ----------
 const sermons = [
- {date:"2026-08-23", title:"Eph5 Christian Family (가정 생활)", status:"준비중"},
+ {date:"2026-08-23", title:"Eph5 Christian Family", status:"준비완료"},
  {date:"2026-08-30", title:"엡6 자녀 양육하기", status:"미시작"},
  {date:"2026-09-06", title:"교회 생활", status:"미시작"},
  {date:"2026-09-13", title:"교회 하나님의 충만함", status:"준비중"},
@@ -563,98 +563,99 @@ const wxHourly = [
  ["2PM","79°","흐림"],["3PM","80°","흐림"],["4PM","82°","흐림"],["5PM","82°","흐림"],
 ];
 
-const gnewsKr = [
- {t:"Trump '57개' 안규백 '80~120개'…북 핵무기 추정치, 왜 다른가 봤더니", src:"한겨레"},
- {t:"북한, 평양 일대서 동해상으로 단거리 탄도미사일 10여 발 발사", src:"VOA Korea"},
- {t:"\"조희대 사퇴\" 압박 수위 높이는 민주…탄핵 추진엔 신중", src:"한겨레"},
- {t:"국힘 윤리위, 조경태 당원권 정지 2년 6개월·진종오 2년·권영진 1년6개월 의결", src:"경향신문"},
- {t:"한미연합훈련 축소: 미국 상원의원들 BBC에 '동맹 신뢰' 우려 전달", src:"BBC"},
- {t:"종합특검, '김건희 도이치 무혐의' 이창수 전 서울중앙지검장 등 검사 5명 기소", src:"경향신문"},
-];
+const gnewsKr = [];
 
 const fxRates = [
- ["07/20",1481.18],["07/21",1478.40],["07/22",1480.35],["07/23",1472.72],["07/24",1461.00],
+ ["07/22",1480.35],["07/23",1472.72],["07/24",1461.00],
  ["07/27",1470.11],["07/28",1459.45],["07/29",1452.35],["07/30",1433.70],["07/31",1443.61],
  ["08/03",1427.05],["08/04",1427.11],["08/05",1423.72],["08/06",1423.57],["08/07",1415.95],
  ["08/10",1416.62],["08/11",1412.17],["08/12",1417.13],["08/13",1420.29],["08/14",1411.27],
- ["08/17",1411.91],["08/18",1410.07],["08/19",1391.48],
+ ["08/17",1411.91],["08/18",1410.07],["08/19",1391.48],["08/20",1396.35],
 ];
 
 const daumKr = [
- {t:"북한, 접경지에 600㎜ 방사포 배치 움직임…단거리 탄도 미사일 10발 발사", src:"경향신문"},
- {t:"北, '전술핵 탑재주장' 600㎜ 방사포 전방 작전배치 준비중", src:"연합뉴스"},
- {t:"민간 전력망 건설 3년 허용…석탄발전 폐지지역 지원법 마련", src:"연합뉴스"},
- {t:"'북미대화 움직임' 中왕이 만난 李대통령…'한반도문제 긴밀 소통'", src:"파이낸셜뉴스"},
- {t:"'대법관 서면 제청' 논란에…'대면은 관행일뿐' vs '제청권 남용'", src:"뉴시스"},
+ {t:"'역대급 반도체 초과세수' 교부금 연동 폐지하고 '미래 대응 기금' 신설", l:"https://v.daum.net/v/20260821204010726"},
+ {t:"삼성전자 \"올해 최대 110조 주주환원...역대 최대\"", l:"https://v.daum.net/v/20260821203409626"},
+ {t:"시민 발걸음 막는 전기 자전거‥이제는 '강제 견인'", l:"https://v.daum.net/v/20260821203109574"},
+ {t:"'거제 야호' 관광 열기에 '찬물'‥폭우 피해에 축제 잇달아 취소", l:"https://v.daum.net/v/20260821201320192"},
+ {t:"트럼프 '북핵 용인' 우려에…보수野 일각 '자체 핵무장론' 분출", l:"https://v.daum.net/v/20260821200552959"},
 ];
 
 const pbsWorld = [
- {t:"트럼프, 캐나다와 극적 합의… 50% 관세 부과 연기", l:"https://www.pbs.org/newshour/world/trump-says-us-and-canada-reached-last-minute-deal-to-delay-50-us-tariffs-on-canadian-imports"},
- {t:"이스라엘, 가자 공습으로 다수 사망… 쿠슈너 방문 직후 휴전 흔들려", l:"https://www.pbs.org/newshour/world/israels-deadly-gaza-strikes-cast-doubt-on-ceasefire-progress-days-after-kushner-visit"},
- {t:"콜롬비아 대통령, 지진 피해 복구 위해 트럼프에 관세 유예 요청", l:"https://www.pbs.org/newshour/world/colombian-president-asks-trump-to-suspend-tariffs-to-help-earthquake-recovery-2"},
- {t:"북한, 한미 훈련 축소에 \"달라진 것 없다\" 반응", l:"https://www.pbs.org/newshour/world/north-korea-shrugs-off-trumps-scaled-back-drills-with-south-korea-saying-it-changes-nothing"},
- {t:"이스라엘군, 힌드 라잡·구호대원 사망 사건 형사수사 착수", l:"https://www.pbs.org/newshour/world/israeli-military-launches-criminal-probes-into-killings-of-hind-rajab-and-palestinian-paramedics"},
+ {t:"콩고민주공화국에 에볼라 백신 7만 회분 공급", l:"https://www.pbs.org/newshour/world"},
+ {t:"美 항모 에이브러햄 링컨함, 9개월 파병 마치고 귀환", l:"https://www.pbs.org/newshour/world"},
+ {t:"러시아 전쟁범죄는 전략의 일부라는 예비역 대령의 경고, 우크라 미사일·드론 공격 사상자 발생", l:"https://www.pbs.org/newshour/world"},
+ {t:"탈레반 복귀 5년, 아프간 가족들의 삶", l:"https://www.pbs.org/newshour/world"},
+ {t:"가자지구 밀수 급증, 이스라엘 봉쇄 속 암시장 성행", l:"https://www.pbs.org/newshour/world"},
+ {t:"페루 남부 안데스 규모 6.7 지진", l:"https://www.pbs.org/newshour/world"},
+ {t:"북한, 서해상으로 탄도미사일 다수 발사", l:"https://www.pbs.org/newshour/world"},
+ {t:"캐나다-미국 무역협상, 퀘벡주 낙농·임업 조건 명확화 요구", l:"https://www.pbs.org/newshour/world"},
 ];
 
 const foxNews = [
- {t:"Battleground Democrats face \"phony\" working-class narrative criticism", l:"https://www.foxnews.com/"},
- {t:"Trump issues threat to Iran, warning other nations against supporting regime", l:"https://www.foxnews.com/"},
- {t:"Judge delivers major redistricting victory for Trump and GOP before midterms", l:"https://www.foxnews.com/"},
- {t:"Third body discovered in Minneapolis within three days", l:"https://www.foxnews.com/"},
- {t:"WNBA coaches criticize \"Save Women's Sports\" movement amid trans controversy", l:"https://www.foxnews.com/"},
+ {t:"Ukraine unveils new weapon that could change the way war will be waged", l:"https://www.foxnews.com/politics/ukraines-equalizer-bomb-aims-blow-reliance-us-european-weapons"},
+ {t:"Fentanyl deaths plunge as White House points to Trump's sweeping crackdown", l:"https://www.foxnews.com/politics/exclusive-fentanyl-deaths-plunge-22-trump-white-house-touts-crackdown-deadly-drug-crisis"},
+ {t:"NY Times defeated in court, ordered to pay former basketball player $9.25 million", l:"https://www.foxnews.com/media/new-york-times-loses-defamation-suit-ordered-pay-9-25m-former-alabama-basketball-player"},
+ {t:"Caitlin Clark fires ball after Paige Bueckers grabs her arm before halftime", l:"https://www.foxnews.com/outkick-sports/paige-bueckers-grabs-caitlin-clarks-arm-draws-foul-tense-moment-halftime-wings-win-fever"},
+ {t:"Escalating US-Iran tension threatens to disrupt critical Middle East oil shipping routes", l:"https://www.foxnews.com/live-news/iran-war-trump-economic-sanctions-strait-hormuz-oil-08-21-26"},
 ];
 
 const kidok = [
- {t:"선출직 후보 기호추첨…전승덕 1번ㆍ송기섭 2번", d:"08-19", l:"https://www.kidok.com/news/articleView.html?idxno=508467"},
- {t:"111총회 하나 되고, 미래 열며 거룩으로 나아가자", d:"08-19", l:"https://www.kidok.com/news/articleView.html?idxno=508465"},
- {t:"영남 지역 폭우로 5개 교회 큰 피해", d:"08-19", l:"https://www.kidok.com/news/articleView.html?idxno=508466"},
- {t:"교회종합지원센터 E-Book 매뉴얼 판매 시작", d:"08-19", l:"https://www.kidok.com/news/articleView.html?idxno=508406"},
+ {t:"퀴어축제 반대 여론, 5년 만에 과반 깨져", d:"", l:"https://www.kidok.com/news/articleView.html?idxno=508421"},
+ {t:"총회사적지 이렇게 가꿉시다", d:"", l:"https://www.kidok.com/news/articleView.html?idxno=508374"},
+ {t:"영남 지역 폭우로 5개 교회 큰 피해", d:"", l:"https://www.kidok.com/news/articleView.html?idxno=508466"},
+ {t:"전국섬김의봉사단, 대표회장 오광춘 장로 유임", d:"", l:"https://www.kidok.com/news/articleView.html?idxno=508474"},
+ {t:"난민 정착촌 유치원에 하나님 사랑 쏟는다", d:"", l:"https://www.kidok.com/news/articleView.html?idxno=508476"},
 ];
 
 const pck = [
- {t:"\"버려진 나무에 새 생명을\"…다시 세우는 희망", d:"", l:"http://www.pckworld.com/article.php?aid=11190390664"},
- {t:"세대의 벽 넘어, 그리스도의 한 몸으로", d:"", l:"http://www.pckworld.com/article.php?aid=11188836848"},
- {t:"\"목마르면 교회 문 여세요\"…강서교회, 생수 한 병에 담은 이웃 사랑", d:"", l:"http://www.pckworld.com/article.php?aid=11190459944"},
- {t:"총회 하반기 정기감사…정책·재정·재판 절차 중점 점검", d:"", l:"http://www.pckworld.com/article.php?aid=11190127664"},
+ {t:"재정부, 총회헌금 부족 노회에 부과 상회비 책정", d:"08-21", l:"http://www.pckworld.com/article.php?aid=11193864283"},
+ {t:"총회창립100주년기념관 미납 건축헌금, 노회별 모금 청원", d:"08-21", l:"http://www.pckworld.com/article.php?aid=11193517798"},
+ {t:"연금재단 이사장 사임", d:"08-21", l:"http://www.pckworld.com/article.php?aid=11193327628"},
+ {t:"여성과 남성이 '함께' 만들어가는 균형 있는 총회", d:"08-21", l:"http://www.pckworld.com/article.php?aid=11193271690"},
+ {t:"8월 넷째 주 뉴스탑텐", d:"08-21", l:"http://www.pckworld.com/article.php?aid=11193123617"},
 ];
 
 const kcmusa = [
- {t:"[CA] OC영적대각성 새벽기도회 3주간 일정 마쳐…\"다시 타오른 부흥\"", l:"https://kcmusa.org/"},
- {t:"[CA] 남가주사랑의교회, 여름성령축제 은혜 가운데 성료", l:"https://kcmusa.org/"},
- {t:"[CA] \"기도로 지켜온 나라, 함께 세울 미래\"…부에나파크서 광복 81주년 기념 감사축제 열려", l:"https://kcmusa.org/"},
- {t:"[CA] 남가주한인원로목사회 제85대 회장 이상기 목사 취임…\"섬김과 화평의 공동체 되겠다\"", l:"https://kcmusa.org/"},
- {t:"러시아 억류 한국인 박태연 선교사 재판 이번 주 재개", l:"https://kcmusa.org/"},
- {t:"미국인 선교사 서아프리카 니제르에서 납치 9개월 만에 억류에서 풀려나", l:"https://kcmusa.org/"},
+ {t:"OC 영적각성 새벽기도회 — 3주 연속 부흥의 불길"},
+ {t:"사우스 LA 사랑의교회 여름 성령축제"},
+ {t:"광복 81주년 기념 행사 — '기도로 지켜온 나라, 함께 세우는 미래' (부에나파크)"},
+ {t:"미주장로회 은퇴목회자회 회장 이취임 — 제85대 이상기 목사"},
+ {t:"법정 AI 통역 오류 논란 — 'DUI'를 'IUD'로 오역"},
 ];
 
 const amen = [
- {t:"22명 어린이와 19명 봉사자의 만남, 에제르 미니스트리 VBS", l:"https://usaamen.net/bbs/board.php?bo_table=data&wr_id=15327"},
- {t:"은퇴 목회자부터 미자립 교회까지 돕는 21희망재단의 조용한 헌신", l:"https://usaamen.net/bbs/board.php?bo_table=data&wr_id=15326"},
- {t:"2026 할렐루야대회 폐막… 세대 간 장막터 넓힌 풍성하고 강력한 메시지", l:"https://usaamen.net/bbs/board.php?bo_table=data&wr_id=15298"},
+ {t:"22명 어린이와 19명 봉사자의 만남, 에제르 미니스트리 VBS", l:"https://www.usaamen.net/bbs/board.php?bo_table=data&wr_id=15327"},
+ {t:"은퇴 목회자부터 미자립 교회까지 돕는 21희망재단의 조용한 헌신", l:"https://www.usaamen.net/bbs/board.php?bo_table=data&wr_id=15326"},
+ {t:"2026 할렐루야대회 폐막… 세대 간 장막터 넓힌 풍성하고 강력한 메시지", l:"https://www.usaamen.net/bbs/board.php?bo_table=data&wr_id=15298"},
+ {t:"(3) 설교 대신 진짜 삶을 원한다, Z세대가 꼽은 좋은 기독교 콘텐츠", l:"https://usaamen.net/bbs/board.php?bo_table=mag&wr_id=1320"},
+ {t:"백세사역 (3) 모세는 80세에 시작했다… 은퇴 후의 소명", l:"https://www.usaamen.net/bbs/board.php?bo_table=data&wr_id=15333"},
 ];
 
 const ct = [
- {t:"How to Forgive Someone Who Isn't Sorry", l:"https://www.christianitytoday.com/2026/08/how-to-forgive-grace-justice-joseph/"},
+ {t:"Federal Appeals Court Upholds Ban on ICE Arrests at Some Houses of Worship", l:"https://www.christianitytoday.com/2026/08/federal-court-ruling-immigration-enforcement-churches/"},
+ {t:"A Christian Is Suing His Employer over Fossil Fuels in His 401(k). Does He Have a Case?", l:"https://www.christianitytoday.com/2026/08/christian-fossil-fuel-401k-lawsuit-thermo-fisher/"},
+ {t:"Recovering Catechesis for the Next Generation", l:"https://www.christianitytoday.com/2026/08/recovering-catechesis-for-the-next-generation/"},
+ {t:"Justin Giboney: 'Our Allegiance to Jesus Is Bigger Than This'", l:"https://www.christianitytoday.com/2026/08/justin-giboney-our-allegiance-to-jesus-is-bigger-than-this-video/"},
  {t:"Kenyan Christians Debate US-Sponsored Ebola Facility", l:"https://www.christianitytoday.com/2026/08/kenyan-christians-debate-us-sponsored-ebola-facility/"},
- {t:"The Biggest Group Getting Baptized in the SBC? Older Adults.", l:"https://www.christianitytoday.com/2026/08/southern-baptist-convention-baptisms-adult-increase-research/"},
 ];
 
 const prayer24365 = [
+ {t:"[긴급기도] 아프가니스탄 — 탈레반 치하 어린이 370만명 영양실조 위기", l:"https://prayer24365.org"},
+ {t:"[긴급기도] 우크라이나/유럽 — 모스크바 대상 대규모 드론작전, 러 791기 요격 발표", l:"https://prayer24365.org"},
+ {t:"[긴급기도] 시리아 — 쿠르드계 목회자 2주간 구금 후 석방, 자의적 구금 우려", l:"https://prayer24365.org"},
  {t:"[긴급기도] 영국 — 차량에 '예수님은 당신을 사랑하십니다' 문구 표시했다가 보험 갱신 거절당한 성도", l:"https://prayer24365.org"},
- {t:"[긴급기도] 중국 — 미등록 가정교회 인도자 3명, 예배 모임 조직 혐의로 실형 선고", l:"https://prayer24365.org"},
- {t:"[긴급기도] 베트남 — 미등록 종교활동 인도한 개신교 목회자에 7년 6개월 실형", l:"https://prayer24365.org"},
- {t:"[긴급기도] 아일랜드 — SNS 관심 얻으려 무모한 질주하던 십대 5명 교통사고로 사망", l:"https://prayer24365.org"},
+ {t:"[주간기도] 한국교회 — 기도원 참석 인원 급감, 운영난 심화", l:"https://prayer24365.org"},
 ];
 
 const calEvents = [
- {date:"08/20 (목)", time:"종일", title:"YJ PTO (연차)"},
  {date:"08/21 (금)", time:"종일", title:"Approval"},
  {date:"08/22 (토)", time:"종일", title:"M20-6 (Fr Ignatius)"},
  {date:"08/26 (수)", time:"오후 3:00–4:00", title:"Paul Kleinwolterink"},
  {date:"08/27 (목)", time:"종일", title:"M1730-6"},
  {date:"08/28 (금)", time:"종일", title:"M18-6 (Ignatius)"},
  {date:"08/28 (금)", time:"종일", title:"Pay"},
- {date:"09/02 (수)", time:"오전 8:00–9:30", title:"MODM Chaplain Staff Meeting"},
+ {date:"09/02 (수)", time:"오전 9:00–10:30", title:"MODM Chaplain Staff Meeting"},
 ];
 
 const clips = [
@@ -667,6 +668,7 @@ const clips = [
  {date:"08-14", text:"5·18 민주화운동 유공자 명단 공개해라 — 이진숙 '작심 발언'"},
  {date:"08-11", text:"다음세대를 준비하는 교회 - 이민교회 차세대 목회에 대한 소고"},
 ];
+
 
 // ---------- RENDER: sermons ----------
 const sermonList = document.getElementById('sermonList');
@@ -822,7 +824,7 @@ renderList('pbsList', pbsWorld);
 renderList('foxList', foxNews);
 renderList('kidokList', kidok);
 renderList('pckList', pck);
-renderList('kcmusaList', kcmusa, '⚠️ 이번 새로고침에서 KCMUSA 사이트에 연결할 수 없었어요 (DNS 조회 실패 — 사이트 자체가 일시적으로 다운된 것으로 보여요). 사이트에서 직접 확인해 주세요.');
+renderList('kcmusaList', kcmusa);
 renderList('amenList', amen);
 renderList('ctList', ct);
 renderList('prayer24365List', prayer24365);
