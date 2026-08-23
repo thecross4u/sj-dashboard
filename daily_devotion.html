@@ -176,7 +176,7 @@
   <header class="top">
     <div>
       <h1>📖 Daily Devotion</h1>
-      <div class="sub"><a href="index.html" onclick="if(window.history.length>1){history.back();return false;}" style="color:var(--link);text-decoration:none;">← 대시보드로 돌아가기</a> · <span id="subDateText">2026-08-22 기준</span></div>
+      <div class="sub"><a href="index.html" onclick="if(window.history.length>1){history.back();return false;}" style="color:var(--link);text-decoration:none;">← 대시보드로 돌아가기</a> · <span id="subDateText">2026-08-23 기준</span></div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
       <div class="week-toggle" id="weekToggleBtn" onclick="toggleWeek()">📅 다음 주 월요일(8/24) 보기 →</div>
@@ -185,20 +185,20 @@
   </header>
 
   <section>
-    <h2 id="rclTitle">🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 토요일 데일리</h2>
+    <h2 id="rclTitle">🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 주일 (Proper 16)</h2>
     <p class="desc" id="rclDesc">Vanderbilt Revised Common Lectionary 기준(연속/보완 트랙). 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
     <div class="card">
       <div class="rd-list" id="rclList"></div>
-      <div class="footnote">출처: <a href="https://lectionary.library.vanderbilt.edu/daily-readings/" target="_blank" rel="noopener">Vanderbilt Revised Common Lectionary</a></div>
+      <div class="footnote">출처: <a href="https://lectionary.library.vanderbilt.edu/2026/08/daily-readings-for-sunday-august-23-2026/" target="_blank" rel="noopener">Vanderbilt Revised Common Lectionary</a></div>
     </div>
   </section>
 
   <section>
     <h2>✝️ 가톨릭 오늘의 미사 독서 (USCCB)</h2>
-    <p class="desc" id="usccbDesc">복되신 동정 마리아 모후 기념일 (Memorial of the Queenship of the Blessed Virgin Mary). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
+    <p class="desc" id="usccbDesc">연중 제21주일 (Twenty-first Sunday in Ordinary Time). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
     <div class="card">
       <div class="rd-list" id="usccbList"></div>
-      <div class="footnote">출처: <a href="https://bible.usccb.org/bible/readings/082226.cfm" target="_blank" rel="noopener" id="usccbSrcLink">USCCB Daily Readings</a></div>
+      <div class="footnote">출처: <a href="https://bible.usccb.org/bible/readings/082326.cfm" target="_blank" rel="noopener" id="usccbSrcLink">USCCB Daily Readings</a></div>
     </div>
   </section>
 
@@ -216,7 +216,7 @@ function toggleTheme(){
   root.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
 }
 
-// ---------- reading data (2026-08-22) ----------
+// ---------- reading data (2026-08-23, Proper 16 주일) ----------
 // 개역개정: 대한성서공회 공식 리더 (책 이름 뒤 시작 절부터 이어서 보여줌)
 // ESV: Bible Gateway (정확한 절 범위로 검색)
 // Logos: ref.ly 딥링크 (https://ref.ly/{책약어}{장}.{절-절};ESV) — Logos 앱이 설치되어 있으면 앱으로, 없으면 웹으로 열림
@@ -232,6 +232,62 @@ function logosLink(bookAbbr, chap, startVerse, endVerse){
 }
 
 const rclReadings = [
+ {
+  kind:"연속 트랙 · 구약", ref:"출애굽기 1:8-2:10",
+  krSrc:krLink("exo",1,8), enSrc:esvLink("Exodus 1:8-2:10"), logos:logosLink("Ex",1,8,"2.10"),
+  kr:[[8,"요셉을 알지 못하는 새 왕이 일어나 애굽을 다스리더니"],
+      [9,"그가 그 백성에게 이르되 이 백성 이스라엘 자손이 우리보다 많고 강하도다"],
+      [10,"자, 우리가 그들에게 대하여 지혜롭게 하자 두렵건대 그들이 더 많게 되면 전쟁이 일어날 때에 우리 대적과 합하여 우리와 싸우고 이 땅에서 나갈까 하노라 하고"],
+      [11,"감독들을 그들 위에 세우고 그들에게 무거운 짐을 지워 괴롭게 하여 그들에게 바로를 위하여 국고성 비돔과 라암셋을 건축하게 하니라"],
+      [12,"그러나 학대를 받을수록 더욱 번성하여 퍼져나가니 애굽 사람이 이스라엘 자손으로 말미암아 근심하여"],
+      [13,"이스라엘 자손에게 일을 엄하게 시켜"],
+      [14,"어려운 노동으로 그들의 생활을 괴롭게 하니 곧 흙 이기기와 벽돌 굽기와 농사의 여러 가지 일이라 그 시키는 일이 모두 엄하였더라"],
+      [15,"애굽 왕이 히브리 산파 십브라라 하는 사람과 부아라 하는 사람에게 말하여"],
+      [16,"이르되 너희는 히브리 여인을 위하여 해산을 도울 때에 그 자리를 살펴서 아들이거든 그를 죽이고 딸이거든 살려두라"],
+      [17,"그러나 산파들이 하나님을 두려워하여 애굽 왕의 명령을 어기고 남자 아기들을 살린지라"],
+      [18,"애굽 왕이 산파를 불러 그들에게 이르되 너희가 어찌하여 이같이 남자 아기들을 살렸느냐"],
+      [19,"산파가 바로에게 대답하되 히브리 여인은 애굽 여인과 같지 아니하고 건장하여 산파가 그들에게 이르기 전에 해산하였더이다 하매"],
+      [20,"하나님이 그 산파들에게 은혜를 베푸시니 그 백성은 번성하고 매우 강해지니라"],
+      [21,"그 산파들은 하나님을 경외하였으므로 하나님이 그들의 집안을 흥왕하게 하신지라"],
+      [22,"그러므로 바로가 그의 모든 백성에게 명령하여 이르되 아들이 태어나거든 너희는 그를 나일 강에 던지고 딸이거든 살려두라 하였더라"],
+      ["gap","2장으로 이어짐"],
+      [1,"레위 가족 중 한 사람이 가서 레위 여자에게 장가 들어"],
+      [2,"그 여자가 임신하여 아들을 낳으니 그가 잘 생긴 것을 보고 석 달 동안 그를 숨겼으나"],
+      [3,"더 숨길 수 없게 되매 그를 위하여 갈대 상자를 가져다가 역청과 나무 진을 칠하고 아기를 거기 담아 나일 강 가 갈대 사이에 두고"],
+      [4,"그의 누이가 어떻게 되는지를 알려고 멀리 섰더니"],
+      [5,"바로의 딸이 목욕하러 나일 강으로 내려오고 시녀들은 나일 강 가를 거닐 때에 그가 갈대 사이의 상자를 보고 시녀를 보내어 가져다가"],
+      [6,"열고 그 아기를 보니 아기가 우는지라 그가 그를 불쌍히 여겨 이르되 이는 히브리 사람의 아기로다"],
+      [7,"그의 누이가 바로의 딸에게 이르되 내가 가서 당신을 위하여 히브리 여인 중에서 유모를 불러다가 이 아기에게 젖을 먹이게 하리이까"],
+      [8,"바로의 딸이 그에게 이르되 가라 하매 그 소녀가 가서 그 아기의 어머니를 불러오니"],
+      [9,"바로의 딸이 그에게 이르되 이 아기를 데려다가 나를 위하여 젖을 먹이라 내가 그 삯을 주리라 여인이 아기를 데려다가 젖을 먹이더니"],
+      [10,"그 아기가 자라매 바로의 딸에게로 데려가니 그가 그의 아들이 되니라 그가 그의 이름을 모세라 하여 이르되 이는 내가 그를 물에서 건져내었음이라 하였더라"]],
+  en:[[8,"Now there arose a new king over Egypt, who did not know Joseph."],
+      [9,"And he said to his people, 'Behold, the people of Israel are too many and too mighty for us.'"],
+      [10,"'Come, let us deal shrewdly with them, lest they multiply, and, if war breaks out, they join our enemies and fight against us and escape from the land.'"],
+      [11,"Therefore they set taskmasters over them to afflict them with heavy burdens. They built for Pharaoh store cities, Pithom and Raamses."],
+      [12,"But the more they were oppressed, the more they multiplied and the more they spread abroad. And the Egyptians were in dread of the people of Israel."],
+      [13,"So they ruthlessly made the people of Israel work as slaves"],
+      [14,"and made their lives bitter with hard service, in mortar and brick, and in all kinds of work in the field. In all their work they ruthlessly made them work as slaves."],
+      [15,"Then the king of Egypt said to the Hebrew midwives, one of whom was named Shiphrah and the other Puah,"],
+      [16,"'When you serve as midwife to the Hebrew women and see them on the birthstool, if it is a son, you shall kill him, but if it is a daughter, she shall live.'"],
+      [17,"But the midwives feared God and did not do as the king of Egypt commanded them, but let the male children live."],
+      [18,"So the king of Egypt called the midwives and said to them, 'Why have you done this, and let the male children live?'"],
+      [19,"The midwives said to Pharaoh, 'Because the Hebrew women are not like the Egyptian women, for they are vigorous and give birth before the midwife comes to them.'"],
+      [20,"So God dealt well with the midwives. And the people multiplied and grew very strong."],
+      [21,"And because the midwives feared God, he gave them families."],
+      [22,"Then Pharaoh commanded all his people, 'Every son that is born to the Hebrews you shall cast into the Nile, but you shall let every daughter live.'"],
+      ["gap","continues into chapter 2"],
+      [1,"Now a man from the house of Levi went and took as his wife a Levite woman."],
+      [2,"The woman conceived and bore a son, and when she saw that he was a fine child, she hid him three months."],
+      [3,"When she could hide him no longer, she took for him a basket made of bulrushes and daubed it with bitumen and pitch. She put the child in it and placed it among the reeds by the river bank."],
+      [4,"And his sister stood at a distance to know what would be done to him."],
+      [5,"Now the daughter of Pharaoh came down to bathe at the river, while her young women walked beside the river. She saw the basket among the reeds and sent her servant woman, and she took it."],
+      [6,"When she opened it, she saw the child, and behold, the baby was crying. She took pity on him and said, 'This is one of the Hebrews' children.'"],
+      [7,"Then his sister said to Pharaoh's daughter, 'Shall I go and call you a nurse from the Hebrew women to nurse the child for you?'"],
+      [8,"And Pharaoh's daughter said to her, 'Go.' So the girl went and called the child's mother."],
+      [9,"And Pharaoh's daughter said to her, 'Take this child away and nurse him for me, and I will give you your wages.'"],
+      [10,"When the child grew older, she brought him to Pharaoh's daughter, and he became her son. She named him Moses, 'Because,' she said, 'I drew him out of the water.'"]]
+ },
  {
   kind:"연속 트랙 · 시편", ref:"시편 124편",
   krSrc:krLink("psa",124,1), enSrc:esvLink("Psalm 124"), logos:logosLink("Ps",124,1,8),
@@ -253,32 +309,20 @@ const rclReadings = [
       [8,"Our help is in the name of the Lord, who made heaven and earth."]]
  },
  {
-  kind:"연속 트랙 · 구약", ref:"창세기 50:15-26",
-  krSrc:krLink("gen",50,15), enSrc:esvLink("Genesis 50:15-26"), logos:logosLink("Gn",50,15,26),
-  kr:[[15,"요셉의 형제들이 그들의 아버지가 죽었음을 보고 말하되 요셉이 혹시 우리를 미워하여 우리가 그에게 행한 모든 악을 다 갚지나 아니할까 하고"],
-      [16,"요셉에게 말을 전하여 이르되 당신의 아버지가 돌아가시기 전에 명령하여 이르시기를"],
-      [17,"너희는 이같이 요셉에게 이르라 네 형들이 네게 악을 행하였을지라도 이제 바라건대 그들의 허물과 죄를 용서하라 하셨나니 당신 아버지의 하나님의 종들인 우리 죄를 이제 용서하소서 하매 요셉이 그들이 그에게 하는 말을 들을 때에 울었더라"],
-      [18,"그의 형들이 또 친히 와서 요셉의 앞에 엎드려 이르되 우리는 당신의 종들이니이다"],
-      [19,"요셉이 그들에게 이르되 두려워하지 마소서 내가 하나님을 대신하리이까"],
-      [20,"당신들은 나를 해하려 하였으나 하나님은 그것을 선으로 바꾸사 오늘과 같이 많은 백성의 생명을 구원하게 하시려 하셨나니"],
-      [21,"당신들은 두려워하지 마소서 내가 당신들과 당신들의 자녀를 기르리이다 하고 그들을 간곡한 말로 위로하였더라"],
-      [22,"요셉이 그의 아버지의 가족과 함께 애굽에 거주하여 백십 세를 살며"],
-      [23,"에브라임의 자손 삼대를 보았으며 므낫세의 아들 마길의 아들들도 요셉의 슬하에서 양육되었더라"],
-      [24,"요셉이 그의 형제들에게 이르되 나는 죽을 것이나 하나님이 당신들을 돌보시고 당신들을 이 땅에서 인도하여 내사 아브라함과 이삭과 야곱에게 맹세하신 땅에 이르게 하시리라 하고"],
-      [25,"요셉이 또 이스라엘 자손에게 맹세시켜 이르기를 하나님이 반드시 당신들을 돌보시리니 당신들은 여기서 내 해골을 메고 올라가겠다 하라 하였더라"],
-      [26,"요셉이 백십 세에 죽으매 그들이 그의 몸에 향 재료를 넣고 애굽에서 입관하였더라"]],
-  en:[[15,"When Joseph's brothers saw that their father was dead, they said, 'It may be that Joseph will hate us and pay us back for all the evil that we did to him.'"],
-      [16,"So they sent a message to Joseph, saying, 'Your father gave this command before he died:'"],
-      [17,"'Say to Joseph, \"Please forgive the transgression of your brothers and their sin, because they did evil to you.\"' And now, please forgive the transgression of the servants of the God of your father.' Joseph wept when they spoke to him."],
-      [18,"His brothers also came and fell down before him and said, 'Behold, we are your servants.'"],
-      [19,"But Joseph said to them, 'Do not fear, for am I in the place of God?'"],
-      [20,"As for you, you meant evil against me, but God meant it for good, to bring it about that many people should be kept alive, as they are today."],
-      [21,"So do not fear; I will provide for you and your little ones.' Thus he comforted them and spoke kindly to them."],
-      [22,"So Joseph remained in Egypt, he and his father's house. Joseph lived 110 years."],
-      [23,"And Joseph saw Ephraim's children of the third generation. The children also of Machir the son of Manasseh were counted as Joseph's own."],
-      [24,"And Joseph said to his brothers, 'I am about to die, but God will visit you and bring you up out of this land to the land that he swore to Abraham, to Isaac, and to Jacob.'"],
-      [25,"Then Joseph made the sons of Israel swear, saying, 'God will surely visit you, and you shall carry up my bones from here.'"],
-      [26,"So Joseph died, being 110 years old. They embalmed him, and he was put in a coffin in Egypt."]]
+  kind:"보완 트랙 · 구약", ref:"이사야 51:1-6",
+  krSrc:krLink("isa",51,1), enSrc:esvLink("Isaiah 51:1-6"), logos:logosLink("Isa",51,1,6),
+  kr:[[1,"의를 따르며 여호와를 찾아 구하는 너희는 내게 들을지어다 너희를 떠낸 반석과 너희를 파낸 우묵한 구덩이를 생각하여 보라"],
+      [2,"너희의 조상 아브라함과 너희를 낳은 사라를 생각하여 보라 아브라함이 혼자 있을 때에 내가 그를 부르고 그에게 복을 주어 창성하게 하였느니라"],
+      [3,"나 여호와가 시온의 모든 황폐한 곳들을 위로하여 그 사막을 에덴 같게, 그 광야를 여호와의 동산 같게 하였나니 그 가운데에 기뻐함과 즐거워함과 감사함과 창화하는 소리가 있으리라"],
+      [4,"내 백성이여 내게 주의하라 내 나라여 내게 귀를 기울이라 이는 율법이 내게서부터 나갈 것임이라 내가 내 공의를 만민의 빛으로 세우리라"],
+      [5,"내 공의가 가깝고 내 구원이 나갔은즉 내 팔이 만민을 심판하리니 섬들이 나를 앙망하여 내 팔에 의지하리라"],
+      [6,"너희는 하늘로 눈을 들며 그 아래의 땅을 살피라 하늘이 연기 같이 사라지고 땅이 옷 같이 해어지며 거기에 사는 자들이 하루살이 같이 죽으려니와 나의 구원은 영원히 있고 나의 공의는 폐하여지지 아니하리라"]],
+  en:[[1,"Listen to me, you who pursue righteousness, you who seek the Lord: look to the rock from which you were hewn, and to the quarry from which you were dug."],
+      [2,"Look to Abraham your father and to Sarah who bore you; for he was but one when I called him, that I might bless him and multiply him."],
+      [3,"For the Lord comforts Zion; he comforts all her waste places and makes her wilderness like Eden, her desert like the garden of the Lord; joy and gladness will be found in her, thanksgiving and the voice of song."],
+      [4,"Give attention to me, my people, and give ear to me, my nation; for a law will go out from me, and I will set my justice for a light to the peoples."],
+      [5,"My righteousness draws near, my salvation has gone out, and my arms will judge the peoples; the coastlands hope for me, and for my arm they wait."],
+      [6,"Lift up your eyes to the heavens, and look at the earth beneath; for the heavens vanish like smoke, the earth will wear out like a garment, and they who dwell in it will die in like manner; but my salvation will be forever, and my righteousness will never be dismayed."]]
  },
  {
   kind:"보완 트랙 · 시편", ref:"시편 138편",
@@ -301,105 +345,111 @@ const rclReadings = [
       [8,"The Lord will fulfill his purpose for me; your steadfast love, O Lord, endures forever. Do not forsake the work of your hands."]]
  },
  {
-  kind:"보완 트랙 · 구약", ref:"에스겔 36:33-38",
-  krSrc:krLink("ezk",36,33), enSrc:esvLink("Ezekiel 36:33-38"), logos:logosLink("Eze",36,33,38),
-  kr:[[33,"주 여호와께서 이같이 말씀하셨느니라 내가 너희를 모든 죄악에서 정결하게 하는 날에 성읍들에 사람이 거주하게 하며 황폐한 것이 건축되게 할 것인즉"],
-      [34,"전에는 지나가는 자의 눈에 황폐하게 보이던 그 황폐한 땅이 장차 경작이 될지라"],
-      [35,"사람이 이르기를 이 땅이 황폐하더니 이제는 에덴 동산 같이 되었고 황량하고 적막하고 무너진 성읍들에 성벽과 주민이 있다 하리니"],
-      [36,"너희 사방에 남은 이방 사람이 나 여호와가 무너진 곳을 건축하며 황폐한 자리에 심은 줄을 알리라 나 여호와가 말하였으니 이루리라"],
-      [37,"주 여호와께서 이같이 말씀하셨느니라 그래도 이스라엘 족속이 이같이 자기들에게 이루어 주기를 내게 구하여야 할지라 내가 그들의 수효를 양 떼 같이 많아지게 하되"],
-      [38,"제사 드릴 양 떼 곧 예루살렘이 정한 절기의 양 무리 같이 황폐한 성읍을 사람의 떼로 채우리라 그리한즉 그들이 나를 여호와인 줄 알리라 하셨느니라"]],
-  en:[[33,"Thus says the Lord God: On the day that I cleanse you from all your iniquities, I will cause the cities to be inhabited, and the waste places shall be rebuilt."],
-      [34,"And the land that was desolate shall be tilled, instead of being the desolation that it was in the sight of all who passed by."],
-      [35,"And they will say, 'This land that was desolate has become like the garden of Eden, and the waste and desolate and ruined cities are now fortified and inhabited.'"],
-      [36,"Then the nations that are left all around you shall know that I am the Lord; I have rebuilt the ruined places and replanted that which was desolate. I am the Lord; I have spoken, and I will do it."],
-      [37,"Thus says the Lord God: This also I will let the house of Israel ask me to do for them: to increase their people like a flock."],
-      [38,"Like the flock for sacrifices, like the flock at Jerusalem during her appointed feasts, so shall the waste cities be filled with flocks of people. Then they will know that I am the Lord."]]
+  kind:"서신 (양 트랙 공통)", ref:"로마서 12:1-8",
+  krSrc:krLink("rom",12,1), enSrc:esvLink("Romans 12:1-8"), logos:logosLink("Rom",12,1,8),
+  kr:[[1,"그러므로 형제들아 내가 하나님의 모든 자비하심으로 너희를 권하노니 너희 몸을 하나님이 기뻐하시는 거룩한 산 제물로 드리라 이는 너희가 드릴 영적 예배니라"],
+      [2,"너희는 이 세대를 본받지 말고 오직 마음을 새롭게 함으로 변화를 받아 하나님의 선하시고 기뻐하시고 온전하신 뜻이 무엇인지 분별하도록 하라"],
+      [3,"내게 주신 은혜로 말미암아 너희 각 사람에게 말하노니 마땅히 생각할 그 이상의 생각을 품지 말고 오직 하나님께서 각 사람에게 나누어 주신 믿음의 분량대로 지혜롭게 생각하라"],
+      [4,"우리가 한 몸에 많은 지체를 가졌으나 모든 지체가 같은 기능을 가진 것이 아니니"],
+      [5,"이와 같이 우리 많은 사람이 그리스도 안에서 한 몸이 되어 서로 지체가 되었느니라"],
+      [6,"우리에게 주신 은혜대로 받은 은사가 각각 다르니 혹 예언이면 믿음의 분수대로"],
+      [7,"혹 섬기는 일이면 섬기는 일로, 혹 가르치는 자면 가르치는 일로"],
+      [8,"혹 위로하는 자면 위로하는 일로, 구제하는 자는 성실함으로, 다스리는 자는 부지런함으로, 긍휼을 베푸는 자는 즐거움으로 할 것이니라"]],
+  en:[[1,"I appeal to you therefore, brothers, by the mercies of God, to present your bodies as a living sacrifice, holy and acceptable to God, which is your spiritual worship."],
+      [2,"Do not be conformed to this world, but be transformed by the renewal of your mind, that by testing you may discern what is the will of God, what is good and acceptable and perfect."],
+      [3,"For by the grace given to me I say to everyone among you not to think of himself more highly than he ought to think, but to think with sober judgment, each according to the measure of faith that God has assigned."],
+      [4,"For as in one body we have many members, and the members do not all have the same function,"],
+      [5,"so we, though many, are one body in Christ, and individually members one of another."],
+      [6,"Having gifts that differ according to the grace given to us, let us use them: if prophecy, in proportion to our faith;"],
+      [7,"if service, in our serving; the one who teaches, in his teaching;"],
+      [8,"the one who exhorts, in his exhortation; the one who contributes, in generosity; the one who leads, with zeal; the one who does acts of mercy, with cheerfulness."]]
  },
  {
-  kind:"신약 · 복음 (양 트랙 공통)", ref:"마태복음 16:5-12",
-  krSrc:krLink("mat",16,5), enSrc:esvLink("Matthew 16:5-12"), logos:logosLink("Mt",16,5,12),
-  kr:[[5,"제자들이 건너편으로 갈새 떡 가져가기를 잊었더니"],
-      [6,"예수께서 이르시되 삼가 바리새인과 사두개인들의 누룩을 주의하라 하시니"],
-      [7,"제자들이 서로 논의하여 이르되 우리가 떡을 가져오지 아니하였도다 하거늘"],
-      [8,"예수께서 아시고 이르시되 믿음이 작은 자들아 어찌 떡이 없으므로 서로 논의하느냐"],
-      [9,"너희가 아직도 깨닫지 못하느냐 떡 다섯 개로 오천 명을 먹이고 주운 것이 몇 바구니며"],
-      [10,"떡 일곱 개로 사천 명을 먹이고 주운 것이 몇 광주리였는지를 기억하지 못하느냐"],
-      [11,"어찌 내 말한 것이 떡에 관함이 아닌 줄을 깨닫지 못하느냐 오직 바리새인과 사두개인들의 누룩을 주의하라 하시니"],
-      [12,"그제서야 제자들이 떡의 누룩이 아니요 바리새인과 사두개인들의 교훈을 삼가라고 말씀하신 줄을 깨달으니라"]],
-  en:[[5,"When the disciples reached the other side, they had forgotten to bring any bread."],
-      [6,"Jesus said to them, 'Watch and beware of the leaven of the Pharisees and Sadducees.'"],
-      [7,"And they began discussing it among themselves, saying, 'We brought no bread.'"],
-      [8,"But Jesus, aware of this, said, 'O you of little faith, why are you discussing among yourselves the fact that you have no bread?'"],
-      [9,"Do you not yet perceive? Do you not remember the five loaves for the five thousand, and how many baskets you gathered?"],
-      [10,"Or the seven loaves for the four thousand, and how many baskets you gathered?"],
-      [11,"How is it that you fail to understand that I did not speak about bread? Beware of the leaven of the Pharisees and Sadducees."],
-      [12,"Then they understood that he did not tell them to beware of the leaven of bread, but of the teaching of the Pharisees and Sadducees."]]
+  kind:"복음 (양 트랙 공통)", ref:"마태복음 16:13-20",
+  krSrc:krLink("mat",16,13), enSrc:esvLink("Matthew 16:13-20"), logos:logosLink("Mt",16,13,20),
+  kr:[[13,"예수께서 빌립보 가이사랴 지방에 이르러 제자들에게 물어 이르시되 사람들이 인자를 누구라 하느냐"],
+      [14,"이르되 더러는 세례 요한, 더러는 엘리야, 어떤 이는 예레미야나 선지자 중의 하나라 하나이다"],
+      [15,"이르시되 너희는 나를 누구라 하느냐"],
+      [16,"시몬 베드로가 대답하여 이르되 주는 그리스도시요 살아 계신 하나님의 아들이시니이다"],
+      [17,"예수께서 대답하여 이르시되 바요나 시몬아 네가 복이 있도다 이를 네게 알게 한 이는 혈육이 아니요 하늘에 계신 내 아버지시니라"],
+      [18,"또 내가 네게 이르노니 너는 베드로라 내가 이 반석 위에 내 교회를 세우리니 음부의 권세가 이기지 못하리라"],
+      [19,"내가 천국 열쇠를 네게 주리니 네가 땅에서 무엇이든지 매면 하늘에서도 매일 것이요 네가 땅에서 무엇이든지 풀면 하늘에서도 풀리리라 하시고"],
+      [20,"이에 제자들에게 경고하사 자기가 그리스도인 것을 아무에게도 이르지 말라 하시니라"]],
+  en:[[13,"Now when Jesus came into the district of Caesarea Philippi, he asked his disciples, 'Who do people say that the Son of Man is?'"],
+      [14,"And they said, 'Some say John the Baptist, others say Elijah, and others Jeremiah or one of the prophets.'"],
+      [15,"He said to them, 'But who do you say that I am?'"],
+      [16,"Simon Peter replied, 'You are the Christ, the Son of the living God.'"],
+      [17,"And Jesus answered him, 'Blessed are you, Simon Bar-Jonah! For flesh and blood has not revealed this to you, but my Father who is in heaven.'"],
+      [18,"And I tell you, you are Peter, and on this rock I will build my church, and the gates of hell shall not prevail against it."],
+      [19,"I will give you the keys of the kingdom of heaven, and whatever you bind on earth shall be bound in heaven, and whatever you loose on earth shall be loosed in heaven."],
+      [20,"Then he strictly charged the disciples to tell no one that he was the Christ."]]
  },
 ];
 
 const usccbReadings = [
  {
-  kind:"제1독서", ref:"에스겔 43:1-7",
-  krSrc:krLink("ezk",43,1), enSrc:esvLink("Ezekiel 43:1-7"), logos:logosLink("Eze",43,1,7),
-  kr:[[1,"그 후에 그가 나를 데리고 문에 이르니 곧 동쪽을 향한 문이라"],
-      [2,"이스라엘 하나님의 영광이 동쪽에서부터 오는데 하나님의 음성이 많은 물 소리 같고 땅은 그 영광으로 말미암아 빛나니"],
-      [3,"그 모양이 내가 본 환상 곧 전에 성읍을 멸하러 올 때에 보던 환상 같고 그발 강 가에서 보던 환상과도 같기로 내가 곧 얼굴을 땅에 대고 엎드렸더니"],
-      [4,"여호와의 영광이 동문을 통하여 성전으로 들어가고"],
-      [5,"영이 나를 들어 데리고 안뜰에 들어가시기로 내가 보니 여호와의 영광이 성전에 가득하더라"],
-      [6,"성전에서 내게 하는 말을 내가 듣고 있을 때에 어떤 사람이 내 곁에 서 있더라"],
-      [7,"그가 내게 이르시되 인자야 이는 내 보좌의 처소, 내 발을 두는 처소, 내가 이스라엘 족속 가운데에 영원히 있을 곳이라 이스라엘 족속 곧 그들과 그들의 왕들이 음행하며 그 죽은 왕들의 시체로 다시는 내 거룩한 이름을 더럽히지 아니하리라"]],
-  en:[[1,"Then he led me to the gate, the gate facing east."],
-      [2,"And behold, the glory of the God of Israel was coming from the east. And the sound of his coming was like the sound of many waters, and the earth shone with his glory."],
-      [3,"And the vision I saw was just like the vision that I had seen when he came to destroy the city, and just like the vision that I had seen by the Chebar canal. And I fell on my face."],
-      [4,"As the glory of the Lord entered the temple by the gate facing east,"],
-      [5,"the Spirit lifted me up and brought me into the inner court; and behold, the glory of the Lord filled the temple."],
-      [6,"While the man was standing beside me, I heard one speaking to me out of the temple,"],
-      [7,"and he said to me, 'Son of man, this is the place of my throne and the place of the soles of my feet, where I will dwell in the midst of the people of Israel forever.'"]]
+  kind:"제1독서", ref:"이사야 22:19-23",
+  krSrc:krLink("isa",22,19), enSrc:esvLink("Isaiah 22:19-23"), logos:logosLink("Isa",22,19,23),
+  kr:[[19,"내가 너를 네 관직에서 쫓아내며 네 지위에서 낮추리니"],
+      [20,"그 날에 내가 힐기야의 아들 내 종 엘리아김을 불러"],
+      [21,"네 옷을 그에게 입히며 네 띠를 그에게 띠워 힘 있게 하고 네 정권을 그의 손에 맡기리니 그가 예루살렘 주민과 유다의 집의 아버지가 될 것이며"],
+      [22,"내가 또 다윗의 집의 열쇠를 그의 어깨에 두리니 그가 열면 닫을 자가 없겠고 닫으면 열 자가 없으리라"],
+      [23,"못이 단단한 곳에 박힘 같이 그를 견고하게 하리니 그가 그의 아버지 집에 영광의 보좌가 될 것이요"]],
+  en:[[19,"I will thrust you from your office, and you will be pulled down from your station."],
+      [20,"In that day I will call my servant Eliakim the son of Hilkiah,"],
+      [21,"and I will clothe him with your robe, and will bind your sash on him, and will commit your authority to his hand. And he shall be a father to the inhabitants of Jerusalem and to the house of Judah."],
+      [22,"And I will place on his shoulder the key of the house of David. He shall open, and none shall shut; and he shall shut, and none shall open."],
+      [23,"And I will fasten him like a peg in a secure place, and he will become a throne of honor to his father's house."]]
  },
  {
-  kind:"화답송", ref:"시편 85:8-13 (미사 독서표 표기: 85:9ab,10,11-12,13-14)",
-  krSrc:krLink("psa",85,8), enSrc:esvLink("Psalm 85:8-13"), logos:logosLink("Ps",85,8,13),
-  kr:[[8,"내가 하나님 여호와께서 하실 말씀을 들으리니 무릇 그의 백성, 그의 성도들에게 화평을 말씀하실 것이라 그들은 다시 어리석은 데로 돌아가지 말지로다"],
-      [9,"진실로 그의 구원이 그를 경외하는 자에게 가까우니 영광이 우리 땅에 머무르리이다"],
-      [10,"인애와 진리가 같이 만나고 의와 화평이 서로 입맞추었으며"],
-      [11,"진리는 땅에서 솟아나고 의는 하늘에서 굽어보도다"],
-      [12,"여호와께서 좋은 것을 주시리니 우리 땅이 그 산물을 내리로다"],
-      [13,"의가 주의 앞에 앞서 가며 주의 길을 닦으리로다"]],
-  en:[[8,"Let me hear what God the Lord will speak, for he will speak peace to his people, to his saints; but let them not turn back to folly."],
-      [9,"Surely his salvation is near to those who fear him, that glory may dwell in our land."],
-      [10,"Steadfast love and faithfulness meet; righteousness and peace kiss each other."],
-      [11,"Faithfulness springs up from the ground, and righteousness looks down from the sky."],
-      [12,"Yes, the Lord will give what is good, and our land will yield its increase."],
-      [13,"Righteousness will go before him and make his footsteps a way."]]
+  kind:"화답송", ref:"시편 138:1-2, 2-3, 6, 8 (개역개정 138:1-3, 6, 8)",
+  krSrc:krLink("psa",138,1), enSrc:esvLink("Psalm 138:1-3,6,8"), logos:logosLink("Ps",138,1,8),
+  kr:[[1,"내가 전심으로 주께 감사하며 신들 앞에서 주께 찬송하리이다"],
+      [2,"내가 주의 성전을 향하여 예배하며 주의 인자하심과 성실하심으로 말미암아 주의 이름에 감사하오리니"],
+      [3,"내가 간구하는 날에 주께서 응답하시고 내 영혼에 힘을 주어 나를 강하게 하셨나이다"],
+      ["gap","4~5절 생략"],
+      [6,"여호와께서는 높이 계셔도 낮은 자를 굽어살피시며 멀리서도 교만한 자를 아심이니이다"],
+      ["gap","7절 생략"],
+      [8,"여호와께서 나를 위하여 보상해 주시리이다 여호와여 주의 인자하심이 영원하오니 주의 손으로 지으신 것을 버리지 마옵소서"]],
+  en:[[1,"I give you thanks, O Lord, with my whole heart; before the gods I sing your praise;"],
+      [2,"I bow down toward your holy temple and give thanks to your name for your steadfast love and your faithfulness, for you have exalted above all things your name and your word."],
+      [3,"On the day I called, you answered me; my strength of soul you increased."],
+      ["gap","vv.4-5 omitted"],
+      [6,"For though the Lord is high, he regards the lowly, but the haughty he knows from afar."],
+      ["gap","v.7 omitted"],
+      [8,"The Lord will fulfill his purpose for me; your steadfast love, O Lord, endures forever. Do not forsake the work of your hands."]]
  },
  {
-  kind:"복음", ref:"마태복음 23:1-12",
-  krSrc:krLink("mat",23,1), enSrc:esvLink("Matthew 23:1-12"), logos:logosLink("Mt",23,1,12),
-  kr:[[1,"이에 예수께서 무리와 제자들에게 말씀하여 이르시되"],
-      [2,"서기관들과 바리새인들이 모세의 자리에 앉았으니"],
-      [3,"그러므로 무엇이든지 그들이 말하는 바는 행하고 지키되 그들이 하는 행위는 본받지 말라 그들은 말만 하고 행하지 아니하며"],
-      [4,"또 무거운 짐을 묶어 사람의 어깨에 지우되 자기는 이것을 한 손가락으로도 움직이려 하지 아니하며"],
-      [5,"그들의 모든 행위를 사람에게 보이고자 하나니 곧 그 경문 띠를 넓게 하며 옷술을 길게 하고"],
-      [6,"잔치의 윗자리와 회당의 높은 자리와"],
-      [7,"시장에서 문안 받는 것과 사람에게 랍비라 칭함을 받는 것을 좋아하느니라"],
-      [8,"그러나 너희는 랍비라 칭함을 받지 말라 너희 선생은 하나요 너희는 다 형제니라"],
-      [9,"땅에 있는 자를 아버지라 하지 말라 너희의 아버지는 한 분이시니 곧 하늘에 계신 이시니라"],
-      [10,"또한 지도자라 칭함을 받지 말라 너희의 지도자는 한 분이시니 곧 그리스도시니라"],
-      [11,"너희 중에 큰 자는 너희를 섬기는 자가 되어야 하리라"],
-      [12,"누구든지 자기를 높이는 자는 낮아지고 누구든지 자기를 낮추는 자는 높아지리라"]],
-  en:[[1,"Then Jesus said to the crowds and to his disciples,"],
-      [2,"'The scribes and the Pharisees sit on Moses' seat,'"],
-      [3,"'so do and observe whatever they tell you, but not the works they do. For they preach, but do not practice.'"],
-      [4,"'They tie up heavy burdens, hard to bear, and lay them on people's shoulders, but they themselves are not willing to move them with their finger.'"],
-      [5,"'They do all their deeds to be seen by others. For they make their phylacteries broad and their fringes long,'"],
-      [6,"'and they love the place of honor at feasts and the best seats in the synagogues'"],
-      [7,"'and greetings in the marketplaces and being called rabbi by others.'"],
-      [8,"'But you are not to be called rabbi, for you have one teacher, and you are all brothers.'"],
-      [9,"'And call no man your father on earth, for you have one Father, who is in heaven.'"],
-      [10,"'Neither be called instructors, for you have one instructor, the Christ.'"],
-      [11,"'The greatest among you shall be your servant.'"],
-      [12,"'Whoever exalts himself will be humbled, and whoever humbles himself will be exalted.'"]]
+  kind:"제2독서", ref:"로마서 11:33-36",
+  krSrc:krLink("rom",11,33), enSrc:esvLink("Romans 11:33-36"), logos:logosLink("Rom",11,33,36),
+  kr:[[33,"깊도다 하나님의 지혜와 지식의 풍성함이여, 그의 판단은 헤아리지 못할 것이며 그의 길은 찾지 못할 것이로다"],
+      [34,"누가 주의 마음을 알았느냐 누가 그의 모사가 되었느냐"],
+      [35,"누가 주께 먼저 드려서 갚으심을 받겠느냐"],
+      [36,"이는 만물이 주에게서 나오고 주로 말미암고 주에게로 돌아감이라 그에게 영광이 세세에 있을지어다 아멘"]],
+  en:[[33,"Oh, the depth of the riches and wisdom and knowledge of God! How unsearchable are his judgments and how inscrutable his ways!"],
+      [34,"For who has known the mind of the Lord, or who has been his counselor?"],
+      [35,"Or who has given a gift to him that he might be repaid?"],
+      [36,"For from him and through him and to him are all things. To him be glory forever. Amen."]]
+ },
+ {
+  kind:"복음", ref:"마태복음 16:13-20",
+  krSrc:krLink("mat",16,13), enSrc:esvLink("Matthew 16:13-20"), logos:logosLink("Mt",16,13,20),
+  kr:[[13,"예수께서 빌립보 가이사랴 지방에 이르러 제자들에게 물어 이르시되 사람들이 인자를 누구라 하느냐"],
+      [14,"이르되 더러는 세례 요한, 더러는 엘리야, 어떤 이는 예레미야나 선지자 중의 하나라 하나이다"],
+      [15,"이르시되 너희는 나를 누구라 하느냐"],
+      [16,"시몬 베드로가 대답하여 이르되 주는 그리스도시요 살아 계신 하나님의 아들이시니이다"],
+      [17,"예수께서 대답하여 이르시되 바요나 시몬아 네가 복이 있도다 이를 네게 알게 한 이는 혈육이 아니요 하늘에 계신 내 아버지시니라"],
+      [18,"또 내가 네게 이르노니 너는 베드로라 내가 이 반석 위에 내 교회를 세우리니 음부의 권세가 이기지 못하리라"],
+      [19,"내가 천국 열쇠를 네게 주리니 네가 땅에서 무엇이든지 매면 하늘에서도 매일 것이요 네가 땅에서 무엇이든지 풀면 하늘에서도 풀리리라 하시고"],
+      [20,"이에 제자들에게 경고하사 자기가 그리스도인 것을 아무에게도 이르지 말라 하시니라"]],
+  en:[[13,"Now when Jesus came into the district of Caesarea Philippi, he asked his disciples, 'Who do people say that the Son of Man is?'"],
+      [14,"And they said, 'Some say John the Baptist, others say Elijah, and others Jeremiah or one of the prophets.'"],
+      [15,"He said to them, 'But who do you say that I am?'"],
+      [16,"Simon Peter replied, 'You are the Christ, the Son of the living God.'"],
+      [17,"And Jesus answered him, 'Blessed are you, Simon Bar-Jonah! For flesh and blood has not revealed this to you, but my Father who is in heaven.'"],
+      [18,"And I tell you, you are Peter, and on this rock I will build my church, and the gates of hell shall not prevail against it."],
+      [19,"I will give you the keys of the kingdom of heaven, and whatever you bind on earth shall be bound in heaven, and whatever you loose on earth shall be loosed in heaven."],
+      [20,"Then he strictly charged the disciples to tell no one that he was the Christ."]]
  },
 ];
 
@@ -594,11 +644,11 @@ const usccbReadingsNext = [
 
 const readingSets = {
   current: {
-    dateLabel: "2026-08-22 기준",
-    rclTitle: "🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 토요일 데일리",
+    dateLabel: "2026-08-23 기준",
+    rclTitle: "🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 주일 (Proper 16)",
     rclDesc: "Vanderbilt Revised Common Lectionary 기준(연속/보완 트랙). 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
-    usccbDesc: "복되신 동정 마리아 모후 기념일 (Memorial of the Queenship of the Blessed Virgin Mary). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
-    usccbSrc: "https://bible.usccb.org/bible/readings/082226.cfm",
+    usccbDesc: "연중 제21주일 (Twenty-first Sunday in Ordinary Time). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
+    usccbSrc: "https://bible.usccb.org/bible/readings/082326.cfm",
     rcl: rclReadings, usccb: usccbReadings,
     toggleLabel: "📅 다음 주 월요일(8/24) 보기 →"
   },
