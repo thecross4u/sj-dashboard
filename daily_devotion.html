@@ -176,7 +176,7 @@
   <header class="top">
     <div>
       <h1>📖 Daily Devotion</h1>
-      <div class="sub"><a href="index.html" onclick="if(window.history.length>1){history.back();return false;}" style="color:var(--link);text-decoration:none;">← 대시보드로 돌아가기</a> · <span id="subDateText">2026-08-24 기준</span></div>
+      <div class="sub"><a href="index.html" onclick="if(window.history.length>1){history.back();return false;}" style="color:var(--link);text-decoration:none;">← 대시보드로 돌아가기</a> · <span id="subDateText">2026-08-26 기준</span></div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
       <div class="week-toggle" id="weekToggleBtn" onclick="toggleWeek()">📅 다음 주 월요일(8/31) 보기 →</div>
@@ -185,8 +185,8 @@
   </header>
 
   <section>
-    <h2 id="rclTitle">🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 월요일 데일리</h2>
-    <p class="desc" id="rclDesc">Vanderbilt Revised Common Lectionary 기준(연속 트랙), Proper 16 주간. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
+    <h2 id="rclTitle">🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 수요일 데일리</h2>
+    <p class="desc" id="rclDesc">Vanderbilt Revised Common Lectionary 기준(연속 트랙), 연중 제21주간. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
     <div class="card">
       <div class="rd-list" id="rclList"></div>
       <div class="footnote">출처: <a href="https://lectionary.library.vanderbilt.edu/daily-readings/" target="_blank" rel="noopener">Vanderbilt Revised Common Lectionary</a></div>
@@ -195,10 +195,10 @@
 
   <section>
     <h2>✝️ 가톨릭 오늘의 미사 독서 (USCCB)</h2>
-    <p class="desc" id="usccbDesc">성 바돌로매 사도 축일 (Feast of St. Bartholomew, Apostle). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
+    <p class="desc" id="usccbDesc">연중 제21주간 수요일 (Wednesday of the Twenty-first Week in Ordinary Time). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
     <div class="card">
       <div class="rd-list" id="usccbList"></div>
-      <div class="footnote">출처: <a href="https://bible.usccb.org/bible/readings/082426.cfm" target="_blank" rel="noopener" id="usccbSrcLink">USCCB Daily Readings</a></div>
+      <div class="footnote">출처: <a href="https://bible.usccb.org/bible/readings/082626.cfm" target="_blank" rel="noopener" id="usccbSrcLink">USCCB Daily Readings</a></div>
     </div>
   </section>
 
@@ -415,87 +415,109 @@ const rclReadingsNext = [
       [9,"O Lord, our Lord, how majestic is your name in all the earth!"]]
  },
  {
-  kind:"연속 트랙 · 구약", ref:"출애굽기 2:11-15a",
-  krSrc:krLink("exo",2,11), enSrc:esvLink("Exodus 2:11-15"), logos:logosLink("Ex",2,11,15),
-  kr:[[11,"모세가 장성한 후에 한번은 자기 형제들에게 나가서 그들이 고되게 노동하는 것을 보더니 어떤 애굽 사람이 한 히브리 사람 곧 자기 형제를 치는 것을 본지라"],
-      [12,"좌우를 살펴 사람이 없음을 보고 그 애굽 사람을 쳐죽여 모래 속에 감추니라"],
-      [13,"이튿날 다시 나가니 두 히브리 사람이 서로 싸우는지라 그 잘못한 사람에게 이르되 네가 어찌하여 동포를 치느냐 하매"],
-      [14,"그가 이르되 누가 너를 우리를 다스리는 자와 재판관으로 삼았느냐 네가 애굽 사람을 죽인 것처럼 나도 죽이려느냐 모세가 두려워하여 이르되 일이 탄로되었도다"],
-      [15,"바로가 이 일을 듣고 모세를 죽이고자 하여 찾는지라 (15b 생략)"]],
-  en:[[11,"One day, when Moses had grown up, he went out to his people and looked on their burdens, and he saw an Egyptian beating a Hebrew, one of his people."],
-      [12,"He looked this way and that, and seeing no one, he struck down the Egyptian and hid him in the sand."],
-      [13,"When he went out the next day, behold, two Hebrews were struggling together. And he said to the man in the wrong, 'Why do you strike your companion?'"],
-      [14,"He answered, 'Who made you a prince and a judge over us? Do you mean to kill me as you killed the Egyptian?' Then Moses was afraid, and thought, 'Surely the thing is known.'"],
-      [15,"When Pharaoh heard of it, he sought to kill Moses. (15b omitted)"]]
+  kind:"연속 트랙 · 구약", ref:"출애굽기 2:15하-22",
+  krSrc:krLink("exo",2,15), enSrc:esvLink("Exodus 2:15-22"), logos:logosLink("Ex",2,15,22),
+  kr:[[15,"바로가 이 일을 듣고 모세를 죽이고자 하여 찾는지라 모세가 바로의 낯을 피하여 미디안 땅에 머물며 하루는 우물 곁에 앉았더라"],
+      [16,"미디안 제사장에게 일곱 딸이 있었더니 그들이 와서 물을 길어 구유에 채우고 그들의 아버지의 양 떼에게 먹이려 하는데"],
+      [17,"목자들이 와서 그들을 쫓는지라 모세가 일어나 그들을 도와 그 양 떼에게 먹이니라"],
+      [18,"그들이 그들의 아버지 르우엘에게 이를 때에 아버지가 이르되 너희가 오늘은 어찌하여 이같이 속히 돌아오느냐"],
+      [19,"그들이 이르되 한 애굽 사람이 우리를 목자들의 손에서 건져내고 우리를 위하여 물을 길어 양 떼에게 먹였나이다"],
+      [20,"아버지가 딸들에게 이르되 그 사람이 어디에 있느냐 너희가 어찌하여 그 사람을 버려두고 왔느냐 그를 청하여 음식을 대접하라 하였더라"],
+      [21,"모세가 그와 동거하기를 기뻐하매 그가 그의 딸 십보라를 모세에게 주었더니"],
+      [22,"그가 아들을 낳으매 모세가 그의 이름을 게르솜이라 하여 이르되 내가 타국에서 나그네가 되었음이라 하였더라"]],
+  en:[[15,"When Pharaoh heard of it, he sought to kill Moses. But Moses fled from Pharaoh and stayed in the land of Midian. And he sat down by a well."],
+      [16,"Now the priest of Midian had seven daughters, and they came and drew water and filled the troughs to water their father's flock."],
+      [17,"The shepherds came and drove them away, but Moses stood up and saved them, and watered their flock."],
+      [18,"When they came home to their father Reuel, he said, 'How is it that you have come home so soon today?'"],
+      [19,"They said, 'An Egyptian delivered us out of the hand of the shepherds and even drew water for us and watered the flock.'"],
+      [20,"He said to his daughters, 'Then where is he? Why have you left the man? Call him, that he may eat bread.'"],
+      [21,"And Moses was content to dwell with the man, and he gave Moses his daughter Zipporah."],
+      [22,"She gave birth to a son, and he called his name Gershom, for he said, 'I have been a sojourner in a foreign land.'"]]
  },
  {
-  kind:"연속 트랙 · 신약", ref:"로마서 11:33-36",
-  krSrc:krLink("rom",11,33), enSrc:esvLink("Romans 11:33-36"), logos:logosLink("Rom",11,33,36),
-  kr:[[33,"깊도다 하나님의 지혜와 지식의 풍성함이여, 그의 판단은 헤아리지 못할 것이며 그의 길은 찾지 못할 것이로다"],
-      [34,"누가 주의 마음을 알았느냐 누가 그의 모사가 되었느냐"],
-      [35,"누가 주께 먼저 드려서 갚으심을 받겠느냐"],
-      [36,"이는 만물이 주에게서 나오고 주로 말미암고 주에게로 돌아감이라 그에게 영광이 세세에 있을지어다 아멘"]],
-  en:[[33,"Oh, the depth of the riches and wisdom and knowledge of God! How unsearchable are his judgments and how inscrutable his ways!"],
-      [34,"For who has known the mind of the Lord, or who has been his counselor?"],
-      [35,"Or who has given a gift to him that he might be repaid?"],
-      [36,"For from him and through him and to him are all things. To him be glory forever. Amen."]]
+  kind:"연속 트랙 · 복음", ref:"마태복음 26:6-13",
+  krSrc:krLink("mat",26,6), enSrc:esvLink("Matthew 26:6-13"), logos:logosLink("Mt",26,6,13),
+  kr:[[6,"예수께서 베다니 나병환자 시몬의 집에 계실 때에"],
+      [7,"한 여자가 매우 귀한 향유 한 옥합을 가지고 나아와서 식사하시는 예수의 머리에 부으니"],
+      [8,"제자들이 보고 분개하여 이르되 무슨 의도로 이것을 허비하느냐"],
+      [9,"이것을 비싼 값에 팔아 가난한 자들에게 줄 수 있었겠도다 하거늘"],
+      [10,"예수께서 아시고 그들에게 이르시되 너희가 어찌하여 이 여자를 괴롭게 하느냐 그가 내게 좋은 일을 하였느니라"],
+      [11,"가난한 자들은 항상 너희와 함께 있거니와 나는 항상 함께 있지 아니하리라"],
+      [12,"이 여자가 내 몸에 이 향유를 부은 것은 내 장례를 위하여 함이니라"],
+      [13,"내가 진실로 너희에게 이르노니 온 천하에 어디서든지 이 복음이 전파되는 곳에서는 이 여자가 행한 일도 말하여 그를 기억하리라 하시니라"]],
+  en:[[6,"Now when Jesus was at Bethany in the house of Simon the leper,"],
+      [7,"a woman came up to him with an alabaster flask of very expensive ointment, and she poured it on his head as he reclined at table."],
+      [8,"And when the disciples saw it, they were indignant, saying, 'Why this waste?'"],
+      [9,"For this could have been sold for a large sum and given to the poor."],
+      [10,"But Jesus, aware of this, said to them, 'Why do you trouble the woman? For she has done a beautiful thing to me.'"],
+      [11,"For you always have the poor with you, but you will not always have me."],
+      [12,"In pouring this ointment on my body, she has done it to prepare me for burial."],
+      [13,"Truly, I say to you, wherever this gospel is proclaimed in the whole world, what she has done will also be told in memory of her."]]
  },
 ];
 
 const usccbReadingsNext = [
  {
-  kind:"제1독서", ref:"데살로니가후서 2:1-3, 14-17",
-  krSrc:krLink("2th",2,1), enSrc:esvLink("2 Thessalonians 2:1-3,14-17"), logos:logosLink("2Th",2,1,17),
-  kr:[[1,"형제들아 우리가 너희에게 구하는 것은 우리 주 예수 그리스도의 강림하심과 우리가 그 앞에 모임에 관하여"],
-      [2,"영으로나 또는 말로나 또는 우리에게서 받았다 하는 편지로나 주의 날이 이르렀다고 해서 쉽게 마음이 흔들리거나 두려워하거나 하지 말아야 한다는 것이라"],
-      [3,"누가 어떻게 하여도 너희가 미혹되지 말라 먼저 배교하는 일이 있고 저 불법의 사람 곧 멸망의 아들이 나타나기 전에는 그 날이 이르지 아니하리니"],
-      ["gap","4~13절 생략"],
-      [14,"이를 위하여 우리의 복음으로 너희를 부르사 우리 주 예수 그리스도의 영광을 얻게 하려 하심이니라"],
-      [15,"그러므로 형제들아 굳건하게 서서 말로나 우리의 편지로 가르침을 받은 전통을 지키라"],
-      [16,"우리 주 예수 그리스도와 우리를 사랑하시고 영원한 위로와 좋은 소망을 은혜로 주신 하나님 우리 아버지께서"],
-      [17,"너희 마음을 위로하시고 모든 선한 일과 말에 굳건하게 하시기를 원하노라"]],
-  en:[[1,"Now concerning the coming of our Lord Jesus Christ and our being gathered together to him, we ask you, brothers,"],
-      [2,"not to be quickly shaken in mind or alarmed, either by a spirit or a spoken word, or a letter seeming to be from us, to the effect that the day of the Lord has come."],
-      [3,"Let no one deceive you in any way. For that day will not come, unless the rebellion comes first, and the man of lawlessness is revealed, the son of destruction."],
-      ["gap","vv.4-13 omitted"],
-      [14,"To this he called you through our gospel, so that you may obtain the glory of our Lord Jesus Christ."],
-      [15,"So then, brothers, stand firm and hold to the traditions that you were taught by us, either by our spoken word or by our letter."],
-      [16,"Now may our Lord Jesus Christ himself, and God our Father, who loved us and gave us eternal comfort and good hope through grace,"],
-      [17,"comfort your hearts and establish them in every good work and word."]]
+  kind:"제1독서", ref:"데살로니가후서 3:6-10, 16-18",
+  krSrc:krLink("2th",3,6), enSrc:esvLink("2 Thessalonians 3:6-10,16-18"), logos:logosLink("2Th",3,6,18),
+  kr:[[6,"형제들아 우리 주 예수 그리스도의 이름으로 너희를 명하노니 게으르게 행하고 우리에게서 받은 전통대로 행하지 아니하는 모든 형제에게서 떠나라"],
+      [7,"어떻게 우리를 본받아야 할지를 너희가 스스로 아나니 우리가 너희 가운데서 무질서하게 행하지 아니하며"],
+      [8,"누구에게서든지 음식을 값없이 먹지 않고 오직 수고하고 애써 주야로 일함은 너희 아무에게도 폐를 끼치지 아니하려 함이니"],
+      [9,"우리에게 권리가 없는 것이 아니요 오직 스스로 너희에게 본을 보여 우리를 본받게 하려 함이니라"],
+      [10,"우리가 너희와 함께 있을 때에도 너희에게 명하기를 누구든지 일하기 싫어하거든 먹지도 말게 하라 하였더니"],
+      ["gap","11~15절 생략"],
+      [16,"평강의 주께서 친히 때마다 일마다 너희에게 평강을 주시고 주께서 너희 모든 사람과 함께 하시기를 원하노라"],
+      [17,"나 바울은 친필로 문안하노니 이는 편지마다 표시로서 이렇게 쓰노라"],
+      [18,"우리 주 예수 그리스도의 은혜가 너희 무리에게 있을지어다"]],
+  en:[[6,"Now we command you, brothers, in the name of our Lord Jesus Christ, that you keep away from any brother who is walking in idleness and not in accord with the tradition that you received from us."],
+      [7,"For you yourselves know how you ought to imitate us, because we were not idle when we were with you,"],
+      [8,"nor did we eat anyone's bread without paying for it, but with toil and labor we worked night and day, that we might not be a burden to any of you."],
+      [9,"It was not because we do not have that right, but to give you in ourselves an example to imitate."],
+      [10,"For even when we were with you, we would give you this command: If anyone is not willing to work, let him not eat."],
+      ["gap","vv.11-15 omitted"],
+      [16,"Now may the Lord of peace himself give you peace at all times in every way. The Lord be with you all."],
+      [17,"I, Paul, write this greeting with my own hand. This is the sign of genuineness in every letter of mine; it is the way I write."],
+      [18,"The grace of our Lord Jesus Christ be with you all."]]
  },
  {
-  kind:"화답송", ref:"시편 96:10, 11-12, 13",
-  krSrc:krLink("psa",96,10), enSrc:esvLink("Psalm 96:10-13"), logos:logosLink("Ps",96,10,13),
-  kr:[[10,"모든 나라 가운데서 이르기를 여호와께서 다스리시니 세계가 굳게 서고 흔들리지 않으리라 그가 만민을 공평하게 심판하시리라 할지로다"],
-      [11,"하늘은 기뻐하고 땅은 즐거워하며 바다와 거기에 충만한 것이 외치고"],
-      [12,"밭과 그 가운데에 있는 모든 것은 즐거워할지로다 그 때 숲의 모든 나무들이 여호와 앞에서 즐거이 노래하리니"],
-      [13,"그가 임하시되 땅을 심판하러 임하실 것임이라 그가 의로 세계를 심판하시며 그의 진실하심으로 백성을 심판하시리로다"]],
-  en:[[10,"Say among the nations, 'The Lord reigns! Yes, the world is established; it shall never be moved; he will judge the peoples with equity.'"],
-      [11,"Let the heavens be glad, and let the earth rejoice; let the sea roar, and all that fills it;"],
-      [12,"let the field exult, and everything in it! Then shall all the trees of the forest sing for joy"],
-      [13,"before the Lord, for he comes, for he comes to judge the earth. He will judge the world in righteousness, and the peoples in his faithfulness."]]
+  kind:"화답송", ref:"시편 128:1-2, 4-5",
+  krSrc:krLink("psa",128,1), enSrc:esvLink("Psalm 128:1-2,4-5"), logos:logosLink("Ps",128,1,5),
+  kr:[[1,"여호와를 경외하며 그의 길을 걷는 자마다 복이 있도다"],
+      [2,"네가 네 손이 수고한 대로 먹을 것이라 네가 복되고 형통하리로다"],
+      ["gap","3절 생략"],
+      [4,"여호와를 경외하는 자는 이같이 복을 얻으리로다"],
+      [5,"여호와께서 시온에서 네게 복을 주실지어다 너는 평생에 예루살렘의 번영을 보며"]],
+  en:[[1,"Blessed is everyone who fears the Lord, who walks in his ways!"],
+      [2,"You shall eat the fruit of the labor of your hands; you shall be blessed, and it shall be well with you."],
+      ["gap","v.3 omitted"],
+      [4,"Behold, thus shall the man be blessed who fears the Lord."],
+      [5,"The Lord bless you from Zion! May you see the prosperity of Jerusalem all the days of your life!"]]
  },
  {
-  kind:"복음", ref:"마태복음 23:23-26",
-  krSrc:krLink("mat",23,23), enSrc:esvLink("Matthew 23:23-26"), logos:logosLink("Mt",23,23,26),
-  kr:[[23,"화 있을진저 외식하는 서기관들과 바리새인들이여 너희가 박하와 회향과 근채의 십일조는 드리되 율법의 더 중한 바 정의와 긍휼과 믿음은 버렸도다 그러나 이것도 행하고 저것도 버리지 말아야 할지니라"],
-      [24,"맹인 된 인도자여 하루살이는 걸러 내고 낙타는 삼키는도다"],
-      [25,"화 있을진저 외식하는 서기관들과 바리새인들이여 잔과 대접의 겉은 깨끗이 하되 그 안에는 탐욕과 방탕으로 가득하게 하는도다"],
-      [26,"눈 먼 바리새인이여 너는 먼저 안을 깨끗이 하라 그리하면 겉도 깨끗하리라"]],
-  en:[[23,"Woe to you, scribes and Pharisees, hypocrites! For you tithe mint and dill and cumin, and have neglected the weightier matters of the law: justice and mercy and faithfulness. These you ought to have done, without neglecting the others."],
-      [24,"You blind guides, straining out a gnat and swallowing a camel!"],
-      [25,"Woe to you, scribes and Pharisees, hypocrites! For you clean the outside of the cup and the plate, but inside they are full of greed and self-indulgence."],
-      [26,"You blind Pharisee! First clean the inside of the cup and the plate, that the outside also may be clean."]]
+  kind:"복음", ref:"마태복음 23:27-32",
+  krSrc:krLink("mat",23,27), enSrc:esvLink("Matthew 23:27-32"), logos:logosLink("Mt",23,27,32),
+  kr:[[27,"화 있을진저 외식하는 서기관들과 바리새인들이여 회칠한 무덤 같으니 겉으로는 아름답게 보이나 그 안에는 죽은 사람의 뼈와 모든 더러운 것이 가득하도다"],
+      [28,"이와 같이 너희도 겉으로는 사람에게 옳게 보이되 안으로는 외식과 불법이 가득하도다"],
+      [29,"화 있을진저 외식하는 서기관들과 바리새인들이여 너희는 선지자들의 무덤을 만들고 의인들의 비석을 꾸미며 이르되"],
+      [30,"만일 우리가 조상 때에 있었더라면 우리는 그들이 선지자의 피를 흘리는 데 참여하지 아니하였으리라 하니"],
+      [31,"그러면 너희가 선지자를 죽인 자의 자손임을 스스로 증명함이로다"],
+      [32,"너희가 너희 조상의 분량을 채우라"]],
+  en:[[27,"Woe to you, scribes and Pharisees, hypocrites! For you are like whitewashed tombs, which outwardly appear beautiful, but within are full of dead people's bones and all uncleanness."],
+      [28,"So you also outwardly appear righteous to others, but within you are full of hypocrisy and lawlessness."],
+      [29,"Woe to you, scribes and Pharisees, hypocrites! For you build the tombs of the prophets and decorate the monuments of the righteous,"],
+      [30,"saying, 'If we had lived in the days of our fathers, we would not have taken part with them in shedding the blood of the prophets.'"],
+      [31,"Thus you witness against yourselves that you are sons of those who murdered the prophets."],
+      [32,"Fill up, then, the measure of your fathers."]]
  },
 ];
 
 const readingSets = {
   current: {
-    dateLabel: "2026-08-25 기준",
-    rclTitle: "🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 화요일 데일리",
-    rclDesc: "Vanderbilt Revised Common Lectionary 기준(연속 트랙), Proper 16 주간. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
-    usccbDesc: "연중 제21주간 화요일 (Tuesday of the Twenty-first Week in Ordinary Time). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
-    usccbSrc: "https://bible.usccb.org/bible/readings/082526.cfm",
+    dateLabel: "2026-08-26 기준",
+    rclTitle: "🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 수요일 데일리",
+    rclDesc: "Vanderbilt Revised Common Lectionary 기준(연속 트랙), 연중 제21주간. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
+    usccbDesc: "연중 제21주간 수요일 (Wednesday of the Twenty-first Week in Ordinary Time). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
+    usccbSrc: "https://bible.usccb.org/bible/readings/082626.cfm",
     rcl: rclReadingsNext, usccb: usccbReadingsNext,
     toggleLabel: "📅 다음 주 월요일(8/31) 보기 →"
   },
@@ -506,7 +528,7 @@ const readingSets = {
     usccbDesc: "연중 제22주간 월요일 (Monday of the Twenty-second Week in Ordinary Time). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
     usccbSrc: "https://bible.usccb.org/bible/readings/083126.cfm",
     rcl: rclReadings, usccb: usccbReadings,
-    toggleLabel: "← 오늘(8/25)로 돌아가기"
+    toggleLabel: "← 오늘(8/26)로 돌아가기"
   }
 };
 let currentReadingSetKey = 'current';
