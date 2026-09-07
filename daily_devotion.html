@@ -176,17 +176,17 @@
   <header class="top">
     <div>
       <h1>📖 Daily Devotion</h1>
-      <div class="sub"><a href="index.html" onclick="if(window.history.length>1){history.back();return false;}" style="color:var(--link);text-decoration:none;">← 대시보드로 돌아가기</a> · <span id="subDateText">2026-09-01 기준</span></div>
+      <div class="sub"><a href="index.html" onclick="if(window.history.length>1){history.back();return false;}" style="color:var(--link);text-decoration:none;">← 대시보드로 돌아가기</a> · <span id="subDateText">2026-09-07 기준</span></div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
-      <div class="week-toggle" id="weekToggleBtn" onclick="toggleWeek()">📅 다음 주 월요일(9/7) 보기 →</div>
+      <div class="week-toggle" id="weekToggleBtn" onclick="toggleWeek()">📅 다음 주 월요일(9/14) 보기 →</div>
       <div class="theme-toggle" onclick="toggleTheme()">🌓 라이트/다크 전환</div>
     </div>
   </header>
 
   <section>
-    <h2 id="rclTitle">🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 화요일 데일리</h2>
-    <p class="desc" id="rclDesc">Vanderbilt Revised Common Lectionary 기준(연속 트랙), 연중 제22주간. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
+    <h2 id="rclTitle">🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 월요일 데일리</h2>
+    <p class="desc" id="rclDesc">Vanderbilt Revised Common Lectionary 기준(연속 트랙), 연중 제23주간. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
     <div class="card">
       <div class="rd-list" id="rclList"></div>
       <div class="footnote">출처: <a href="https://lectionary.library.vanderbilt.edu/daily-readings/" target="_blank" rel="noopener">Vanderbilt Revised Common Lectionary</a></div>
@@ -195,10 +195,10 @@
 
   <section>
     <h2>✝️ 가톨릭 오늘의 미사 독서 (USCCB)</h2>
-    <p class="desc" id="usccbDesc">연중 제22주간 화요일 (Tuesday of the Twenty-second Week in Ordinary Time). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
+    <p class="desc" id="usccbDesc">연중 제23주간 월요일 (Monday of the Twenty-third Week in Ordinary Time). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
     <div class="card">
       <div class="rd-list" id="usccbList"></div>
-      <div class="footnote">출처: <a href="https://bible.usccb.org/bible/readings/090126.cfm" target="_blank" rel="noopener" id="usccbSrcLink">USCCB Daily Readings</a></div>
+      <div class="footnote">출처: <a href="https://bible.usccb.org/bible/readings/090726.cfm" target="_blank" rel="noopener" id="usccbSrcLink">USCCB Daily Readings</a></div>
     </div>
   </section>
 
@@ -216,7 +216,7 @@ function toggleTheme(){
   root.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
 }
 
-// ---------- reading data (2026-09-01 기준, 화요일 데일리 / 연중 제22주간 화요일) ----------
+// ---------- reading data (2026-09-07 기준, 월요일 데일리 / 연중 제23주간 월요일) ----------
 // 개역개정: 대한성서공회 공식 리더 (책 이름 뒤 시작 절부터 이어서 보여줌)
 // ESV: Bible Gateway (정확한 절 범위로 검색)
 // Logos: ref.ly 딥링크 (https://ref.ly/{책약어}{장}.{절-절};ESV) — Logos 앱이 설치되어 있으면 앱으로, 없으면 웹으로 열림
@@ -231,187 +231,8 @@ function logosLink(bookAbbr, chap, startVerse, endVerse){
   return `https://ref.ly/${bookAbbr}${chap}.${range};ESV`;
 }
 
-// ---------- reading data: 오늘 (2026-09-01, 화요일, 연중 제22주간 화요일) ----------
+// ---------- reading data: 오늘 (2026-09-07, 월요일, 연중 제23주간 월요일) ----------
 const rclReadings = [
- {
-  kind:"연속 트랙 · 시편", ref:"시편 83:1-4, 13-18",
-  krSrc:krLink("psa",83,1), enSrc:esvLink("Psalm 83:1-4,13-18"), logos:logosLink("Ps",83,1,18),
-  kr:[[1,"하나님이여 침묵하지 마소서 하나님이여 잠잠하지 마시고 조용하지 마소서"],
-      [2,"무릇 주의 원수들이 떠들며 주를 미워하는 자들이 머리를 들었나이다"],
-      [3,"그들이 주의 백성을 치려 하여 간계를 꾀하며 주께서 숨기신 자를 치려고 서로 의논하여"],
-      [4,"말하기를 가서 그들을 멸하여 다시 나라가 되지 못하게 하여 이스라엘의 이름으로 다시는 기억되지 못하게 하자 하나이다"],
-      ["gap","5~12절 생략"],
-      [13,"나의 하나님이여 그들이 굴러가는 검불 같게 하시며 바람에 날리는 지푸라기 같게 하소서"],
-      [14,"삼림을 사르는 불과 산에 붙는 불길 같이"],
-      [15,"주의 광풍으로 그들을 쫓으시며 주의 폭풍으로 그들을 두렵게 하소서"],
-      [16,"여호와여 그들의 얼굴에 수치가 가득하게 하사 그들이 주의 이름을 찾게 하소서"],
-      [17,"그들로 수치를 당하여 영원히 놀라게 하시며 낭패와 멸망을 당하게 하사"],
-      [18,"여호와라 이름하신 주만 온 세계의 지존자로 알게 하소서"]],
-  en:[[1,"O God, do not keep silence; do not hold your peace or be still, O God!"],
-      [2,"For behold, your enemies make an uproar; those who hate you have raised their heads."],
-      [3,"They lay crafty plans against your people; they consult together against your treasured ones."],
-      [4,"They say, 'Come, let us wipe them out as a nation; let the name of Israel be remembered no more!'"],
-      ["gap","vv.5-12 omitted"],
-      [13,"O my God, make them like whirling dust, like chaff before the wind."],
-      [14,"As fire consumes the forest, as the flame sets the mountains ablaze,"],
-      [15,"so may you pursue them with your tempest and terrify them with your hurricane!"],
-      [16,"Fill their faces with shame, that they may seek your name, O Lord."],
-      [17,"Let them be put to shame and dismayed forever; let them perish in disgrace,"],
-      [18,"that they may know that you alone, whose name is the Lord, are the Most High over all the earth."]]
- },
- {
-  kind:"연속 트랙 · 구약", ref:"출애굽기 5:1-6:13",
-  krSrc:krLink("exo",5,1), enSrc:esvLink("Exodus 5:1-6:13"), logos:logosLink("Ex",5,1,6),
-  kr:[[1,"그 후에 모세와 아론이 바로에게 가서 이르되 이스라엘의 하나님 여호와께서 이렇게 말씀하시기를 내 백성을 보내라"],
-      [2,"바로가 이르되 여호와가 누구이기에 내가 그의 목소리를 듣고 이스라엘을 보내겠느냐 나는 여호와를 알지 못하니"],
-      [3,"그들이 이르되 히브리인의 하나님이 우리에게 나타나셨은즉 우리가 광야로 사흘길쯤 가서 제사를 드리려 하오니"],
-      [4,"애굽 왕이 그들에게 이르되 모세와 아론아 너희가 어찌하여 백성의 노역을 쉬게 하려느냐 가서 너희의 노역이나 하라"],
-      [5,"바로가 또 이르되 이제 이 땅의 백성이 많아졌거늘 너희가 그들로 노역을 쉬게 하는도다"],
-      [6,"바로가 그 날에 백성의 감독들과 기록원들에게 명령하여 이르되"],
-      [7,"너희는 백성에게 다시는 벽돌에 쓸 짚을 전과 같이 주지 말고 그들이 가서 스스로 짚을 줍게 하라"],
-      [8,"또 그들이 전에 만든 벽돌 수효대로 그들에게 만들게 하고 감하지 말라 그들이 게으르므로 소리 질러 이르기를 우리가 가서 우리 하나님께 제사를 드리자 하나니"],
-      [9,"그 사람들의 노동을 무겁게 함으로 수고롭게 하여 그들로 거짓말을 듣지 않게 하라"],
-      [10,"백성의 감독들과 기록원들이 나가서 백성에게 말하여 이르되 바로가 이렇게 말하기를 내가 너희에게 짚을 주지 아니하리니"],
-      [11,"너희는 짚을 찾을 곳으로 가서 주우라 그러나 너희 일은 조금도 감하지 아니하리라 하셨느니라"],
-      [12,"백성이 애굽 온 땅에 흩어져 곡초 그루터기를 거두어다가 짚을 대신하니"],
-      [13,"감독들이 그들을 독촉하여 이르되 너희는 짚이 있을 때와 같이 그 날의 일을 그 날에 마치라 하며"],
-      [14,"바로의 감독들이 자기들이 세운 바 이스라엘 자손의 기록원들을 때리며 이르되 너희가 어찌하여 어제와 오늘에 만드는 벽돌의 수효를 전과 같이 채우지 아니하였느냐 하니라"],
-      [15,"이스라엘 자손의 기록원들이 가서 바로에게 호소하여 이르되 왕은 어찌하여 당신의 종들에게 이같이 하시나이까"],
-      [16,"당신의 종들에게 짚을 주지 아니하고 그들이 우리에게 벽돌을 만들라 하나이다 당신의 종들이 매를 맞사오니 이는 당신의 백성의 죄니이다"],
-      [17,"바로가 이르되 너희가 게으르다 게으르다 그러므로 너희가 이르기를 우리가 가서 여호와께 제사를 드리자 하는도다"],
-      [18,"이제 가서 일하라 짚은 너희에게 주지 않을지라도 벽돌은 너희가 수량대로 바칠지니라"],
-      [19,"기록하는 일을 맡은 이스라엘 자손들이 너희가 매일 만드는 벽돌을 조금도 감하지 못하리라 함을 듣고 화가 몸에 미친 줄 알고"],
-      [20,"그들이 바로를 떠나 나올 때에 모세와 아론이 길에 서 있는 것을 보고"],
-      [21,"그들에게 이르되 너희가 우리를 바로의 눈과 그의 신하의 눈에 미운 것이 되게 하고 그들의 손에 칼을 주어 우리를 죽이게 하는도다"],
-      ["gap","5:22~23절 생략"],
-      [1,"여호와께서 모세에게 이르시되 이제 내가 바로에게 하는 일을 네가 보리라 강한 손으로 말미암아 바로가 그들을 보내리라"],
-      [2,"하나님이 모세에게 말씀하여 이르시되 나는 여호와이니라"],
-      [3,"내가 아브라함과 이삭과 야곱에게 전능의 하나님으로 나타났으나 나의 이름을 여호와로는 그들에게 알리지 아니하였고"],
-      [4,"가나안 땅 곧 그들이 거류하는 땅을 그들에게 주기로 그들과 언약하였더니"],
-      [5,"이제 애굽 사람이 종으로 삼은 이스라엘 자손의 신음 소리를 내가 듣고 나의 언약을 기억하노라"],
-      [6,"그러므로 이스라엘 자손에게 말하기를 나는 여호와라 내가 애굽 사람의 무거운 짐 밑에서 너희를 빼내며 그들의 노역에서 너희를 건지며"],
-      [7,"너희를 내 백성으로 삼고 나는 너희의 하나님이 되리니 나는 애굽 사람의 무거운 짐 밑에서 너희를 빼낸 너희의 하나님 여호와인 줄"],
-      [8,"내가 아브라함과 이삭과 야곱에게 주기로 맹세한 땅으로 너희를 인도하고 그 땅을 너희에게 주어 기업을 삼게 하리라 나는 여호와라 하셨다 하라"],
-      [9,"모세가 이와 같이 이스라엘 자손에게 전하나 그들이 마음의 상함과 가혹한 노역으로 말미암아 모세의 말을 듣지 아니하였더라"],
-      [10,"여호와께서 모세에게 말씀하여 이르시되"],
-      [11,"들어가서 애굽 왕 바로에게 말하여 이스라엘 자손을 그 땅에서 내보내게 하라"],
-      [12,"모세가 여호와 앞에 아뢰어 이르되 이스라엘 자손도 내 말을 듣지 아니하였거든 바로가 어찌 들으리이까 나는 입이 둔한 자니이다"],
-      [13,"여호와께서 모세와 아론에게 말씀하사 그들로 이스라엘 자손과 애굽 왕 바로에게 명령을 전하고 이스라엘 자손을 애굽 땅에서 인도하여 내게 하시니라"]],
-  en:[[1,"Afterward Moses and Aaron went and said to Pharaoh, 'Thus says the Lord, the God of Israel, Let my people go, that they may hold a feast to me in the wilderness.'"],
-      [2,"But Pharaoh said, 'Who is the Lord, that I should obey his voice and let Israel go? I do not know the Lord, and moreover, I will not let Israel go.'"],
-      [3,"Then they said, 'The God of the Hebrews has met with us. Please let us go a three days' journey into the wilderness that we may sacrifice to the Lord our God, lest he fall upon us with pestilence or with the sword.'"],
-      [4,"But the king of Egypt said to them, 'Moses and Aaron, why do you take the people away from their work? Get back to your burdens.'"],
-      [5,"And Pharaoh said, 'Behold, the people of the land are now many, and you make them rest from their burdens!'"],
-      [6,"The same day Pharaoh commanded the taskmasters of the people and their foremen,"],
-      [7,"'You shall no longer give the people straw to make bricks, as in the past; let them go and gather straw for themselves.'"],
-      [8,"'But the number of bricks that they made in the past you shall impose on them, you shall by no means reduce it, for they are idle. Therefore they cry, Let us go and offer sacrifice to our God.'"],
-      [9,"'Let heavier work be laid on the men that they may labor at it and pay no regard to lying words.'"],
-      [10,"So the taskmasters and the foremen of the people went out and said to the people, 'Thus says Pharaoh, I will not give you straw.'"],
-      [11,"'Go and get your straw yourselves wherever you can find it, but your work will not be reduced in the least.'"],
-      [12,"So the people were scattered throughout all the land of Egypt to gather stubble for straw."],
-      [13,"The taskmasters were urgent, saying, 'Complete your work, your daily task each day, as when there was straw.'"],
-      [14,"And the foremen of the people of Israel, whom Pharaoh's taskmasters had set over them, were beaten and were asked, 'Why have you not done all your task of making bricks today and yesterday, as in the past?'"],
-      [15,"Then the foremen of the people of Israel came and cried to Pharaoh, 'Why do you treat your servants like this?'"],
-      [16,"'No straw is given to your servants, yet they say to us, Make bricks! And behold, your servants are beaten; but the fault is in your own people.'"],
-      [17,"But he said, 'You are idle, you are idle; that is why you say, Let us go and sacrifice to the Lord.'"],
-      [18,"'Go now and work. No straw will be given you, but you must still deliver the same number of bricks.'"],
-      [19,"The foremen of the people of Israel saw that they were in trouble when they said, 'You shall by no means reduce your number of bricks, your daily task each day.'"],
-      [20,"They met Moses and Aaron, who were waiting for them, as they came out from Pharaoh;"],
-      [21,"and they said to them, 'The Lord look on you and judge, because you have made us stink in the sight of Pharaoh and his servants, and have put a sword in their hand to kill us.'"],
-      ["gap","5:22-23 omitted"],
-      [1,"But the Lord said to Moses, 'Now you shall see what I will do to Pharaoh; for with a strong hand he will send them out, and with a strong hand he will drive them out of his land.'"],
-      [2,"God spoke to Moses and said to him, 'I am the Lord.'"],
-      [3,"'I appeared to Abraham, to Isaac, and to Jacob, as God Almighty, but by my name the Lord I did not make myself known to them.'"],
-      [4,"'I also established my covenant with them to give them the land of Canaan, the land in which they lived as sojourners.'"],
-      [5,"'Moreover, I have heard the groaning of the people of Israel whom the Egyptians hold as slaves, and I have remembered my covenant.'"],
-      [6,"'Say therefore to the people of Israel, I am the Lord, and I will bring you out from under the burdens of the Egyptians, and I will deliver you from slavery to them, and I will redeem you with an outstretched arm and with great acts of judgment.'"],
-      [7,"'I will take you to be my people, and I will be your God, and you shall know that I am the Lord your God, who has brought you out from under the burdens of the Egyptians.'"],
-      [8,"'I will bring you into the land that I swore to give to Abraham, to Isaac, and to Jacob. I will give it to you for a possession. I am the Lord.'"],
-      [9,"Moses spoke thus to the people of Israel, but they did not listen to Moses, because of their broken spirit and harsh slavery."],
-      [10,"So the Lord said to Moses,"],
-      [11,"'Go in, tell Pharaoh king of Egypt to let the people of Israel go out of his land.'"],
-      [12,"But Moses said to the Lord, 'Behold, the people of Israel have not listened to me. How then shall Pharaoh listen to me, for I am of uncircumcised lips?'"],
-      [13,"But the Lord spoke to Moses and Aaron and gave them a charge about the people of Israel and about Pharaoh king of Egypt: to bring the people of Israel out of the land of Egypt."]]
- },
- {
-  kind:"신약", ref:"요한계시록 3:7-13",
-  krSrc:krLink("rev",3,7), enSrc:esvLink("Revelation 3:7-13"), logos:logosLink("Rv",3,7,13),
-  kr:[[7,"빌라델비아 교회의 사자에게 편지하라 거룩하고 진실하사 다윗의 열쇠를 가지신 이 곧 열면 닫을 사람이 없고 닫으면 열 사람이 없는 그가 이르시되"],
-      [8,"볼지어다 내가 네 앞에 열린 문을 두었으되 능히 닫을 사람이 없으리라 내가 네 행위를 아노니 네가 작은 능력을 가지고도 내 말을 지키며 내 이름을 배반하지 아니하였도다"],
-      [9,"보라 사탄의 회당 곧 자칭 유대인이라 하나 그렇지 아니하고 거짓말 하는 자들 중에서 몇 사람이 네게 나아와 네 발 앞에 절하게 하고 내가 너를 사랑하는 줄을 알게 하리라"],
-      [10,"네가 나의 인내의 말씀을 지켰은즉 내가 또한 너를 지켜 시험의 때를 면하게 하리니 이는 장차 온 세상에 임하여 땅에 거하는 자들을 시험할 때라"],
-      [11,"내가 속히 오리니 네가 가진 것을 굳게 잡아 아무도 네 면류관을 빼앗지 못하게 하라"],
-      [12,"이기는 자는 내 하나님 성전에 기둥이 되게 하리니 그가 결코 다시 나가지 아니하리라 내가 하나님의 이름과 하나님의 성 곧 하늘에서 내 하나님께로부터 내려오는 새 예루살렘의 이름과 나의 새 이름을 그이 위에 기록하리라"],
-      [13,"귀 있는 자는 성령이 교회들에게 하시는 말씀을 들을지어다"]],
-  en:[[7,"And to the angel of the church in Philadelphia write: 'The words of the holy one, the true one, who has the key of David, who opens and no one will shut, who shuts and no one opens."],
-      [8,"'I know your works. Behold, I have set before you an open door, which no one is able to shut. I know that you have but little power, and yet you have kept my word and have not denied my name."],
-      [9,"Behold, I will make those of the synagogue of Satan who say that they are Jews and are not, but lie—behold, I will make them come and bow down before your feet, and they will learn that I have loved you."],
-      [10,"Because you have kept my word about patient endurance, I will keep you from the hour of trial that is coming on the whole world, to try those who dwell on the earth."],
-      [11,"I am coming soon. Hold fast what you have, so that no one may seize your crown."],
-      [12,"The one who conquers, I will make him a pillar in the temple of my God. Never shall he go out of it, and I will write on him the name of my God, and the name of the city of my God, the new Jerusalem, which comes down from my God out of heaven, and my own new name."],
-      [13,"He who has an ear, let him hear what the Spirit says to the churches.'"]]
- },
-];
-
-const usccbReadings = [
- {
-  kind:"제1독서", ref:"고린도전서 2:10하-16",
-  krSrc:krLink("1co",2,10), enSrc:esvLink("1 Corinthians 2:10-16"), logos:logosLink("1Co",2,10,16),
-  kr:[[10,"오직 하나님이 성령으로 이것을 우리에게 보이셨으니 성령은 모든 것 곧 하나님의 깊은 것까지도 통달하시느니라"],
-      [11,"사람의 일을 사람의 속에 있는 영 외에 누가 알리요 이와 같이 하나님의 일도 하나님의 영 외에는 아무도 알지 못하느니라"],
-      [12,"우리가 세상의 영을 받지 아니하고 오직 하나님으로부터 온 영을 받았으니 이는 우리로 하여금 하나님께서 우리에게 은혜로 주신 것들을 알게 하려 하심이라"],
-      [13,"우리가 이것을 말하거니와 사람의 지혜가 가르친 말로 아니하고 오직 성령께서 가르치신 것으로 하니 영적인 일은 영적인 것으로 분별하느니라"],
-      [14,"육에 속한 사람은 하나님의 성령의 일들을 받지 아니하나니 이는 그것들이 그에게는 어리석게 보임이요 또 그는 그것들을 알 수도 없나니 이런 일은 영적으로라야 분별함이니라"],
-      [15,"신령한 자는 모든 것을 판단하나 자기는 아무에게도 판단을 받지 아니하느니라"],
-      [16,"누가 주의 마음을 알아서 주를 가르치겠느냐 그러나 우리가 그리스도의 마음을 가졌느니라"]],
-  en:[[10,"For the Spirit searches everything, even the depths of God."],
-      [11,"For who knows a person's thoughts except the spirit of that person, which is in him? So also no one comprehends the thoughts of God except the Spirit of God."],
-      [12,"Now we have received not the spirit of the world, but the Spirit who is from God, that we might understand the things freely given us by God."],
-      [13,"And we impart this in words not taught by human wisdom but taught by the Spirit, interpreting spiritual truths to those who are spiritual."],
-      [14,"The natural person does not accept the things of the Spirit of God, for they are folly to him, and he is not able to understand them because they are spiritually discerned."],
-      [15,"The spiritual person judges all things, but is himself to be judged by no one."],
-      [16,"'For who has understood the mind of the Lord so as to instruct him?' But we have the mind of Christ."]]
- },
- {
-  kind:"화답송", ref:"시편 145:8-9, 10-11, 12-13, 13-14",
-  krSrc:krLink("psa",145,8), enSrc:esvLink("Psalm 145:8-14"), logos:logosLink("Ps",145,8,14),
-  kr:[[8,"여호와는 은혜로우시며 긍휼이 많으시며 노하기를 더디 하시며 인자하심이 크시도다"],
-      [9,"여호와께서는 모든 것을 선대하시며 그 지으신 모든 것에 긍휼을 베푸시는도다"],
-      [10,"여호와여 주께서 지으신 모든 것들이 주께 감사하며 주의 성도들이 주를 송축하리이다"],
-      [11,"그들이 주의 나라의 영광을 말하며 주의 업적을 일러서"],
-      [12,"주의 업적과 주의 나라의 위엄 있는 영광을 인생들에게 알게 하리이다"],
-      [13,"주의 나라는 영원한 나라이니 주의 통치는 대대에 이르리이다"],
-      [14,"여호와께서는 모든 넘어지는 자들을 붙드시며 비굴한 자들을 일으키시는도다"]],
-  en:[[8,"The Lord is gracious and merciful, slow to anger and abounding in steadfast love."],
-      [9,"The Lord is good to all, and his mercy is over all that he has made."],
-      [10,"All your works shall give thanks to you, O Lord, and all your saints shall bless you!"],
-      [11,"They shall speak of the glory of your kingdom and tell of your power,"],
-      [12,"to make known to the children of man your mighty deeds, and the glorious splendor of your kingdom."],
-      [13,"Your kingdom is an everlasting kingdom, and your dominion endures throughout all generations."],
-      [14,"The Lord upholds all who are falling and raises up all who are bowed down."]]
- },
- {
-  kind:"복음", ref:"누가복음 4:31-37",
-  krSrc:krLink("luk",4,31), enSrc:esvLink("Luke 4:31-37"), logos:logosLink("Lk",4,31,37),
-  kr:[[31,"갈릴리의 가버나움 동네에 내려오사 안식일에 가르치시매"],
-      [32,"그들이 그 가르치심에 놀라니 이는 그 말씀이 권위가 있음이러라"],
-      [33,"회당에 더러운 귀신 들린 사람이 있어 크게 소리 질러 이르되"],
-      [34,"아 나사렛 예수여 우리가 당신과 무슨 상관이 있나이까 우리를 멸하러 왔나이까 나는 당신이 누구인 줄 아노니 하나님의 거룩한 자니이다"],
-      [35,"예수께서 꾸짖어 이르시되 잠잠하고 그 사람에게서 나오라 하시니 귀신이 그 사람을 무리 중에 넘어뜨리고 나오되 그 사람은 상하지 아니한지라"],
-      [36,"다 놀라 서로 말하여 이르되 이 어떠한 말씀인고 권위와 능력으로 더러운 귀신을 명하매 나가는도다 하더라"],
-      [37,"이에 예수의 소문이 그 근처 사방에 퍼지니라"]],
-  en:[[31,"And he went down to Capernaum, a city of Galilee. And he was teaching them on the Sabbath,"],
-      [32,"and they were astonished at his teaching, for his word possessed authority."],
-      [33,"And in the synagogue there was a man who had the spirit of an unclean demon, and he cried out with a loud voice,"],
-      [34,"'Ha! What have you to do with us, Jesus of Nazareth? Have you come to destroy us? I know who you are—the Holy One of God.'"],
-      [35,"But Jesus rebuked him, saying, 'Be silent and come out of him!' And when the demon had thrown him down in their midst, he came out of him, having done him no harm."],
-      [36,"And they were all amazed and said to one another, 'What is this word? For with authority and power he commands the unclean spirits, and they come out!'"],
-      [37,"And reports about him went out into every place in the surrounding region."]]
- },
-];
-
-// ---------- reading data: 다음 주 월요일 (2026-09-07, 연중 제23주간 월요일) ----------
-const rclReadingsNext = [
  {
   kind:"연속 트랙 · 시편", ref:"시편 121편",
   krSrc:krLink("psa",121,1), enSrc:esvLink("Psalm 121"), logos:logosLink("Ps",121,1,8),
@@ -486,7 +307,7 @@ const rclReadingsNext = [
  },
 ];
 
-const usccbReadingsNext = [
+const usccbReadings = [
  {
   kind:"제1독서", ref:"고린도전서 5:1-8",
   krSrc:krLink("1co",5,1), enSrc:esvLink("1 Corinthians 5:1-8"), logos:logosLink("1Co",5,1,8),
@@ -539,24 +360,143 @@ const usccbReadingsNext = [
  },
 ];
 
+// ---------- reading data: 다음 주 월요일 (2026-09-14, 성 십자가 현양 축일 · Holy Cross Day) ----------
+const rclReadingsNext = [
+ {
+  kind:"제1독서 · 구약", ref:"민수기 21:4하-9",
+  krSrc:krLink("num",21,4), enSrc:esvLink("Numbers 21:4-9"), logos:logosLink("Nu",21,4,9),
+  kr:[[4,"길로 말미암아 백성의 마음이 상하니라"],
+      [5,"백성이 하나님과 모세를 향하여 원망하되 어찌하여 우리를 애굽에서 인도해 내어 이 광야에서 죽게 하는가 이 곳에는 먹을 것도 없고 물도 없도다 우리 마음이 이 하찮은 음식을 싫어하노라 하매"],
+      [6,"여호와께서 불뱀들을 백성 중에 보내어 백성을 물게 하시므로 이스라엘 백성 중에 죽은 자가 많은지라"],
+      [7,"백성이 모세에게 이르러 말하되 우리가 여호와와 당신을 향하여 원망함으로 범죄하였사오니 여호와께 기도하여 이 뱀들을 우리에게서 떠나게 하소서 모세가 백성을 위하여 기도하매"],
+      [8,"여호와께서 모세에게 이르시되 불뱀을 만들어 장대 위에 매달아라 물린 자마다 그것을 보면 살리라"],
+      [9,"모세가 놋뱀을 만들어 장대 위에 다니 뱀에게 물린 자가 놋뱀을 쳐다본즉 모두 살더라"]],
+  en:[[4,"From Mount Hor they set out by the way to the Red Sea, to go around the land of Edom. And the people became impatient on the way."],
+      [5,"And the people spoke against God and against Moses, 'Why have you brought us up out of Egypt to die in the wilderness? For there is no food and no water, and we loathe this worthless food.'"],
+      [6,"Then the Lord sent fiery serpents among the people, and they bit the people, so that many people of Israel died."],
+      [7,"And the people came to Moses and said, 'We have sinned, for we have spoken against the Lord and against you. Pray to the Lord, that he take away the serpents from us.' So Moses prayed for the people."],
+      [8,"And the Lord said to Moses, 'Make a fiery serpent and set it on a pole, and everyone who is bitten, when he sees it, shall live.'"],
+      [9,"So Moses made a bronze serpent and set it on a pole. And if a serpent bit anyone, he would look at the bronze serpent and live."]]
+ },
+ {
+  kind:"화답송", ref:"시편 98:1-5",
+  krSrc:krLink("psa",98,1), enSrc:esvLink("Psalm 98:1-5"), logos:logosLink("Ps",98,1,5),
+  kr:[[1,"새 노래로 여호와께 찬송하라 그는 기이한 일을 행하사 그의 오른손과 거룩한 팔로 자기를 위하여 구원을 베푸셨음이로다"],
+      [2,"여호와께서 그의 구원을 알게 하시며 그의 공의를 뭇 나라의 목전에서 명백히 나타내셨도다"],
+      [3,"그가 이스라엘의 집에 베푸신 인자와 성실을 기억하셨으므로 땅 끝까지 이르는 모든 것이 우리 하나님의 구원을 보았도다"],
+      [4,"온 땅이여 여호와께 즐거이 소리칠지어다 소리 내어 즐겁게 노래하며 찬송할지어다"],
+      [5,"수금으로 여호와를 노래하라 수금과 음성으로 노래할지어다"]],
+  en:[[1,"Oh sing to the Lord a new song, for he has done marvelous things! His right hand and his holy arm have worked salvation for him."],
+      [2,"The Lord has made known his salvation; he has revealed his righteousness in the sight of the nations."],
+      [3,"He has remembered his steadfast love and faithfulness to the house of Israel. All the ends of the earth have seen the salvation of our God."],
+      [4,"Make a joyful noise to the Lord, all the earth; break forth into joyous song and sing praises!"],
+      [5,"Sing praises to the Lord with the lyre, with the lyre and the sound of melody!"]]
+ },
+ {
+  kind:"제2독서 · 서신", ref:"고린도전서 1:18-24",
+  krSrc:krLink("1co",1,18), enSrc:esvLink("1 Corinthians 1:18-24"), logos:logosLink("1Co",1,18,24),
+  kr:[[18,"십자가의 도가 멸망하는 자들에게는 미련한 것이요 구원을 받는 우리에게는 하나님의 능력이라"],
+      [19,"기록된 바 내가 지혜 있는 자들의 지혜를 멸하고 총명한 자들의 총명을 폐하리라 하였으니"],
+      [20,"지혜 있는 자가 어디 있느냐 선비가 어디 있느냐 이 세대에 변론가가 어디 있느냐 하나님께서 이 세상의 지혜를 미련하게 하신 것이 아니냐"],
+      [21,"하나님의 지혜에 있어서는 이 세상이 자기 지혜로 하나님을 알지 못하므로 하나님께서 전도의 미련한 것으로 믿는 자들을 구원하시기를 기뻐하셨도다"],
+      [22,"유대인은 표적을 구하고 헬라인은 지혜를 찾으나"],
+      [23,"우리는 십자가에 못 박힌 그리스도를 전하니 유대인에게는 거리끼는 것이요 이방인에게는 미련한 것이로되"],
+      [24,"오직 부르심을 받은 자들에게는 유대인이나 헬라인이나 그리스도는 하나님의 능력이요 하나님의 지혜니라"]],
+  en:[[18,"For the word of the cross is folly to those who are perishing, but to us who are being saved it is the power of God."],
+      [19,"For it is written, 'I will destroy the wisdom of the wise, and the discernment of the discerning I will thwart.'"],
+      [20,"Where is the one who is wise? Where is the scribe? Where is the debater of this age? Has not God made foolish the wisdom of the world?"],
+      [21,"For since, in the wisdom of God, the world did not know God through wisdom, it pleased God through the folly of what we preach to save those who believe."],
+      [22,"For Jews demand signs and Greeks seek wisdom,"],
+      [23,"but we preach Christ crucified, a stumbling block to Jews and folly to Gentiles,"],
+      [24,"but to those who are called, both Jews and Greeks, Christ the power of God and the wisdom of God."]]
+ },
+ {
+  kind:"복음", ref:"요한복음 3:13-17",
+  krSrc:krLink("jhn",3,13), enSrc:esvLink("John 3:13-17"), logos:logosLink("Jn",3,13,17),
+  kr:[[13,"하늘에서 내려온 자 곧 인자 외에는 하늘에 올라간 자가 없느니라"],
+      [14,"모세가 광야에서 뱀을 든 것 같이 인자도 들려야 하리니"],
+      [15,"이는 그를 믿는 자마다 영생을 얻게 하려 하심이니라"],
+      [16,"하나님이 세상을 이처럼 사랑하사 독생자를 주셨으니 이는 그를 믿는 자마다 멸망하지 않고 영생을 얻게 하려 하심이라"],
+      [17,"하나님이 그 아들을 세상에 보내신 것은 세상을 심판하려 하심이 아니요 그로 말미암아 세상이 구원을 받게 하려 하심이라"]],
+  en:[[13,"No one has ascended into heaven except he who descended from heaven, the Son of Man."],
+      [14,"And as Moses lifted up the serpent in the wilderness, so must the Son of Man be lifted up,"],
+      [15,"that whoever believes in him may have eternal life."],
+      [16,"For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life."],
+      [17,"For God did not send his Son into the world to condemn the world, but in order that the world might be saved through him."]]
+ },
+];
+
+const usccbReadingsNext = [
+ {
+  kind:"제1독서", ref:"민수기 21:4하-9",
+  krSrc:krLink("num",21,4), enSrc:esvLink("Numbers 21:4-9"), logos:logosLink("Nu",21,4,9),
+  kr:[[4,"길로 말미암아 백성의 마음이 상하니라"],
+      [5,"백성이 하나님과 모세를 향하여 원망하되 어찌하여 우리를 애굽에서 인도해 내어 이 광야에서 죽게 하는가 이 곳에는 먹을 것도 없고 물도 없도다 우리 마음이 이 하찮은 음식을 싫어하노라 하매"],
+      [6,"여호와께서 불뱀들을 백성 중에 보내어 백성을 물게 하시므로 이스라엘 백성 중에 죽은 자가 많은지라"],
+      [7,"백성이 모세에게 이르러 말하되 우리가 여호와와 당신을 향하여 원망함으로 범죄하였사오니 여호와께 기도하여 이 뱀들을 우리에게서 떠나게 하소서 모세가 백성을 위하여 기도하매"],
+      [8,"여호와께서 모세에게 이르시되 불뱀을 만들어 장대 위에 매달아라 물린 자마다 그것을 보면 살리라"],
+      [9,"모세가 놋뱀을 만들어 장대 위에 다니 뱀에게 물린 자가 놋뱀을 쳐다본즉 모두 살더라"]],
+  en:[[4,"From Mount Hor they set out by the way to the Red Sea, to go around the land of Edom. And the people became impatient on the way."],
+      [5,"And the people spoke against God and against Moses, 'Why have you brought us up out of Egypt to die in the wilderness? For there is no food and no water, and we loathe this worthless food.'"],
+      [6,"Then the Lord sent fiery serpents among the people, and they bit the people, so that many people of Israel died."],
+      [7,"And the people came to Moses and said, 'We have sinned, for we have spoken against the Lord and against you. Pray to the Lord, that he take away the serpents from us.' So Moses prayed for the people."],
+      [8,"And the Lord said to Moses, 'Make a fiery serpent and set it on a pole, and everyone who is bitten, when he sees it, shall live.'"],
+      [9,"So Moses made a bronze serpent and set it on a pole. And if a serpent bit anyone, he would look at the bronze serpent and live."]]
+ },
+ {
+  kind:"화답송", ref:"시편 78:1-2, 34-38",
+  krSrc:krLink("psa",78,1), enSrc:esvLink("Psalm 78:1-2,34-38"), logos:logosLink("Ps",78,1,38),
+  kr:[[1,"내 백성이여, 내 율법을 들으며 내 입의 말에 귀를 기울일지어다"],
+      [2,"내가 입을 열어 비유로 말하며 예로부터 감추어졌던 것을 드러내려 하니"],
+      ["gap","3~33절 생략"],
+      [34,"하나님이 그들을 죽이실 때에 그들이 그에게 구하며 돌이켜 하나님을 간절히 찾았고"],
+      [35,"하나님이 그들의 반석이시며 지존하신 하나님이 그들의 구속자이심을 기억하였도다"],
+      [36,"그러나 그들이 입으로 그에게 아첨하며 자기 혀로 그에게 거짓을 말하였으니"],
+      [37,"이는 하나님께 향하는 그들의 마음이 정함이 없으며 그의 언약에 성실하지 아니하였음이로다"],
+      [38,"오직 하나님은 긍휼하시므로 죄악을 덮어 주시어 멸망시키지 아니하시고 그의 진노를 여러 번 돌이키시며 그의 모든 분을 다 쏟아 내지 아니하셨으니"]],
+  en:[[1,"Give ear, O my people, to my teaching; incline your ears to the words of my mouth!"],
+      [2,"I will open my mouth in a parable; I will utter dark sayings from of old,"],
+      ["gap","vv.3-33 omitted"],
+      [34,"When he killed them, they sought him; they repented and sought God earnestly."],
+      [35,"They remembered that God was their rock, the Most High God their redeemer."],
+      [36,"But they flattered him with their mouths; they lied to him with their tongues."],
+      [37,"Their heart was not steadfast toward him; they were not faithful to his covenant."],
+      [38,"Yet he, being compassionate, atoned for their iniquity and did not destroy them; he restrained his anger often and did not stir up all his wrath."]]
+ },
+ {
+  kind:"복음", ref:"요한복음 3:13-17",
+  krSrc:krLink("jhn",3,13), enSrc:esvLink("John 3:13-17"), logos:logosLink("Jn",3,13,17),
+  kr:[[13,"하늘에서 내려온 자 곧 인자 외에는 하늘에 올라간 자가 없느니라"],
+      [14,"모세가 광야에서 뱀을 든 것 같이 인자도 들려야 하리니"],
+      [15,"이는 그를 믿는 자마다 영생을 얻게 하려 하심이니라"],
+      [16,"하나님이 세상을 이처럼 사랑하사 독생자를 주셨으니 이는 그를 믿는 자마다 멸망하지 않고 영생을 얻게 하려 하심이라"],
+      [17,"하나님이 그 아들을 세상에 보내신 것은 세상을 심판하려 하심이 아니요 그로 말미암아 세상이 구원을 받게 하려 하심이라"]],
+  en:[[13,"No one has ascended into heaven except he who descended from heaven, the Son of Man."],
+      [14,"And as Moses lifted up the serpent in the wilderness, so must the Son of Man be lifted up,"],
+      [15,"that whoever believes in him may have eternal life."],
+      [16,"For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life."],
+      [17,"For God did not send his Son into the world to condemn the world, but in order that the world might be saved through him."]]
+ },
+];
+
 const readingSets = {
   current: {
-    dateLabel: "2026-09-01 기준",
-    rclTitle: "🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 화요일 데일리",
-    rclDesc: "Vanderbilt Revised Common Lectionary 기준(연속 트랙), 연중 제22주간. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
-    usccbDesc: "연중 제22주간 화요일 (Tuesday of the Twenty-second Week in Ordinary Time). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
-    usccbSrc: "https://bible.usccb.org/bible/readings/090126.cfm",
-    rcl: rclReadings, usccb: usccbReadings,
-    toggleLabel: "📅 다음 주 월요일(9/7) 보기 →"
-  },
-  nextMonday: {
-    dateLabel: "2026-09-01 기준 · 다음 주 월요일 미리보기",
+    dateLabel: "2026-09-07 기준",
     rclTitle: "🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 월요일 데일리",
     rclDesc: "Vanderbilt Revised Common Lectionary 기준(연속 트랙), 연중 제23주간. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
     usccbDesc: "연중 제23주간 월요일 (Monday of the Twenty-third Week in Ordinary Time). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
     usccbSrc: "https://bible.usccb.org/bible/readings/090726.cfm",
+    rcl: rclReadings, usccb: usccbReadings,
+    toggleLabel: "📅 다음 주 월요일(9/14) 보기 →"
+  },
+  nextMonday: {
+    dateLabel: "2026-09-07 기준 · 다음 주 월요일 미리보기",
+    rclTitle: "✝️ 성 십자가 현양 축일 (Holy Cross Day) — 2026-09-14",
+    rclDesc: "Revised Common Lectionary 기준. 통상적인 연속 트랙 대신 성 십자가 현양 축일 고정 독서로 대체돼요. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
+    usccbDesc: "성 십자가 현양 축일 (The Exaltation of the Holy Cross). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
+    usccbSrc: "https://bible.usccb.org/bible/readings/091426.cfm",
     rcl: rclReadingsNext, usccb: usccbReadingsNext,
-    toggleLabel: "← 오늘(9/1)로 돌아가기"
+    toggleLabel: "← 오늘(9/7)로 돌아가기"
   }
 };
 let currentReadingSetKey = 'current';
