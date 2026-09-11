@@ -176,7 +176,7 @@
   <header class="top">
     <div>
       <h1>📖 Daily Devotion</h1>
-      <div class="sub"><a href="index.html" onclick="if(window.history.length>1){history.back();return false;}" style="color:var(--link);text-decoration:none;">← 대시보드로 돌아가기</a> · <span id="subDateText">2026-09-07 기준</span></div>
+      <div class="sub"><a href="index.html" onclick="if(window.history.length>1){history.back();return false;}" style="color:var(--link);text-decoration:none;">← 대시보드로 돌아가기</a> · <span id="subDateText">2026-09-11 기준</span></div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
       <div class="week-toggle" id="weekToggleBtn" onclick="toggleWeek()">📅 다음 주 월요일(9/14) 보기 →</div>
@@ -185,7 +185,7 @@
   </header>
 
   <section>
-    <h2 id="rclTitle">🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 월요일 데일리</h2>
+    <h2 id="rclTitle">🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 금요일 데일리</h2>
     <p class="desc" id="rclDesc">Vanderbilt Revised Common Lectionary 기준(연속 트랙), 연중 제23주간. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
     <div class="card">
       <div class="rd-list" id="rclList"></div>
@@ -195,10 +195,10 @@
 
   <section>
     <h2>✝️ 가톨릭 오늘의 미사 독서 (USCCB)</h2>
-    <p class="desc" id="usccbDesc">연중 제23주간 월요일 (Monday of the Twenty-third Week in Ordinary Time). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
+    <p class="desc" id="usccbDesc">연중 제23주간 금요일 (Friday of the Twenty-third Week in Ordinary Time). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.</p>
     <div class="card">
       <div class="rd-list" id="usccbList"></div>
-      <div class="footnote">출처: <a href="https://bible.usccb.org/bible/readings/090726.cfm" target="_blank" rel="noopener" id="usccbSrcLink">USCCB Daily Readings</a></div>
+      <div class="footnote">출처: <a href="https://bible.usccb.org/bible/readings/091126.cfm" target="_blank" rel="noopener" id="usccbSrcLink">USCCB Daily Readings</a></div>
     </div>
   </section>
 
@@ -231,132 +231,142 @@ function logosLink(bookAbbr, chap, startVerse, endVerse){
   return `https://ref.ly/${bookAbbr}${chap}.${range};ESV`;
 }
 
-// ---------- reading data: 오늘 (2026-09-07, 월요일, 연중 제23주간 월요일) ----------
+// ---------- reading data: 오늘 (2026-09-11, 금요일, 연중 제23주간 금요일) ----------
 const rclReadings = [
  {
-  kind:"연속 트랙 · 시편", ref:"시편 121편",
-  krSrc:krLink("psa",121,1), enSrc:esvLink("Psalm 121"), logos:logosLink("Ps",121,1,8),
-  kr:[[1,"내가 산을 향하여 눈을 들리라 나의 도움이 어디서 올까"],
-      [2,"나의 도움은 천지를 지으신 여호와에게서로다"],
-      [3,"여호와께서 너를 실족하지 아니하게 하시며 너를 지키시는 이가 졸지 아니하시리로다"],
-      [4,"이스라엘을 지키시는 이는 졸지도 아니하시고 주무시지도 아니하시리로다"],
-      [5,"여호와는 너를 지키시는 이시라 여호와께서 네 오른쪽에서 네 그늘이 되시나니"],
-      [6,"낮의 해가 너를 상하게 하지 아니하며 밤의 달도 너를 해치지 아니하리로다"],
-      [7,"여호와께서 너를 지켜 모든 환난을 면하게 하시며 또 네 영혼을 지키시리로다"],
-      [8,"여호와께서 너의 출입을 지금부터 영원까지 지키시리로다"]],
-  en:[[1,"I lift up my eyes to the hills. From where does my help come?"],
-      [2,"My help comes from the Lord, who made heaven and earth."],
-      [3,"He will not let your foot be moved; he who keeps you will not slumber."],
-      [4,"Behold, he who keeps Israel will neither slumber nor sleep."],
-      [5,"The Lord is your keeper; the Lord is your shade on your right hand."],
-      [6,"The sun shall not strike you by day, nor the moon by night."],
-      [7,"The Lord will keep you from all evil; he will keep your life."],
-      [8,"The Lord will keep your going out and your coming in from this time forth and forevermore."]]
+  kind:"연속 트랙 · 시편", ref:"시편 114편",
+  krSrc:krLink("psa",114,1), enSrc:esvLink("Psalm 114"), logos:logosLink("Ps",114,1,8),
+  kr:[[1,"이스라엘이 애굽에서 나오며 야곱의 집안이 언어가 다른 민족에게서 나올 때에"],
+      [2,"유다는 여호와의 성소가 되고 이스라엘은 그의 영토가 되었도다"],
+      [3,"바다가 보고 도망하며 요단은 물러갔으니"],
+      [4,"산들은 숫양들 같이 뛰놀며 작은 산들은 어린 양들 같이 뛰었도다"],
+      [5,"바다야 네가 도망함은 어찌함이며 요단아 네가 물러감은 어찌함인가"],
+      [6,"너희 산들아 숫양들 같이 뛰놀며 작은 산들아 어린 양들 같이 뛰놂은 어찌함인가"],
+      [7,"땅이여 너는 주 앞 곧 야곱의 하나님 앞에서 떨지어다"],
+      [8,"그가 반석을 쳐서 못물이 되게 하시며 차돌로 샘물이 되게 하셨도다"]],
+  en:[[1,"When Israel went out from Egypt, the house of Jacob from a people of strange language,"],
+      [2,"Judah became his sanctuary, Israel his dominion."],
+      [3,"The sea looked and fled; Jordan turned back."],
+      [4,"The mountains skipped like rams, the hills like lambs."],
+      [5,"What ails you, O sea, that you flee? O Jordan, that you turn back?"],
+      [6,"O mountains, that you skip like rams? O hills, like lambs?"],
+      [7,"Tremble, O earth, at the presence of the Lord, at the presence of the God of Jacob,"],
+      [8,"who turns the rock into a pool of water, the flint into a spring of water."]]
  },
  {
-  kind:"연속 트랙 · 구약", ref:"출애굽기 12:14-28",
-  krSrc:krLink("exo",12,14), enSrc:esvLink("Exodus 12:14-28"), logos:logosLink("Ex",12,14,28),
-  kr:[[14,"너희는 이 날을 기념하여 여호와의 절기를 삼아 영원한 규례로 대대로 지킬지니라"],
-      [15,"너희는 이레 동안 무교병을 먹을지니 그 첫날에 누룩을 너희 집에서 제하라 무릇 첫날부터 일곱째 날까지 유교병을 먹는 자는 이스라엘에서 끊어지리라"],
-      [16,"너희에게 첫날에도 성회요 일곱째 날에도 성회가 되리니 너희는 이 두 날에는 아무 일도 하지 말고 각자의 먹을 것만 갖출 것이니라"],
-      [17,"너희는 무교절을 지키라 이 날에 내가 너희 군대를 애굽 땅에서 인도하여 내었음이니라 그러므로 너희가 영원한 규례로 삼아 대대로 이 날을 지킬지니라"],
-      [18,"첫째 달 그 달 열나흗날 저녁부터 이십일일 저녁까지 너희는 무교병을 먹을 것이요"],
-      [19,"이레 동안은 누룩이 너희 집에서 발견되지 아니하도록 하라 무릇 유교물을 먹는 자는 타국인이든지 본국에서 난 자든지를 막론하고 이스라엘 회중에서 끊어지리니"],
-      [20,"너희는 아무 유교물이든지 먹지 말고 너희 모든 유하는 곳에서 무교병을 먹을지니라"],
-      [21,"모세가 이스라엘 모든 장로를 불러서 그들에게 이르되 너희는 나가서 너희의 가족대로 어린 양을 택하여 유월절 양으로 잡고"],
-      [22,"우슬초 묶음을 가져다가 그릇에 담은 피에 적셔서 그 피를 문 인방과 좌우 설주에 뿌리고 아침까지 한 사람도 자기 집 문 밖에 나가지 말라"],
-      [23,"여호와께서 애굽 사람들에게 재앙을 내리려고 지나가실 때에 문 인방과 좌우 문설주의 피를 보시면 여호와께서 그 문을 넘으시고 멸하는 자에게 너희 집에 들어가서 너희를 치지 못하게 하실 것임이니라"],
-      [24,"너희는 이 일을 규례로 삼아 너희와 너희 자손이 영원히 지킬 것이니"],
-      [25,"너희는 여호와께서 허락하신 대로 너희에게 주시는 땅에 이를 때에 이 예식을 지킬 것이라"],
-      [26,"이 후에 너희의 자녀가 묻기를 이 예식이 무슨 뜻이냐 하거든"],
-      [27,"너희는 이르기를 이는 여호와의 유월절 제사라 여호와께서 애굽 사람에게 재앙을 내리실 때에 애굽에 있는 이스라엘 자손의 집을 넘으사 우리의 집을 구원하셨느니라 하라 하매 백성이 머리 숙여 경배하니라"],
-      [28,"이스라엘 자손이 물러가서 그대로 행하되 여호와께서 모세와 아론에게 명령하신 대로 행하니라"]],
-  en:[[14,"This day shall be for you a memorial day, and you shall keep it as a feast to the Lord; throughout your generations, as a statute forever, you shall keep it as a feast."],
-      [15,"Seven days you shall eat unleavened bread. On the first day you shall remove leaven out of your houses, for if anyone eats what is leavened, from the first day until the seventh day, that person shall be cut off from Israel."],
-      [16,"On the first day you shall hold a holy assembly, and on the seventh day a holy assembly. No work shall be done on those days. But what everyone needs to eat, that alone may be prepared by you."],
-      [17,"And you shall observe the Feast of Unleavened Bread, for on this very day I brought your hosts out of the land of Egypt. Therefore you shall observe this day, throughout your generations, as a statute forever."],
-      [18,"In the first month, from the fourteenth day of the month at evening, you shall eat unleavened bread until the twenty-first day of the month at evening."],
-      [19,"For seven days no leaven is to be found in your houses. If anyone eats what is leavened, that person will be cut off from the congregation of Israel, whether he is a sojourner or a native of the land."],
-      [20,"You shall eat nothing leavened; in all your dwelling places you shall eat unleavened bread."],
-      [21,"Then Moses called all the elders of Israel and said to them, 'Go and select lambs for yourselves according to your clans, and kill the Passover lamb.'"],
-      [22,"'Take a bunch of hyssop and dip it in the blood that is in the basin, and touch the lintel and the two doorposts with the blood that is in the basin. None of you shall go out of the door of his house until the morning.'"],
-      [23,"'For the Lord will pass through to strike the Egyptians, and when he sees the blood on the lintel and on the two doorposts, the Lord will pass over the door and will not allow the destroyer to enter your houses to strike you.'"],
-      [24,"'You shall observe this rite as a statute for you and for your sons forever.'"],
-      [25,"'And when you come to the land that the Lord will give you, as he has promised, you shall keep this service.'"],
-      [26,"'And when your children say to you, \"What do you mean by this service?\"'"],
-      [27,"you shall say, 'It is the sacrifice of the Lord's Passover, for he passed over the houses of the people of Israel in Egypt, when he struck the Egyptians but spared our houses.' And the people bowed their heads and worshiped."],
-      [28,"Then the people of Israel went and did so; as the Lord had commanded Moses and Aaron, so they did."]]
+  kind:"연속 트랙 · 구약", ref:"출애굽기 14:1-18",
+  krSrc:krLink("exo",14,1), enSrc:esvLink("Exodus 14:1-18"), logos:logosLink("Ex",14,1,18),
+  kr:[[1,"여호와께서 모세에게 말씀하여 이르시되"],
+      [2,"이스라엘 자손에게 명령하여 돌이켜 바다와 믹돌 사이의 비하히롯 앞 곧 바알스본 맞은편 바닷가에 장막을 치게 하라"],
+      [3,"바로가 이스라엘 자손에 대하여 말하기를 그들이 그 땅에서 멀리 떠나 광야에 갇힌 바 되었다 하리라"],
+      [4,"내가 바로의 마음을 완악하게 한즉 바로가 그들의 뒤를 따르리니 내가 그와 그의 온 군대로 말미암아 영광을 얻어 애굽 사람들이 나를 여호와인 줄 알게 하리라"],
+      [5,"그 백성이 도망한 사실이 애굽 왕에게 알려지매 바로와 그의 신하들이 그 백성에 대하여 마음이 변하여 이르되 우리가 어찌 이같이 하여 이스라엘을 우리를 섬김에서 놓아 보내었는가 하고"],
+      [6,"바로가 곧 그의 병거를 갖추고 그의 백성을 데리고 갈새"],
+      [7,"선발된 병거 육백 대와 애굽의 모든 병거를 동원하니 지휘관들이 다 거느렸더라"],
+      [8,"여호와께서 애굽 왕 바로의 마음을 완악하게 하셨으므로 그가 이스라엘 자손의 뒤를 따르니 이스라엘 자손이 담대히 나갔음이라"],
+      [9,"애굽 사람들과 바로의 말들, 병거들과 그 마병과 그 군대가 그들의 뒤를 따라 바알스본 맞은편 비하히롯 곁 해변 그들이 장막 친 데에 미치니라"],
+      [10,"바로가 가까이 올 때에 이스라엘 자손이 눈을 들어 본즉 애굽 사람들이 자기들 뒤에 따라오는지라 이스라엘 자손이 심히 두려워하여 여호와께 부르짖고"],
+      [11,"그들이 또 모세에게 이르되 애굽에 매장지가 없어서 당신이 우리를 이끌어 내어 이 광야에서 죽게 하느냐 어찌하여 우리를 애굽에서 이끌어 내어 이같이 우리에게 하느냐"],
+      [12,"우리가 애굽에서 당신에게 이르기를 우리를 내버려 두라 우리가 애굽 사람을 섬길 것이라 하지 아니하더냐 애굽 사람을 섬기는 것이 광야에서 죽는 것보다 낫겠노라"],
+      [13,"모세가 백성에게 이르되 너희는 두려워하지 말고 가만히 서서 여호와께서 오늘 너희를 위하여 행하시는 구원을 보라 너희가 오늘 본 애굽 사람을 영원히 다시 보지 아니하리라"],
+      [14,"여호와께서 너희를 위하여 싸우시리니 너희는 가만히 있을지니라"],
+      [15,"여호와께서 모세에게 이르시되 너는 어찌하여 내게 부르짖느냐 이스라엘 자손에게 명령하여 앞으로 나아가게 하고"],
+      [16,"지팡이를 들고 손을 바다 위로 내밀어 그것이 갈라지게 하라 이스라엘 자손이 바다 가운데 육지로 행하리라"],
+      [17,"내가 애굽 사람들의 마음을 완악하게 할 것인즉 그들이 그 뒤를 따라 들어가리니 내가 바로와 그의 모든 군대와 그의 병거들과 마병들로 말미암아 영광을 얻으리니"],
+      [18,"내가 바로와 그의 병거들과 마병들로 말미암아 영광을 얻을 때에야 애굽 사람들이 나를 여호와인 줄 알리라 하시더니"]],
+  en:[[1,"Then the Lord said to Moses,"],
+      [2,"'Tell the people of Israel to turn back and encamp in front of Pi-hahiroth, between Migdol and the sea, in front of Baal-zephon; you shall encamp facing it, by the sea.'"],
+      [3,"For Pharaoh will say of the people of Israel, 'They are wandering in the land; the wilderness has shut them in.'"],
+      [4,"And I will harden Pharaoh's heart, and he will pursue them, and I will get glory over Pharaoh and all his host, and the Egyptians shall know that I am the Lord."],
+      [5,"When the king of Egypt was told that the people had fled, the mind of Pharaoh and his servants was changed toward the people, and they said, 'What is this we have done, that we have let Israel go from serving us?'"],
+      [6,"So he made ready his chariot and took his army with him,"],
+      [7,"and took six hundred chosen chariots and all the other chariots of Egypt with officers over all of them."],
+      [8,"And the Lord hardened the heart of Pharaoh king of Egypt, and he pursued the people of Israel while the people of Israel were going out defiantly."],
+      [9,"The Egyptians pursued them, all Pharaoh's horses and chariots and his horsemen and his army, and overtook them encamped at the sea, by Pi-hahiroth, in front of Baal-zephon."],
+      [10,"When Pharaoh drew near, the people of Israel lifted up their eyes, and behold, the Egyptians were marching after them, and they feared greatly."],
+      [11,"They said to Moses, 'Is it because there are no graves in Egypt that you have taken us away to die in the wilderness? What have you done to us, in bringing us out of Egypt?'"],
+      [12,"Is not this what we said to you in Egypt: 'Leave us alone that we may serve the Egyptians'? For it would have been better for us to serve the Egyptians than to die in the wilderness."],
+      [13,"And Moses said to the people, 'Fear not, stand firm, and see the salvation of the Lord, which he will work for you today. For the Egyptians whom you see today, you shall never see again.'"],
+      [14,"The Lord will fight for you, and you have only to be silent."],
+      [15,"The Lord said to Moses, 'Why do you cry to me? Tell the people of Israel to go forward.'"],
+      [16,"Lift up your staff, and stretch out your hand over the sea and divide it, that the people of Israel may go through the sea on dry ground."],
+      [17,"And I will harden the hearts of the Egyptians so that they shall go in after them, and I will get glory over Pharaoh and all his host, his chariots, and his horsemen."],
+      [18,"And the Egyptians shall know that I am the Lord, when I have gotten glory over Pharaoh, his chariots, and his horsemen."]]
  },
  {
-  kind:"연속 트랙 · 신약", ref:"베드로전서 2:11-17",
-  krSrc:krLink("1pe",2,11), enSrc:esvLink("1 Peter 2:11-17"), logos:logosLink("1Pe",2,11,17),
-  kr:[[11,"사랑하는 자들아 거류민과 나그네 같은 너희를 권하노니 영혼을 거슬러 싸우는 육체의 정욕을 제어하라"],
-      [12,"너희가 이방인 중에서 행실을 선하게 가져 너희를 악행한다고 비방하는 자들로 하여금 너희 선한 일을 보고 오시는 날에 하나님께 영광을 돌리게 하려 함이라"],
-      [13,"인간의 모든 제도를 주를 위하여 순종하되 혹은 위에 있는 왕이나"],
-      [14,"혹은 그가 악행하는 자를 징벌하고 선행하는 자를 포상하기 위하여 보낸 총독에게 하라"],
-      [15,"곧 선행으로 어리석은 사람들의 무식한 말을 막으시는 것이라"],
-      [16,"너희는 자유가 있으나 그 자유로 악을 가리는 데 쓰지 말고 오직 하나님의 종과 같이 하라"],
-      [17,"뭇 사람을 공경하며 형제를 사랑하며 하나님을 두려워하며 왕을 존대하라"]],
-  en:[[11,"Beloved, I urge you as sojourners and exiles to abstain from the passions of the flesh, which wage war against your soul."],
-      [12,"Keep your conduct among the Gentiles honorable, so that when they speak against you as evildoers, they may see your good deeds and glorify God on the day of visitation."],
-      [13,"Be subject for the Lord's sake to every human institution, whether it be to the emperor as supreme,"],
-      [14,"or to governors as sent by him to punish those who do evil and to praise those who do good."],
-      [15,"For this is the will of God, that by doing good you should put to silence the ignorance of foolish people."],
-      [16,"Live as people who are free, not using your freedom as a cover-up for evil, but living as servants of God."],
-      [17,"Honor everyone. Love the brotherhood. Fear God. Honor the emperor."]]
+  kind:"연속 트랙 · 신약", ref:"사도행전 7:9-16",
+  krSrc:krLink("act",7,9), enSrc:esvLink("Acts 7:9-16"), logos:logosLink("Ac",7,9,16),
+  kr:[[9,"여러 조상이 요셉을 시기하여 애굽에 팔았더니 하나님이 그와 함께 계셔"],
+      [10,"그 모든 환난에서 건져내사 애굽 왕 바로 앞에서 은총과 지혜를 주시매 바로가 그를 애굽과 자기 온 집의 통치자로 세웠느니라"],
+      [11,"그 때에 애굽과 가나안 온 땅에 흉년이 들어 큰 환난이 있을새 우리 조상들이 양식이 없는지라"],
+      [12,"야곱이 애굽에 곡식 있다는 말을 듣고 먼저 우리 조상들을 보내고"],
+      [13,"또 재차 보내매 요셉이 자기 형제들에게 알려지게 되고 또 요셉의 친족이 바로에게 드러나게 되니라"],
+      [14,"요셉이 사람을 보내어 그의 아버지 야곱과 온 친족 일흔다섯 사람을 청하였더니"],
+      [15,"야곱이 애굽으로 내려가 자기와 우리 조상들이 거기서 죽고"],
+      [16,"세겜으로 옮겨져 아브라함이 세겜 하몰의 자손에게서 은으로 값 주고 산 무덤에 장사되니라"]],
+  en:[[9,"And the patriarchs, jealous of Joseph, sold him into Egypt; but God was with him"],
+      [10,"and rescued him out of all his afflictions and gave him favor and wisdom before Pharaoh, king of Egypt, who made him ruler over Egypt and over all his household."],
+      [11,"Now there came a famine throughout all Egypt and Canaan, and great affliction, and our fathers could find no food."],
+      [12,"But when Jacob heard that there was grain in Egypt, he sent out our fathers on their first visit."],
+      [13,"And on the second visit Joseph made himself known to his brothers, and Joseph's family became known to Pharaoh."],
+      [14,"And Joseph sent and summoned Jacob his father and all his kindred, seventy-five persons in all."],
+      [15,"And Jacob went down into Egypt, and he died, he and our fathers,"],
+      [16,"and they were carried back to Shechem and laid in the tomb that Abraham had bought for a sum of silver from the sons of Hamor in Shechem."]]
  },
 ];
 
 const usccbReadings = [
  {
-  kind:"제1독서", ref:"고린도전서 5:1-8",
-  krSrc:krLink("1co",5,1), enSrc:esvLink("1 Corinthians 5:1-8"), logos:logosLink("1Co",5,1,8),
-  kr:[[1,"너희 중에 심지어 음행이 있다 함을 들으니 그런 음행은 이방인 중에서도 없는 것이라 누가 그 아버지의 아내를 취하였다 하는도다"],
-      [2,"그리하고도 너희가 오히려 교만하여져서 어찌하여 통한히 여기지 아니하고 그 일 행한 자를 너희 중에서 쫓아내지 아니하였느냐"],
-      [3,"내가 실로 몸으로는 떠나 있으나 영으로는 함께 있어서 거기 있는 것 같이 이런 일 행한 자를 이미 판단하였노라"],
-      [4,"주 예수의 이름으로 너희가 내 영과 함께 모여서 우리 주 예수의 능력으로"],
-      [5,"이런 자를 사탄에게 내주었으니 이는 육신은 멸하고 영은 주 예수의 날에 구원을 받게 하려 함이라"],
-      [6,"너희가 자랑하는 것이 옳지 아니하도다 적은 누룩이 온 덩어리에 퍼지는 것을 알지 못하느냐"],
-      [7,"너희는 누룩 없는 자인데 새 덩어리가 되기 위하여 묵은 누룩을 내버리라 우리의 유월절 양 곧 그리스도께서 희생되셨느니라"],
-      [8,"이러므로 우리가 명절을 지키되 묵은 누룩으로도 말고 악하고 악의에 찬 누룩으로도 말고 누룩이 없이 오직 순전함과 진실함의 떡으로 하자"]],
-  en:[[1,"It is actually reported that there is sexual immorality among you, and of a kind that is not tolerated even among pagans, for a man has his father's wife."],
-      [2,"And you are arrogant! Ought you not rather to mourn? Let him who has done this be removed from among you."],
-      [3,"For though absent in body, I am present in spirit; and as if present, I have already pronounced judgment on the one who did such a thing."],
-      [4,"When you are assembled in the name of the Lord Jesus and my spirit is present, with the power of our Lord Jesus,"],
-      [5,"you are to deliver this man to Satan for the destruction of the flesh, so that his spirit may be saved in the day of the Lord."],
-      [6,"Your boasting is not good. Do you not know that a little leaven leavens the whole lump?"],
-      [7,"Cleanse out the old leaven that you may be a new lump, as you really are unleavened. For Christ, our Passover lamb, has been sacrificed."],
-      [8,"Let us therefore celebrate the festival, not with the old leaven, the leaven of malice and evil, but with the unleavened bread of sincerity and truth."]]
+  kind:"제1독서", ref:"고린도전서 9:16-19, 22b-27",
+  krSrc:krLink("1co",9,16), enSrc:esvLink("1 Corinthians 9:16-19,22b-27"), logos:logosLink("1Co",9,16,27),
+  kr:[[16,"내가 복음을 전할지라도 자랑할 것이 없음은 내가 부득불 할 일임이라 만일 복음을 전하지 아니하면 내게 화가 있을 것이로다"],
+      [17,"내가 내 자의로 이것을 행하면 상을 얻으려니와 내가 자의로 아니한다 할지라도 나는 사명을 받았노라"],
+      [18,"그런즉 내 상이 무엇이냐 내가 복음을 전할 때에 값없이 전하고 복음으로 말미암아 내게 있는 권리를 다 쓰지 아니하는 이것이로다"],
+      [19,"내가 모든 사람에게서 자유로우나 스스로 모든 사람에게 종이 된 것은 더 많은 사람을 얻고자 함이라"],
+      ["gap","20-22a절 생략"],
+      ["22b","내가 여러 사람에게 여러 모습이 된 것은 아무쪼록 몇 사람이라도 구원하고자 함이니"],
+      [23,"내가 복음을 위하여 모든 것을 행함은 복음에 참여하고자 함이라"],
+      [24,"운동장에서 달음질하는 자들이 다 달릴지라도 오직 상을 받는 사람은 한 사람인 줄을 너희가 알지 못하느냐 너희도 상을 받도록 이와 같이 달음질하라"],
+      [25,"이기기를 다투는 자마다 모든 일에 절제하나니 그들은 썩을 승리자의 관을 얻고자 하되 우리는 썩지 아니할 것을 얻고자 하노라"],
+      [26,"그러므로 나는 달음질하기를 향방 없는 것 같이 아니하고 싸우기를 허공을 치는 것 같이 아니하며"],
+      [27,"내가 내 몸을 쳐 복종하게 함은 내가 남에게 전파한 후에 자신이 도리어 버림을 당할까 두려워함이로다"]],
+  en:[[16,"For if I preach the gospel, that gives me no ground for boasting. For necessity is laid upon me. Woe to me if I do not preach the gospel!"],
+      [17,"For if I do this of my own will, I have a reward, but if not of my own will, I am still entrusted with a stewardship."],
+      [18,"What then is my reward? That in my preaching I may present the gospel free of charge, so as not to make full use of my right in the gospel."],
+      [19,"For though I am free from all, I have made myself a servant to all, that I might win more of them."],
+      ["gap","vv.20-22a omitted"],
+      ["22b","I have become all things to all people, that by all means I might save some."],
+      [23,"I do it all for the sake of the gospel, that I may share with them in its blessings."],
+      [24,"Do you not know that in a race all the runners run, but only one receives the prize? So run that you may obtain it."],
+      [25,"Every athlete exercises self-control in all things. They do it to receive a perishable wreath, but we an imperishable."],
+      [26,"So I do not run aimlessly; I do not box as one beating the air."],
+      [27,"But I discipline my body and keep it under control, lest after preaching to others I myself should be disqualified."]]
  },
  {
-  kind:"화답송", ref:"시편 5:5-6, 7, 12",
-  krSrc:krLink("psa",5,5), enSrc:esvLink("Psalm 5:5-6,7,12"), logos:logosLink("Ps",5,5,12),
-  kr:[[5,"오만한 자들이 주의 목전에 서지 못하리이다 주는 모든 행악자를 미워하시며"],
-      [6,"거짓말하는 자들을 멸망시키시리이다 여호와께서는 피 흘리기를 즐기는 자와 속이는 자를 싫어하시나이다"],
-      [7,"오직 나는 주의 풍성한 사랑을 힘입어 주의 집에 들어가 주를 경외함으로 성전을 향하여 예배하리이다"],
-      ["gap","8~11절 생략"],
-      [12,"여호와여 주는 의인에게 복을 주시고 방패로 함 같이 은혜로 그를 호위하시리이다"]],
-  en:[[5,"The boastful shall not stand before your eyes; you hate all evildoers."],
-      [6,"You destroy those who speak lies; the Lord abhors the bloodthirsty and deceitful man."],
-      [7,"But I, through the abundance of your steadfast love, will enter your house. I will bow down toward your holy temple in the fear of you."],
-      ["gap","vv.8-11 omitted"],
-      [12,"For you bless the righteous, O Lord; you cover him with favor as with a shield."]]
+  kind:"화답송", ref:"시편 84:3, 4, 5-6, 12",
+  krSrc:krLink("psa",84,3), enSrc:esvLink("Psalm 84:3,4,5-6,12"), logos:logosLink("Ps",84,3,12),
+  kr:[[3,"나의 왕, 나의 하나님, 만군의 여호와여 주의 제단에서 참새도 제 집을 얻고 제비도 새끼 둘 보금자리를 얻었나이다"],
+      [4,"주의 집에 사는 자들은 복이 있나니 그들이 항상 주를 찬송하리이다"],
+      ["5-6","주께 힘을 얻고 그 마음에 시온의 대로가 있는 자는 복이 있나이다 그들이 눈물 골짜기로 지나갈 때에 그 곳에 많은 샘이 있을 것이며"],
+      ["gap","7~11절 생략"],
+      [12,"만군의 여호와여 주께 의지하는 자는 복이 있나이다"]],
+  en:[[3,"Even the sparrow finds a home, and the swallow a nest for herself, where she may lay her young, at your altars, O Lord of hosts, my King and my God."],
+      [4,"Blessed are those who dwell in your house, ever singing your praise! Selah"],
+      ["5-6","Blessed are those whose strength is in you, in whose heart are the highways to Zion. As they go through the Valley of Baca they make it a place of springs; the early rain also covers it with pools."],
+      ["gap","vv.7-11 omitted"],
+      [12,"O Lord of hosts, blessed is the one who trusts in you!"]]
  },
  {
-  kind:"복음", ref:"누가복음 6:6-11",
-  krSrc:krLink("luk",6,6), enSrc:esvLink("Luke 6:6-11"), logos:logosLink("Lk",6,6,11),
-  kr:[[6,"또 다른 안식일에 예수께서 회당에 들어가사 가르치실새 거기 오른손 마른 사람이 있는지라"],
-      [7,"서기관과 바리새인들이 예수를 고발할 증거를 찾으려 하여 안식일에 병을 고치시는가 엿보니"],
-      [8,"예수께서 그들의 생각을 아시고 손 마른 사람에게 이르시되 일어나 한가운데 서라 하시니 그가 일어나 서거늘"],
-      [9,"예수께서 그들에게 이르시되 내가 너희에게 묻노니 안식일에 선을 행하는 것과 악을 행하는 것, 생명을 구하는 것과 죽이는 것, 어느 것이 옳으냐"],
-      [10,"무리를 둘러보시고 그 사람에게 이르시되 네 손을 내밀라 하시니 그가 그리하매 그 손이 회복된지라"],
-      [11,"그들은 노기가 가득하여 예수를 어떻게 할까 하고 서로 의논하니라"]],
-  en:[[6,"On another Sabbath, he entered the synagogue and was teaching, and a man was there whose right hand was withered."],
-      [7,"And the scribes and the Pharisees watched him, to see whether he would heal on the Sabbath, so that they might find a reason to accuse him."],
-      [8,"But he knew their thoughts, and he said to the man with the withered hand, 'Come and stand here.' And he rose and stood there."],
-      [9,"And Jesus said to them, 'I ask you, is it lawful on the Sabbath to do good or to do harm, to save life or to destroy it?'"],
-      [10,"And after looking around at them all he said to him, 'Stretch out your hand.' And he did so, and his hand was restored."],
-      [11,"But they were filled with fury and discussed with one another what they might do to Jesus."]]
+  kind:"복음", ref:"누가복음 6:39-42",
+  krSrc:krLink("luk",6,39), enSrc:esvLink("Luke 6:39-42"), logos:logosLink("Lk",6,39,42),
+  kr:[[39,"또 비유로 말씀하시되 맹인이 맹인을 인도할 수 있느냐 둘이 다 구덩이에 빠지지 아니하겠느냐"],
+      [40,"제자가 그 선생보다 높지 못하나 무릇 온전하게 된 자는 그 선생과 같으리라"],
+      [41,"어찌하여 형제의 눈 속에 있는 티는 보고 네 눈 속에 있는 들보는 깨닫지 못하느냐"],
+      [42,"너는 네 눈 속에 있는 들보를 보지 못하면서 어찌하여 형제에게 말하기를 형제여 나로 네 눈 속에 있는 티를 빼게 하라 할 수 있느냐 외식하는 자여 먼저 네 눈 속에서 들보를 빼라 그 후에야 네가 밝히 보고 형제의 눈 속에 있는 티를 빼리라"]],
+  en:[[39,"Can a blind man lead a blind man? Will they not both fall into a pit?"],
+      [40,"A disciple is not above his teacher, but everyone when he is fully trained will be like his teacher."],
+      [41,"Why do you see the speck that is in your brother's eye, but do not notice the log that is in your own eye?"],
+      [42,"How can you say to your brother, 'Brother, let me take out the speck that is in your eye,' when you yourself do not see the log that is in your own eye? You hypocrite, first take the log out of your own eye, and then you will see clearly to take out the speck that is in your brother's eye."]]
  },
 ];
 
@@ -481,11 +491,11 @@ const usccbReadingsNext = [
 
 const readingSets = {
   current: {
-    dateLabel: "2026-09-07 기준",
-    rclTitle: "🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 월요일 데일리",
+    dateLabel: "2026-09-11 기준",
+    rclTitle: "🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 금요일 데일리",
     rclDesc: "Vanderbilt Revised Common Lectionary 기준(연속 트랙), 연중 제23주간. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
-    usccbDesc: "연중 제23주간 월요일 (Monday of the Twenty-third Week in Ordinary Time). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
-    usccbSrc: "https://bible.usccb.org/bible/readings/090726.cfm",
+    usccbDesc: "연중 제23주간 금요일 (Friday of the Twenty-third Week in Ordinary Time). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
+    usccbSrc: "https://bible.usccb.org/bible/readings/091126.cfm",
     rcl: rclReadings, usccb: usccbReadings,
     toggleLabel: "📅 다음 주 월요일(9/14) 보기 →"
   },
