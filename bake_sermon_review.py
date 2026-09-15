@@ -21,14 +21,27 @@ Usage: python3 bake_sermon_review.py
 import os
 import re
 import sys
+import glob
 import json
 import zipfile
 import datetime
 import unicodedata
 
-VAULT_SERMON_DIR = os.path.expanduser(
-    "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/SJKim/"
-    "200. CBB Ministry/210. Ministry of the Word/2026 기본"
+# Vault moved from iCloud to Dropbox (remotely-save sync); the "앱" folder
+# name can hit NFC/NFD Unicode normalization mismatches on macOS, so the
+# vault root is resolved dynamically via glob rather than hardcoded.
+_VAULT_ROOT_CANDIDATES = glob.glob(
+    os.path.expanduser("~/Dropbox/*/remotely-save/obsidian-sjkim")
+)
+if not _VAULT_ROOT_CANDIDATES:
+    print(
+        "ERROR: could not find vault root under ~/Dropbox/*/remotely-save/obsidian-sjkim",
+        file=sys.stderr,
+    )
+    sys.exit(1)
+VAULT_ROOT = _VAULT_ROOT_CANDIDATES[0]
+VAULT_SERMON_DIR = os.path.join(
+    VAULT_ROOT, "200. CBB Ministry", "210. Ministry of the Word", "2026 기본"
 )
 REPO_DIR = os.path.dirname(os.path.abspath(__file__))
 SERMON_REVIEW_PATH = os.path.join(REPO_DIR, "sermon_review.html")
