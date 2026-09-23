@@ -303,7 +303,7 @@
   <header class="top">
     <div>
       <h1>📓 SJ's Dashboard</h1>
-      <div class="sub">볼트: <code>Dropbox/obsidian-sjkim</code> · 볼트 기준일 2026-09-15 (⚠️ 볼트 스캔 권한 문제로 갱신 실패, 아래 참고) · 노트 17,789개 · 뉴스/동향/캘린더 2026-09-22 갱신</div>
+      <div class="sub">볼트: <code>Dropbox/obsidian-sjkim</code> · 볼트 기준일 2026-09-15 (⚠️ 볼트 스캔 권한 문제로 갱신 실패, 아래 참고) · 노트 17,789개 · 뉴스/동향/캘린더 2026-09-23 갱신</div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
       <a class="theme-toggle" href="daily_note.html" style="text-decoration:none;">📝 오늘의 Daily Note 작성</a>
@@ -337,8 +337,8 @@
     </div>
     <div class="kpi">
       <div class="label">USD/KRW</div>
-      <div class="value">₩1,388</div>
-      <div class="delta warn">▲ 1개월 +0.3%</div>
+      <div class="value">₩1,356</div>
+      <div class="delta good">▼ 1개월 -2.0%</div>
     </div>
     <div class="kpi">
       <div class="label">Des Moines 오늘 <span id="wxLiveDot" title="실시간(30분 자동 갱신)" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--text-muted);margin-left:3px;"></span></div>
@@ -360,9 +360,9 @@
     </section>
     <section>
       <h2>💱 환율 — USD/KRW (최근 1개월 추이)</h2>
-      <p class="desc">Frankfurter(ECB 기준) 일별 환율, 2026-08-21 ~ 09-18 (평일 기준, 최신 영업일)</p>
+      <p class="desc">Frankfurter(ECB 기준) 일별 환율, 2026-08-24 ~ 09-22 (평일 기준, 최신 영업일)</p>
       <div class="card">
-        <div class="fx-hero"><span class="num">1,388</span><span class="unit">원 / 1 USD</span><span class="footnote" style="margin:0 0 0 8px;color:var(--serious);">▲ 1개월간 +4원 (+0.3%) · 최신 영업일(09-18) 기준</span></div>
+        <div class="fx-hero"><span class="num">1,356</span><span class="unit">원 / 1 USD</span><span class="footnote" style="margin:0 0 0 8px;color:var(--good);">▼ 1개월간 -28원 (-2.0%) · 최신 영업일(09-22) 기준</span></div>
         <svg id="fxChart" width="100%" height="120" viewBox="0 0 1080 120" preserveAspectRatio="none" style="margin-top:10px;"></svg>
         <div class="footnote">출처: Frankfurter API (ECB 기준 환율) · 실시간 변동은 <a href="https://www.wise.com/us/currency-converter/usd-to-krw-rate" target="_blank">Wise 환율 변환기</a>에서 확인하세요.</div>
       </div>
@@ -383,7 +383,7 @@
     <!-- GOOGLE CALENDAR -->
     <section>
       <h2>📆 구글 일정 트래커</h2>
-      <p class="desc">Google Calendar 연동 · 향후 2주 (9/21 ~ 10/5)</p>
+      <p class="desc">Google Calendar 연동 · 향후 2주 (9/23 ~ 10/7)</p>
       <div class="card">
         <ul class="task-list" id="calList"></ul>
       </div>
@@ -413,7 +413,7 @@
   <!-- NEWS TRACKER -->
   <section>
     <h2>📰 뉴스 트래커</h2>
-    <p class="desc">주요 소스의 최신 헤드라인 스냅샷입니다 (2026-09-22 기준). 실시간 업데이트는 아니며, 다시 요청하시면 새로고침해 드려요.</p>
+    <p class="desc">주요 소스의 최신 헤드라인 스냅샷입니다 (2026-09-23 기준). 실시간 업데이트는 아니며, 다시 요청하시면 새로고침해 드려요.</p>
     <div class="cat-label">🇰🇷 한국 뉴스</div>
     <div class="source-grid">
       <div class="source-card">
@@ -445,7 +445,7 @@
   <!-- MINISTRY TREND TRACKER -->
   <section>
     <h2>⛪ 교계 · 목회 동향 트래커</h2>
-    <p class="desc">한국 교계, 미주 한인 교계, 글로벌 기독교 소식을 한데 모았습니다 (2026-09-22 기준).</p>
+    <p class="desc">한국 교계, 미주 한인 교계, 글로벌 기독교 소식을 한데 모았습니다 (2026-09-23 기준).</p>
 
     <div class="cat-label">한국 교계</div>
     <div class="source-grid">
@@ -514,7 +514,7 @@
   </div>
 
   <div class="footnote" style="text-align:center;margin-top:10px;">
-    ⚠️ 볼트(할 일 · 기도 · 설교 준비상태 · 스크랩 · 독서) 스캔은 macOS가 이 터미널 앱에 Dropbox 폴더 접근 권한을 아직 허용하지 않아 2026-09-15 스냅샷을 그대로 유지했습니다 — 시스템 설정 → 개인정보 보호 및 보안 → 전체 디스크 접근 권한(또는 파일 및 폴더)에서 권한을 허용해 주시면 다음 갱신부터 새로 스캔됩니다. 뉴스·교계 동향·구글 캘린더·환율은 2026-09-22 기준으로 새로 가져왔고, 날씨는 실시간(자동 갱신)입니다.
+    ⚠️ 볼트(할 일 · 기도 · 설교 준비상태 · 스크랩 · 독서) 스캔은 macOS가 이 터미널 앱에 Dropbox 폴더 접근 권한을 아직 허용하지 않아 2026-09-15 스냅샷을 그대로 유지했습니다 — 시스템 설정 → 개인정보 보호 및 보안 → 전체 디스크 접근 권한(또는 파일 및 폴더)에서 권한을 허용해 주시면 다음 갱신부터 새로 스캔됩니다. 뉴스·교계 동향·구글 캘린더·환율은 2026-09-23 기준으로 새로 가져왔고, 날씨는 실시간(자동 갱신)입니다.
   </div>
 
 </div>
@@ -577,82 +577,80 @@ const fxRates = [
  ["08/28",1374.55],["08/31",1368.03],["09/01",1374.61],["09/02",1362.56],["09/03",1357.29],
  ["09/04",1350.35],["09/07",1347.93],["09/08",1341.67],["09/09",1336.2],["09/10",1343.8],
  ["09/11",1342.79],["09/14",1346.24],["09/15",1359.15],["09/16",1367.8],["09/17",1382.55],
- ["09/18",1388.1],["09/21",1372.18],
+ ["09/18",1388.1],["09/21",1372.18],["09/22",1356.15],
 ];
 
 const daumKr = [
- {t:"한덕수 대법원장, 대법관 재임용 거부 파장…민주당 \"제 목에 칼 대는 격\"", src:"경향신문"},
- {t:"이란, 호르무즈 해협 7일 내 재개방 제안…美와 대화 재개 모색", src:"연합뉴스(다음)"},
- {t:"이재명 대통령, 북핵 문제 \"달리는 차 먼저 세워야\"…단계적 감축 제시", src:"KBS"},
- {t:"대법관 재임용 거부, 정치적 판단인지 법리적 판단인지 평가 엇갈려", src:"국민일보"},
- {t:"아시안게임 배드민턴 혼합복식, 한국 동메달", src:"연합뉴스"},
- {t:"오픈AI 등 AI기업들, 검색·커머스로 확장…네이버·카카오와 경쟁", src:"매일경제"},
+ {t:"대법관 재제청 둘러싼 조희대-청와대 엇갈린 입장에 변호사 단체도 둘로 쪼개져", src:"News1"},
+ {t:"조희대 대법원장, 정부 반박에도 기존 입장 재확인…여야 공방 2일째", src:"연합뉴스(다음)"},
+ {t:"'트럼프 지지' 농촌 유권자 경제 불만 확산 — AP-KFF 여론조사", src:"뉴시스"},
+ {t:"김희찬 서귀포시장 후보자, 도의회 인사청문 '적격' 판정", src:"연합뉴스(다음)"},
+ {t:"경기도 추경예산 부결…도-도의회 500억 복원 놓고 이견", src:"News1"},
+ {t:"이재명 대통령 대북 비핵화 전략, 하노이 때보다 낮춘 제재완화 문턱 제시", src:"코리아헤럴드"},
 ];
 
 const pbsWorld = [
- {t:"美 동부 주요 공항, 장비 결함으로 지상 대기 명령", l:"https://www.pbs.org/newshour/show/news-wrap-faa-issues-ground-stops-at-major-east-coast-airports-due-to-equipment-failure"},
- {t:"종군기자 스콧 앤더슨, 중동 정세 변화 분석", l:"https://www.pbs.org/newshour/show/war-correspondent-scott-anderson-on-the-shifting-landscape-in-the-middle-east"},
- {t:"하마스에 억류됐던 美·이스라엘 인질, 니르오즈에서 생존과 희망의 노래 공연", l:"https://www.pbs.org/newshour/show/american-israeli-held-hostage-by-hamas-performs-songs-of-survival-and-hope"},
- {t:"온타리오 회당 앞 총격, 욤키푸르 기간 경찰관 겨냥…30발 오간 듯", l:"https://www.pbs.org/newshour/world/up-to-30-shots-fired-after-man-opened-fire-on-officer-outside-ontario-synagogue"},
- {t:"교황 레오 14세, 11월 페루·아르헨티나 방문…선교 발자취 재방문", l:"https://www.pbs.org/newshour/world/pope-will-retrace-his-missionary-footsteps-in-peru-and-finally-visit-argentina-in-november"},
- {t:"UN 총회 개막, 기후·에너지 위기 논의", l:"https://www.pbs.org/newshour/world/watch-live-day-1-of-the-2026-united-nations-general-assembly"},
- {t:"허리케인 폴로, 멕시코로 급속 강화 중", l:"https://www.pbs.org/newshour/science/polo-has-rapidly-intensified-to-a-hurricane-and-is-expected-to-impact-mexico"},
- {t:"독일 메르츠 총리, 지방선거 패배…리더십 도전은 아직 없어", l:"https://www.pbs.org/newshour/world/germanys-merz-faces-election-defeats-but-no-sign-of-leadership-challenge"},
+ {t:"트럼프, UN 총회서 이란 전쟁 옹호…'섬멸' 위협 발언", l:"https://www.pbs.org/newshour/show/trump-defends-iran-war-and-threatens-annihilation-at-un-general-assembly"},
+ {t:"브라질 룰라, 선거 외국 개입 경계…지도자들에 국제분쟁 대응 촉구", l:"https://www.pbs.org/newshour/world/brazils-lula-warns-against-foreign-interference-in-elections-urges-leaders-to-respond-to-global-conflicts"},
+ {t:"러시아·우크라이나, 젤렌스키-트럼프 회담 앞두고 공습 주고받아", l:"https://www.pbs.org/newshour/world/russia-and-ukraine-trade-strikes-ahead-of-zelenskyys-meeting-with-trump"},
+ {t:"트럼프, 덴마크·그린란드 정상과 협정 서명 (영상)", l:"https://www.pbs.org/newshour/world/watch-trump-signs-agreement-with-leaders-of-denmark-and-greenland"},
+ {t:"악화되는 엘니뇨, 아시아 심각한 가뭄 위협…세계 식량안보 우려", l:"https://www.pbs.org/newshour/science/worsening-el-nino-threatens-asia-with-severe-drought-potentially-threatening-global-food-security"},
+ {t:"팩트체크: 트럼프의 2026 UN 총회 연설", l:"https://www.pbs.org/newshour/politics/fact-checking-trumps-speech-to-the-2026-united-nations-general-assembly"},
 ];
 
 const foxNews = [
- {t:"트럼프, UN 무대서 \"유엔을 다이어트 시키겠다\"…이란·가자 언급", l:"https://www.foxnews.com/politics/trump-zero-in-iran-nuclear-threat-gaza-plan-un-overhaul-world-stage-speech"},
- {t:"프레슬리 거버 사망, 재활치료 안전성 논란 촉발", l:"https://www.foxnews.com/health/presley-gerber-death-sparks-questions-overdose-withdrawal-rehab-safety"},
- {t:"카우보이스, 커맨더스 격파…제리 존스 \"위험한\" 경고", l:"https://www.foxnews.com/outkick-sports/jerry-jones-issues-dangerous-warning-cowboys-topple-commanders-dak-prescott-historic-day"},
- {t:"오스틴 반ICE 시위, \"자발적\" 보도와 달리 배후 조직 정황 포착", l:"https://www.foxnews.com/politics/socialist-communist-groups-coordinate-promote-spontaneous-anti-ice-protests-austin"},
- {t:"실베스터 스탤론, 트럼프의 '할리우드 특사' 임명 \"불가능한 일\"", l:"https://www.foxnews.com/entertainment/sylvester-stallone-reveals-what-he-said-trump-after-surprise-hollywood-ambassador-appointment"},
- {t:"사냥꾼, 사슴으로 오인해 여성 총격 사망…경찰 기소", l:"https://www.foxnews.com/us/maryland-hunters-alleged-mistake-leaves-delaware-mother-dead"},
- {t:"그린란드 주권 분쟁 종식, 트럼프와 양국 총리 역사적 서명", l:"https://www.foxnews.com/politics/trumps-greenland-deal-set-signing-months-long-fight-us-control"},
+ {t:"젤렌스키, 유엔 연설서 러-우크라이나 전쟁 출구 모색…트럼프 \"평화협정 임박\" 시사", l:"https://www.foxnews.com/politics/zelenskyy-seek-offramp-years-long-russia-war-un-speech-trump-reveals-peace-deal-close"},
+ {t:"트럼프-맘다니 회동 후 공화당 중간선거 메시지 흔들릴 수도…내부 경고", l:"https://www.foxnews.com/politics/trump-embraced-socialist-hes-told-voters-fear-republicans-arent-thrilled"},
+ {t:"코치 K 사위이자 듀크대 전 코치 크리스 스파톨라, 47세로 별세", l:"https://www.foxnews.com/outkick-sports/college-basketball-tv-analyst-former-duke-assistant-chris-spatola-coach-k-son-in-law-dies-47"},
+ {t:"이란 대통령, 전쟁 격화 속 美 도착…유엔서 시위대 몰려", l:"https://www.foxnews.com/live-news/iran-war-strait-hormuz-trump-talks-un-general-assembly-09-22-26"},
+ {t:"유명 치즈 브랜드, 상징이던 '웃는 소' 로고 패키지에서 지워", l:"https://www.foxbusiness.com/fox-news-food-drink/laughing-cow-ditches-iconic-smile-teases-cheese-shoppers-cryptic-message-packaging"},
+ {t:"'엡스타인 계급' 비판했던 민주당 의원, 엡스타인 관련자 기부금 반환 압박받아", l:"https://www.foxnews.com/politics/ossoff-challenged-return-epstein-linked-donation-retract-epstein-class-attack"},
+ {t:"시진핑, 트럼프와 정상회담 위해 워싱턴 도착 예정…AI 패권 경쟁 주목", l:"https://www.foxnews.com/politics/chinas-xi-arrive-washington-high-stakes-trump-summit-ai-supremacy-battle-looms-large"},
 ];
 
 const kidok = [
- {t:"111회 총회 파회…\"세상 깨우는 거룩한 교단으로\"", d:"09-22"},
  {t:"총회 임원회 첫 행보는 순교사적지에서", d:"09-22"},
+ {t:"111회 총회 파회…\"세상 깨우는 거룩한 교단으로\"", d:"09-22"},
  {t:"장로교 교세 감소폭 다시 커졌다", d:"09-22"},
- {t:"정동수 '이단' 재결의, 성경총회 '이단' 규정", d:"09-22"},
+ {t:"페루복음주의개혁장로교회(IEPRP) 총회장 알프레도 기옌 목사", d:"09-22"},
+ {t:"사시사철 전도조끼 입고 복음 전한다", d:"09-22"},
  {t:"\"총회 현장으로 오는 발걸음 가볍다\"", d:"09-22"},
- {t:"개혁신학 입각 '표준성경주석' 발간", d:"09-22"},
 ];
 
 const pck = [
- {t:"서울강북노회 '프로페짜이' 10년…건강한 강단 세우기", d:"09-22", l:"http://www.pckworld.com//article.php?aid=11225843360"},
- {t:"새 공동체와 신앙 실천", d:"09-22", l:"http://www.pckworld.com//article.php?aid=11222234266"},
- {t:"깨끗한 에너지, 보이지 않는 이웃", d:"09-22", l:"http://www.pckworld.com//article.php?aid=11221544607"},
- {t:"이단·재판국 이슈 최대 관심...교단 미래 위한 논의 부족 아쉬워", d:"09-22", l:"http://www.pckworld.com//article.php?aid=11225723390"},
- {t:"위로로 건넨 부의금, 가족 간 갈등 없으려면", d:"09-22", l:"http://www.pckworld.com//article.php?aid=11213474655"},
- {t:"풍랑을 만난 당신에게", d:"09-22", l:"http://www.pckworld.com//article.php?aid=11210997640"},
+ {t:"돌보는 사람도 돌봄이 필요하다", d:"09-23", l:"http://www.pckworld.com/article.php?aid=11219134302"},
+ {t:"파송에서 파트너십 중심으로", d:"09-23", l:"http://www.pckworld.com/article.php?aid=11221425733"},
+ {t:"현대판 오병이어", d:"09-23", l:"http://www.pckworld.com/article.php?aid=11221273262"},
+ {t:"누가 봐도 그리스도인", d:"09-23", l:"http://www.pckworld.com/article.php?aid=11221319338"},
+ {t:"성장에서 생명으로, 한국교회가 걸어야 할 길", d:"09-23", l:"http://www.pckworld.com/article.php?aid=11225134272"},
+ {t:"인생도처유청산(人生到處有靑山)", d:"09-23", l:"http://www.pckworld.com/article.php?aid=11210847456"},
 ];
 
 const kcmusa = [];
 
 const amen = [
- {t:"뉴저지성도교회 30주년…\"변함없는 기도의 힘과 하나됨의 비전\""},
+ {t:"뉴저지성도교회 30주년, 변하지 않는 기도의 힘과 하나 됨의 비전"},
  {t:"하가다 세미나, \"실패는 동사일 뿐… 내 인생의 '명사'를 긍정으로 선포\""},
- {t:"뉴저지목사회 정기총회…뉴욕과 달랐던 진행 방식"},
- {t:"주일예배 95% 출석의 비밀, '학교 교회' 모델"},
- {t:"환영받는 학교기도모임, 이단 노출 위험 우려도"},
- {t:"설교집 대신 소설집 읽는 목회자들…\"인간 이해 깊어져\""},
+ {t:"뉴저지목사회 정기총회, 벼랑 끝 진통 넘어…뉴욕과 달랐던 점은"},
+ {t:"\"성공한 뒤에도 하나님이 필요할까요?\" 폴 한 목사의 메시지"},
+ {t:"강준민 목사 초청 성회…뉴욕성결교회 50주년 넘어"},
+ {t:"\"경쟁 대신 격려\"…제17회 뉴욕 바디워십 페스티벌"},
 ];
 
 const ct = [
+ {t:"쿠르드 목사 체포, 아사드 이후 시리아 내 불안 키워", l:"https://www.christianitytoday.com/2026/09/syria-kurdish-pastor-nehad-hasan-lebanon/"},
+ {t:"수천 명을 거리로 내몬 희망적 사고", l:"https://www.christianitytoday.com/2026/09/the-wishful-thinking-that-put-thousands-on-the-streets-homelessness-mental-illness/"},
+ {t:"그리스도인들, 英 조력사망 법안 저지에 힘 모아", l:"https://www.christianitytoday.com/2026/09/evangelical-assisted-dying-uk-bill-church-of-england/"},
  {t:"트럼프 2기, 해외 종교자유 신경 쓰나 — 그레이엄 손녀 지명", l:"https://www.christianitytoday.com/2026/09/can-cissie-graham-lynch-save-the-office-of-international-religious-freedom/"},
  {t:"91세에도 하나님의 부르심을 따르는 텍사스 교육자", l:"https://www.christianitytoday.com/2026/09/91-year-old-texas-educator-still-following-gods-lead/"},
  {t:"팀 켈러, 생애 마지막 몇 해 삶의 우선순위를 어떻게 재배열했나", l:"https://www.christianitytoday.com/2026/09/how-tim-keller-rearranged-his-life-in-his-final-years/"},
- {t:"케냐 그리스도인들, 성범죄법 대법원 판결 두고 논쟁", l:"https://www.christianitytoday.com/2026/09/kenyan-christians-debate-high-court-ruling-on-sex-offenses-law/"},
- {t:"앨라배마에서 시작되는 분실 수하물의 두 번째 삶", l:"https://www.christianitytoday.com/2026/09/the-lost-luggage-afterlife-begins-in-alabama-airlines-unclaimed-baggage/"},
- {t:"토론: 그리스도인답게 은퇴하는 법", l:"https://www.christianitytoday.com/2026/09/debate-retire-like-a-christian/"},
 ];
 
 const prayer24365 = [
- {t:"[네덜란드] 2세 미만 중증장애 아동, 12세 미만 첫 안락사 사례"},
- {t:"[인도네시아] 산불·연무 확산…호흡기 질환 급증, 주변국까지 영향"},
- {t:"[예멘] 정부군-후티 충돌 격화, 하루 44명 이상 사망"},
- {t:"[미얀마] 친주 침례교회 목사 피살…군부의 그리스도인 탄압 지속"},
+ {t:"[알제리] 예배 중이던 성도 12명 경찰에 체포, 신앙 자료·휴대폰 압수"},
+ {t:"[우크라이나] 러시아, 텔레그램으로 빈곤 청소년 포섭해 파괴공작 동원"},
+ {t:"[한국] 청소년 도박범죄 7.6배 급증, 온라인 카지노 확산"},
+ {t:"[네덜란드] 2세 미만 중증장애 아동 안락사 사례"},
  {t:"[한국교회] 정부 유산유도제 도입 계획에 우려, 즉각 중단 촉구"},
  {t:"[북한] 선교사 3인 10년 넘게 구금…한국, UN 인권이사회서 즉각 석방 촉구"},
  {t:"[다음세대] 마약 유혹에 빠지는 청소년, 마약 범죄 연루 우려 확산"},
