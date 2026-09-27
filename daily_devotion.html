@@ -176,7 +176,7 @@
   <header class="top">
     <div>
       <h1>📖 Daily Devotion</h1>
-      <div class="sub"><a href="index.html" onclick="if(window.history.length>1){history.back();return false;}" style="color:var(--link);text-decoration:none;">← 대시보드로 돌아가기</a> · <span id="subDateText">2026-09-26 기준</span></div>
+      <div class="sub"><a href="index.html" onclick="if(window.history.length>1){history.back();return false;}" style="color:var(--link);text-decoration:none;">← 대시보드로 돌아가기</a> · <span id="subDateText">2026-09-27 기준</span></div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
       <div class="week-toggle" id="weekToggleBtn" onclick="toggleWeek()">📅 다음 주 월요일(9/28) 보기 →</div>
@@ -216,7 +216,7 @@ function toggleTheme(){
   root.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
 }
 
-// ---------- reading data (2026-09-26 기준, 토요일 데일리 / 연중 제25주간 토요일) ----------
+// ---------- reading data (2026-09-27 기준, 주일 / 연중 제26주일) ----------
 // 개역개정: 대한성서공회 공식 리더 (책 이름 뒤 시작 절부터 이어서 보여줌)
 // ESV: Bible Gateway (정확한 절 범위로 검색)
 // Logos: ref.ly 딥링크 (https://ref.ly/{책약어}{장}.{절-절};ESV) — Logos 앱이 설치되어 있으면 앱으로, 없으면 웹으로 열림
@@ -231,17 +231,25 @@ function logosLink(bookAbbr, chap, startVerse, endVerse){
   return `https://ref.ly/${bookAbbr}${chap}.${range};ESV`;
 }
 
-// ---------- reading data: 오늘 (2026-09-26, 연중 제25주간 토요일) ----------
+// ---------- reading data: 오늘 (2026-09-27, 연중 제26주일 / Twenty-sixth Sunday in Ordinary Time) ----------
 const rclReadings = [
  {
-  kind:"구약 · 연속 트랙", ref:"민수기 27:12-14",
-  krSrc:krLink("num",27,12), enSrc:esvLink("Numbers 27:12-14"), logos:logosLink("Nu",27,12,14),
-  kr:[[12,"여호와께서 모세에게 이르시되 너는 이 아바림 산에 올라가서 내가 이스라엘 자손에게 준 땅을 바라보라"],
-      [13,"본 후에는 네 형 아론이 돌아간 것 같이 너도 조상에게로 돌아가리니"],
-      [14,"이는 신 광야에서 회중이 분쟁할 때에 너희가 내 명령을 거역하고 그 물 가에서 내 거룩함을 그들의 목전에 나타내지 아니하였음이니라 이는 신 광야 가데스의 므리바 물이라"]],
-  en:[[12,"The Lord said to Moses, 'Go up into this mountain of Abarim and see the land that I have given to the people of Israel.'"],
-      [13,"When you have seen it, you also shall be gathered to your people, as your brother Aaron was,"],
-      [14,"because you rebelled against my word in the wilderness of Zin when the congregation quarreled, failing to uphold me as holy at the waters before their eyes. (These are the waters of Meribah of Kadesh in the wilderness of Zin.)"]]
+  kind:"구약 · 연속 트랙", ref:"출애굽기 17:1-7",
+  krSrc:krLink("exo",17,1), enSrc:esvLink("Exodus 17:1-7"), logos:logosLink("Ex",17,1,7),
+  kr:[[1,"이스라엘 자손의 온 회중이 여호와의 명령대로 신 광야에서 떠나 그 노정대로 행하여 르비딤에 장막을 쳤으나 백성이 마실 물이 없는지라"],
+      [2,"백성이 모세와 다투어 이르되 우리에게 물을 주어 마시게 하라 모세가 그들에게 이르되 너희가 어찌하여 나와 다투느냐 너희가 어찌하여 여호와를 시험하느냐"],
+      [3,"거기서 백성이 목이 말라 물을 찾으매 그들이 모세에게 대하여 원망하여 이르되 당신이 어찌하여 우리를 애굽에서 인도해 내어서 우리와 우리 자녀와 우리 가축이 목말라 죽게 하느냐"],
+      [4,"모세가 여호와께 부르짖어 이르되 내가 이 백성에게 어떻게 하리이까 그들이 조금 있으면 내게 돌을 던지겠나이다"],
+      [5,"여호와께서 모세에게 이르시되 백성 앞을 지나서 이스라엘 장로들을 데리고 나일 강을 치던 네 지팡이를 손에 잡고 가라"],
+      [6,"내가 호렙 산에 있는 그 반석 위 거기서 네 앞에 서리니 너는 그 반석을 치라 그것에서 물이 나오리니 백성이 마시리라 모세가 이스라엘 장로들의 목전에서 그대로 행하니라"],
+      [7,"그가 그 곳 이름을 맛사 또는 므리바라 불렀으니 이는 이스라엘 자손이 다투었음이요 또는 그들이 여호와를 시험하여 이르기를 여호와께서 우리 중에 계신가 안 계신가 하였음이더라"]],
+  en:[[1,"All the congregation of the people of Israel moved on from the wilderness of Sin by stages, according to the commandment of the Lord, and camped at Rephidim, but there was no water for the people to drink."],
+      [2,"Therefore the people quarreled with Moses and said, 'Give us water to drink.' And Moses said to them, 'Why do you quarrel with me? Why do you test the Lord?'"],
+      [3,"But the people thirsted there for water, and the people grumbled against Moses and said, 'Why did you bring us up out of Egypt, to kill us and our children and our livestock with thirst?'"],
+      [4,"So Moses cried to the Lord, 'What shall I do with this people? They are almost ready to stone me.'"],
+      [5,"And the Lord said to Moses, 'Pass on before the people, taking with you some of the elders of Israel, and take in your hand the staff with which you struck the Nile, and go.'"],
+      [6,"'Behold, I will stand before you there on the rock at Horeb, and you shall strike the rock, and water shall come out of it, and the people will drink.' And Moses did so, in the sight of the elders of Israel."],
+      [7,"And he called the name of the place Massah and Meribah, because of the quarreling of the people of Israel, and because they tested the Lord by saying, 'Is the Lord among us or not?'"]]
  },
  {
   kind:"화답송 · 연속 트랙", ref:"시편 78:1-4, 12-16",
@@ -268,20 +276,34 @@ const rclReadings = [
       [16,"He made streams come out of the rock and caused waters to flow down like rivers."]]
  },
  {
-  kind:"구약 · 보완 트랙", ref:"에스겔 18:19-24",
-  krSrc:krLink("ezk",18,19), enSrc:esvLink("Ezekiel 18:19-24"), logos:logosLink("Eze",18,19,24),
-  kr:[[19,"그런데 너희는 이르기를 아들이 어찌 아버지의 죄를 담당하지 아니하겠느냐 하는도다 아들이 정의와 공의를 행하며 내 모든 율례를 지켜 행하였으면 그는 반드시 살려니와"],
-      [20,"범죄하는 그 영혼은 죽을지라 아들은 아버지의 죄악을 담당하지 아니할 것이요 아버지는 아들의 죄악을 담당하지 아니하리니 의인의 공의도 자기에게로 돌아가고 악인의 악도 자기에게로 돌아가리라"],
-      [21,"그러나 악인이 만일 그가 행한 모든 죄에서 돌이켜 떠나 내 모든 율례를 지키고 정의와 공의를 행하면 반드시 살고 죽지 아니할 것이라"],
-      [22,"그 범죄한 것이 하나도 기억함이 되지 아니하리니 그가 행한 공의로 살리라"],
-      [23,"주 여호와의 말씀이니라 내가 어찌 악인이 죽는 것을 조금인들 기뻐하랴 그가 돌이켜 그 길에서 떠나 사는 것을 어찌 기뻐하지 아니하겠느냐"],
-      [24,"만일 의인이 돌이켜 그 공의에서 떠나 범죄하고 악인이 행하는 모든 가증한 일대로 행하면 살겠느냐 그가 행한 공의로운 일은 하나도 기억함이 되지 아니하리니 그가 그 범한 허물과 그 지은 죄로 죽으리라"]],
-  en:[[19,"Yet you say, 'Why should not the son suffer for the iniquity of the father?' When the son has done what is just and right, and has been careful to observe all my statutes, he shall surely live."],
-      [20,"The soul who sins shall die. The son shall not suffer for the iniquity of the father, nor the father suffer for the iniquity of the son. The righteousness of the righteous shall be upon himself, and the wickedness of the wicked shall be upon himself."],
-      [21,"But if a wicked person turns away from all his sins that he has committed and keeps all my statutes and does what is just and right, he shall surely live; he shall not die."],
-      [22,"None of the transgressions that he has committed shall be remembered against him; for the righteousness that he has done he shall live."],
-      [23,"Have I any pleasure in the death of the wicked, declares the Lord God, and not rather that he should turn from his way and live?"],
-      [24,"But when a righteous person turns away from his righteousness and does injustice and does the same abominations that the wicked person does, shall he live? None of the righteous deeds that he has done shall be remembered; for the treachery of which he is guilty and the sin he has committed, for them he shall die."]]
+  kind:"구약 · 보완 트랙", ref:"에스겔 18:1-4, 25-32",
+  krSrc:krLink("ezk",18,1), enSrc:esvLink("Ezekiel 18:1-4,25-32"), logos:logosLink("Eze",18,1,32),
+  kr:[[1,"또 여호와의 말씀이 내게 임하여 이르시되"],
+      [2,"너희가 이스라엘 땅에 관한 속담에 이르기를 아버지가 신 포도를 먹었으므로 그의 아들의 이가 시다고 함은 어찌 됨이냐"],
+      [3,"주 여호와의 말씀이니라 내가 나의 삶을 두고 맹세하노니 너희가 이스라엘 가운데에서 다시는 이 속담을 쓰지 못하게 되리라"],
+      [4,"모든 영혼이 다 내게 속한지라 아버지의 영혼이 내게 속함 같이 그의 아들의 영혼도 내게 속하였나니 범죄하는 그 영혼은 죽으리라"],
+      ["gap","5~24절 생략"],
+      [25,"그런데 너희는 이르기를 주의 길이 공평하지 아니하다 하는도다 이스라엘 족속아 들을지어다 내 길이 어찌 공평하지 아니하냐 너희 길이 공평하지 아니한 것이 아니냐"],
+      [26,"만일 의인이 그 공의를 떠나 죄악을 행하고 그로 말미암아 죽으면 그 행한 죄악으로 말미암아 죽는 것이요"],
+      [27,"만일 악인이 그 행한 악을 떠나 정의와 공의를 행하면 그 영혼을 보전하리라"],
+      [28,"그가 스스로 헤아리고 그 행한 모든 죄악에서 돌이켜 떠났으니 반드시 살고 죽지 아니하리라"],
+      [29,"그런데 이스라엘 족속은 이르기를 주의 길이 공평하지 아니하다 하는도다 이스라엘 족속아 나의 길이 어찌 공평하지 아니하냐 너희 길이 공평하지 아니한 것 아니냐"],
+      [30,"주 여호와의 말씀이니라 이스라엘 족속아 내가 너희 각 사람이 행한 대로 심판할지라 너희는 돌이켜 회개하고 모든 죄에서 떠날지어다 그리한즉 그것이 너희에게 죄악의 걸림돌이 되지 아니하리라"],
+      [31,"너희는 너희가 범한 모든 죄악을 버리고 마음과 영을 새롭게 할지어다 이스라엘 족속아 너희가 어찌하여 죽고자 하느냐"],
+      [32,"주 여호와의 말씀이니라 죽을 자가 죽는 것도 내가 기뻐하지 아니하노니 너희는 스스로 돌이키고 살지니라"]],
+  en:[[1,"The word of the Lord came to me:"],
+      [2,"'What do you mean by repeating this proverb concerning the land of Israel, \"The fathers have eaten sour grapes, and the children's teeth are set on edge\"?'"],
+      [3,"As I live, declares the Lord God, this proverb shall no more be used by you in Israel."],
+      [4,"Behold, all souls are mine; the soul of the father as well as the soul of the son is mine: the soul who sins shall die."],
+      ["gap","vv.5-24 omitted"],
+      [25,"Yet you say, 'The way of the Lord is not just.' Hear now, O house of Israel: Is my way not just? Is it not your ways that are not just?"],
+      [26,"When a righteous person turns away from his righteousness and does injustice, he shall die for it; for the injustice that he has done he shall die."],
+      [27,"Again, when a wicked person turns away from the wickedness he has committed and does what is just and right, he shall save his life."],
+      [28,"Because he considered and turned away from all the transgressions that he had committed, he shall surely live; he shall not die."],
+      [29,"Yet the house of Israel says, 'The way of the Lord is not just.' O house of Israel, are my ways not just? Is it not your ways that are not just?"],
+      [30,"Therefore I will judge you, O house of Israel, every one according to his ways, declares the Lord God. Repent and turn from all your transgressions, lest iniquity be your ruin."],
+      [31,"Cast away from you all the transgressions that you have committed, and make yourselves a new heart and a new spirit! Why will you die, O house of Israel?"],
+      [32,"For I have no pleasure in the death of anyone, declares the Lord God; so turn, and live."]]
  },
  {
   kind:"화답송 · 보완 트랙", ref:"시편 25:1-9",
@@ -306,83 +328,129 @@ const rclReadings = [
       [9,"He leads the humble in what is right, and teaches the humble his way."]]
  },
  {
-  kind:"복음 (공통)", ref:"마가복음 11:27-33",
-  krSrc:krLink("mrk",11,27), enSrc:esvLink("Mark 11:27-33"), logos:logosLink("Mk",11,27,33),
-  kr:[[27,"그들이 다시 예루살렘에 들어가니라 예수께서 성전에서 거니실 때에 대제사장들과 서기관들과 장로들이 나아와"],
-      [28,"이르되 무슨 권위로 이런 일을 하느냐 누가 이런 일 할 권위를 주었느냐"],
-      [29,"예수께서 이르시되 나도 한 말을 너희에게 물으리니 대답하라 그리하면 나도 무슨 권위로 이런 일을 하는지 이르리라"],
-      [30,"요한의 세례가 하늘로부터냐 사람으로부터냐 내게 대답하라"],
-      [31,"그들이 서로 의논하여 이르되 만일 하늘로부터라 하면 어찌하여 그를 믿지 아니하였느냐 할 것이니"],
-      [32,"그러면 사람으로부터라 할까 하였으나 모든 사람이 요한을 참 선지자로 여기므로 그들이 백성을 두려워하는지라"],
-      [33,"이에 예수께 대답하여 이르되 우리가 알지 못하노라 하니 예수께서 이르시되 나도 무슨 권위로 이런 일을 하는지 너희에게 이르지 아니하리라 하시니라"]],
-  en:[[27,"And they came again to Jerusalem. And as he was walking in the temple, the chief priests and the scribes and the elders came to him,"],
-      [28,"and they said to him, 'By what authority are you doing these things, or who gave you this authority to do them?'"],
-      [29,"Jesus said to them, 'I will ask you one question; answer me, and I will tell you by what authority I do these things.'"],
-      [30,"Was the baptism of John from heaven or from man? Answer me."],
-      [31,"And they discussed it with one another, saying, 'If we say, \"From heaven,\" he will say, \"Why then did you not believe him?\"'"],
-      [32,"But shall we say, 'From man'?—they were afraid of the people, for they all held that John really was a prophet."],
-      [33,"So they answered Jesus, 'We do not know.' And Jesus said to them, 'Neither will I tell you by what authority I do these things.'"]]
+  kind:"서신서 (공통)", ref:"빌립보서 2:1-13",
+  krSrc:krLink("php",2,1), enSrc:esvLink("Philippians 2:1-13"), logos:logosLink("Php",2,1,13),
+  kr:[[1,"그러므로 그리스도 안에 무슨 권면이나 사랑의 무슨 위로나 성령의 무슨 교제나 긍휼이나 자비가 있거든"],
+      [2,"마음을 같이하여 같은 사랑을 가지고 뜻을 합하며 한마음을 품어"],
+      [3,"아무 일에든지 다툼이나 허영으로 하지 말고 오직 겸손한 마음으로 각각 자기보다 남을 낫게 여기고"],
+      [4,"각각 자기 일을 돌볼뿐더러 또한 각각 다른 사람들의 일을 돌보아 나의 기쁨을 충만하게 하라"],
+      [5,"너희 안에 이 마음을 품으라 곧 그리스도 예수의 마음이니"],
+      [6,"그는 근본 하나님의 본체시나 하나님과 동등됨을 취할 것으로 여기지 아니하시고"],
+      [7,"오히려 자기를 비워 종의 형체를 가지사 사람들과 같이 되셨고"],
+      [8,"사람의 모양으로 나타나사 자기를 낮추시고 죽기까지 복종하셨으니 곧 십자가에 죽으심이라"],
+      [9,"이러므로 하나님이 그를 지극히 높여 모든 이름 위에 뛰어난 이름을 주사"],
+      [10,"하늘에 있는 자들과 땅에 있는 자들과 땅 아래에 있는 자들로 모든 무릎을 예수의 이름에 꿇게 하시고"],
+      [11,"모든 입으로 예수 그리스도를 주라 시인하여 하나님 아버지께 영광을 돌리게 하셨느니라"],
+      [12,"그러므로 나의 사랑하는 자들아 너희가 나 있을 때뿐 아니라 지금 나 없을 때에도 더욱 더 두렵고 떨림으로 너희 구원을 이루라"],
+      [13,"너희 안에서 행하시는 이는 하나님이시니 자기의 기쁘신 뜻을 위하여 너희에게 소원을 두고 행하게 하시나니"]],
+  en:[[1,"So if there is any encouragement in Christ, any comfort from love, any participation in the Spirit, any affection and sympathy,"],
+      [2,"complete my joy by being of the same mind, having the same love, being in full accord and of one mind."],
+      [3,"Do nothing from selfish ambition or conceit, but in humility count others more significant than yourselves."],
+      [4,"Let each of you look not only to his own interests, but also to the interests of others."],
+      [5,"Have this mind among yourselves, which is yours in Christ Jesus,"],
+      [6,"who, though he was in the form of God, did not count equality with God a thing to be grasped,"],
+      [7,"but emptied himself, by taking the form of a servant, being born in the likeness of men."],
+      [8,"And being found in human form, he humbled himself by becoming obedient to the point of death, even death on a cross."],
+      [9,"Therefore God has highly exalted him and bestowed on him the name that is above every name,"],
+      [10,"so that at the name of Jesus every knee should bow, in heaven and on earth and under the earth,"],
+      [11,"and every tongue confess that Jesus Christ is Lord, to the glory of God the Father."],
+      [12,"Therefore, my beloved, as you have always obeyed, so now, not only as in my presence but much more in my absence, work out your own salvation with fear and trembling,"],
+      [13,"for it is God who works in you, both to will and to work for his good pleasure."]]
+ },
+ {
+  kind:"복음 (공통)", ref:"마태복음 21:23-32",
+  krSrc:krLink("mat",21,23), enSrc:esvLink("Matthew 21:23-32"), logos:logosLink("Mt",21,23,32),
+  kr:[[23,"예수께서 성전에 들어가 가르치실새 대제사장들과 백성의 장로들이 나아와 이르되 네가 무슨 권위로 이런 일을 하느냐 또 누가 이 권위를 주었느냐"],
+      [24,"예수께서 대답하시되 나도 한 말을 너희에게 물으리니 너희가 대답하면 나도 무슨 권위로 이런 일을 하는지 이르리라"],
+      [25,"요한의 세례가 어디로부터 왔느냐 하늘로부터냐 사람으로부터냐 그들이 서로 의논하여 이르되 만일 하늘로부터라 하면 어찌하여 그를 믿지 아니하였느냐 할 것이요"],
+      [26,"만일 사람으로부터라 하면 모든 사람이 요한을 선지자로 여기니 백성이 무섭다 하여"],
+      [27,"예수께 대답하여 이르되 우리가 알지 못하노라 하니 예수께서 이르시되 나도 무슨 권위로 이런 일을 하는지 너희에게 이르지 아니하리라"],
+      [28,"그러나 너희 생각에는 어떠하냐 어떤 사람에게 두 아들이 있는데 맏아들에게 가서 이르되 얘 오늘 포도원에 가서 일하라 하니"],
+      [29,"대답하여 이르되 아버지 가겠나이다 하더니 가지 아니하고"],
+      [30,"둘째 아들에게 가서 또 그와 같이 말하니 대답하여 이르되 싫소이다 하였다가 그 후에 뉘우치고 갔으니"],
+      [31,"그 둘 중의 누가 아버지의 뜻대로 하였느냐 이르되 둘째 아들이니이다 예수께서 그들에게 이르시되 내가 진실로 너희에게 이르노니 세리들과 창녀들이 너희보다 먼저 하나님의 나라에 들어가리라"],
+      [32,"요한이 의의 도로 너희에게 왔거늘 너희는 그를 믿지 아니하였으되 세리와 창녀는 믿었으며 너희는 이것을 보고도 끝내 뉘우쳐 믿지 아니하였도다"]],
+  en:[[23,"And when he entered the temple, the chief priests and the elders of the people came up to him as he was teaching, and said, 'By what authority are you doing these things, and who gave you this authority?'"],
+      [24,"Jesus answered them, 'I also will ask you one question, and if you tell me the answer, then I also will tell you by what authority I do these things.'"],
+      [25,"'The baptism of John, from where did it come? From heaven or from man?' And they discussed it among themselves, saying, 'If we say, \"From heaven,\" he will say to us, \"Why then did you not believe him?\"'"],
+      [26,"But if we say, 'From man,' we are afraid of the crowd, for they all hold that John was a prophet."],
+      [27,"So they answered Jesus, 'We do not know.' And he said to them, 'Neither will I tell you by what authority I do these things.'"],
+      [28,"'What do you think? A man had two sons. And he went to the first and said, \"Son, go and work in the vineyard today.\"'"],
+      [29,"And he answered, 'I will not,' but afterward he changed his mind and went."],
+      [30,"And he went to the other son and said the same. And he answered, 'I will, sir,' but did not go."],
+      [31,"'Which of the two did the will of his father?' They said, 'The first.' Jesus said to them, 'Truly, I say to you, the tax collectors and the prostitutes go into the kingdom of God before you.'"],
+      [32,"'For John came to you in the way of righteousness, and you did not believe him, but the tax collectors and the prostitutes believed him. And even when you saw it, you did not afterward change your minds and believe him.'"]]
  },
 ];
 
 const usccbReadings = [
  {
-  kind:"제1독서", ref:"전도서 11:9-12:8",
-  krSrc:krLink("ecc",11,9), enSrc:esvLink("Ecclesiastes 11:9-12:8"), logos:"https://ref.ly/Ecc11.9-12.8;ESV",
-  kr:[[9,"청년이여 네 어린 때를 즐거워하며 네 청년의 날들을 마음에 기뻐하여 마음에 원하는 길들과 네 눈이 보는 대로 행하라 그러나 하나님이 이 모든 일로 말미암아 너를 심판하실 줄 알라"],
-      [10,"그런즉 근심이 네 마음에서 떠나게 하며 악이 네 몸에서 물러가게 하라 어릴 때와 검은 머리의 시절이 다 헛되니라"],
-      ["12:1","너는 청년의 때에 너의 창조주를 기억하라 곧 곤고한 날이 이르기 전에 나는 아무 낙이 없다고 할 해들이 가깝기 전에"],
-      [2,"해와 빛과 달과 별들이 어둡기 전에 비 뒤에 구름이 다시 일어나기 전에 그리하라"],
-      [3,"그런 날에는 집을 지키는 자들이 떨 것이며 힘 있는 자들이 구부러질 것이며 맷돌질 하는 자들이 적으므로 그칠 것이며 창들로 내다 보는 자가 어두워질 것이며"],
-      [4,"길거리 문들이 닫혀질 것이며 맷돌 소리가 적어질 것이며 새의 소리로 말미암아 일어날 것이며 음악하는 여자들은 다 쇠하여질 것이며"],
-      [5,"또한 그런 자들은 높은 곳을 두려워할 것이며 길에서는 놀랄 것이며 살구나무가 꽃이 필 것이며 메뚜기도 짐이 될 것이며 정욕이 그치리니 이는 사람이 자기의 영원한 집으로 돌아가고 조문객들이 거리로 왕래하게 됨이니라"],
-      [6,"은 줄이 풀리고 금 그릇이 깨지고 항아리가 샘 곁에서 깨지고 바퀴가 우물 위에서 깨지고"],
-      [7,"흙은 여전히 땅으로 돌아가고 영은 그것을 주신 하나님께로 돌아가기 전에 기억하라"],
-      [8,"전도자가 이르되 헛되고 헛되도다 모든 것이 헛되도다"]],
-  en:[[9,"Rejoice, O young man, in your youth, and let your heart cheer you in the days of your youth. Walk in the ways of your heart and the sight of your eyes. But know that for all these things God will bring you into judgment."],
-      [10,"Remove vexation from your heart, and put away pain from your body, for youth and the dawn of life are vanity."],
-      ["12:1","Remember also your Creator in the days of your youth, before the evil days come and the years draw near of which you will say, 'I have no pleasure in them,'"],
-      [2,"before the sun and the light and the moon and the stars are darkened and the clouds return after the rain,"],
-      [3,"in the day when the keepers of the house tremble, and the strong men are bent, and the grinders cease because they are few, and those who look through the windows are dimmed,"],
-      [4,"and the doors on the street are shut—when the sound of the grinding is low, and one rises up at the sound of a bird, and all the daughters of song are brought low—"],
-      [5,"they are afraid also of what is high, and terrors are in the way; the almond tree blossoms, the grasshopper drags itself along, and desire fails, because man is going to his eternal home, and the mourners go about the streets—"],
-      [6,"before the silver cord is snapped, or the golden bowl is broken, or the pitcher is shattered at the fountain, or the wheel broken at the cistern,"],
-      [7,"and the dust returns to the earth as it was, and the spirit returns to God who gave it."],
-      [8,"Vanity of vanities, says the Preacher; all is vanity."]]
+  kind:"제1독서", ref:"에스겔 18:25-28",
+  krSrc:krLink("ezk",18,25), enSrc:esvLink("Ezekiel 18:25-28"), logos:logosLink("Eze",18,25,28),
+  kr:[[25,"그런데 너희는 이르기를 주의 길이 공평하지 아니하다 하는도다 이스라엘 족속아 들을지어다 내 길이 어찌 공평하지 아니하냐 너희 길이 공평하지 아니한 것이 아니냐"],
+      [26,"만일 의인이 그 공의를 떠나 죄악을 행하고 그로 말미암아 죽으면 그 행한 죄악으로 말미암아 죽는 것이요"],
+      [27,"만일 악인이 그 행한 악을 떠나 정의와 공의를 행하면 그 영혼을 보전하리라"],
+      [28,"그가 스스로 헤아리고 그 행한 모든 죄악에서 돌이켜 떠났으니 반드시 살고 죽지 아니하리라"]],
+  en:[[25,"Yet you say, 'The way of the Lord is not just.' Hear now, O house of Israel: Is my way not just? Is it not your ways that are not just?"],
+      [26,"When a righteous person turns away from his righteousness and does injustice, he shall die for it; for the injustice that he has done he shall die."],
+      [27,"Again, when a wicked person turns away from the wickedness he has committed and does what is just and right, he shall save his life."],
+      [28,"Because he considered and turned away from all the transgressions that he had committed, he shall surely live; he shall not die."]]
  },
  {
-  kind:"화답송", ref:"시편 90:3-4, 5-6, 12-13, 14, 17",
-  krSrc:krLink("psa",90,3), enSrc:esvLink("Psalm 90:3-4,5-6,12-13,14,17"), logos:logosLink("Ps",90,3,17),
-  kr:[[3,"주께서 사람을 티끌로 돌아가게 하시고 말씀하시기를 너희 인생들은 돌아가라 하셨사오니"],
-      [4,"주의 목전에는 천 년이 지나간 어제 같으며 밤의 한 순간 같을 뿐임이니이다"],
-      [5,"주께서 그들을 홍수처럼 쓸어가시나이다 그들은 잠깐 자는 것 같으며 아침에 돋는 풀 같으니이다"],
-      [6,"풀은 아침에 꽃이 피어 자라다가 저녁에는 시들어 마르나이다"],
-      ["gap","7~11절 생략"],
-      [12,"우리에게 우리 날 계수함을 가르치사 지혜로운 마음을 얻게 하소서"],
-      [13,"여호와여 돌아오소서 언제까지니이까 주의 종들을 불쌍히 여기소서"],
-      [14,"아침에 주의 인자하심이 우리를 만족하게 하사 우리를 일생 동안 즐겁고 기쁘게 하소서"],
-      ["gap","15~16절 생략"],
-      [17,"주 우리 하나님의 은총을 우리에게 내리게 하사 우리의 손이 행한 일을 우리에게 견고하게 하소서"]],
-  en:[[3,"You return man to dust and say, 'Return, O children of man!'"],
-      [4,"For a thousand years in your sight are but as yesterday when it is past, or as a watch in the night."],
-      [5,"You sweep them away as with a flood; they are like a dream, like grass that is renewed in the morning:"],
-      [6,"in the morning it flourishes and is renewed; in the evening it fades and withers."],
-      ["gap","vv.7-11 omitted"],
-      [12,"So teach us to number our days that we may get a heart of wisdom."],
-      [13,"Return, O Lord! How long? Have pity on your servants!"],
-      [14,"Satisfy us in the morning with your steadfast love, that we may rejoice and be glad all our days."],
-      ["gap","vv.15-16 omitted"],
-      [17,"Let the favor of the Lord our God be upon us, and establish the work of our hands upon us; yes, establish the work of our hands!"]]
+  kind:"화답송", ref:"시편 25:4-5, 6-7, 8-9",
+  krSrc:krLink("psa",25,4), enSrc:esvLink("Psalm 25:4-9"), logos:logosLink("Ps",25,4,9),
+  kr:[[4,"여호와여 주의 도를 내게 보이시고 주의 길을 내게 가르치소서"],
+      [5,"주의 진리로 나를 지도하시고 교훈하소서 주는 내 구원의 하나님이시니 내가 종일 주를 기다리나이다"],
+      [6,"여호와여 주의 긍휼하심과 인자하심이 영원부터 있었사오니 주여 이것들을 기억하옵소서"],
+      [7,"여호와여 내 젊은 시절의 죄와 허물을 기억하지 마시고 주의 인자하심을 따라 주께서 나를 기억하시되 주의 선하심으로 하옵소서"],
+      [8,"여호와는 선하시고 정직하시니 그러므로 그의 도로 죄인들을 교훈하시리로다"],
+      [9,"온유한 자를 정의로 지도하심이여 온유한 자에게 그의 도를 가르치시리로다"]],
+  en:[[4,"Make me to know your ways, O Lord; teach me your paths."],
+      [5,"Lead me in your truth and teach me, for you are the God of my salvation; for you I wait all the day long."],
+      [6,"Remember your mercy, O Lord, and your steadfast love, for they have been from of old."],
+      [7,"Remember not the sins of my youth or my transgressions; according to your steadfast love remember me, for the sake of your goodness, O Lord!"],
+      [8,"Good and upright is the Lord; therefore he instructs sinners in the way."],
+      [9,"He leads the humble in what is right, and teaches the humble his way."]]
  },
  {
-  kind:"복음", ref:"누가복음 9:43하-45",
-  krSrc:krLink("luk",9,43), enSrc:esvLink("Luke 9:43-45"), logos:logosLink("Lk",9,43,45),
-  kr:[["43하","그들이 다 그 행하시는 모든 일을 놀랍게 여길새 예수께서 제자들에게 이르시되"],
-      [44,"이 말을 너희 귀에 담아 두라 인자가 장차 사람들의 손에 넘겨지리라 하시되"],
-      [45,"그들이 이 말씀을 알지 못하니 이는 그들로 깨닫지 못하게 숨긴 바 되었음이라 또 그들은 이 말씀을 묻기도 두려워하더라"]],
-  en:[["43b","But while they were all marveling at everything he was doing, Jesus said to his disciples,"],
-      [44,"'Let these words sink into your ears: The Son of Man is about to be delivered into the hands of men.'"],
-      [45,"But they did not understand this saying, and it was concealed from them, so that they might not perceive it. And they were afraid to ask him about this saying."]]
+  kind:"제2독서", ref:"빌립보서 2:1-11",
+  krSrc:krLink("php",2,1), enSrc:esvLink("Philippians 2:1-11"), logos:logosLink("Php",2,1,11),
+  kr:[[1,"그러므로 그리스도 안에 무슨 권면이나 사랑의 무슨 위로나 성령의 무슨 교제나 긍휼이나 자비가 있거든"],
+      [2,"마음을 같이하여 같은 사랑을 가지고 뜻을 합하며 한마음을 품어"],
+      [3,"아무 일에든지 다툼이나 허영으로 하지 말고 오직 겸손한 마음으로 각각 자기보다 남을 낫게 여기고"],
+      [4,"각각 자기 일을 돌볼뿐더러 또한 각각 다른 사람들의 일을 돌보아 나의 기쁨을 충만하게 하라"],
+      [5,"너희 안에 이 마음을 품으라 곧 그리스도 예수의 마음이니"],
+      [6,"그는 근본 하나님의 본체시나 하나님과 동등됨을 취할 것으로 여기지 아니하시고"],
+      [7,"오히려 자기를 비워 종의 형체를 가지사 사람들과 같이 되셨고"],
+      [8,"사람의 모양으로 나타나사 자기를 낮추시고 죽기까지 복종하셨으니 곧 십자가에 죽으심이라"],
+      [9,"이러므로 하나님이 그를 지극히 높여 모든 이름 위에 뛰어난 이름을 주사"],
+      [10,"하늘에 있는 자들과 땅에 있는 자들과 땅 아래에 있는 자들로 모든 무릎을 예수의 이름에 꿇게 하시고"],
+      [11,"모든 입으로 예수 그리스도를 주라 시인하여 하나님 아버지께 영광을 돌리게 하셨느니라"]],
+  en:[[1,"So if there is any encouragement in Christ, any comfort from love, any participation in the Spirit, any affection and sympathy,"],
+      [2,"complete my joy by being of the same mind, having the same love, being in full accord and of one mind."],
+      [3,"Do nothing from selfish ambition or conceit, but in humility count others more significant than yourselves."],
+      [4,"Let each of you look not only to his own interests, but also to the interests of others."],
+      [5,"Have this mind among yourselves, which is yours in Christ Jesus,"],
+      [6,"who, though he was in the form of God, did not count equality with God a thing to be grasped,"],
+      [7,"but emptied himself, by taking the form of a servant, being born in the likeness of men."],
+      [8,"And being found in human form, he humbled himself by becoming obedient to the point of death, even death on a cross."],
+      [9,"Therefore God has highly exalted him and bestowed on him the name that is above every name,"],
+      [10,"so that at the name of Jesus every knee should bow, in heaven and on earth and under the earth,"],
+      [11,"and every tongue confess that Jesus Christ is Lord, to the glory of God the Father."]]
+ },
+ {
+  kind:"복음", ref:"마태복음 21:28-32",
+  krSrc:krLink("mat",21,28), enSrc:esvLink("Matthew 21:28-32"), logos:logosLink("Mt",21,28,32),
+  kr:[[28,"그러나 너희 생각에는 어떠하냐 어떤 사람에게 두 아들이 있는데 맏아들에게 가서 이르되 얘 오늘 포도원에 가서 일하라 하니"],
+      [29,"대답하여 이르되 아버지 가겠나이다 하더니 가지 아니하고"],
+      [30,"둘째 아들에게 가서 또 그와 같이 말하니 대답하여 이르되 싫소이다 하였다가 그 후에 뉘우치고 갔으니"],
+      [31,"그 둘 중의 누가 아버지의 뜻대로 하였느냐 이르되 둘째 아들이니이다 예수께서 그들에게 이르시되 내가 진실로 너희에게 이르노니 세리들과 창녀들이 너희보다 먼저 하나님의 나라에 들어가리라"],
+      [32,"요한이 의의 도로 너희에게 왔거늘 너희는 그를 믿지 아니하였으되 세리와 창녀는 믿었으며 너희는 이것을 보고도 끝내 뉘우쳐 믿지 아니하였도다"]],
+  en:[[28,"'What do you think? A man had two sons. And he went to the first and said, \"Son, go and work in the vineyard today.\"'"],
+      [29,"And he answered, 'I will not,' but afterward he changed his mind and went."],
+      [30,"And he went to the other son and said the same. And he answered, 'I will, sir,' but did not go."],
+      [31,"'Which of the two did the will of his father?' They said, 'The first.' Jesus said to them, 'Truly, I say to you, the tax collectors and the prostitutes go into the kingdom of God before you.'"],
+      [32,"'For John came to you in the way of righteousness, and you did not believe him, but the tax collectors and the prostitutes believed him. And even when you saw it, you did not afterward change your minds and believe him.'"]]
  },
 ];
 
@@ -469,11 +537,11 @@ const usccbReadingsNext = [
 
 const readingSets = {
   current: {
-    dateLabel: "2026-09-26 기준",
-    rclTitle: "🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 토요일 데일리 (연중 제25주간 토요일)",
-    rclDesc: "Revised Common Lectionary 데일리 기준, 연속 트랙·보완 트랙 두 갈래와 공통 복음서를 함께 보여드려요. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
-    usccbDesc: "연중 제25주간 토요일 (Saturday of the Twenty-fifth Week in Ordinary Time). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
-    usccbSrc: "https://bible.usccb.org/bible/readings/092626.cfm",
+    dateLabel: "2026-09-27 기준",
+    rclTitle: "🕊️ 개혁교회 성구집 (Revised Common Lectionary) — 주일 (연중 제26주일, Proper 21)",
+    rclDesc: "Revised Common Lectionary 주일 기준, 연속 트랙·보완 트랙 두 갈래 구약+화답송과 공통 서신서·복음서를 함께 보여드려요. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
+    usccbDesc: "연중 제26주일 (Twenty-sixth Sunday in Ordinary Time). United States Conference of Catholic Bishops 주일 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
+    usccbSrc: "https://bible.usccb.org/bible/readings/092726.cfm",
     rcl: rclReadings, usccb: usccbReadings,
     toggleLabel: "📅 다음 주 월요일(9/28) 보기 →"
   },
@@ -484,7 +552,7 @@ const readingSets = {
     usccbDesc: "연중 제26주간 월요일 (Monday of the Twenty-sixth Week in Ordinary Time). United States Conference of Catholic Bishops 데일리 리딩 기준. 개역개정과 ESV 본문을 나란히 보여줘요 — 오른쪽 위 Logos 버튼을 누르면 Logos 앱에서 해당 구절로 바로 이동해요.",
     usccbSrc: "https://bible.usccb.org/bible/readings/092826.cfm",
     rcl: rclReadingsNext, usccb: usccbReadingsNext,
-    toggleLabel: "← 오늘(9/26)로 돌아가기"
+    toggleLabel: "← 오늘(9/27)로 돌아가기"
   }
 };
 let currentReadingSetKey = 'current';
