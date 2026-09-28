@@ -303,7 +303,7 @@
   <header class="top">
     <div>
       <h1>📓 SJ's Dashboard</h1>
-      <div class="sub">볼트: <code>Dropbox/obsidian-sjkim</code> · 볼트 기준일 2026-09-15 (⚠️ 볼트 스캔 권한 문제로 갱신 실패, 아래 참고) · 노트 17,789개 · 뉴스/동향/캘린더 2026-09-27 갱신</div>
+      <div class="sub">볼트: <code>~/SJKim</code> · 볼트 기준일 2026-09-28 (Dropbox 권한 문제 해결, 정상 스캔) · 노트 41,825개 · 뉴스/동향/캘린더 2026-09-28 갱신</div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
       <a class="theme-toggle" href="daily_note.html" style="text-decoration:none;">📝 오늘의 Daily Note 작성</a>
@@ -317,13 +317,13 @@
   <div class="kpi-row">
     <div class="kpi">
       <div class="label">전체 노트</div>
-      <div class="value">17,789</div>
-      <div class="delta good">▲ 100. notes 폴더 16,725개</div>
+      <div class="value">41,825</div>
+      <div class="delta good">▲ 100. notes 폴더 40,711개 (성경주석 대량 추가로 급증)</div>
     </div>
     <div class="kpi">
       <div class="label">다음 설교까지</div>
-      <div class="value">오늘</div>
-      <div class="delta">9/27 · 성화의 삶 - 감정 치유하기 (미시작, 볼트 미갱신)</div>
+      <div class="value">6일</div>
+      <div class="delta">10/4 · 대위임령 (마 28장, 준비중)</div>
     </div>
     <div class="kpi">
       <div class="label">열린 작업</div>
@@ -360,7 +360,7 @@
     </section>
     <section>
       <h2>💱 환율 — USD/KRW (최근 1개월 추이)</h2>
-      <p class="desc">Frankfurter(ECB 기준) 일별 환율, 2026-08-28 ~ 09-25 (평일 기준, 최신 영업일)</p>
+      <p class="desc">Frankfurter(ECB 기준) 일별 환율, 2026-08-28 ~ 09-25 (평일 기준, 최신 영업일 · 9/26~28 주말이라 변동 없음)</p>
       <div class="card">
         <div class="fx-hero"><span class="num">1,355</span><span class="unit">원 / 1 USD</span><span class="footnote" style="margin:0 0 0 8px;color:var(--good);">▼ 1개월간 -20원 (-1.4%) · 최신 영업일(09-25) 기준</span></div>
         <svg id="fxChart" width="100%" height="120" viewBox="0 0 1080 120" preserveAspectRatio="none" style="margin-top:10px;"></svg>
@@ -373,7 +373,7 @@
     <!-- TASK TRACKER -->
     <section>
       <h2>✅ 할 일 트래커</h2>
-      <p class="desc">Daily notes의 '오늘의 우선순위' 항목 기준 (2026-06-22 ~ 08-25, 최신 스캔 2026-09-15)</p>
+      <p class="desc">Daily notes의 '오늘의 우선순위' 항목 기준 (2026-06-22 ~ 08-25, 최신 스캔 2026-09-28 · 8/25 이후 작성된 daily note 없음)</p>
       <div class="card">
         <div style="font-size:12px;color:var(--text-secondary);margin-bottom:10px;">최근 미완료 작업 6건</div>
         <ul class="task-list" id="taskList"></ul>
@@ -383,7 +383,7 @@
     <!-- GOOGLE CALENDAR -->
     <section>
       <h2>📆 구글 일정 트래커</h2>
-      <p class="desc">Google Calendar 연동 · 향후 2주 (9/27 ~ 10/11)</p>
+      <p class="desc">Google Calendar 연동 · 향후 2주 (9/28 ~ 10/12)</p>
       <div class="card">
         <ul class="task-list" id="calList"></ul>
       </div>
@@ -403,7 +403,7 @@
     <!-- PRAYER TRACKER -->
     <section>
       <h2>🙏 기도 트래커</h2>
-      <p class="desc">100. notes / 130. 기도 노트 폴더 — 응답된 기도는 이번 달(8월) 응답분만 표시</p>
+      <p class="desc">100. notes / 130. 기도 노트 폴더 — 응답된 기도는 이번 달(9월) 응답분만 표시</p>
       <div class="card">
         <div id="prayerList"></div>
       </div>
@@ -413,7 +413,7 @@
   <!-- NEWS TRACKER -->
   <section>
     <h2>📰 뉴스 트래커</h2>
-    <p class="desc">주요 소스의 최신 헤드라인 스냅샷입니다 (2026-09-27 기준). 실시간 업데이트는 아니며, 다시 요청하시면 새로고침해 드려요.</p>
+    <p class="desc">주요 소스의 최신 헤드라인 스냅샷입니다 (2026-09-28 기준). 실시간 업데이트는 아니며, 다시 요청하시면 새로고침해 드려요.</p>
     <div class="cat-label">🇰🇷 한국 뉴스</div>
     <div class="source-grid">
       <div class="source-card">
@@ -445,7 +445,7 @@
   <!-- MINISTRY TREND TRACKER -->
   <section>
     <h2>⛪ 교계 · 목회 동향 트래커</h2>
-    <p class="desc">한국 교계, 미주 한인 교계, 글로벌 기독교 소식을 한데 모았습니다 (2026-09-27 기준).</p>
+    <p class="desc">한국 교계, 미주 한인 교계, 글로벌 기독교 소식을 한데 모았습니다 (2026-09-28 기준).</p>
 
     <div class="cat-label">한국 교계</div>
     <div class="source-grid">
@@ -494,7 +494,7 @@
     <!-- SCRAP TRACKER -->
     <section>
       <h2>✂️ 스크랩 트래커</h2>
-      <p class="desc">700. Reference / 760. Clippings 폴더 — 최근 웹 클리핑 8건 (2026-09-15 기준)</p>
+      <p class="desc">700. Reference / 760. Clippings 폴더 — 최근 웹 클리핑 8건 (2026-09-28 기준)</p>
       <div class="card">
         <ul class="task-list" id="clipList"></ul>
       </div>
@@ -503,7 +503,7 @@
     <!-- READING TRACKER -->
     <section>
       <h2>📚 독서 트래커 (Readwise)</h2>
-      <p class="desc">Readwise/Books 기준 총 303권</p>
+      <p class="desc">Readwise/Books 기준 총 304권</p>
       <div class="card">
         <table class="simple">
           <thead><tr><th>#</th><th>최근 동기화된 책</th></tr></thead>
@@ -514,7 +514,7 @@
   </div>
 
   <div class="footnote" style="text-align:center;margin-top:10px;">
-    ⚠️ 볼트(할 일 · 기도 · 설교 준비상태 · 스크랩 · 독서) 스캔은 macOS가 이 터미널 앱에 Dropbox 폴더 접근 권한을 아직 허용하지 않아 2026-09-15 스냅샷을 그대로 유지했습니다 (권한 문제 지속 확인: 2026-09-27) — 시스템 설정 → 개인정보 보호 및 보안 → 전체 디스크 접근 권한(또는 파일 및 폴더)에서 권한을 허용해 주시면 다음 갱신부터 새로 스캔됩니다. 뉴스·교계 동향·구글 캘린더·환율은 2026-09-27 기준으로 새로 가져왔고, 날씨는 실시간(자동 갱신)입니다.
+    ✅ 볼트 접근 권한 문제가 해결되어 할 일 · 기도 · 설교 준비상태 · 스크랩 · 독서 트래커를 2026-09-28 기준으로 새로 스캔했습니다. 뉴스 · 교계 동향 · 구글 캘린더 · 환율도 2026-09-28 기준으로 새로 가져왔고, 날씨는 실시간(자동 갱신)입니다. 구글 뉴스 코리아만 페이지가 길어 이번에도 요약을 가져오지 못했어요 — 사이트에서 직접 확인해 주세요.
   </div>
 
 </div>
@@ -529,10 +529,11 @@ function toggleTheme(){
 
 // ---------- DATA ----------
 const sermons = [
- {date:"2026-09-27", title:"성화의 삶 - 감정 치유하기", status:"미시작"},
- {date:"2026-10-04", title:"사회 생활 - 일반 은총", status:"미시작"},
- {date:"2026-10-11", title:"복 받고 주는 삶", status:"미시작"},
- {date:"2026-10-18", title:"불완전한 세상", status:"미시작"},
+ {date:"2026-10-04", title:"대위임령 (마 28장)", status:"준비중"},
+ {date:"2026-10-11", title:"고난 가운데 기뻐하라 (벧전 4장)", status:"준비중"},
+ {date:"2026-10-18", title:"증인이 되라 (행 1장)", status:"준비중"},
+ {date:"2026-10-25", title:"성령 충만 (눅 3장)", status:"준비중"},
+ {date:"2026-11-01", title:"성령의 능력으로 (행 2장)", status:"준비중"},
 ];
 
 const openTasks = [
@@ -550,6 +551,7 @@ const calEvents = [
  {date:"10/05 (월)", time:"오후 1:00–3:00", title:"AI4Pastor (상급)"},
  {date:"10/09 (금)", time:"종일", title:"Pay"},
 ];
+/* 캘린더 note: 2026-09-28 재조회 — 이전 갱신과 동일한 4건, 변동 없음 */
 
 const prayers = [
  {title:"CBB 교회 모델 - Hub & Microchurch", type:"기도 노트", status:"부분응답", date:null},
@@ -560,9 +562,9 @@ const prayers = [
 /* prayer-tracker note: 2026-09-11 스캔 — 이전에 응답됨으로 표시됐던 4건(고난을 이기게 하소서, 크리덴셜과 멤버쉽 이전, TCRC 후원금, 멤버쉽/크리덴셜 transfer)은 모두 8월 이전 응답이라 이번 달(9월) 표시 규칙에 따라 목록에서 제외 */
 
 const books = [
- "Institutes of the Christian Religion","Calvin Institutes of Christian Religions","Action in Waiting",
- "A Short Method of Prayer","Center Church","Strengthening the Soul of Your Leadership",
- "Professional Spiritual & Pastoral Care","The Lost Art of Listening","Humility","The Rule of Benedict"
+ "The Secret of the Cross [Illustrated] [Annotated]","Divided by Faith","The Gift to Listen, the Courage to Hear",
+ "Being Right","Encountering the Old Testament","Calvin Institutes of Christian Religions","Center Church",
+ "Strengthening the Soul of Your Leadership","Professional Spiritual & Pastoral Care","The Lost Art of Listening"
 ];
 
 const wxHourly = [
@@ -581,89 +583,89 @@ const fxRates = [
 ];
 
 const daumKr = [
- {t:"'가짜 검사'에 속아 건넨 2억원…백화점 상품권으로 바꿔 넘긴 60대 전달책", src:"파이낸셜뉴스"},
- {t:"'추석 민심' 온도차…민주 \"민생 전념\"·국힘 \"민심 폭발 직전\"", src:"KBS"},
- {t:"수장도 시스템도 없이 사건 2168건 대이동", src:"세계일보"},
- {t:"올해 초과세수 60조 이상 더 걷힌다", src:"서울경제"},
- {t:"'인사·민생' 등 과제 산적...'추석 민심' 해법은?", src:"YTN"},
- {t:"임산부도 모자라...13살도 안된 아이에게도 '마운자로' 처방됐다", src:"머니투데이"},
- {t:"\"트럼프, 11월 선전 APEC서 더 강해진 시진핑 만난다\"", src:"파이낸셜뉴스"},
- {t:"\"이재명, 젤렌스키를 살인자라 해\"…러 매체, 발언 맥락 바꿔 '왜곡 보도'", src:"매일경제"},
+ {t:"노경필 처장 '조희대 격노설' 부인…업추비 논란은 사과", src:"뉴스1"},
+ {t:"몸은 해외, 눈은 국내에…순방 내내 이어진 李의 'X 정치'", src:"시사저널"},
+ {t:"'수시 먹통' 유웨이 특별조사 기한 연장…'자료 확보 못해'", src:"뉴시스"},
+ {t:"노경필 \"'조희대 격노설'은 거짓말, 고집 피우는건 쌍방 마찬가지\"", src:"경향신문"},
+ {t:"경찰서 예산 관리하는 살림꾼… 마지막 가계부 씁니다", src:"파이낸셜뉴스"},
+ {t:"[단독] 소상공인 빚 4조 또 탕감하겠단 정부…다 갚은 22만명 '후회막심'", src:"매일경제"},
+ {t:"[단독] 'DMZ 사고 폭발물, 탐지 안 돼' 현장 증언", src:"YTN"},
+ {t:"개보위원장 만난 통신3사 CEO, 노후 시스템·인력난에 '보안 개선 시간 필요'", src:"뉴시스"},
 ];
 
 const pbsWorld = [
- {t:"독일·러시아 외무장관, UN 총회서 이례적 회동", l:"https://www.pbs.org/newshour/world/german-and-russian-foreign-ministers-have-rare-meeting-at-united-nations-general-assembly"},
- {t:"아테네 건물 붕괴, 미국인 4명 포함 6명 사망", l:"https://www.pbs.org/newshour/world/bodies-of-6-people-including-4-americans-recovered-from-collapsed-building-in-athens"},
- {t:"미·중, AI 안전 협의채널 신설 및 무역·군사 대화 지속 합의", l:"https://www.pbs.org/newshour/world/china-and-u-s-agree-to-establish-ai-safety-channel-and-continue-trade-and-military-talks"},
- {t:"교황 레오, 파리 노천 미사에 80만 인파 운집", l:"https://www.pbs.org/newshour/world/pope-leo-draws-800000-people-to-central-paris-for-open-air-mass-on-iconic-square"},
- {t:"트럼프, 이란의 호르무즈 해협 재개방 제안 거부…중동 소식", l:"https://www.pbs.org/newshour/world/trump-rejects-irans-proposal-to-reopen-the-strait-of-hormuz-and-other-middle-east-news"},
- {t:"러시아, 유럽서 갈수록 공격적인 전술로 나토 시험대에 올려", l:"https://www.pbs.org/newshour/video/compass-points/2026/09/russia-tests-nato-with-increasingly-aggressive-tactics-in-europe"},
+ {t:"판다 두 마리, 미·중 정부 협정으로 애틀랜타 도착", l:"https://www.pbs.org/newshour/nation/2-giant-pandas-arrive-in-atlanta-under-a-u-s-china-government-agreement"},
+ {t:"英 버넘 맨체스터 시장, 노동당 전당대회서 존재감…험난한 선택 앞둬", l:"https://www.pbs.org/newshour/world/british-pm-andy-burnham-brings-good-vibes-to-his-partys-annual-conference-but-tough-choices-are-coming"},
+ {t:"UN 연설자들이 즐겨 인용하는 문구들 — 고전부터 토킹헤즈까지", l:"https://www.pbs.org/newshour/world/un-speakers-go-to-quotes-ancient-texts-modern-greats-and-a-little-talking-heads"},
+ {t:"스위스, 우파 포퓰리즘 정당이 발의한 중립 강화안 국민투표서 부결", l:"https://www.pbs.org/newshour/world/swiss-reject-tighter-neutrality-rules-in-referendum-backed-by-right-wing-populist-party"},
+ {t:"교황, 기적의 치유로 유명한 프랑스 성지서 조력사 \"거짓 자비\"라 비판", l:"https://www.pbs.org/newshour/world/pope-blasts-assisted-dying-as-false-compassion-at-french-shrine-known-for-miraculous-cures"},
+ {t:"마드리드서 87세 노인 퇴거에 주거난 항의 농성 촉발", l:"https://www.pbs.org/newshour/world/eviction-of-87-year-old-sparks-encampment-protest-in-madrid-over-housing-crisis"},
 ];
 
 const foxNews = [
- {t:"미시간 남성, 마을의 이슬람 인구 급증 폭로 후 신상 노출…\"멈추지 않겠다\"", l:"https://www.foxnews.com/politics/michigan-man-doxxed-exposing-city-booming-islamic-surge-takes-defiant-stand-not-gonna-stop"},
- {t:"이란 대통령, 트럼프 발언에 대외 메시지 바꿨다고 공개", l:"https://www.foxnews.com/live-news/iran-war-strait-hormuz-trump-talks-oil-gas-prices-midterms-09-26-26"},
- {t:"랜지 클랜시 배심원 갈등…변호인단 공방 격화", l:"https://www.foxnews.com/us/lindsay-clancy-attorney-kevin-reddington-fires-back-lone-holdout-juror-attorney-fiery-interview"},
- {t:"USC 라인배커 퇴장 처리…상대 쿼터백은 부상으로 실려 나가", l:"https://www.foxnews.com/outkick-sports/oregon-ducks-qb-dante-moore-carted-off-field-vicious-hit-head-usc"},
- {t:"76세 플로리다 남성, 경찰 단속에 음주운전 시인", l:"https://www.foxnews.com/us/florida-man-76-suspended-license-allegedly-admits-driving-under-influence-rum-cocaine"},
- {t:"텍사스, 트럼프 관전 속 대승…세리머니 논란에 화제 뒤덮여", l:"https://www.foxnews.com/outkick-sports/texas-dropped-celebrations-tennessee-unhinged"},
- {t:"인디애나 ICE 단속서 426명 체포…이민 단속 입법화 추진 힘 실려", l:"https://www.foxnews.com/politics/massive-ice-sweep-fuels-gop-push-lock-trump-immigration-crackdown-law"},
+ {t:"랜지 클랜시 배심원단 홀드아웃 변호사 \"의뢰인에게 유리한 증거 산더미\"", l:"https://www.foxnews.com/us/attorney-lone-holdout-juror-lindsay-clancy-mistrial-pushes-back-claims-refusing-law"},
+ {t:"공화당 상원의원, 트럼프에 반기…생존 정치인 이름 건물명 금지 법안 발의", l:"https://www.foxnews.com/politics/sen-kennedy-says-no-living-politicians-should-have-buildings-named-after-them-after-trumps-moves"},
+ {t:"英 테러 음모 저지, 전세계 미군기지 보안에 영향 줄 수도 — 전문가 경고", l:"https://www.foxnews.com/world/foiled-terror-plot-key-bomber-base-signals-wider-threat-us-military-installations-expert"},
+ {t:"패트리샤 리처드슨, '홈 임프루브먼트' 종영 뒷이야기…동료 배우가 밝힌 갈등", l:"https://www.foxnews.com/entertainment/home-improvement-star-says-patricia-richardson-got-tired-fighting-sitcom"},
+ {t:"프로레슬링 스타, 경기 하루 만에 40세로 사망", l:"https://www.foxnews.com/outkick-sports/benjamin-satterley-pro-wrestling-star-known-pac-dead-40"},
+ {t:"AP 여론조사 대학풋볼 톱25, 이번주도 기이한 순위 발표", l:"https://www.foxnews.com/outkick-sports/florida-gators-mississippi-state-soar-usc-tumbles-latest-inexplicable-ap-top-25-poll"},
+ {t:"컨트리 스타 커플, 1년 가까운 열애설 끝에 사실상 확인", l:"https://www.foxnews.com/entertainment/country-stars-ella-langley-tucker-wetmore-fuel-romance-buzz-covert-awards-show-exit"},
 ];
 
 const kidok = [
- {t:"111회 총회 파회…\"세상 깨우는 거룩한 교단으로\" (정영교 목사 총회장 당선)", d:"09-25"},
- {t:"소록도교회 100주년 기념관 완공…\"눈물과 은혜 역사 소개합니다\"", d:"09-25"},
- {t:"정동수 씨, 총회서 이단 재결의…성경총회도 이단으로 규정", d:"09-25"},
- {t:"총회, AI 성경적 이해·활용 윤리 가이드라인 채택", d:"09-25"},
- {t:"먹는 낙태약 도입 방침에 종교계 일제 반발…전면 철회 요구", d:"09-25"},
+ {t:"총회 임원회 첫 행보는 순교사적지에서", d:"09-28"},
+ {t:"111회 총회 파회…\"세상 깨우는 거룩한 교단으로\"", d:"09-28"},
+ {t:"소록도교회 100주년 기념관 완공…\"눈물과 은혜 역사 소개합니다\"", d:"09-28"},
+ {t:"이승희 대구 반야월교회 목사 부친상", d:"09-28"},
+ {t:"본 궤도에 올라선 성은목회포럼", d:"09-27"},
 ];
 
 const pck = [
- {t:"감사로 얻는 크고 놀라운 축복", d:"09-26", l:"http://www.pckworld.com/article.php?aid=11211228068"},
- {t:"오늘은 무슨 바지를 입고 가지", d:"09-25", l:"http://www.pckworld.com/article.php?aid=11219080733"},
- {t:"약한 자들을 택하시는 하나님", d:"09-25", l:"http://www.pckworld.com/article.php?aid=11211115776"},
- {t:"9월 넷째 주 뉴스 탑텐", d:"09-24", l:"http://www.pckworld.com/article.php?aid=11226246759"},
- {t:"일상 잇는 복음의 접촉점", d:"09-24", l:"http://www.pckworld.com/article.php?aid=11225475599"},
+ {t:"한교봉, 대홍수 휩쓴 네팔 찾아 피해 실사·구호 지원", d:"09-28", l:"http://www.pckworld.com/article.php?aid=11227534588"},
+ {t:"'이단 예방의 핵심은 강단의 바른 복음'", d:"09-28", l:"http://www.pckworld.com/article.php?aid=11227251058"},
+ {t:"AI 시대 목회, 어디까지 맡길 것인가", d:"09-28", l:"http://www.pckworld.com/article.php?aid=11226863958"},
+ {t:"서울시연합당회 간담회 개최", d:"09-28", l:"http://www.pckworld.com/article.php?aid=11226529153"},
+ {t:"미래 목회, 지역사회에서 길을 찾다", d:"09-28", l:"http://www.pckworld.com/article.php?aid=11226429345"},
 ];
 
-const kcmusa = []; // kcmusa.org DNS 조회 실패 2026-09-27 재확인
+const kcmusa = []; // kcmusa.org DNS 조회 실패 2026-09-28 재확인
 
 const amen = [
  {t:"\"AI 시대, 성경과 신학을 다시 읽는 법\" — 김병학 목사 세미나"},
- {t:"뉴욕권사선교합창단 25주년 기념 음악회"},
- {t:"뉴저지목사회 정기모임 — 뉴욕과 다른 리더십 역학 조명"},
- {t:"신앙과 의료 — 의사 70%가 신앙 유지, 치유와의 관계 조명"},
- {t:"트럼프 행정부, 신앙 공동체 위한 250가지 주요 정책 성과 발표"},
+ {t:"뉴욕권사선교합창단 25주년 음악회"},
+ {t:"뉴저지목사회 정기총회 — 뉴욕과 다른 리더십 역학 조명"},
+ {t:"\"무조건 용서하라?\" 신앙적 강요가 낳은 교인들의 트라우마"},
+ {t:"텍사스부터 캔자스까지, 종교가 가르는 미국 중간선거 격전지"},
 ];
 
 const ct = [
- {t:"애니 딜라드와 제임스 킬고가 만났을 때", l:"https://www.christianitytoday.com/2026/09/when-annie-dillard-met-james-kilgo/"},
- {t:"프래니 캐시, \"가장 좋은 날은 아직 오지 않았다\"", l:"https://www.christianitytoday.com/2026/09/franni-cash-here-i-am/"},
+ {t:"태아는 구하되, 산모를 처벌하지는 말라", l:"https://www.christianitytoday.com/2026/09/save-the-unborn-yes-dont-punish-their-mothers/"},
+ {t:"하나님은 모든 것을 보신다. 양 떼는 그럴 필요 없다", l:"https://www.christianitytoday.com/2026/09/god-sees-everything-flock-should-not-omniscience-repentance-surveillance/"},
  {t:"그리스도인은 왜 소셜미디어를 끊어야 하는가", l:"https://www.christianitytoday.com/2026/09/why-christians-should-delete-social-media/"},
- {t:"프랑스 그리스도인들, '폭력적인' 폭염의 미래에 대비하다", l:"https://www.christianitytoday.com/2026/09/france-heatwave-church-response/"},
- {t:"英 '조력 자살 법안' 저지에 그리스도인들 힘 모아", l:"https://www.christianitytoday.com/2026/09/christians-uk-assisted-dying-bill-defeated/"},
+ {t:"흑백 남아공을 하나로 이끈 그, 오늘도 기도하고 있다", l:"https://www.christianitytoday.com/2026/09/michael-cassidy-south-africa-apartheid-god-race/"},
+ {t:"두려움이 지배하는 교회가 만드는 세 부류의 성도", l:"https://www.christianitytoday.com/2026/09/fear-churches-christians-spiritual-abuse/"},
 ];
 
 const prayer24365 = [
+ {t:"[인도] 마하라슈트라 핌프리친치와드 교회 건물, 판결 전 법원 명령 없이 강제 철거 — 정의와 보호를 위해 기도"},
+ {t:"[나이지리아] 납치 153%, 민간인 사망 51% 급증 — 확산되는 인도적 위기"},
  {t:"[쿠바] 관타나모 감리교회서 300명 이상 세례, 지역 영적 부흥"},
  {t:"[남수단] 박해 피해 도피한 수단 출신 그리스도인 여성, 자녀 6명과 난민캠프 피신 중"},
- {t:"[파키스탄] 강제 개종당한 15세 그리스도인 소년, 부모가 귀환 촉구"},
- {t:"[알제리] 예배 중이던 성도 12명 경찰에 체포, 신앙 자료·휴대폰 압수"},
  {t:"[한국교회] 정부 유산유도제(먹는 낙태약) 도입에 그리스도인 반대 연대"},
  {t:"[북한] 선교사 3인 10년 넘게 구금…국제사회 즉각 석방 촉구"},
  {t:"[다음세대] 마약 유혹에 빠지는 청소년, 관련 범죄 연루 우려 확산"},
- {t:"제4차 느헤미야 52일 기도운동, 10/1~11/30 진행"},
+ {t:"[필리핀] 9/28 필리핀을 위한 특별 기도의 날로 지정"},
 ];
 
 const clips = [
  {date:"09-13", text:"제자 훈련은 체계적 말씀훈련과 성장 기회제공"},
- {date:"09-13", text:"What is predestination? Is predestination biblical?"},
- {date:"09-13", text:"다음세대를 위한 제언 - '한국 교회 트렌드 2025'로 본 교회와 부모의 사명!"},
- {date:"09-13", text:"다음세대를 준비하는 교회 - 이민교회 차세대 목회에 대한 소고"},
- {date:"09-13", text:"실제 나이 50대, 뇌 나이 80대… 당신이 지금 당장 해야 할 것"},
- {date:"09-13", text:"옥한흠 목사 사랑의 교회 개척기도"},
- {date:"09-13", text:"인공지능 윤리기준 — AI 윤리기준 소개, 인공지능 윤리 소통채널"},
- {date:"09-13", text:"복음주의신학이란 무엇인가, 현주소와 전망 — 역사신학적 고찰"},
+ {date:"09-13", text:"현재 제자화 관련된 동향"},
+ {date:"09-13", text:"제자화 관련된 동향"},
+ {date:"08-25", text:"\"30년을 빨리 나이 먹은 환자들\" 뇌졸중·치매 피하려면 '이거'부터 시작하세요"},
+ {date:"08-21", text:"Recovering Catechesis for the Next Generation"},
+ {date:"08-19", text:"미 대형교회의 새 트렌드, 교회를 쪼개고 건물을 나눈다 — 아멘 매거진"},
+ {date:"08-19", text:"(3) 미 대형교회의 새 트렌드, 교회를 쪼개고 건물을 나눈다 — 아멘 매거진"},
+ {date:"08-19", text:"대형교회보다 동네교회! 미국인들이 신뢰하는 교회의 조건 — 아멘넷 뉴스"},
 ];
 
 
